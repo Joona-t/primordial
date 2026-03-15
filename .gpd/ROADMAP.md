@@ -71,12 +71,12 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 **Backtracking trigger:** If Hypothesis discovers a legal transition path that violates an expected invariant, the transition table must be revised before proceeding to Phase 2.
 
-**Plans:** TBD
+**Plans:** 2 plans
 
 Plans:
 
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Formalize ontology: resolve resolved/not_generated discrepancy, build 8x8 transition table with validate_transition(), resolve FORM-03 open questions
+- [ ] 01-02-PLAN.md -- Verify ontology: Hypothesis RuleBasedStateMachine (10K+ adversarial sequences), parametrized illegal transition tests, mutation testing (>85% score)
 
 ### Phase 2: Integration and Baseline Establishment
 
@@ -201,7 +201,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 | --- | --- | --- | --- |
-| 1. Ontology Formalization | 0/TBD | Not started | - |
+| 1. Ontology Formalization | 0/2 | Planned | - |
 | 2. Integration and Baselines | 0/TBD | Not started | - |
 | 3. Violation Detection | 0/TBD | Not started | - |
 | 4. Compaction Survival | 0/TBD | Not started | - |
