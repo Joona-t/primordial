@@ -92,7 +92,9 @@ Agent runtimes performing long-horizon autonomous workflows. Specifically: Zarat
 
 ### Theoretical Framework
 
-Formal state machines with typed absence ontology. Eight canonical absence states (not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable, resolved) with legal/illegal transition rules and mandatory provenance metadata.
+Formal state machines with typed absence ontology. Eight canonical absence states (not_generated, not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable) with legal/illegal transition rules and mandatory provenance metadata.
+
+**Note:** `resolved`/`unresolved` are REF states describing whether a `source_ref` link resolves to its target artifact. They are NOT absence states. Absence states describe WHY a value is absent (e.g., `not_generated` = LLM did not produce output). Ref states describe WHETHER a provenance link works (e.g., `resolved` = the ref points to a valid artifact). These are orthogonal: a field can have `{state: "pruned_recoverable"}` with source_refs that are `"resolved"`.
 
 ### Key Parameters and Scales
 

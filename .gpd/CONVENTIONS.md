@@ -27,11 +27,12 @@
 
 **Deprecated alias:** `pruned` maps to `pruned_recoverable` via `_LEGACY_ALIASES`.
 
-**Known discrepancy (flagged for Phase 1 FORM-01):**
-- PROJECT.md lists: `not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable, resolved`
+**Discrepancy RESOLVED (Phase 1 Plan 01, Task 1):**
+- PROJECT.md previously listed: `not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable, resolved`
 - Implementation has: `not_generated, not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable`
-- Differences: `resolved` in docs but not code; `not_generated` in code but not docs
-- Resolution: Phase 1 FORM-01 will produce the authoritative ontology. Until then, implementation wins.
+- Differences: `resolved` was in docs but not code; `not_generated` was in code but not docs
+- Resolution: Implementation is ground truth. PROJECT.md updated to match. `resolved` is a REF state (source_ref link status), NOT an absence state. `not_generated` is the correct 8th absence state, meaning "the LLM/tool did not produce output."
+- See Convention Change CC-001 below.
 
 **Open questions (Phase 1 FORM-03):**
 - Should `timed_out` and `interrupted` be added as distinct states (expanding to 10)?
@@ -211,7 +212,7 @@ These will be verified and extended by Phase 1.
 
 | Change ID | Convention | Old Value | New Value | Changed In | Reason | Conversion |
 | --------- | ---------- | --------- | --------- | ---------- | ------ | ---------- |
-| (none yet) | | | | | | |
+| CC-001 | #1 Absence State Ontology (documentation) | PROJECT.md listed `resolved` as 8th absence state | PROJECT.md lists `not_generated` as 8th absence state | Phase 1 Plan 01 Task 1 | `resolved` is a REF state (source_ref link status), not an absence state; `not_generated` was always in the implementation (forge_nulls.py V1_ABSENCE_STATES) | No code change needed; documentation-only fix to match implementation ground truth |
 
 ---
 
