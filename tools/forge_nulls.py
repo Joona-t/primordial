@@ -49,6 +49,97 @@ class AbsenceState(str, Enum):
     PRUNED = "pruned"
 
 
+# ---------------------------------------------------------------------------
+# State transition table — 8x8 (64 entries)
+#
+# Classification:
+#   True  = legal (a realistic agent event can cause this transition)
+#   False = illegal (no valid agent event should cause this)
+#
+# Design rules:
+#   1. not_invoked and not_generated are INITIAL states — nothing transitions
+#      INTO them (except self-transitions, which are idempotent).
+#   2. deleted is a TERMINAL state — nothing transitions OUT of it (except
+#      self-transition, which is idempotent re-confirmation).
+#   3. Self-transitions are legal for all states (idempotent re-evaluation).
+#   4. All other transitions from non-terminal states to non-initial states
+#      are legal, reflecting valid agent lifecycle events:
+#        - Recovery / retry: not_generated -> unknown (retry produced unclear result)
+#        - Compaction: any active state -> pruned_recoverable
+#        - Cleanup: any active state -> deleted
+#        - Investigation: unknown -> unresolved (started looking into it)
+#        - Resolution: unresolved -> withheld (resolved by withholding)
+#        - Degradation: pruned_recoverable -> unknown (recovery failed)
+#        - etc.
+#
+# Ref states (resolved/unresolved for source_ref links) are orthogonal to
+# absence states and NOT part of this table.
+# ---------------------------------------------------------------------------
+
+# Initial states: nothing transitions INTO these (column all-False except self)
+_INITIAL_STATES = frozenset({"not_invoked", "not_generated"})
+
+# Terminal states: nothing transitions OUT of these (row all-False except self)
+_TERMINAL_STATES = frozenset({"deleted"})
+
+
+def _build_transition_table() -> dict[tuple[str, str], bool]:
+    """Build the complete 64-entry transition table.
+
+    The table is constructed programmatically from the three structural rules
+    (initial, terminal, self-transition) so that it is manifestly complete and
+    consistent.  Every entry is explicit — there are no implicit defaults.
+    """
+    table: dict[tuple[str, str], bool] = {}
+    states = sorted(V1_ABSENCE_STATES)  # deterministic order
+
+    for src in states:
+        for tgt in states:
+            if src == tgt:
+                # Rule 3: self-transitions always legal
+                table[(src, tgt)] = True
+            elif tgt in _INITIAL_STATES:
+                # Rule 1: cannot transition INTO an initial state
+                table[(src, tgt)] = False
+            elif src in _TERMINAL_STATES:
+                # Rule 2: cannot transition OUT of a terminal state
+                table[(src, tgt)] = False
+            else:
+                # Rule 4: all other transitions are legal
+                table[(src, tgt)] = True
+
+    return table
+
+
+TRANSITION_TABLE: dict[tuple[str, str], bool] = _build_transition_table()
+
+
+def validate_transition(from_state: str, to_state: str) -> bool:
+    """Check if a state transition is legal.
+
+    Args:
+        from_state: Current absence state (must be in V1_ABSENCE_STATES).
+        to_state:   Target absence state (must be in V1_ABSENCE_STATES).
+
+    Returns:
+        True if the transition is legal, False if illegal.
+
+    Raises:
+        ValueError: If either state is not in V1_ABSENCE_STATES.
+    """
+    if from_state not in V1_ABSENCE_STATES:
+        raise ValueError(
+            f"Unknown from_state: {from_state!r}. "
+            f"Valid absence states: {sorted(V1_ABSENCE_STATES)}"
+        )
+    if to_state not in V1_ABSENCE_STATES:
+        raise ValueError(
+            f"Unknown to_state: {to_state!r}. "
+            f"Valid absence states: {sorted(V1_ABSENCE_STATES)}"
+        )
+    return TRANSITION_TABLE[(from_state, to_state)]
+
+
 class ForgeNullError(Exception):
     """Raised when an ambiguous empty value is encountered."""
 
