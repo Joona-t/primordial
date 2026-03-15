@@ -34,9 +34,9 @@
 - Resolution: Implementation is ground truth. PROJECT.md updated to match. `resolved` is a REF state (source_ref link status), NOT an absence state. `not_generated` is the correct 8th absence state, meaning "the LLM/tool did not produce output."
 - See Convention Change CC-001 below.
 
-**Open questions (Phase 1 FORM-03):**
-- Should `timed_out` and `interrupted` be added as distinct states (expanding to 10)?
-- Should recoverability be binary or graded?
+**Open questions RESOLVED (Phase 1 Plan 01, Task 3):**
+- `timed_out` and `interrupted` NOT added as distinct states. Use metadata enrichment: `{state: "unresolved", reason: "timed_out"}`. Rationale: identical transition rules to existing states. See `docs/transition-table.md` "Design Decisions" section.
+- Recoverability stays binary (`pruned_recoverable` vs `deleted`). Graded recoverability deferred to Phase 4 as metadata. Rationale: does not change transition rules; no empirical compaction data yet. See `docs/transition-table.md` "Design Decisions" section.
 
 ### 2. Absence Object Canonical Form
 
@@ -57,10 +57,10 @@
 | Field            | Value |
 | ---------------- | ----- |
 | **Convention**   | Every `(source_state, target_state)` pair in the 8-state ontology is classified as legal, illegal, or conditional. The complete 8x8 transition matrix (64 entries) is the primary deliverable of Phase 1 FORM-01. |
-| **Introduced**   | Phase 1 (skeleton -- full matrix pending FORM-01) |
+| **Introduced**   | Phase 1 (complete -- delivered Phase 1 Plan 01) |
 | **Rationale**    | Transition legality is the core formal property; Hoare-style precondition/postcondition contracts on state changes |
 | **Dependencies** | Absence State Ontology (convention #1), Violation Classification (convention #8), Hypothesis stateful testing (Phase 1 FORM-02) |
-| **Test value**   | Phase 1 will deliver: `validate_transition(from_state, to_state)` returns True/False for every pair in the 8x8 matrix. Hypothesis `RuleBasedStateMachine` will generate 10K+ random transition sequences without invariant violations. |
+| **Test value**   | `validate_transition("deleted", "unknown")` returns False; `validate_transition("unknown", "unknown")` returns True; `validate_transition("resolved", "unknown")` raises ValueError. TRANSITION_TABLE has 64 entries (45 legal, 19 illegal). |
 
 **Explicitly illegal transitions (known prior to full formalization):**
 - Any state -> `not_invoked` (cannot un-invoke)
@@ -213,6 +213,8 @@ These will be verified and extended by Phase 1.
 | Change ID | Convention | Old Value | New Value | Changed In | Reason | Conversion |
 | --------- | ---------- | --------- | --------- | ---------- | ------ | ---------- |
 | CC-001 | #1 Absence State Ontology (documentation) | PROJECT.md listed `resolved` as 8th absence state | PROJECT.md lists `not_generated` as 8th absence state | Phase 1 Plan 01 Task 1 | `resolved` is a REF state (source_ref link status), not an absence state; `not_generated` was always in the implementation (forge_nulls.py V1_ABSENCE_STATES) | No code change needed; documentation-only fix to match implementation ground truth |
+| CC-002 | #1 Absence State Ontology (FORM-03 Q1) | Open: timed_out/interrupted as distinct states? | DECIDED: NOT added. Use metadata `{state: "...", reason: "timed_out"}` | Phase 1 Plan 01 Task 3 | Identical transition rules to existing states; expansion from 64 to 100 entries adds no information | No code change; document metadata convention for timeout/interrupt reasons |
+| CC-003 | #1 Absence State Ontology (FORM-03 Q2) | Open: binary vs graded recoverability? | DECIDED: Binary for Phase 1. Graded deferred to Phase 4 as metadata | Phase 1 Plan 01 Task 3 | Does not change transition rules; no empirical compaction data yet; YAGNI | No code change; `recoverability_score` metadata permitted but not required on `pruned_recoverable` |
 
 ---
 
@@ -251,9 +253,11 @@ convention_tests:
   transition_legality:
     matrix_dimensions: "8x8"
     total_entries: 64
+    legal_count: 45
+    illegal_count: 19
     known_illegal: [["any", "not_invoked"], ["any", "not_generated"], ["deleted", "any_except_deleted"]]
-    test: "Phase 1 FORM-01 deliverable: validate_transition(from, to) for all 64 pairs"
-    status: "skeleton -- pending FORM-01"
+    test: "validate_transition(from, to) for all 64 pairs; TRANSITION_TABLE in forge_nulls.py"
+    status: "complete -- delivered Phase 1 Plan 01 Task 2"
   provenance_refs:
     format: "parent_id + source_refs list"
     ref_pattern: "artifact:<run>:stage:<seat>:<revision>"
