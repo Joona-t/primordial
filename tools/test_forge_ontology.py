@@ -20,6 +20,8 @@ from hypothesis.stateful import (
 from hypothesis import settings, given, strategies as st
 import pytest
 
+import warnings
+
 from forge_nulls import (
     V1_ABSENCE_STATES,
     AbsenceState,
@@ -27,6 +29,17 @@ from forge_nulls import (
     TRANSITION_TABLE,
     _INITIAL_STATES,
     _TERMINAL_STATES,
+    normalize_absence_state,
+    normalize_absent_object,
+    normalize_record,
+    validate_field,
+    validate_record,
+    absent,
+    is_absent,
+    _is_ambiguous_empty,
+    ForgeNullError,
+    _LEGACY_ALIASES,
+    V1_REF_CONTAINER_KEYS,
 )
 
 
@@ -421,3 +434,335 @@ class TestTransitionTableAgreesWithFunction:
             f"TRANSITION_TABLE[({from_state!r}, {to_state!r})] = {table_result} "
             f"but validate_transition returns {func_result}"
         )
+
+
+# ---------------------------------------------------------------------------
+# CATEGORY D: Mutation-gap-closure tests
+#
+# These tests were written to kill surviving mutants identified during
+# mutation testing. Each test targets a specific mutation that survived
+# the initial test suite.
+# ---------------------------------------------------------------------------
+
+
+class TestAbsenceStateEnumValues:
+    """Verify AbsenceState enum members have correct string values.
+
+    Kills mutants 30, 32, 33, 34, 36, 37 (state name swaps in enum).
+    """
+
+    @pytest.mark.parametrize("member,expected_value", [
+        (AbsenceState.UNKNOWN, "unknown"),
+        (AbsenceState.NOT_GENERATED, "not_generated"),
+        (AbsenceState.NOT_INVOKED, "not_invoked"),
+        (AbsenceState.INVALID, "invalid"),
+        (AbsenceState.WITHHELD, "withheld"),
+        (AbsenceState.PRUNED_RECOVERABLE, "pruned_recoverable"),
+        (AbsenceState.DELETED, "deleted"),
+        (AbsenceState.UNRESOLVED, "unresolved"),
+    ])
+    def test_enum_value_matches_string(self, member, expected_value):
+        """Each AbsenceState member must have the correct string value."""
+        assert member.value == expected_value, (
+            f"AbsenceState.{member.name}.value should be {expected_value!r}, "
+            f"got {member.value!r}"
+        )
+
+    def test_enum_values_match_v1_absence_states(self):
+        """All non-deprecated enum values must be in V1_ABSENCE_STATES."""
+        for member in AbsenceState:
+            if member.name == "PRUNED":
+                continue  # Deprecated alias
+            assert member.value in V1_ABSENCE_STATES, (
+                f"AbsenceState.{member.name}.value = {member.value!r} "
+                f"not in V1_ABSENCE_STATES"
+            )
+
+    def test_enum_member_count(self):
+        """AbsenceState should have 8 canonical members + 1 deprecated."""
+        members = list(AbsenceState)
+        # 8 canonical + PRUNED (deprecated alias)
+        assert len(members) == 9, (
+            f"Expected 9 enum members (8 canonical + PRUNED), got {len(members)}"
+        )
+
+
+class TestNormalizeAbsentObject:
+    """Test normalize_absent_object edge cases.
+
+    Kills mutants 9 (if 'absence_state' in out), 42 (warn_on_legacy default),
+    47 (if warn_on_legacy condition removal).
+    """
+
+    def test_canonical_state_key_present(self):
+        """Object with 'state' key is normalized without touching absence_state."""
+        obj = {"value": None, "state": "unknown"}
+        result = normalize_absent_object(obj)
+        assert result["state"] == "unknown"
+        assert "absence_state" not in result
+
+    def test_legacy_absence_state_key_normalized(self):
+        """Object with only 'absence_state' is normalized to 'state'."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            obj = {"value": None, "absence_state": "unknown"}
+            result = normalize_absent_object(obj)
+            assert result["state"] == "unknown"
+            assert "absence_state" not in result
+            # Default warn_on_legacy=True should produce a warning
+            assert len(w) >= 1
+            assert "legacy" in str(w[0].message).lower() or "absence_state" in str(w[0].message)
+
+    def test_legacy_no_warning_when_disabled(self):
+        """warn_on_legacy=False suppresses deprecation warning."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            obj = {"value": None, "absence_state": "unknown"}
+            result = normalize_absent_object(obj, warn_on_legacy=False)
+            assert result["state"] == "unknown"
+            # No legacy warning should be raised
+            legacy_warnings = [
+                x for x in w
+                if "legacy" in str(x.message).lower() or "absence_state" in str(x.message).lower()
+            ]
+            assert len(legacy_warnings) == 0
+
+    def test_missing_both_keys_raises(self):
+        """Object without 'state' or 'absence_state' raises ForgeNullError."""
+        with pytest.raises(ForgeNullError, match="missing"):
+            normalize_absent_object({"value": None})
+
+    def test_value_not_none_raises(self):
+        """Object with non-None value raises ForgeNullError."""
+        with pytest.raises(ForgeNullError, match="value=None"):
+            normalize_absent_object({"value": "something", "state": "unknown"})
+
+
+class TestAbsentFunction:
+    """Test absent() function edge cases.
+
+    Kills mutants 12, 50 (reason is not None / is not -> is).
+    """
+
+    def test_absent_with_reason(self):
+        """absent() with reason includes it in the result."""
+        result = absent("unknown", "context lost")
+        assert result["reason"] == "context lost"
+        assert result["state"] == "unknown"
+
+    def test_absent_without_reason(self):
+        """absent() without reason does NOT include reason key."""
+        result = absent("unknown")
+        assert "reason" not in result
+        assert result["state"] == "unknown"
+        assert result["value"] is None
+
+    def test_absent_with_none_reason(self):
+        """absent() with reason=None does NOT include reason key."""
+        result = absent("unknown", None)
+        assert "reason" not in result
+
+    def test_absent_with_enum(self):
+        """absent() accepts AbsenceState enum."""
+        result = absent(AbsenceState.DELETED)
+        assert result["state"] == "deleted"
+
+    def test_absent_with_empty_reason(self):
+        """absent() with empty string reason DOES include it."""
+        result = absent("unknown", "")
+        assert "reason" in result
+        assert result["reason"] == ""
+
+
+class TestIsAbsent:
+    """Test is_absent() function edge cases.
+
+    Kills mutants 94, 102, 103 (return True/False flips).
+    """
+
+    def test_canonical_absent_object(self):
+        """is_absent returns True for canonical absent object."""
+        assert is_absent({"value": None, "state": "unknown"}) is True
+
+    def test_legacy_absent_object(self):
+        """is_absent returns True for legacy absent object."""
+        assert is_absent({"value": None, "absence_state": "unknown"}) is True
+
+    def test_non_dict_returns_false(self):
+        """is_absent returns False for non-dict values."""
+        assert is_absent(None) is False
+        assert is_absent("hello") is False
+        assert is_absent(42) is False
+        assert is_absent([1, 2, 3]) is False
+
+    def test_non_none_value_returns_false(self):
+        """is_absent returns False when value is not None."""
+        assert is_absent({"value": "something", "state": "unknown"}) is False
+
+    def test_invalid_state_returns_false(self):
+        """is_absent returns False for invalid state strings."""
+        assert is_absent({"value": None, "state": "bogus"}) is False
+        assert is_absent({"value": None, "absence_state": "bogus"}) is False
+
+    def test_missing_state_key_returns_false(self):
+        """is_absent returns False when neither state key is present."""
+        assert is_absent({"value": None}) is False
+        assert is_absent({"value": None, "other": "key"}) is False
+
+
+class TestValidateField:
+    """Test validate_field edge cases.
+
+    Kills mutants 21, 22 (if is_absent / if _is_ambiguous_empty conditions).
+    """
+
+    def test_absent_field_passes(self):
+        """validate_field passes for properly typed absent fields."""
+        result = validate_field("output", {"value": None, "state": "unknown"})
+        assert result["state"] == "unknown"
+
+    def test_ambiguous_none_raises(self):
+        """validate_field raises for bare None."""
+        with pytest.raises(ForgeNullError, match="Ambiguous"):
+            validate_field("output", None)
+
+    def test_ambiguous_empty_string_raises(self):
+        """validate_field raises for empty string."""
+        with pytest.raises(ForgeNullError, match="Ambiguous"):
+            validate_field("name", "")
+
+    def test_ambiguous_empty_dict_raises(self):
+        """validate_field raises for empty dict."""
+        with pytest.raises(ForgeNullError, match="Ambiguous"):
+            validate_field("config", {})
+
+    def test_ambiguous_empty_list_raises(self):
+        """validate_field raises for empty list."""
+        with pytest.raises(ForgeNullError, match="Ambiguous"):
+            validate_field("items", [])
+
+    def test_normal_value_passes(self):
+        """validate_field passes for normal non-empty values."""
+        assert validate_field("name", "hello") == "hello"
+        assert validate_field("count", 42) == 42
+        assert validate_field("items", [1, 2]) == [1, 2]
+
+
+class TestValidateRecord:
+    """Test validate_record edge cases.
+
+    Kills mutants 23, 87, 107, 108 (exempt_keys, isinstance, normalize calls).
+    """
+
+    def test_exempt_keys_default_refs(self):
+        """Empty lists in refs/source_refs are valid by default."""
+        record = {"refs": [], "source_refs": []}
+        result = validate_record(record)
+        assert result["refs"] == []
+
+    def test_non_exempt_empty_list_raises(self):
+        """Empty list in a non-exempt key raises ForgeNullError."""
+        with pytest.raises(ForgeNullError, match="Ambiguous"):
+            validate_record({"items": []})
+
+    def test_custom_exempt_keys(self):
+        """Custom exempt_keys parameter works."""
+        record = {"custom_list": []}
+        # Without exemption, should raise
+        with pytest.raises(ForgeNullError):
+            validate_record(record)
+        # With exemption, should pass
+        result = validate_record(record, exempt_keys=frozenset({"custom_list"}))
+        assert result["custom_list"] == []
+
+    def test_sibling_state_validation(self):
+        """Sibling _state field must be a valid absence state string."""
+        record = {"output": None, "output_state": "unknown"}
+        result = validate_record(record)
+        assert result["output_state"] == "unknown"
+
+    def test_sibling_state_invalid_raises(self):
+        """Invalid sibling _state value raises ForgeNullError."""
+        with pytest.raises(ForgeNullError, match="invalid"):
+            validate_record({"output": None, "output_state": "bogus_state"})
+
+    def test_sibling_state_validates_string_type(self):
+        """Sibling _state value must be a string for normalization."""
+        # Non-string state values are skipped (they don't pass isinstance check)
+        record = {"output_state": 42}
+        # This should not raise — the isinstance(value, str) check skips it
+        validate_record(record)
+
+    def test_absent_object_in_record_normalized(self):
+        """Legacy absent objects in records are validated during validate_record."""
+        record = {"data": {"value": None, "absence_state": "unknown"}}
+        result = validate_record(record)
+        assert "data" in result
+
+    def test_normalize_record_rewrites_state_fields(self):
+        """normalize_record rewrites legacy _state values."""
+        with warnings.catch_warnings(record=True):
+            warnings.simplefilter("always")
+            record = {"output_state": "pruned"}
+            result = normalize_record(record)
+            assert result["output_state"] == "pruned_recoverable"
+
+    def test_normalize_record_rewrites_absent_objects(self):
+        """normalize_record rewrites legacy absent objects."""
+        record = {"data": {"value": None, "absence_state": "pruned"}}
+        result = normalize_record(record)
+        assert result["data"]["state"] == "pruned_recoverable"
+        assert "absence_state" not in result["data"]
+
+
+class TestNormalizeAbsenceState:
+    """Test normalize_absence_state edge cases.
+
+    Kills mutant 42 (default warn_on_legacy parameter)
+    and ensures legacy alias handling is correct.
+    """
+
+    def test_canonical_state_returns_unchanged(self):
+        """Canonical states are returned unchanged."""
+        for state in V1_ABSENCE_STATES:
+            assert normalize_absence_state(state) == state
+
+    def test_legacy_alias_normalized_with_warning(self):
+        """Legacy alias 'pruned' is normalized with deprecation warning."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            result = normalize_absence_state("pruned")
+            assert result == "pruned_recoverable"
+            assert len(w) == 1
+            assert issubclass(w[0].category, DeprecationWarning)
+
+    def test_unknown_state_raises(self):
+        """Unknown state string raises ValueError."""
+        with pytest.raises(ValueError, match="Unknown"):
+            normalize_absence_state("bogus")
+
+
+class TestAmbiguousEmpty:
+    """Test _is_ambiguous_empty edge cases.
+
+    Ensures all empty types are correctly identified.
+    """
+
+    def test_none_is_ambiguous(self):
+        assert _is_ambiguous_empty(None) is True
+
+    def test_empty_string_is_ambiguous(self):
+        assert _is_ambiguous_empty("") is True
+
+    def test_empty_dict_is_ambiguous(self):
+        assert _is_ambiguous_empty({}) is True
+
+    def test_empty_list_is_ambiguous(self):
+        assert _is_ambiguous_empty([]) is True
+
+    def test_nonempty_values_not_ambiguous(self):
+        assert _is_ambiguous_empty("hello") is False
+        assert _is_ambiguous_empty({"key": "val"}) is False
+        assert _is_ambiguous_empty([1]) is False
+        assert _is_ambiguous_empty(0) is False
+        assert _is_ambiguous_empty(False) is False

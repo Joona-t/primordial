@@ -1,0 +1,781 @@
+{
+  "total": 110,
+  "killed": 103,
+  "survived": 7,
+  "equivalent": 0,
+  "error": 0,
+  "raw_score": 93.6,
+  "adjusted_score": 93.6,
+  "mutants": [
+    {
+      "id": 1,
+      "line": 375,
+      "category": "condition_removal",
+      "description": "Line 375: if <condition> -> if True",
+      "status": "survived"
+    },
+    {
+      "id": 2,
+      "line": 130,
+      "category": "condition_removal",
+      "description": "Line 130: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 3,
+      "line": 135,
+      "category": "condition_removal",
+      "description": "Line 135: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 4,
+      "line": 153,
+      "category": "condition_removal",
+      "description": "Line 153: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 5,
+      "line": 155,
+      "category": "condition_removal",
+      "description": "Line 155: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 6,
+      "line": 175,
+      "category": "condition_removal",
+      "description": "Line 175: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 7,
+      "line": 180,
+      "category": "condition_removal",
+      "description": "Line 180: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 8,
+      "line": 183,
+      "category": "condition_removal",
+      "description": "Line 183: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 9,
+      "line": 188,
+      "category": "condition_removal",
+      "description": "Line 188: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 10,
+      "line": 217,
+      "category": "condition_removal",
+      "description": "Line 217: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 11,
+      "line": 220,
+      "category": "condition_removal",
+      "description": "Line 220: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 12,
+      "line": 232,
+      "category": "condition_removal",
+      "description": "Line 232: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 13,
+      "line": 239,
+      "category": "condition_removal",
+      "description": "Line 239: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 14,
+      "line": 241,
+      "category": "condition_removal",
+      "description": "Line 241: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 15,
+      "line": 243,
+      "category": "condition_removal",
+      "description": "Line 243: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 16,
+      "line": 249,
+      "category": "condition_removal",
+      "description": "Line 249: if <condition> -> if True",
+      "status": "survived"
+    },
+    {
+      "id": 17,
+      "line": 260,
+      "category": "condition_removal",
+      "description": "Line 260: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 18,
+      "line": 262,
+      "category": "condition_removal",
+      "description": "Line 262: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 19,
+      "line": 264,
+      "category": "condition_removal",
+      "description": "Line 264: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 20,
+      "line": 266,
+      "category": "condition_removal",
+      "description": "Line 266: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 21,
+      "line": 277,
+      "category": "condition_removal",
+      "description": "Line 277: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 22,
+      "line": 282,
+      "category": "condition_removal",
+      "description": "Line 282: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 23,
+      "line": 306,
+      "category": "condition_removal",
+      "description": "Line 306: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 24,
+      "line": 309,
+      "category": "condition_removal",
+      "description": "Line 309: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 25,
+      "line": 348,
+      "category": "condition_removal",
+      "description": "Line 348: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 26,
+      "line": 358,
+      "category": "condition_removal",
+      "description": "Line 358: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 27,
+      "line": 370,
+      "category": "condition_removal",
+      "description": "Line 370: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 28,
+      "line": 375,
+      "category": "comparison_swap",
+      "description": "Line 375: == -> !=",
+      "status": "survived"
+    },
+    {
+      "id": 29,
+      "line": 34,
+      "category": "state_name_swap",
+      "description": "Line 34: \"pruned_recoverable\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 30,
+      "line": 39,
+      "category": "state_name_swap",
+      "description": "Line 39: \"unknown\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 31,
+      "line": 40,
+      "category": "state_name_swap",
+      "description": "Line 40: \"not_generated\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 32,
+      "line": 41,
+      "category": "state_name_swap",
+      "description": "Line 41: \"not_invoked\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 33,
+      "line": 42,
+      "category": "state_name_swap",
+      "description": "Line 42: \"invalid\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 34,
+      "line": 43,
+      "category": "state_name_swap",
+      "description": "Line 43: \"withheld\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 35,
+      "line": 44,
+      "category": "state_name_swap",
+      "description": "Line 44: \"pruned_recoverable\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 36,
+      "line": 45,
+      "category": "state_name_swap",
+      "description": "Line 45: \"deleted\" -> \"invalid\"",
+      "status": "killed"
+    },
+    {
+      "id": 37,
+      "line": 46,
+      "category": "state_name_swap",
+      "description": "Line 46: \"unresolved\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 38,
+      "line": 130,
+      "category": "comparison_swap",
+      "description": "Line 130: not in -> in",
+      "status": "killed"
+    },
+    {
+      "id": 39,
+      "line": 135,
+      "category": "comparison_swap",
+      "description": "Line 135: not in -> in",
+      "status": "killed"
+    },
+    {
+      "id": 40,
+      "line": 153,
+      "category": "comparison_swap",
+      "description": "Line 153: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 41,
+      "line": 155,
+      "category": "comparison_swap",
+      "description": "Line 155: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 42,
+      "line": 166,
+      "category": "boolean_flip",
+      "description": "Line 166: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 43,
+      "line": 175,
+      "category": "negation_removal",
+      "description": "Line 175: not <expr> -> <expr>",
+      "status": "killed"
+    },
+    {
+      "id": 44,
+      "line": 180,
+      "category": "comparison_swap",
+      "description": "Line 180: is not -> is",
+      "status": "killed"
+    },
+    {
+      "id": 45,
+      "line": 183,
+      "category": "comparison_swap",
+      "description": "Line 183: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 46,
+      "line": 188,
+      "category": "comparison_swap",
+      "description": "Line 188: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 47,
+      "line": 189,
+      "category": "condition_removal",
+      "description": "Line 189: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 48,
+      "line": 217,
+      "category": "comparison_swap",
+      "description": "Line 217: not in -> in",
+      "status": "killed"
+    },
+    {
+      "id": 49,
+      "line": 220,
+      "category": "comparison_swap",
+      "description": "Line 220: == -> !=",
+      "status": "killed"
+    },
+    {
+      "id": 50,
+      "line": 232,
+      "category": "comparison_swap",
+      "description": "Line 232: is not -> is",
+      "status": "killed"
+    },
+    {
+      "id": 51,
+      "line": 239,
+      "category": "negation_removal",
+      "description": "Line 239: not <expr> -> <expr>",
+      "status": "killed"
+    },
+    {
+      "id": 52,
+      "line": 241,
+      "category": "comparison_swap",
+      "description": "Line 241: is not -> is",
+      "status": "killed"
+    },
+    {
+      "id": 53,
+      "line": 243,
+      "category": "comparison_swap",
+      "description": "Line 243: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 54,
+      "line": 249,
+      "category": "comparison_swap",
+      "description": "Line 249: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 55,
+      "line": 255,
+      "category": "boolean_flip",
+      "description": "Line 255: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 56,
+      "line": 260,
+      "category": "comparison_swap",
+      "description": "Line 260: is -> is not",
+      "status": "killed"
+    },
+    {
+      "id": 57,
+      "line": 268,
+      "category": "boolean_flip",
+      "description": "Line 268: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 58,
+      "line": 306,
+      "category": "comparison_swap",
+      "description": "Line 306: is -> is not",
+      "status": "killed"
+    },
+    {
+      "id": 59,
+      "line": 309,
+      "category": "negation_removal",
+      "description": "Line 309: not <expr> -> <expr>",
+      "status": "killed"
+    },
+    {
+      "id": 60,
+      "line": 313,
+      "category": "condition_removal",
+      "description": "Line 313: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 61,
+      "line": 319,
+      "category": "condition_removal",
+      "description": "Line 319: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 62,
+      "line": 322,
+      "category": "condition_removal",
+      "description": "Line 322: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 63,
+      "line": 327,
+      "category": "condition_removal",
+      "description": "Line 327: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 64,
+      "line": 349,
+      "category": "condition_removal",
+      "description": "Line 349: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 65,
+      "line": 370,
+      "category": "negation_removal",
+      "description": "Line 370: not <expr> -> <expr>",
+      "status": "killed"
+    },
+    {
+      "id": 66,
+      "line": 22,
+      "category": "state_name_swap",
+      "description": "Line 22: \"not_generated\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 67,
+      "line": 23,
+      "category": "state_name_swap",
+      "description": "Line 23: \"not_invoked\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 68,
+      "line": 24,
+      "category": "state_name_swap",
+      "description": "Line 24: \"unknown\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 69,
+      "line": 25,
+      "category": "state_name_swap",
+      "description": "Line 25: \"withheld\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 70,
+      "line": 26,
+      "category": "state_name_swap",
+      "description": "Line 26: \"invalid\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 71,
+      "line": 27,
+      "category": "state_name_swap",
+      "description": "Line 27: \"deleted\" -> \"invalid\"",
+      "status": "killed"
+    },
+    {
+      "id": 72,
+      "line": 28,
+      "category": "state_name_swap",
+      "description": "Line 28: \"pruned_recoverable\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 73,
+      "line": 29,
+      "category": "state_name_swap",
+      "description": "Line 29: \"unresolved\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 74,
+      "line": 80,
+      "category": "state_name_swap",
+      "description": "Line 80: \"not_invoked\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 75,
+      "line": 80,
+      "category": "state_name_swap",
+      "description": "Line 80: \"not_generated\" -> \"deleted\"",
+      "status": "killed"
+    },
+    {
+      "id": 76,
+      "line": 83,
+      "category": "state_name_swap",
+      "description": "Line 83: \"deleted\" -> \"invalid\"",
+      "status": "killed"
+    },
+    {
+      "id": 77,
+      "line": 98,
+      "category": "condition_removal",
+      "description": "Line 98: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 78,
+      "line": 240,
+      "category": "boolean_flip",
+      "description": "Line 240: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 79,
+      "line": 242,
+      "category": "boolean_flip",
+      "description": "Line 242: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 80,
+      "line": 261,
+      "category": "boolean_flip",
+      "description": "Line 261: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 81,
+      "line": 262,
+      "category": "comparison_swap",
+      "description": "Line 262: == -> !=",
+      "status": "killed"
+    },
+    {
+      "id": 82,
+      "line": 263,
+      "category": "boolean_flip",
+      "description": "Line 263: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 83,
+      "line": 264,
+      "category": "comparison_swap",
+      "description": "Line 264: == -> !=",
+      "status": "killed"
+    },
+    {
+      "id": 84,
+      "line": 265,
+      "category": "boolean_flip",
+      "description": "Line 265: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 85,
+      "line": 266,
+      "category": "comparison_swap",
+      "description": "Line 266: == -> !=",
+      "status": "killed"
+    },
+    {
+      "id": 86,
+      "line": 267,
+      "category": "boolean_flip",
+      "description": "Line 267: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 87,
+      "line": 315,
+      "category": "condition_removal",
+      "description": "Line 315: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 88,
+      "line": 329,
+      "category": "condition_removal",
+      "description": "Line 329: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 89,
+      "line": 353,
+      "category": "condition_removal",
+      "description": "Line 353: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 90,
+      "line": 400,
+      "category": "state_name_swap",
+      "description": "Line 400: \"not_generated\" -> \"deleted\"",
+      "status": "survived"
+    },
+    {
+      "id": 91,
+      "line": 402,
+      "category": "state_name_swap",
+      "description": "Line 402: \"not_invoked\" -> \"deleted\"",
+      "status": "survived"
+    },
+    {
+      "id": 92,
+      "line": 98,
+      "category": "comparison_swap",
+      "description": "Line 98: == -> !=",
+      "status": "killed"
+    },
+    {
+      "id": 93,
+      "line": 101,
+      "category": "condition_removal",
+      "description": "Line 101: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 94,
+      "line": 246,
+      "category": "boolean_flip",
+      "description": "Line 246: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 95,
+      "line": 252,
+      "category": "boolean_flip",
+      "description": "Line 252: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 96,
+      "line": 319,
+      "category": "comparison_swap",
+      "description": "Line 319: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 97,
+      "line": 329,
+      "category": "comparison_swap",
+      "description": "Line 329: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 98,
+      "line": 333,
+      "category": "condition_removal",
+      "description": "Line 333: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 99,
+      "line": 100,
+      "category": "boolean_flip",
+      "description": "Line 100: True -> False",
+      "status": "killed"
+    },
+    {
+      "id": 100,
+      "line": 101,
+      "category": "comparison_swap",
+      "description": "Line 101: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 101,
+      "line": 104,
+      "category": "condition_removal",
+      "description": "Line 104: if <condition> -> if True",
+      "status": "killed"
+    },
+    {
+      "id": 102,
+      "line": 248,
+      "category": "boolean_flip",
+      "description": "Line 248: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 103,
+      "line": 254,
+      "category": "boolean_flip",
+      "description": "Line 254: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 104,
+      "line": 333,
+      "category": "comparison_swap",
+      "description": "Line 333: not in -> in",
+      "status": "killed"
+    },
+    {
+      "id": 105,
+      "line": 103,
+      "category": "boolean_flip",
+      "description": "Line 103: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 106,
+      "line": 104,
+      "category": "comparison_swap",
+      "description": "Line 104: in -> not in",
+      "status": "killed"
+    },
+    {
+      "id": 107,
+      "line": 324,
+      "category": "boolean_flip",
+      "description": "Line 324: False -> True",
+      "status": "survived"
+    },
+    {
+      "id": 108,
+      "line": 350,
+      "category": "boolean_flip",
+      "description": "Line 350: False -> True",
+      "status": "survived"
+    },
+    {
+      "id": 109,
+      "line": 106,
+      "category": "boolean_flip",
+      "description": "Line 106: False -> True",
+      "status": "killed"
+    },
+    {
+      "id": 110,
+      "line": 109,
+      "category": "boolean_flip",
+      "description": "Line 109: True -> False",
+      "status": "killed"
+    }
+  ]
+}
