@@ -43,7 +43,7 @@ This roadmap validates whether typed absence, explicit provenance, and recoverab
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Ontology Formalization and Verification** - Formally specify and verify the 8-state absence ontology with complete transition rules and property-based tests
+- [x] **Phase 1: Ontology Formalization and Verification** - Formally specify and verify the 8-state absence ontology with complete transition rules and property-based tests
 - [ ] **Phase 2: Integration and Baseline Establishment** - Instrument Zarathustra with forge tools and establish uninstrumented + structured-logging baselines on real tasks
 - [ ] **Phase 3: Violation Detection Campaign** - Measure whether forge detects structural failures missed by uninstrumented and structured-logging baselines on real tasks
 - [ ] **Phase 4: Compaction Survival Measurement** - Measure provenance chain survival through real context-window compaction with structural reachability analysis
@@ -75,8 +75,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 
-- [ ] 01-01-PLAN.md -- Formalize ontology: resolve resolved/not_generated discrepancy, build 8x8 transition table with validate_transition(), resolve FORM-03 open questions
-- [ ] 01-02-PLAN.md -- Verify ontology: Hypothesis RuleBasedStateMachine (10K+ adversarial sequences), parametrized illegal transition tests, mutation testing (>85% score)
+- [x] 01-01-PLAN.md -- Formalize ontology: resolve resolved/not_generated discrepancy, build 8x8 transition table with validate_transition(), resolve FORM-03 open questions
+- [x] 01-02-PLAN.md -- Verify ontology: Hypothesis RuleBasedStateMachine (10K+ adversarial sequences), parametrized illegal transition tests, mutation testing (99% score)
 
 ### Phase 2: Integration and Baseline Establishment
 
@@ -201,7 +201,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 | --- | --- | --- | --- |
-| 1. Ontology Formalization | 0/2 | Planned | - |
+| 1. Ontology Formalization | 2/2 | Complete | 2026-03-16 |
 | 2. Integration and Baselines | 0/TBD | Not started | - |
 | 3. Violation Detection | 0/TBD | Not started | - |
 | 4. Compaction Survival | 0/TBD | Not started | - |

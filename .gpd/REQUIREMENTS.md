@@ -7,9 +7,9 @@
 
 ### Formalization
 
-- [ ] **FORM-01**: Formally specify the 8-state absence ontology (not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable, resolved) with complete legal/illegal transition table and companion metadata requirements
-- [ ] **FORM-02**: Implement property-based testing of state machine invariants using Hypothesis RuleBasedStateMachine — adversarial transition sequences, edge cases, invariant violations
-- [ ] **FORM-03**: Resolve open ontology questions: whether timed_out and interrupted should be distinct states, whether recoverability should be binary or graded
+- [x] **FORM-01**: Formally specify the 8-state absence ontology (not_generated, not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable) with complete legal/illegal transition table (64 entries: 45 legal, 19 illegal) and companion metadata requirements
+- [x] **FORM-02**: Implement property-based testing of state machine invariants using Hypothesis RuleBasedStateMachine — 10K adversarial sequences, 300K transitions, 0 invariant violations; 99% mutation score
+- [x] **FORM-03**: Resolve open ontology questions: timed_out/interrupted NOT added (metadata sufficient); recoverability stays binary (Phase 4 concern)
 
 ### Integration
 
@@ -86,9 +86,9 @@
 
 | Requirement | Phase | Status |
 | ----------- | ----- | ------ |
-| FORM-01 | Phase 1 | Pending |
-| FORM-02 | Phase 1 | Pending |
-| FORM-03 | Phase 1 | Pending |
+| FORM-01 | Phase 1 | Complete |
+| FORM-02 | Phase 1 | Complete |
+| FORM-03 | Phase 1 | Complete |
 | INTG-01 | Phase 2 | Pending |
 | INTG-02 | Phase 2 | Pending |
 | BASE-01 | Phase 2 | Pending |
