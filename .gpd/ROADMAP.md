@@ -98,12 +98,14 @@ Plans:
 
 **Backtracking trigger:** If Zarathustra's compaction is fully opaque (no hook points, no way to attach source_refs), the integration strategy must be redesigned -- possibly recording pre-compaction snapshots or intercepting at the prompt assembly layer. This may require revisiting the compaction survival measurement approach in Phase 4.
 
-**Plans:** TBD
+**Plans:** 4 plans
 
 Plans:
 
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md -- Characterize target runtime LLM compaction mechanism and resolve Zarathustra identity (INTG-02)
+- [ ] 02-02-PLAN.md -- Build forge-to-runtime integration adapter following PrimordialRLM pattern (INTG-01)
+- [ ] 02-03-PLAN.md -- Design real-task corpus and build measurement framework + structured logging baseline (BASE-01/BASE-02 prep)
+- [ ] 02-04-PLAN.md -- Execute three-tier baseline measurement on real task set and produce comparison report (BASE-01 + BASE-02)
 
 ### Phase 3: Violation Detection Campaign
 
