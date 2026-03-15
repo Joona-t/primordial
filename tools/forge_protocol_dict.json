@@ -1,0 +1,371 @@
+{
+  "proto": "forge.internal.v1",
+  "version": "1.0.0",
+  "entries": [
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "REVISION",
+      "code": "REVISION.REV_BLOCK_SCHEMA",
+      "meaning": "Revision is blocked by a schema-level contract violation.",
+      "human_decode": "Revision required due to schema-blocking defect.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "REVISION",
+      "code": "REVISION.REV_BLOCK_INVARIANT",
+      "meaning": "Review blocked because a system invariant was violated.",
+      "human_decode": "Blocked — invariant violation.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "REF",
+      "code": "REF.REF_UNRESOLVED",
+      "meaning": "A required reference did not resolve to an indexed artifact.",
+      "human_decode": "Referenced artifact was not found; keep unresolved state until indexed.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "TRANSITION",
+      "code": "TRANSITION.TRANSITION_AMBIGUOUS_NULL",
+      "meaning": "Transition contains null-to-null change without meaningful state delta.",
+      "human_decode": "Transition is ambiguous; encode explicit state progression.",
+      "severity": "high",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "PROTO",
+      "code": "PROTO.UNMAPPED_LEGACY_FAULT",
+      "meaning": "Legacy fault could not be deterministically mapped to a known v1 code.",
+      "human_decode": "Legacy error preserved with generic unmapped fault code.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.MISSING_STATE_LABEL",
+      "meaning": "Nullable or empty semantic field lacks typed state companion.",
+      "human_decode": "Missing <field>_state label for semantic empty value.",
+      "severity": "high",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "SUMMARY",
+      "code": "SUMMARY.MISSING_SOURCE_REFS",
+      "meaning": "Summary view has no source references and is not reversible.",
+      "human_decode": "Summary must include source_refs to preserve auditability.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "DICT",
+      "code": "DICT.LEGACY_STOP_REASON",
+      "meaning": "Legacy stop reason code retained for backwards reading only.",
+      "human_decode": "Deprecated legacy stop code; prefer REVISION or TRANSITION domains.",
+      "severity": "low",
+      "lifecycle": "deprecated",
+      "replaced_by": "REVISION.REV_BLOCK_SCHEMA",
+      "notes": "Kept for compatibility with pre-v1 stop events."
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_UNKNOWN",
+      "meaning": "The value exists but its state has not been determined.",
+      "human_decode": "Unknown — not yet classified.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_NOT_GENERATED",
+      "meaning": "The value was never produced by any agent or process.",
+      "human_decode": "Not generated — no output was created.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_NOT_INVOKED",
+      "meaning": "The process that would produce this value was never called.",
+      "human_decode": "Not invoked — the producing process never ran.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_INVALID",
+      "meaning": "A value was produced but failed validation and was discarded.",
+      "human_decode": "Invalid — produced but rejected.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_WITHHELD",
+      "meaning": "The value exists but is intentionally not exposed in this context.",
+      "human_decode": "Withheld — exists but hidden deliberately.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_PRUNED_RECOVERABLE",
+      "meaning": "The value existed but was removed during compression; recovery path exists.",
+      "human_decode": "Pruned — removed during compression, recoverable.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_DELETED",
+      "meaning": "The value existed and was explicitly deleted by user or system action.",
+      "human_decode": "Deleted — permanently removed.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ABSENCE",
+      "code": "ABSENCE.ABS_UNRESOLVED",
+      "meaning": "The value references something that could not be resolved.",
+      "human_decode": "Unresolved — reference target not found.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "STOP",
+      "code": "STOP.STOP_CONSENSUS",
+      "meaning": "All agents reached agreement and the run concluded normally.",
+      "human_decode": "Stopped — consensus reached.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "STOP",
+      "code": "STOP.STOP_FORCED",
+      "meaning": "The orchestrator or system forced the run to stop.",
+      "human_decode": "Stopped — forced by system.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "STOP",
+      "code": "STOP.STOP_USER",
+      "meaning": "The user manually stopped the run.",
+      "human_decode": "Stopped — user intervention.",
+      "severity": "low",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "STOP",
+      "code": "STOP.STOP_TIMEOUT",
+      "meaning": "The run exceeded its time budget.",
+      "human_decode": "Stopped — time limit exceeded.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "STOP",
+      "code": "STOP.STOP_BUDGET",
+      "meaning": "The run exceeded its token or cost budget.",
+      "human_decode": "Stopped — budget exhausted.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "STOP",
+      "code": "STOP.STOP_ERROR",
+      "meaning": "The run stopped due to an unrecoverable error.",
+      "human_decode": "Stopped — fatal error.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ERROR",
+      "code": "ERROR.ERR_SCHEMA_FAIL",
+      "meaning": "Output did not conform to the expected schema.",
+      "human_decode": "Schema validation failed.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ERROR",
+      "code": "ERROR.ERR_TIMEOUT_SEAT",
+      "meaning": "An agent seat timed out waiting for a response.",
+      "human_decode": "Agent seat timed out.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ERROR",
+      "code": "ERROR.ERR_PARSE_FAIL",
+      "meaning": "Failed to parse agent output as structured data.",
+      "human_decode": "Output parsing failed.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ERROR",
+      "code": "ERROR.ERR_API_FAIL",
+      "meaning": "An external API call failed.",
+      "human_decode": "API call failed.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "ERROR",
+      "code": "ERROR.ERR_VALIDATION_FAIL",
+      "meaning": "Output passed parsing but failed domain-specific validation rules.",
+      "human_decode": "Domain validation failed.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "CRITIQUE",
+      "code": "CRITIQUE.CRIT_SCHEMA",
+      "meaning": "Critique targeting schema conformance issues.",
+      "human_decode": "Critique: schema issue.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "CRITIQUE",
+      "code": "CRITIQUE.CRIT_SECURITY",
+      "meaning": "Critique targeting security concerns.",
+      "human_decode": "Critique: security concern.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "CRITIQUE",
+      "code": "CRITIQUE.CRIT_PERMISSIONS",
+      "meaning": "Critique targeting permission scope issues.",
+      "human_decode": "Critique: permission issue.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "CRITIQUE",
+      "code": "CRITIQUE.CRIT_ARCHITECTURE",
+      "meaning": "Critique targeting architectural design issues.",
+      "human_decode": "Critique: architecture issue.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "CRITIQUE",
+      "code": "CRITIQUE.CRIT_TESTING",
+      "meaning": "Critique targeting insufficient or incorrect testing.",
+      "human_decode": "Critique: testing gap.",
+      "severity": "med",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "CRITIQUE",
+      "code": "CRITIQUE.CRIT_INVARIANT",
+      "meaning": "Critique targeting a violated system invariant.",
+      "human_decode": "Critique: invariant violation.",
+      "severity": "block",
+      "lifecycle": "active"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "PROTO",
+      "code": "PROTO.PROTO_UNGROUNDED_SUMMARY",
+      "meaning": "A summary was produced without source references.",
+      "human_decode": "Protocol violation — summary has no source refs.",
+      "severity": "block",
+      "lifecycle": "deprecated",
+      "replaced_by": "SUMMARY.MISSING_SOURCE_REFS"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "PROTO",
+      "code": "PROTO.PROTO_AMBIGUOUS_NULL",
+      "meaning": "A null or empty value was used without a typed absence state.",
+      "human_decode": "Protocol violation — ambiguous null/empty value.",
+      "severity": "block",
+      "lifecycle": "deprecated",
+      "replaced_by": "ABSENCE.MISSING_STATE_LABEL"
+    },
+    {
+      "proto": "forge.internal.v1",
+      "version": "1.0.0",
+      "domain": "PROTO",
+      "code": "PROTO.PROTO_MISSING_REF",
+      "meaning": "A reference to another artifact or resource could not be resolved.",
+      "human_decode": "Protocol violation — missing reference target.",
+      "severity": "block",
+      "lifecycle": "deprecated",
+      "replaced_by": "REF.REF_UNRESOLVED"
+    }
+  ]
+}

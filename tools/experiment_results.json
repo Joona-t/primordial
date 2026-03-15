@@ -1,0 +1,142 @@
+{
+  "scenarios": [
+    {
+      "scenario": "A_linear",
+      "description": "3 iterations, no recursion, no compaction",
+      "result_response": "The answer is 84",
+      "h1_reversibility": {
+        "primordial_score": 1.0,
+        "vanilla_score": 0.0,
+        "trace_verified": true,
+        "provenance": {
+          "max_depth": 2,
+          "all_reach_root": true
+        }
+      },
+      "h2_violations": {
+        "primordial_detected": 0,
+        "vanilla_detected": 0
+      },
+      "h3_overhead": {
+        "compression_ratio": 1.0846,
+        "original_size": 4347,
+        "encoded_size": 4008,
+        "primordial_bytes": 4032,
+        "vanilla_bytes": 35750,
+        "content_bytes": 128,
+        "absolute_overhead_pct": 3050.0,
+        "vs_vanilla_pct": -88.72,
+        "shared_structures": 4,
+        "ref_replacements": 13
+      },
+      "primordial_stages": 3,
+      "vanilla_iterations": 3
+    },
+    {
+      "scenario": "B_tree_recursion",
+      "description": "3 parent iterations + 2 subcalls, depth=2",
+      "result_response": "Results: first=30, second=70, total=100",
+      "h1_reversibility": {
+        "primordial_score": 1.0,
+        "vanilla_score": 0.0,
+        "trace_verified": true,
+        "provenance": {
+          "max_depth": 4,
+          "all_reach_root": true
+        }
+      },
+      "h2_violations": {
+        "primordial_detected": 0,
+        "vanilla_detected": 0
+      },
+      "h3_overhead": {
+        "compression_ratio": 1.1035,
+        "original_size": 7541,
+        "encoded_size": 6834,
+        "primordial_bytes": 6858,
+        "vanilla_bytes": 59899,
+        "content_bytes": 224,
+        "absolute_overhead_pct": 2961.61,
+        "vs_vanilla_pct": -88.55,
+        "shared_structures": 7,
+        "ref_replacements": 25
+      },
+      "primordial_stages": 5,
+      "vanilla_iterations": 3
+    },
+    {
+      "scenario": "C_compaction",
+      "description": "3 iterations + 1 compaction, provenance survival test",
+      "result_response": "Final result: a=100, b=200, c=20000",
+      "h1_reversibility": {
+        "primordial_score": 1.0,
+        "vanilla_score": 0.0,
+        "trace_verified": true,
+        "provenance": {
+          "max_depth": 2,
+          "all_reach_root": true
+        }
+      },
+      "h2_violations": {
+        "primordial_detected": 0,
+        "vanilla_detected": 0
+      },
+      "h3_overhead": {
+        "compression_ratio": 1.0997,
+        "original_size": 6100,
+        "encoded_size": 5547,
+        "primordial_bytes": 5571,
+        "vanilla_bytes": 36582,
+        "content_bytes": 274,
+        "absolute_overhead_pct": 1933.21,
+        "vs_vanilla_pct": -84.77,
+        "shared_structures": 5,
+        "ref_replacements": 19
+      },
+      "primordial_stages": 4,
+      "vanilla_iterations": 3,
+      "compaction_occurred": true
+    },
+    {
+      "scenario": "D_violations",
+      "description": "6 deliberate violations, detection comparison",
+      "h2_violations": {
+        "primordial_detected": 6,
+        "vanilla_detected": 0,
+        "total_tests": 6,
+        "details": [
+          {
+            "test": "D1_empty_output",
+            "caught": true,
+            "by": "ForgeNullError"
+          },
+          {
+            "test": "D2_ungrounded_summary",
+            "caught": true,
+            "by": "ForgeRefError"
+          },
+          {
+            "test": "D3_dangling_ref",
+            "caught": true,
+            "by": "ForgeChamberError"
+          },
+          {
+            "test": "D4_duplicate_id",
+            "caught": true,
+            "by": "ForgeChamberError"
+          },
+          {
+            "test": "D5_sealed_chamber",
+            "caught": true,
+            "by": "ForgeChamberError"
+          },
+          {
+            "test": "D6_null_discipline",
+            "caught": true,
+            "by": "ForgeChamberError"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "vanilla_results": [
+    {
+      "scenario": "A_linear",
+      "response": "The answer is 84",
+      "iterations": 3,
+      "has_provenance": false,
+      "has_hashing": false,
+      "has_ref_structure": false,
+      "reversibility_score": 0.0,
+      "violations_detected": 0,
+      "payload_size": 35751
+    },
+    {
+      "scenario": "B_tree_recursion",
+      "response": "Results: first=30, second=70, total=100",
+      "iterations": 3,
+      "has_provenance": false,
+      "has_hashing": false,
+      "has_ref_structure": false,
+      "reversibility_score": 0.0,
+      "violations_detected": 0,
+      "payload_size": 59901,
+      "child_iterations_visible": true
+    },
+    {
+      "scenario": "C_compaction",
+      "response": "Final result: a=100, b=200, c=20000",
+      "iterations": 3,
+      "has_provenance": false,
+      "has_hashing": false,
+      "has_ref_structure": false,
+      "reversibility_score": 0.0,
+      "violations_detected": 0,
+      "payload_size": 36582,
+      "pre_compaction_data_in_logger": true,
+      "pre_compaction_data_in_context": false
+    }
+  ]
+}
