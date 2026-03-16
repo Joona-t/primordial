@@ -1,0 +1,165 @@
+{
+  "generated": "2026-03-16T04:10:00.000000+00:00",
+  "schema_version": "synthesis.v1",
+  "research_question": "Can typed absence, explicit provenance, and recoverable compaction prevent silent state loss in real long-running autonomous agents?",
+  "verdicts": {
+    "rq1": {
+      "name": "Ontology Formalization",
+      "question": "Can absence be formalized as a useful computational ontology?",
+      "verdict": "PASS",
+      "confidence": "HIGH",
+      "criteria": {
+        "states_formalized": {
+          "required": true,
+          "met": true,
+          "evidence": "8 states formalized (not_generated, not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable). Complete 64-entry transition table: 45 legal, 19 illegal."
+        },
+        "hypothesis_verified": {
+          "required": true,
+          "met": true,
+          "evidence": "Hypothesis RuleBasedStateMachine: 10K examples x 30 steps = ~300K transitions, 0 invariant violations. All 19 illegal transitions parametrized and rejected."
+        },
+        "mutation_score_above_85": {
+          "required": true,
+          "met": true,
+          "evidence": "99.0% adjusted mutation score (103 killed / 104 non-equivalent out of 110 total mutants). 6 equivalent + 1 low-value survivors classified."
+        },
+        "open_questions_resolved": {
+          "required": true,
+          "met": true,
+          "evidence": "CC-001: resolved is REF state, not_generated is 8th absence state. CC-002: timed_out/interrupted use metadata enrichment. CC-003: recoverability stays binary for Phase 1."
+        }
+      },
+      "limitations": [],
+      "source_phases": ["01-ontology-formalization-and-verification"]
+    },
+    "rq2": {
+      "name": "Violation Detection Reliability",
+      "question": "Do typed absence and provenance-preserving protocols detect structural failures missed by ordinary logging?",
+      "verdict": "PARTIAL",
+      "confidence": "HIGH",
+      "criteria": {
+        "natural_violation_detected": {
+          "required_for_pass": true,
+          "met": false,
+          "evidence": "0 natural violations on 30 clean runs. Clopper-Pearson 95% upper bound: 11.6% (0.116). This blocks PASS."
+        },
+        "differential_ci_excludes_zero": {
+          "required": true,
+          "met": true,
+          "evidence": "Differential detection: +0.444, bootstrap 95% CI [0.344, 0.544] excludes zero."
+        },
+        "fpr_below_5pct": {
+          "required": true,
+          "met": true,
+          "evidence": "FPR = 0.0% (0/30 clean runs). Clopper-Pearson 95% CI [0.000, 0.116]."
+        },
+        "three_tier_ordering": {
+          "required": true,
+          "met": true,
+          "evidence": "forge >= structured >= uninstrumented holds for all 9 fault types (D1-D9)."
+        }
+      },
+      "limitations": [
+        "Zero natural violations on 30 clean runs (CP upper bound 11.6%). Practical value on naturally-occurring failures undemonstrated.",
+        "5/9 fault types undetectable by post-hoc validation: D3 (hash), D4 (ref correctness), D6 (transition legality), D7 (trace data loss), D8 (content corruption).",
+        "Task corpus limited to coding/patching workflows (Zarathustra/OpenClaw).",
+        "44.4% aggregate detection rate is ENTIRELY on injected (synthetic) faults."
+      ],
+      "source_phases": ["03-violation-detection-campaign"]
+    },
+    "rq3": {
+      "name": "Compaction Survival",
+      "question": "Can history be compacted while preserving grounded return paths?",
+      "verdict": "PARTIAL",
+      "confidence": "MEDIUM",
+      "criteria": {
+        "genuine_compaction_measured": {
+          "required_for_pass": true,
+          "met": false,
+          "evidence": "Only simulated LLM compaction (programmatic oldest-first deletion) tested. Genuine LLM context-window compaction not measured. This blocks PASS."
+        },
+        "simulated_compaction_measured": {
+          "required": true,
+          "met": true,
+          "evidence": "9 deletion fractions (0.1 to 0.9), 3 chambers from Phase 2 OpenClaw ledger."
+        },
+        "reachability_characterized": {
+          "required": true,
+          "met": true,
+          "evidence": "Structural reachability degrades monotonically: 0.932 (10% deletion) to 0.250 (90% deletion)."
+        },
+        "above_backtracking_threshold": {
+          "required": true,
+          "met": true,
+          "evidence": "At 70% simulated deletion: structural reachability = 0.550 > 0.5 backtracking threshold. Threshold crossed at 80% (0.438)."
+        },
+        "violation_detection_maintained": {
+          "required": true,
+          "met": true,
+          "evidence": "D1/D2/D5/D9 all detected at 100% on all 3 chambers post-simulated-compaction."
+        }
+      },
+      "limitations": [
+        "Only simulated LLM compaction tested (programmatic deletion, not genuine LLM context-window compaction).",
+        "fp-short-tasks unresolved: no 128K+ token sessions tested.",
+        "3 chambers from same OpenClaw ledger. Narrow CIs reflect measurement precision, not trace diversity.",
+        "Degraded ref category empty (simulated deletion is binary, not semantic).",
+        "Simulated results are analytical lower bounds, not empirical measurements of genuine compaction."
+      ],
+      "source_phases": ["04-compaction-survival-measurement"]
+    }
+  },
+  "forbidden_proxy_audit": {
+    "fp-synthetic-only": {
+      "status": "avoided",
+      "phase": 3,
+      "notes": "Natural violations assessed independently via separate clean campaign (30 runs). Zero natural violations honestly reported as negative finding with CP bound. Injected and natural strictly separated via separate_injected_natural(). Report does NOT conflate them."
+    },
+    "fp-short-tasks": {
+      "status": "unresolved",
+      "phase": 4,
+      "notes": "Simulated LLM compaction on deep traces (depth=21, 40 stages) partially addresses this. However, no genuine 128K+ token sessions tested and no genuine LLM compaction events measured. Phase 4 honestly reported as 'partially addressed'."
+    },
+    "fp-shallow-traces": {
+      "status": "avoided",
+      "phase": 4,
+      "notes": "Phase 2 traces have depth=21 and 40 stages. Simulated LLM compaction at 70% removes 28 stages -- structurally meaningful deletion."
+    }
+  },
+  "stop_rethink": {
+    "complexity_without_gains": {
+      "verdict": "NOT_TRIGGERED",
+      "evidence_for": "4/9 fault types detected at 100%. Differential detection +0.444, CI [0.344, 0.544] excludes zero. FPR = 0.0%. Three-tier ordering holds for all 9 types. Ontology verified by 10K+ adversarial sequences.",
+      "evidence_against": "Zero natural violations on 30 clean runs (CP UB 11.6%). 5/9 fault types undetectable by post-hoc validation."
+    },
+    "provenance_fails_under_load": {
+      "verdict": "NOT_TRIGGERED",
+      "evidence_for": "Pre-simulated-compaction reachability = 1.0 (matches MockLM ceiling). Structural reachability above threshold through 70% simulated deletion. Forge trace compression 1.196x. Violation detection maintained.",
+      "evidence_against": "Only simulated LLM compaction tested. At 80% simulated deletion, reachability drops below threshold (0.438). fp-short-tasks unresolved."
+    },
+    "compaction_too_brittle": {
+      "verdict": "INCONCLUSIVE",
+      "evidence_for": "Structural reachability drops below 0.5 backtracking threshold at 80% simulated deletion (0.438). At 90%: only 0.250.",
+      "evidence_against": "Simulated deletion is lower bound (genuine LLM compaction expected higher). Linear-chain DAGs inherently resilient (BFS=1.0 at all fractions). Threshold only crossed at extreme deletion (80%+)."
+    }
+  },
+  "contract_completion": {
+    "claim-violation-detection": "PARTIAL",
+    "claim-compaction-survival": "PARTIAL",
+    "test-real-violation": "FAILED (negative finding: 0 natural violations, honestly reported)",
+    "test-compaction-provenance": "PASSED",
+    "test-differential-detection": "PASSED",
+    "test-fpr-acceptable": "PASSED"
+  },
+  "source_data": {
+    "synthesis_table": "data/synthesis/synthesis-report.json",
+    "campaign_report": "data/campaign/campaign-report.json",
+    "compaction_report": "data/compaction/compaction-report.json",
+    "baseline_report": "data/baselines/baseline-report.json",
+    "phase1_plan01_summary": ".gpd/phases/01-ontology-formalization-and-verification/01-01-SUMMARY.md",
+    "phase1_plan02_summary": ".gpd/phases/01-ontology-formalization-and-verification/01-02-SUMMARY.md",
+    "phase3_plan02_summary": ".gpd/phases/03-violation-detection-campaign/03-02-SUMMARY.md",
+    "phase4_plan02_summary": ".gpd/phases/04-compaction-survival-measurement/04-02-SUMMARY.md"
+  }
+}
