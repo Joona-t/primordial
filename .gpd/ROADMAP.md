@@ -127,12 +127,12 @@ Plans:
 
 **Backtracking trigger:** If no naturally-occurring violations surface after the full campaign, this is a negative finding that must be honestly reported. Before concluding, verify: (a) tasks were genuinely complex enough, (b) the campaign duration was sufficient, (c) forge's detection logic is not over-conservative. If the issue is task complexity, extend the campaign with longer/harder tasks before accepting a null result.
 
-**Plans:** TBD
+**Plans:** 2 plans
 
 Plans:
 
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- Build fault injection framework (D1-D9 FaultInjector + DetectionCampaign orchestrator with three-tier comparison and CI computation)
+- [ ] 03-02-PLAN.md -- Execute D1-D9 injection campaign + clean campaign + produce violation report with MockLM anchor comparison
 
 ### Phase 4: Compaction Survival Measurement
 
