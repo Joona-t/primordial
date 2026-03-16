@@ -1,0 +1,668 @@
+{
+  "timestamp": "2026-03-16T01:49:53.817763+00:00",
+  "injection_summary": {
+    "detection_rates": {
+      "per_type": {
+        "D1": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 10,
+            "total": 10,
+            "rate": 1.0,
+            "ci_95": [
+              0.6915028921812392,
+              1.0
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D2": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 10,
+            "total": 10,
+            "rate": 1.0,
+            "ci_95": [
+              0.6915028921812392,
+              1.0
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D3": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D4": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D5": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 10,
+            "total": 10,
+            "rate": 1.0,
+            "ci_95": [
+              0.6915028921812392,
+              1.0
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D6": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D7": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D8": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D9": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 10,
+            "total": 10,
+            "rate": 1.0,
+            "ci_95": [
+              0.6915028921812392,
+              1.0
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        }
+      },
+      "aggregate": {
+        "n": 90,
+        "uninstrumented": {
+          "detected": 0,
+          "total": 90,
+          "rate": 0.0,
+          "ci_95": [
+            0.0,
+            0.04015891961577464
+          ],
+          "ci_method": "clopper_pearson"
+        },
+        "structured": {
+          "detected": 0,
+          "total": 90,
+          "rate": 0.0,
+          "ci_95": [
+            0.0,
+            0.04015891961577464
+          ],
+          "ci_method": "clopper_pearson"
+        },
+        "forge": {
+          "detected": 40,
+          "total": 90,
+          "rate": 0.4444444444444444,
+          "ci_95": [
+            0.34444444444444444,
+            0.5444444444444444
+          ],
+          "ci_method": "bootstrap"
+        }
+      },
+      "differentials": {
+        "delta_forge_uninstrumented": 0.4444444444444444,
+        "delta_forge_structured": 0.4444444444444444
+      },
+      "d7_d9_new_findings": {
+        "D7": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D8": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        },
+        "D9": {
+          "n": 10,
+          "uninstrumented": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "structured": {
+            "detected": 0,
+            "total": 10,
+            "rate": 0.0,
+            "ci_95": [
+              0.0,
+              0.3084971078187608
+            ],
+            "ci_method": "clopper_pearson"
+          },
+          "forge": {
+            "detected": 10,
+            "total": 10,
+            "rate": 1.0,
+            "ci_95": [
+              0.6915028921812392,
+              1.0
+            ],
+            "ci_method": "clopper_pearson"
+          }
+        }
+      }
+    },
+    "total_injections": 90,
+    "fault_types_tested": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9"
+    ]
+  },
+  "clean_summary": {
+    "n_runs": 30,
+    "total_errors": 0,
+    "false_positive_rate": 0.0,
+    "fpr_ci_95": [
+      0.0,
+      0.11570330822202778
+    ],
+    "fpr_ci_method": "clopper_pearson",
+    "fpr_warning": null,
+    "natural_violation_candidates": [],
+    "error_counts_per_run": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "anchor_comparison": {
+    "ref": "ref-mock-experiment",
+    "mocklm_ceiling": "6/6 (100%)",
+    "d1_d6_aggregate_rate": 0.5,
+    "d1_d6_aggregate": "30/60",
+    "d1_d6_per_type": {
+      "D1": {
+        "rate": 1.0,
+        "detected": 10,
+        "total": 10,
+        "mocklm_expected": "ForgeNullError"
+      },
+      "D2": {
+        "rate": 1.0,
+        "detected": 10,
+        "total": 10,
+        "mocklm_expected": "ForgeRefError"
+      },
+      "D3": {
+        "rate": 0.0,
+        "detected": 0,
+        "total": 10,
+        "mocklm_expected": "ForgeChamberError"
+      },
+      "D4": {
+        "rate": 0.0,
+        "detected": 0,
+        "total": 10,
+        "mocklm_expected": "ForgeChamberError"
+      },
+      "D5": {
+        "rate": 1.0,
+        "detected": 10,
+        "total": 10,
+        "mocklm_expected": "ForgeChamberError"
+      },
+      "D6": {
+        "rate": 0.0,
+        "detected": 0,
+        "total": 10,
+        "mocklm_expected": "ForgeChamberError"
+      }
+    },
+    "gap_analysis": {
+      "missed_types": [
+        "D3",
+        "D4",
+        "D6"
+      ],
+      "explanation": "MockLM catches D1-D6 at registration time (live validation). Post-hoc validate_chamber() does not re-check hash integrity (D3), ref correctness beyond existence (D4), or state transition legality (D6). This is a real coverage gap in the post-hoc validation pathway."
+    }
+  },
+  "methodology": {
+    "n_injections_per_type": 10,
+    "n_clean_runs": 30,
+    "seed": 42,
+    "ci_method": "bootstrap_95pct (B=10000, seed=42) or clopper_pearson_exact",
+    "data_source": "/Users/darkfire/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl",
+    "task_corpus": [
+      "openclaw"
+    ]
+  },
+  "separated": {
+    "injected_detections_count": 80,
+    "natural_detections_count": 0,
+    "natural_detections": []
+  },
+  "d7_d9_new_findings": {
+    "D7": {
+      "n": 10,
+      "uninstrumented": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      },
+      "structured": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      },
+      "forge": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      }
+    },
+    "D8": {
+      "n": 10,
+      "uninstrumented": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      },
+      "structured": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      },
+      "forge": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      }
+    },
+    "D9": {
+      "n": 10,
+      "uninstrumented": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      },
+      "structured": {
+        "detected": 0,
+        "total": 10,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.3084971078187608
+        ],
+        "ci_method": "clopper_pearson"
+      },
+      "forge": {
+        "detected": 10,
+        "total": 10,
+        "rate": 1.0,
+        "ci_95": [
+          0.6915028921812392,
+          1.0
+        ],
+        "ci_method": "clopper_pearson"
+      }
+    }
+  }
+}

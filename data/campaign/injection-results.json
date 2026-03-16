@@ -1,0 +1,2271 @@
+{
+  "metadata": {
+    "seed": 42,
+    "n_injections_per_type": 10,
+    "total_injections": 90,
+    "fault_types": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9"
+    ],
+    "data_source": "/Users/darkfire/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl"
+  },
+  "results": [
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 4,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[4].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 11,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[11].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 34,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[34].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 13,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[13].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 3,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[3].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 24,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[24].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 9,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[9].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 26,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[26].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 31,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[31].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D1",
+      "task_id": "openclaw",
+      "stage_index": 12,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[12].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D1"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 6,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[6].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[6].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[6].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[6].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[6].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[6].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 18,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[18].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[18].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 37,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[37].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[37].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[37].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[37].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[37].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[37].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 19,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[19].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[19].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[19].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[19].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[19].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[19].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 23,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[23].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[23].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[23].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[23].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[23].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[23].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 24,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[24].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[24].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[24].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[24].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[24].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[24].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 3,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[3].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[3].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[3].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[3].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[3].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[3].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 39,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[39].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[39].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[39].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[39].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[39].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[39].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 32,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[32].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[32].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[32].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[32].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[32].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[32].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D2",
+      "task_id": "openclaw",
+      "stage_index": 18,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "REF.REF_UNRESOLVED",
+      "forge_error_detail": "resolved ref is missing from artifact index",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].artifact.refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].summary.source_refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "resolved ref is missing from artifact index",
+            "path": "stages[18].summary.source_refs[1]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:phantom:r1' not in chamber artifact_index",
+            "path": "stages[18].artifact.refs[0]"
+          },
+          {
+            "code": "REF.REF_UNRESOLVED",
+            "message": "Ref 'artifact:ghost:stage:specter:r1' not in chamber artifact_index",
+            "path": "stages[18].artifact.refs[1]"
+          }
+        ],
+        "detection_mechanism": "ref_resolution_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D2"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 16,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 36,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 15,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 6,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 36,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 39,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 14,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 35,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D3",
+      "task_id": "openclaw",
+      "stage_index": 7,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D3 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D3"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 36,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 2,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 34,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 32,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 15,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 2,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 19,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 20,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D4",
+      "task_id": "openclaw",
+      "stage_index": 39,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D4 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D4"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 27,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[27].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 31,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[31].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 2,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[2].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 11,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[11].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 38,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[38].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 14,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[14].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 34,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[34].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 12,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[12].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 25,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[25].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D5",
+      "task_id": "openclaw",
+      "stage_index": 20,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ABSENCE.MISSING_STATE_LABEL",
+      "forge_error_detail": "output is empty but output_state is missing",
+      "verification": {
+        "verified": true,
+        "original_valid": true,
+        "injected_invalid": true,
+        "errors": [
+          {
+            "code": "ABSENCE.MISSING_STATE_LABEL",
+            "message": "output is empty but output_state is missing",
+            "path": "stages[20].artifact.output"
+          }
+        ],
+        "detection_mechanism": "null_discipline_check",
+        "gap_identified": false,
+        "gap_reason": null,
+        "fault_type": "D5"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 5,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 3,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 7,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 34,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 7,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 9,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 34,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 32,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 21,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D6",
+      "task_id": "openclaw",
+      "stage_index": 3,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D6 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D6"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 22,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 13,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 26,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 3,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 29,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 35,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 7,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 1,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D7",
+      "task_id": "openclaw",
+      "stage_index": 19,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D7 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D7"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 26,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 11,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 27,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 8,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 2,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 14,
+      "position": "middle",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 39,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 8,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 38,
+      "position": "late",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D8",
+      "task_id": "openclaw",
+      "stage_index": 7,
+      "position": "early",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": false,
+      "forge_error_type": null,
+      "forge_error_detail": null,
+      "verification": {
+        "verified": false,
+        "original_valid": true,
+        "injected_invalid": false,
+        "errors": [],
+        "detection_mechanism": null,
+        "gap_identified": true,
+        "gap_reason": "validate_chamber() returned no errors for D8 injection. The corrupted artifact passes all current validation checks.",
+        "fault_type": "D8"
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    },
+    {
+      "fault_type": "D9",
+      "task_id": "openclaw",
+      "stage_index": 0,
+      "position": "post-seal",
+      "uninstrumented_detected": false,
+      "structured_detected": false,
+      "forge_detected": true,
+      "forge_error_type": "ForgeChamberError",
+      "forge_error_detail": "Sealed chamber",
+      "verification": {
+        "d9_seal_enforced": true
+      }
+    }
+  ]
+}
