@@ -5,23 +5,23 @@
 See: .gpd/PROJECT.md
 
 **Core research question:** Can typed absence, explicit provenance, and recoverable compaction prevent silent state loss in real long-running autonomous agents?
-**Current focus:** Phase 3 complete. Ready for verification then Phase 4.
+**Current focus:** Phase 4 complete. Ready for verification then Phase 5.
 
 ## Current Position
 
-**Current Phase:** 3 (complete)
-**Current Phase Name:** Violation Detection Campaign
+**Current Phase:** 4 (complete)
+**Current Phase Name:** Compaction Survival Measurement
 **Total Phases:** 5
 **Current Plan:** 2/2 (all complete)
 **Total Plans in Phase:** 2
-**Status:** Phase 3 complete
-**Last Activity:** 2026-03-16 — Phase 3 execution complete (both plans passed, campaign results approved)
+**Status:** Phase 4 complete
+**Last Activity:** 2026-03-16 — Phase 4 execution complete (both plans passed, compaction results approved)
 
-**Progress:** [██████░░░░] 60%
+**Progress:** [████████░░] 80%
 
 ## Active Calculations
 
-None (Phase 3 complete, Phase 4 not started).
+None (Phase 4 complete, Phase 5 not started).
 
 ## Intermediate Results
 
@@ -44,6 +44,20 @@ None (Phase 3 complete, Phase 4 not started).
 - **FPR:** 0.0% (0/30, CP upper bound 11.6%)
 - **Differential:** forge - uninstrumented = +0.444, CI excludes zero
 - **Three-tier ordering:** holds for all 9 fault types
+- **Compaction harness:** tools/compaction_harness.py — CompactionSnapshot, classify_refs, measure_reachability, simulate_compaction, violation_regression, run_compaction_measurement
+- **Harness tests:** tools/test_compaction_harness.py — 49 tests, all passing
+- **Pre-compaction reachability:** 1.0 (matches Phase 2 baseline and MockLM ceiling)
+- **Structural_reachability monotonicity:** verified at deletion fractions 0.0, 0.1, 0.3, 0.5, 0.7, 0.9
+- **Violation regression:** D1/D2/D5/D9 all detected (100% pass)
+- **Total test count:** 453 (404 existing + 49 new compaction harness tests)
+- **Simulated LLM compaction campaign:** 3 chambers x 9 deletion fractions (0.1-0.9)
+- **Pre-compaction reachability:** 1.0 (Phase 2 + MockLM anchor match, gap=0)
+- **Structural reachability degradation:** 0.932 (10%) -> 0.821 (50%) -> 0.250 (90%), monotonic
+- **Backtracking threshold (0.5):** crossed at 80% deletion (struct_reach=0.4375)
+- **Degraded refs:** 0 at all fractions (simulated deletion is binary)
+- **Violation regression post-compaction:** D1/D2/D5/D9 all detected (100%)
+- **Forbidden proxy audit:** fp-short-tasks partially addressed, fp-shallow-traces rejected (depth=21)
+- **Compaction report:** docs/compaction-report.md (human-readable), data/compaction/compaction-report.json (machine-readable)
 
 ## Open Questions
 
@@ -73,6 +87,8 @@ None (Phase 3 complete, Phase 4 not started).
 - [Phase 3]: CC-009: Post-hoc injection approach reveals architectural gap vs MockLM registration-time detection (3/6 D1-D6 vs 6/6). Gap is real, not a bug.
 - [Phase 3]: CC-010: D7/D8 gaps are findings about forge coverage limitations, not test failures. D7 may be fundamentally undetectable by structural validation.
 - [Phase 3]: CC-011: Accepted negative finding on natural violations. Forge mechanism proven on injected faults; natural violations are zero on this sample (0/30 clean runs, CP upper bound 11.6%).
+- [Phase 4]: CC-012: BFS reachability measures internal connectivity; structural_reachability from classify_refs captures provenance breakage. Both reported.
+- [Phase 4]: CC-013: Structural_reachability is the sensitive compaction metric (BFS stays 1.0 for linear chains). Both metrics reported; downstream should use structural_reachability.
 
 ### Active Approximations
 
