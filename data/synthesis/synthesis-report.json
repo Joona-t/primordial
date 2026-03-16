@@ -1,0 +1,191 @@
+{
+  "generated": "2026-03-16T03:54:56.922500+00:00",
+  "source_files": {
+    "campaign": "/Users/darkfire/forge/primordial/data/campaign/campaign-report.json",
+    "compaction": "/Users/darkfire/forge/primordial/data/compaction/compaction-report.json",
+    "baselines": "/Users/darkfire/forge/primordial/data/baselines/baseline-report.json"
+  },
+  "side_by_side_table": [
+    {
+      "observable": "Violation detection (D1-D6 types)",
+      "mockLM_ceiling": "6/6",
+      "uninstrumented_floor": "0/6",
+      "structured_logging": "0/6",
+      "forge_instrumented": "3/6",
+      "gap_ceiling_forge": "3 types",
+      "differential_forge_floor": "+3 types",
+      "source_file": "/Users/darkfire/forge/primordial/data/campaign/campaign-report.json",
+      "source_field": "injection_summary.detection_rates.per_type.{D1..D6}.forge.rate"
+    },
+    {
+      "observable": "Violation detection (all D1-D9)",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "0/9",
+      "structured_logging": "0/9",
+      "forge_instrumented": "4/9",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "+4 types",
+      "source_file": "/Users/darkfire/forge/primordial/data/campaign/campaign-report.json",
+      "source_field": "injection_summary.detection_rates.per_type.{D1..D9}.forge.rate"
+    },
+    {
+      "observable": "Aggregate injection detection rate",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "0.0",
+      "structured_logging": "0.0",
+      "forge_instrumented": "0.4444444444444444 [0.34444444444444444, 0.5444444444444444]",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "+0.4444444444444444",
+      "source_file": "/Users/darkfire/forge/primordial/data/campaign/campaign-report.json",
+      "source_field": "injection_summary.detection_rates.aggregate.forge.rate"
+    },
+    {
+      "observable": "Natural violation count",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "0",
+      "structured_logging": "0",
+      "forge_instrumented": "0 (CP UB: 11.6%)",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "0",
+      "source_file": "/Users/darkfire/forge/primordial/data/campaign/campaign-report.json",
+      "source_field": "clean_summary.natural_violation_candidates"
+    },
+    {
+      "observable": "False positive rate",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "N/A",
+      "structured_logging": "N/A",
+      "forge_instrumented": "0.0 (CP UB: 11.6%)",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "N/A",
+      "source_file": "/Users/darkfire/forge/primordial/data/campaign/campaign-report.json",
+      "source_field": "clean_summary.false_positive_rate"
+    },
+    {
+      "observable": "Pre-compaction reachability",
+      "mockLM_ceiling": "1.0",
+      "uninstrumented_floor": "0.0",
+      "structured_logging": "N/A",
+      "forge_instrumented": "1.0",
+      "gap_ceiling_forge": "0.0",
+      "differential_forge_floor": "+1.0",
+      "source_file": "/Users/darkfire/forge/primordial/data/compaction/compaction-report.json",
+      "source_field": "pre_compaction_baseline.reachability_fraction"
+    },
+    {
+      "observable": "Structural reachability @ 50% simulated deletion",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "N/A",
+      "structured_logging": "N/A",
+      "forge_instrumented": "0.8214285714285715",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "N/A",
+      "source_file": "/Users/darkfire/forge/primordial/data/compaction/compaction-report.json",
+      "source_field": "deletion_sweep[fraction=0.5].structural_reachability"
+    },
+    {
+      "observable": "Structural reachability @ 80% simulated deletion",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "N/A",
+      "structured_logging": "N/A",
+      "forge_instrumented": "0.4375",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "N/A",
+      "source_file": "/Users/darkfire/forge/primordial/data/compaction/compaction-report.json",
+      "source_field": "deletion_sweep[fraction=0.8].structural_reachability"
+    },
+    {
+      "observable": "Backtracking threshold crossed",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "N/A",
+      "structured_logging": "N/A",
+      "forge_instrumented": "80% deletion",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "N/A",
+      "source_file": "/Users/darkfire/forge/primordial/data/compaction/compaction-report.json",
+      "source_field": "anchor_comparison.backtracking_threshold.structural_crossing_fraction"
+    },
+    {
+      "observable": "Forge trace compression",
+      "mockLM_ceiling": "1.096x",
+      "uninstrumented_floor": "N/A",
+      "structured_logging": "N/A",
+      "forge_instrumented": "1.1959x",
+      "gap_ceiling_forge": "0.0999x",
+      "differential_forge_floor": "N/A",
+      "source_file": "/Users/darkfire/forge/primordial/data/compaction/compaction-report.json",
+      "source_field": "pre_compaction_baseline.compression_ratio"
+    },
+    {
+      "observable": "Provenance depth",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "0",
+      "structured_logging": "N/A",
+      "forge_instrumented": "21",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "+21",
+      "source_file": "/Users/darkfire/forge/primordial/data/baselines/baseline-report.json",
+      "source_field": "tier_metrics.forge_instrumented.provenance_depth.mean"
+    },
+    {
+      "observable": "Violation regression post-compaction",
+      "mockLM_ceiling": "N/A",
+      "uninstrumented_floor": "N/A",
+      "structured_logging": "N/A",
+      "forge_instrumented": "4/4 (100%)",
+      "gap_ceiling_forge": "N/A",
+      "differential_forge_floor": "N/A",
+      "source_file": "/Users/darkfire/forge/primordial/data/compaction/compaction-report.json",
+      "source_field": "violation_regression.all_passed"
+    }
+  ],
+  "gaps": [
+    {
+      "observable": "Violation detection (D1-D6 types)",
+      "ceiling_value": "6/6",
+      "forge_value": "3/6",
+      "gap": 3,
+      "gap_type": "count",
+      "classification": "explained",
+      "explanation": "MockLM catches D3/D4/D6 at registration time (live validation). Post-hoc validate_chamber() misses hash re-verification (D3), ref correctness beyond existence (D4), and state transition legality (D6). Architectural difference, not quality deficiency."
+    },
+    {
+      "observable": "Pre-compaction reachability",
+      "ceiling_value": 1.0,
+      "forge_value": 1.0,
+      "gap": 0.0,
+      "gap_type": "rate",
+      "classification": "zero",
+      "explanation": "Pre-compaction reachability matches MockLM ceiling exactly."
+    },
+    {
+      "observable": "Forge trace compression",
+      "ceiling_value": "1.096x",
+      "forge_value": "1.1959x",
+      "gap": 0.0999,
+      "gap_type": "ratio",
+      "classification": "explained",
+      "explanation": "MockLM compression measured on controlled test data (1.096x). Real forge compression on OpenClaw ledger (1.1959x) uses different data structure with higher repetition. Gap of 0.0999x reflects data composition differences, not forge degradation."
+    }
+  ],
+  "mockLM_ceiling": {
+    "detection_d1_d6": "6/6",
+    "reachability": 1.0,
+    "compression": "1.096x",
+    "source": "tools/experiment_results.json (ref-mock-experiment)"
+  },
+  "consistency_checks": {
+    "three_tier_ordering": true,
+    "pre_compaction_match": true,
+    "detection_rate_sum": true,
+    "detection_rate_sum_detail": {
+      "sum_per_type": 40,
+      "aggregate": 40
+    },
+    "detection_rate_arithmetic": true,
+    "detection_rate_arithmetic_detail": {
+      "expected": 0.4444444444444444,
+      "actual": 0.4444444444444444
+    }
+  }
+}
