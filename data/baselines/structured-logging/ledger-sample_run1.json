@@ -1,0 +1,829 @@
+{
+  "task_id": "ledger-sample",
+  "tier": "all",
+  "baseline_tier": "structured_logging",
+  "run_id": 1,
+  "raw_output": null,
+  "token_count": 2544,
+  "duration_ms": 0.868,
+  "start_timestamp": "2026-03-16T00:44:34Z",
+  "end_timestamp": "2026-03-16T00:44:34Z",
+  "errors": [],
+  "spans": [
+    {
+      "span_id": "4aaee790faec45fb",
+      "name": "turn:ledger-line-1",
+      "start_timestamp": "2026-03-16T00:44:34.350246Z",
+      "end_timestamp": "2026-03-16T00:44:34.350265Z",
+      "duration_ms": 0.02,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 1,
+        "kind": "task.start",
+        "task_id": "t1",
+        "detail": "write_file",
+        "prompt_tokens": 33,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "8a968daa3e094f54",
+      "name": "turn:ledger-line-2",
+      "start_timestamp": "2026-03-16T00:44:34.350278Z",
+      "end_timestamp": "2026-03-16T00:44:34.350291Z",
+      "duration_ms": 0.012,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 2,
+        "kind": "task.done",
+        "task_id": "t1",
+        "ok": true,
+        "prompt_tokens": 21,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "f54eceb4884a489f",
+      "name": "turn:ledger-line-3",
+      "start_timestamp": "2026-03-16T00:44:34.350300Z",
+      "end_timestamp": "2026-03-16T00:44:34.350308Z",
+      "duration_ms": 0.009,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 3,
+        "kind": "task.start",
+        "task_id": "t2",
+        "detail": "exec",
+        "prompt_tokens": 32,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "c5d9fc3256714726",
+      "name": "turn:ledger-line-4",
+      "start_timestamp": "2026-03-16T00:44:34.350315Z",
+      "end_timestamp": "2026-03-16T00:44:34.350322Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 4,
+        "kind": "task.done",
+        "task_id": "t2",
+        "ok": true,
+        "prompt_tokens": 21,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "4db5063ce8c74105",
+      "name": "turn:ledger-line-5",
+      "start_timestamp": "2026-03-16T00:44:34.350329Z",
+      "end_timestamp": "2026-03-16T00:44:34.350336Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 5,
+        "kind": "patch.proposed",
+        "task_id": "20260219_add_queue_ledger_validator.diff",
+        "detail": "patch.proposed",
+        "prompt_tokens": 84,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "79a1de05508844f3",
+      "name": "turn:ledger-line-6",
+      "start_timestamp": "2026-03-16T00:44:34.350342Z",
+      "end_timestamp": "2026-03-16T00:44:34.350349Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 6,
+        "kind": "patch.proposed",
+        "task_id": "20260219_add_queue_ledger_validator.diff",
+        "detail": "patch.proposed",
+        "prompt_tokens": 97,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "05f39fb238bf4ab6",
+      "name": "turn:ledger-line-7",
+      "start_timestamp": "2026-03-16T00:44:34.350355Z",
+      "end_timestamp": "2026-03-16T00:44:34.350362Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 7,
+        "kind": "patch.proposed",
+        "task_id": "STOP",
+        "ok": false,
+        "detail": "NameError(\"name 'validation_status' is not defined\")",
+        "prompt_tokens": 40,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "f36457e429ce417e",
+      "name": "turn:ledger-line-8",
+      "start_timestamp": "2026-03-16T00:44:34.350367Z",
+      "end_timestamp": "2026-03-16T00:44:34.350374Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 8,
+        "kind": "patch.proposed",
+        "task_id": "20260219_add_queue_ledger_validator.diff",
+        "detail": "patch.proposed",
+        "prompt_tokens": 97,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "7435def01d684db4",
+      "name": "turn:ledger-line-9",
+      "start_timestamp": "2026-03-16T00:44:34.350379Z",
+      "end_timestamp": "2026-03-16T00:44:34.350386Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 9,
+        "kind": "patch.failed",
+        "task_id": "20260219_add_queue_ledger_validator.diff",
+        "detail": "apply_or_post_validate_fail",
+        "prompt_tokens": 102,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "858e425e6b794221",
+      "name": "turn:ledger-line-10",
+      "start_timestamp": "2026-03-16T00:44:34.350391Z",
+      "end_timestamp": "2026-03-16T00:44:34.350397Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 10,
+        "kind": "task.start",
+        "task_id": "resume1",
+        "detail": "overnight.resume",
+        "prompt_tokens": 36,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "f98154df6fd84e7e",
+      "name": "turn:ledger-line-11",
+      "start_timestamp": "2026-03-16T00:44:34.350402Z",
+      "end_timestamp": "2026-03-16T00:44:34.350408Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 11,
+        "kind": "task.done",
+        "task_id": "resume1",
+        "ok": true,
+        "prompt_tokens": 23,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "1ecd6e2c66e44c85",
+      "name": "turn:ledger-line-12",
+      "start_timestamp": "2026-03-16T00:44:34.350413Z",
+      "end_timestamp": "2026-03-16T00:44:34.350419Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 12,
+        "kind": "task.start",
+        "task_id": "patch1",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "adc3974113384222",
+      "name": "turn:ledger-line-13",
+      "start_timestamp": "2026-03-16T00:44:34.350424Z",
+      "end_timestamp": "2026-03-16T00:44:34.350431Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 13,
+        "kind": "patch.proposed",
+        "task_id": "20260219_add_queue_ledger_validator.diff",
+        "detail": "patch.proposed",
+        "prompt_tokens": 97,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "4c4e361992964917",
+      "name": "turn:ledger-line-14",
+      "start_timestamp": "2026-03-16T00:44:34.350436Z",
+      "end_timestamp": "2026-03-16T00:44:34.350442Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 14,
+        "kind": "patch.failed",
+        "task_id": "20260219_add_queue_ledger_validator.diff",
+        "detail": "apply_or_post_validate_fail",
+        "prompt_tokens": 102,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "ddc306fbcaa944b9",
+      "name": "turn:ledger-line-15",
+      "start_timestamp": "2026-03-16T00:44:34.350447Z",
+      "end_timestamp": "2026-03-16T00:44:34.350453Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 15,
+        "kind": "task.done",
+        "task_id": "patch1",
+        "ok": false,
+        "detail": "RuntimeError('apply_or_post_validate_fail')",
+        "prompt_tokens": 37,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "2ab3fc12f7bd4fe0",
+      "name": "turn:ledger-line-16",
+      "start_timestamp": "2026-03-16T00:44:34.350458Z",
+      "end_timestamp": "2026-03-16T00:44:34.350463Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 16,
+        "kind": "task.start",
+        "task_id": "resume3",
+        "detail": "overnight.resume",
+        "prompt_tokens": 36,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "6da4a0f95ab1425e",
+      "name": "turn:ledger-line-17",
+      "start_timestamp": "2026-03-16T00:44:34.350468Z",
+      "end_timestamp": "2026-03-16T00:44:34.350474Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 17,
+        "kind": "task.done",
+        "task_id": "resume3",
+        "ok": true,
+        "prompt_tokens": 23,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "9df7ccdda6a040ea",
+      "name": "turn:ledger-line-18",
+      "start_timestamp": "2026-03-16T00:44:34.350479Z",
+      "end_timestamp": "2026-03-16T00:44:34.350484Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 18,
+        "kind": "task.start",
+        "task_id": "patch3",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "b8c768b159024b21",
+      "name": "turn:ledger-line-19",
+      "start_timestamp": "2026-03-16T00:44:34.350489Z",
+      "end_timestamp": "2026-03-16T00:44:34.350496Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 19,
+        "kind": "patch.proposed",
+        "task_id": "20260219T105615Z_add_queue_ledger_validator.diff",
+        "detail": "patch.proposed",
+        "prompt_tokens": 101,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "a85f8f9675c14c02",
+      "name": "turn:ledger-line-20",
+      "start_timestamp": "2026-03-16T00:44:34.350501Z",
+      "end_timestamp": "2026-03-16T00:44:34.350507Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 20,
+        "kind": "patch.failed",
+        "task_id": "20260219T105615Z_add_queue_ledger_validator.diff",
+        "detail": "apply_or_post_validate_fail",
+        "prompt_tokens": 106,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "6e2d81d0913f4f65",
+      "name": "turn:ledger-line-21",
+      "start_timestamp": "2026-03-16T00:44:34.350512Z",
+      "end_timestamp": "2026-03-16T00:44:34.350518Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 21,
+        "kind": "task.done",
+        "task_id": "patch3",
+        "ok": false,
+        "detail": "RuntimeError('apply_or_post_validate_fail')",
+        "prompt_tokens": 37,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "b69c0cc078344903",
+      "name": "turn:ledger-line-22",
+      "start_timestamp": "2026-03-16T00:44:34.350523Z",
+      "end_timestamp": "2026-03-16T00:44:34.350529Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 22,
+        "kind": "task.start",
+        "task_id": "resume4",
+        "detail": "overnight.resume",
+        "prompt_tokens": 36,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "ab7a5762b40247f8",
+      "name": "turn:ledger-line-23",
+      "start_timestamp": "2026-03-16T00:44:34.350533Z",
+      "end_timestamp": "2026-03-16T00:44:34.350539Z",
+      "duration_ms": 0.005,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 23,
+        "kind": "task.done",
+        "task_id": "resume4",
+        "ok": true,
+        "prompt_tokens": 23,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "46ff586818ae491d",
+      "name": "turn:ledger-line-24",
+      "start_timestamp": "2026-03-16T00:44:34.350544Z",
+      "end_timestamp": "2026-03-16T00:44:34.350549Z",
+      "duration_ms": 0.005,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 24,
+        "kind": "task.start",
+        "task_id": "patch4",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "ec8bc6c5d8f84e90",
+      "name": "turn:ledger-line-25",
+      "start_timestamp": "2026-03-16T00:44:34.350554Z",
+      "end_timestamp": "2026-03-16T00:44:34.350560Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 25,
+        "kind": "patch.proposed",
+        "task_id": "20260219T105722Z_add_queue_ledger_validator.diff",
+        "detail": "patch.proposed",
+        "prompt_tokens": 101,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "908d3ecd339a4bfa",
+      "name": "turn:ledger-line-26",
+      "start_timestamp": "2026-03-16T00:44:34.350565Z",
+      "end_timestamp": "2026-03-16T00:44:34.350572Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 26,
+        "kind": "patch.failed",
+        "task_id": "20260219T105722Z_add_queue_ledger_validator.diff",
+        "detail": "apply_or_post_validate_fail",
+        "prompt_tokens": 106,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "243dd9049a32437d",
+      "name": "turn:ledger-line-27",
+      "start_timestamp": "2026-03-16T00:44:34.350578Z",
+      "end_timestamp": "2026-03-16T00:44:34.350584Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 27,
+        "kind": "task.done",
+        "task_id": "patch4",
+        "ok": false,
+        "detail": "RuntimeError('apply_or_post_validate_fail')",
+        "prompt_tokens": 37,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "0537cbe6dcd84400",
+      "name": "turn:ledger-line-28",
+      "start_timestamp": "2026-03-16T00:44:34.350589Z",
+      "end_timestamp": "2026-03-16T00:44:34.350594Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 28,
+        "kind": "task.start",
+        "task_id": "resume5",
+        "detail": "overnight.resume",
+        "prompt_tokens": 36,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "2bca0222e73240c8",
+      "name": "turn:ledger-line-29",
+      "start_timestamp": "2026-03-16T00:44:34.350599Z",
+      "end_timestamp": "2026-03-16T00:44:34.350605Z",
+      "duration_ms": 0.005,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 29,
+        "kind": "task.done",
+        "task_id": "resume5",
+        "ok": true,
+        "prompt_tokens": 23,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "e4ab4eb64cce47b1",
+      "name": "turn:ledger-line-30",
+      "start_timestamp": "2026-03-16T00:44:34.350610Z",
+      "end_timestamp": "2026-03-16T00:44:34.350616Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 30,
+        "kind": "task.start",
+        "task_id": "patch5",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "3303bb49bc2e4352",
+      "name": "turn:ledger-line-31",
+      "start_timestamp": "2026-03-16T00:44:34.350621Z",
+      "end_timestamp": "2026-03-16T00:44:34.350627Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 31,
+        "kind": "task.done",
+        "task_id": "patch5",
+        "ok": false,
+        "detail": "RuntimeError('empty_diff')",
+        "prompt_tokens": 33,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "4b36f21d4b6540e6",
+      "name": "turn:ledger-line-32",
+      "start_timestamp": "2026-03-16T00:44:34.350632Z",
+      "end_timestamp": "2026-03-16T00:44:34.350637Z",
+      "duration_ms": 0.005,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 32,
+        "kind": "task.start",
+        "task_id": "resume6",
+        "detail": "overnight.resume",
+        "prompt_tokens": 36,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "bd1bbcebbc42429e",
+      "name": "turn:ledger-line-33",
+      "start_timestamp": "2026-03-16T00:44:34.350642Z",
+      "end_timestamp": "2026-03-16T00:44:34.350648Z",
+      "duration_ms": 0.005,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 33,
+        "kind": "task.done",
+        "task_id": "resume6",
+        "ok": true,
+        "prompt_tokens": 23,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "dc47a57a09b74092",
+      "name": "turn:ledger-line-34",
+      "start_timestamp": "2026-03-16T00:44:34.350653Z",
+      "end_timestamp": "2026-03-16T00:44:34.350658Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 34,
+        "kind": "task.start",
+        "task_id": "patch6",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "6bab362126874b5f",
+      "name": "turn:ledger-line-35",
+      "start_timestamp": "2026-03-16T00:44:34.350664Z",
+      "end_timestamp": "2026-03-16T00:44:34.350670Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 35,
+        "kind": "patch.rejected",
+        "task_id": "patch.rejected",
+        "detail": "no_change",
+        "prompt_tokens": 66,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "2a5423fbf8254720",
+      "name": "turn:ledger-line-36",
+      "start_timestamp": "2026-03-16T00:44:34.350675Z",
+      "end_timestamp": "2026-03-16T00:44:34.350703Z",
+      "duration_ms": 0.027,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 36,
+        "kind": "task.start",
+        "task_id": "patch6",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "cceda41cce7e410c",
+      "name": "turn:ledger-line-37",
+      "start_timestamp": "2026-03-16T00:44:34.350739Z",
+      "end_timestamp": "2026-03-16T00:44:34.350758Z",
+      "duration_ms": 0.019,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 37,
+        "kind": "patch.rejected",
+        "task_id": "patch.rejected",
+        "detail": "no_change",
+        "prompt_tokens": 66,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "6f0377b27b084dcd",
+      "name": "turn:ledger-line-38",
+      "start_timestamp": "2026-03-16T00:44:34.350766Z",
+      "end_timestamp": "2026-03-16T00:44:34.350774Z",
+      "duration_ms": 0.008,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 38,
+        "kind": "task.start",
+        "task_id": "resume7",
+        "detail": "overnight.resume",
+        "prompt_tokens": 36,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "970ffb68531443a3",
+      "name": "turn:ledger-line-39",
+      "start_timestamp": "2026-03-16T00:44:34.350780Z",
+      "end_timestamp": "2026-03-16T00:44:34.350787Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 39,
+        "kind": "task.done",
+        "task_id": "resume7",
+        "ok": true,
+        "prompt_tokens": 23,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "2f162684eebb42c4",
+      "name": "turn:ledger-line-40",
+      "start_timestamp": "2026-03-16T00:44:34.350795Z",
+      "end_timestamp": "2026-03-16T00:44:34.350801Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 40,
+        "kind": "task.start",
+        "task_id": "patch7",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "31fa0f35ffe146d5",
+      "name": "turn:ledger-line-41",
+      "start_timestamp": "2026-03-16T00:44:34.350806Z",
+      "end_timestamp": "2026-03-16T00:44:34.350813Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 41,
+        "kind": "patch.rejected",
+        "task_id": "patch.rejected",
+        "detail": "no_change",
+        "prompt_tokens": 66,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "c294bcf1e5794ef2",
+      "name": "turn:ledger-line-42",
+      "start_timestamp": "2026-03-16T00:44:34.350819Z",
+      "end_timestamp": "2026-03-16T00:44:34.350826Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 42,
+        "kind": "patch.proposed",
+        "task_id": "20260219T111351Z_ledger_meta_allowlist.diff",
+        "detail": "meta allowlist for queue_ledger",
+        "prompt_tokens": 109,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "4926d814ce974266",
+      "name": "turn:ledger-line-43",
+      "start_timestamp": "2026-03-16T00:44:34.350832Z",
+      "end_timestamp": "2026-03-16T00:44:34.350838Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 43,
+        "kind": "patch.applied",
+        "task_id": "20260219T111351Z_ledger_meta_allowlist.diff",
+        "detail": "applied",
+        "prompt_tokens": 100,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "c0f33506164849bb",
+      "name": "turn:ledger-line-44",
+      "start_timestamp": "2026-03-16T00:44:34.350843Z",
+      "end_timestamp": "2026-03-16T00:44:34.350849Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 44,
+        "kind": "task.start",
+        "task_id": "patch7",
+        "detail": "patch.propose",
+        "prompt_tokens": 35,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "acc69ea9d5f84be0",
+      "name": "turn:ledger-line-45",
+      "start_timestamp": "2026-03-16T00:44:34.350854Z",
+      "end_timestamp": "2026-03-16T00:44:34.350861Z",
+      "duration_ms": 0.006,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 45,
+        "kind": "patch.proposed",
+        "task_id": "20260219T111740Z_add_queue_ledger_validator.diff",
+        "detail": "patch.proposed",
+        "prompt_tokens": 101,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "834437ce228a4d98",
+      "name": "turn:ledger-line-46",
+      "start_timestamp": "2026-03-16T00:44:34.350866Z",
+      "end_timestamp": "2026-03-16T00:44:34.350873Z",
+      "duration_ms": 0.007,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 46,
+        "kind": "patch.applied",
+        "task_id": "20260219T111740Z_add_queue_ledger_validator.diff",
+        "detail": "applied",
+        "prompt_tokens": 96,
+        "completion_tokens": 0
+      }
+    },
+    {
+      "span_id": "e1ed622826474470",
+      "name": "turn:ledger-line-47",
+      "start_timestamp": "2026-03-16T00:44:34.350878Z",
+      "end_timestamp": "2026-03-16T00:44:34.350883Z",
+      "duration_ms": 0.005,
+      "status": "ok",
+      "attributes": {
+        "session_id": "structlog-run-1",
+        "turn_number": 47,
+        "kind": "task.done",
+        "task_id": "patch7",
+        "ok": true,
+        "prompt_tokens": 22,
+        "completion_tokens": 0
+      }
+    }
+  ],
+  "schema_violations": [],
+  "turn_count": 47,
+  "tool_call_count": 0,
+  "payload_bytes": 19049,
+  "provenance": {
+    "reachability_fraction": 0.0,
+    "max_depth": 0,
+    "all_reach_root": false
+  },
+  "violations_detected": 0,
+  "false_alarms": 0
+}

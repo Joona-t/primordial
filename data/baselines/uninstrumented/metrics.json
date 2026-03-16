@@ -1,0 +1,57 @@
+{
+  "tier": "uninstrumented",
+  "run_count": 3,
+  "duration_ms": {
+    "mean": 0.465,
+    "ci_95": [
+      0.204,
+      0.966
+    ],
+    "cv": 0.761
+  },
+  "reachability_fraction": {
+    "mean": 0.0,
+    "ci_95": [
+      0.0,
+      0.0
+    ],
+    "cv": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "provenance_depth": {
+    "mean": 0.0,
+    "values": [
+      0,
+      0,
+      0
+    ]
+  },
+  "payload_bytes": {
+    "mean": 10317.0,
+    "values": [
+      10317,
+      10317,
+      10317
+    ]
+  },
+  "violations_detected": {
+    "mean": 0.0,
+    "values": [
+      0,
+      0,
+      0
+    ]
+  },
+  "schema_violations": {
+    "mean": 0.0,
+    "values": [
+      0,
+      0,
+      0
+    ]
+  }
+}

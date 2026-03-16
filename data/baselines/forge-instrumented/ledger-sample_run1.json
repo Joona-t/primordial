@@ -1,0 +1,44 @@
+{
+  "task_id": "ledger-sample",
+  "tier": "all",
+  "baseline_tier": "forge_instrumented",
+  "run_id": 1,
+  "raw_output": null,
+  "token_count": 0,
+  "duration_ms": 23.353,
+  "start_timestamp": "2026-03-16T00:44:34Z",
+  "end_timestamp": "2026-03-16T00:44:34Z",
+  "errors": [],
+  "payload_bytes": 72312,
+  "vanilla_payload_bytes": 10317,
+  "provenance": {
+    "reachability_fraction": 1.0,
+    "max_depth": 21,
+    "all_reach_root": true
+  },
+  "stage_count": 40,
+  "validation_errors": 0,
+  "trace_verified": true,
+  "hash_match": true,
+  "content_match": true,
+  "overhead": {
+    "compression_ratio": 1.1793,
+    "original_size": 68173,
+    "encoded_size": 57806,
+    "primordial_bytes": 57830,
+    "vanilla_bytes": 10317,
+    "content_bytes": 4211,
+    "absolute_overhead_pct": 1273.31,
+    "vs_vanilla_pct": 460.53,
+    "shared_structures": 54,
+    "ref_replacements": 250
+  },
+  "violations_detected": 0,
+  "false_alarms": 0,
+  "analysis_summary": {
+    "validation_errors": 0,
+    "trace_verified": true,
+    "reversibility_score": 1.0,
+    "stage_count": 40
+  }
+}

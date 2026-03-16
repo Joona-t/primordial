@@ -1,0 +1,350 @@
+{
+  "timestamp": "2026-03-16T00:44:35Z",
+  "methodology": {
+    "data_source": "integration_samples/openclaw/queue_ledger.sample.jsonl",
+    "data_type": "real Zarathustra/OpenClaw queue worker ledger events",
+    "event_count": 47,
+    "n_runs_per_tier": 3,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 42,
+    "tiers": [
+      "uninstrumented",
+      "structured_logging",
+      "forge_instrumented"
+    ]
+  },
+  "tier_metrics": {
+    "uninstrumented": {
+      "tier": "uninstrumented",
+      "run_count": 3,
+      "duration_ms": {
+        "mean": 0.465,
+        "ci_95": [
+          0.204,
+          0.966
+        ],
+        "cv": 0.761
+      },
+      "reachability_fraction": {
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "cv": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "provenance_depth": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "payload_bytes": {
+        "mean": 10317.0,
+        "values": [
+          10317,
+          10317,
+          10317
+        ]
+      },
+      "violations_detected": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "schema_violations": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "structured_logging": {
+      "tier": "structured_logging",
+      "run_count": 3,
+      "duration_ms": {
+        "mean": 0.754,
+        "ci_95": [
+          0.688,
+          0.868
+        ],
+        "cv": 0.1074
+      },
+      "reachability_fraction": {
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "cv": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "provenance_depth": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "payload_bytes": {
+        "mean": 19049.0,
+        "values": [
+          19049,
+          19050,
+          19049
+        ]
+      },
+      "violations_detected": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "schema_violations": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "forge_instrumented": {
+      "tier": "forge_instrumented",
+      "run_count": 3,
+      "duration_ms": {
+        "mean": 21.034,
+        "ci_95": [
+          19.132,
+          23.353
+        ],
+        "cv": 0.0831
+      },
+      "reachability_fraction": {
+        "mean": 1.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "cv": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "provenance_depth": {
+        "mean": 21.0,
+        "values": [
+          21,
+          21,
+          21
+        ]
+      },
+      "payload_bytes": {
+        "mean": 72312.0,
+        "values": [
+          72312,
+          72312,
+          72312
+        ]
+      },
+      "violations_detected": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "schema_violations": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "compression_ratio": {
+        "mean": 1.1793,
+        "ci_95": [
+          1.1793,
+          1.1793
+        ],
+        "cv": 0.0,
+        "values": [
+          1.1793,
+          1.1793,
+          1.1793
+        ]
+      },
+      "vs_vanilla_pct": {
+        "mean": 460.53,
+        "ci_95": [
+          460.53,
+          460.53
+        ],
+        "cv": 0.0,
+        "values": [
+          460.53,
+          460.53,
+          460.53
+        ]
+      },
+      "stage_count": {
+        "mean": 40.0,
+        "values": [
+          40,
+          40,
+          40
+        ]
+      },
+      "validation_errors": {
+        "mean": 0.0,
+        "values": [
+          0,
+          0,
+          0
+        ]
+      },
+      "trace_verified": true,
+      "hash_match": true,
+      "content_match": true
+    }
+  },
+  "cursor_analysis": {
+    "total_cursor_resets": 6,
+    "resets": [
+      {
+        "task_id": "resume1",
+        "timestamp": "2026-02-19T10:54:51.599913Z",
+        "previous_done_at": "2026-02-19T10:36:12.965447Z",
+        "is_resume": true
+      },
+      {
+        "task_id": "resume3",
+        "timestamp": "2026-02-19T10:56:15.594566Z",
+        "previous_done_at": "2026-02-19T10:54:53.375664Z",
+        "is_resume": true
+      },
+      {
+        "task_id": "resume4",
+        "timestamp": "2026-02-19T10:57:22.141372Z",
+        "previous_done_at": "2026-02-19T10:56:17.527186Z",
+        "is_resume": true
+      },
+      {
+        "task_id": "resume5",
+        "timestamp": "2026-02-19T10:58:23.583797Z",
+        "previous_done_at": "2026-02-19T10:57:24.282523Z",
+        "is_resume": true
+      },
+      {
+        "task_id": "resume6",
+        "timestamp": "2026-02-19T11:00:26.781240Z",
+        "previous_done_at": "2026-02-19T10:58:23.718984Z",
+        "is_resume": true
+      },
+      {
+        "task_id": "resume7",
+        "timestamp": "2026-02-19T11:08:06.517465Z",
+        "previous_done_at": "2026-02-19T11:00:26.781798Z",
+        "is_resume": true
+      }
+    ],
+    "resume_resets": 6,
+    "non_resume_resets": 0
+  },
+  "reference_values": {
+    "mocklm_ceiling": {
+      "reachability_fraction": 1.0,
+      "detection_rate": {
+        "detected": 6,
+        "total": 6,
+        "rate": 1.0
+      },
+      "compression_ratio": {
+        "A_linear": 1.0846,
+        "B_tree_recursion": 1.1035,
+        "C_compaction": 1.0997,
+        "mean": 1.0959
+      },
+      "vs_vanilla_pct": {
+        "A_linear": -88.72,
+        "B_tree_recursion": -88.55,
+        "C_compaction": -84.77,
+        "mean": -87.35
+      },
+      "false_positive_rate": 0.0,
+      "source": "tools/experiment_results.json (ref-mock-experiment)"
+    },
+    "vanilla_floor": {
+      "reachability_fraction": 0.0,
+      "violations_detected": 0,
+      "source": "tools/vanilla_baseline_results.json (ref-vanilla-baseline-prior)"
+    }
+  },
+  "comparison": {
+    "reachability_fraction": {
+      "uninstrumented": 0.0,
+      "structured_logging": 0.0,
+      "forge": 1.0,
+      "mocklm_ceiling": 1.0,
+      "forge_ci_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "compression_ratio": {
+      "uninstrumented": null,
+      "structured_logging": null,
+      "forge": 1.1793,
+      "mocklm_ceiling": 1.0959,
+      "forge_ci_95": [
+        1.1793,
+        1.1793
+      ]
+    },
+    "vs_vanilla_pct": {
+      "uninstrumented": 0.0,
+      "structured_logging": null,
+      "forge": 460.53,
+      "mocklm_ceiling": -87.35,
+      "forge_ci_95": [
+        460.53,
+        460.53
+      ]
+    },
+    "detection_rate": {
+      "uninstrumented": 0.0,
+      "structured_logging": 0.0,
+      "forge": 0.0,
+      "mocklm_ceiling": "6/6"
+    },
+    "false_positive_rate": {
+      "uninstrumented": null,
+      "structured_logging": 0.0,
+      "forge": 0.0,
+      "mocklm_ceiling": 0.0
+    }
+  }
+}

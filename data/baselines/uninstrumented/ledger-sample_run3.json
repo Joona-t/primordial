@@ -1,0 +1,25 @@
+{
+  "task_id": "ledger-sample",
+  "tier": "all",
+  "baseline_tier": "uninstrumented",
+  "run_id": 3,
+  "raw_output": null,
+  "token_count": 2567,
+  "duration_ms": 0.204,
+  "start_timestamp": "2026-03-16T00:44:34Z",
+  "end_timestamp": "2026-03-16T00:44:34Z",
+  "errors": [],
+  "event_count": 47,
+  "task_count": 21,
+  "completed_task_count": 13,
+  "failed_task_count": 4,
+  "payload_bytes": 10317,
+  "ledger_events": [],
+  "provenance": {
+    "reachability_fraction": 0.0,
+    "max_depth": 0,
+    "all_reach_root": false
+  },
+  "violations_detected": 0,
+  "false_alarms": 0
+}

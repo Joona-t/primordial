@@ -1,0 +1,102 @@
+{
+  "tier": "forge_instrumented",
+  "run_count": 3,
+  "duration_ms": {
+    "mean": 21.034,
+    "ci_95": [
+      19.132,
+      23.353
+    ],
+    "cv": 0.0831
+  },
+  "reachability_fraction": {
+    "mean": 1.0,
+    "ci_95": [
+      1.0,
+      1.0
+    ],
+    "cv": 0.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "provenance_depth": {
+    "mean": 21.0,
+    "values": [
+      21,
+      21,
+      21
+    ]
+  },
+  "payload_bytes": {
+    "mean": 72312.0,
+    "values": [
+      72312,
+      72312,
+      72312
+    ]
+  },
+  "violations_detected": {
+    "mean": 0.0,
+    "values": [
+      0,
+      0,
+      0
+    ]
+  },
+  "schema_violations": {
+    "mean": 0.0,
+    "values": [
+      0,
+      0,
+      0
+    ]
+  },
+  "compression_ratio": {
+    "mean": 1.1793,
+    "ci_95": [
+      1.1793,
+      1.1793
+    ],
+    "cv": 0.0,
+    "values": [
+      1.1793,
+      1.1793,
+      1.1793
+    ]
+  },
+  "vs_vanilla_pct": {
+    "mean": 460.53,
+    "ci_95": [
+      460.53,
+      460.53
+    ],
+    "cv": 0.0,
+    "values": [
+      460.53,
+      460.53,
+      460.53
+    ]
+  },
+  "stage_count": {
+    "mean": 40.0,
+    "values": [
+      40,
+      40,
+      40
+    ]
+  },
+  "validation_errors": {
+    "mean": 0.0,
+    "values": [
+      0,
+      0,
+      0
+    ]
+  },
+  "trace_verified": true,
+  "hash_match": true,
+  "content_match": true
+}
