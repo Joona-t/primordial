@@ -1,0 +1,1259 @@
+{
+  "methodology": "simulated_compaction_via_programmatic_deletion",
+  "methodology_note": "Simulated LLM compaction uses oldest-first stage deletion. This provides a LOWER BOUND on reachability under real LLM context-window compaction (random deletion is worse than intelligent summarization). Results are analytical predictions, NOT empirical measurements of genuine LLM compaction.",
+  "chambers_measured": 3,
+  "chambers": [
+    {
+      "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+      "stage_count": 40,
+      "status": "sealed"
+    },
+    {
+      "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+      "stage_count": 40,
+      "status": "sealed"
+    },
+    {
+      "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+      "stage_count": 40,
+      "status": "sealed"
+    }
+  ],
+  "pre_compaction": {
+    "reachability_fraction": 1.0,
+    "ci_95": [
+      0.2924017738212866,
+      1.0
+    ],
+    "ci_method": "clopper_pearson",
+    "per_chamber": [
+      {
+        "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+        "chamber_index": 0,
+        "reachability_fraction": 1.0,
+        "reachable_count": 40,
+        "total_count": 40,
+        "max_depth": 21,
+        "stage_count": 40,
+        "artifact_count": 40,
+        "ref_count": 47
+      },
+      {
+        "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+        "chamber_index": 1,
+        "reachability_fraction": 1.0,
+        "reachable_count": 40,
+        "total_count": 40,
+        "max_depth": 21,
+        "stage_count": 40,
+        "artifact_count": 40,
+        "ref_count": 47
+      },
+      {
+        "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+        "chamber_index": 2,
+        "reachability_fraction": 1.0,
+        "reachable_count": 40,
+        "total_count": 40,
+        "max_depth": 21,
+        "stage_count": 40,
+        "artifact_count": 40,
+        "ref_count": 47
+      }
+    ],
+    "compression": [
+      {
+        "chamber_index": 0,
+        "compression_ratio": 1.1959,
+        "original_size": 72287,
+        "encoded_size": 60446,
+        "round_trip_verified": true,
+        "hash_match": true
+      },
+      {
+        "chamber_index": 1,
+        "compression_ratio": 1.1959,
+        "original_size": 72287,
+        "encoded_size": 60446,
+        "round_trip_verified": true,
+        "hash_match": true
+      },
+      {
+        "chamber_index": 2,
+        "compression_ratio": 1.1959,
+        "original_size": 72287,
+        "encoded_size": 60446,
+        "round_trip_verified": true,
+        "hash_match": true
+      }
+    ],
+    "phase2_anchor_confirmed": true
+  },
+  "deletion_sweep": [
+    {
+      "deletion_fraction": 0.1,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.9318181818181818,
+        "ci_95": [
+          0.9318181818181818,
+          0.9318181818181818
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.9318181818181818,
+          0.9318181818181818,
+          0.9318181818181818
+        ]
+      },
+      "ref_classification": {
+        "resolved": 123,
+        "degraded": 0,
+        "broken": 9,
+        "total": 132,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 36.0,
+        "per_chamber": [
+          36,
+          36,
+          36
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 36,
+          "post_total_count": 36,
+          "post_max_depth": 18,
+          "resolved_count": 41,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 44,
+          "structural_reachability": 0.9318181818181818,
+          "semantic_fidelity": 0.9318181818181818,
+          "degradation": 0.0,
+          "stages_remaining": 36,
+          "artifacts_remaining": 36
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 36,
+          "post_total_count": 36,
+          "post_max_depth": 18,
+          "resolved_count": 41,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 44,
+          "structural_reachability": 0.9318181818181818,
+          "semantic_fidelity": 0.9318181818181818,
+          "degradation": 0.0,
+          "stages_remaining": 36,
+          "artifacts_remaining": 36
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 36,
+          "post_total_count": 36,
+          "post_max_depth": 18,
+          "resolved_count": 41,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 44,
+          "structural_reachability": 0.9318181818181818,
+          "semantic_fidelity": 0.9318181818181818,
+          "degradation": 0.0,
+          "stages_remaining": 36,
+          "artifacts_remaining": 36
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.2,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.9250000000000002,
+        "ci_95": [
+          0.9250000000000002,
+          0.9250000000000002
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.925,
+          0.925,
+          0.925
+        ]
+      },
+      "ref_classification": {
+        "resolved": 111,
+        "degraded": 0,
+        "broken": 9,
+        "total": 120,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 32.0,
+        "per_chamber": [
+          32,
+          32,
+          32
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 32,
+          "post_total_count": 32,
+          "post_max_depth": 16,
+          "resolved_count": 37,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 40,
+          "structural_reachability": 0.925,
+          "semantic_fidelity": 0.925,
+          "degradation": 0.0,
+          "stages_remaining": 32,
+          "artifacts_remaining": 32
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 32,
+          "post_total_count": 32,
+          "post_max_depth": 16,
+          "resolved_count": 37,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 40,
+          "structural_reachability": 0.925,
+          "semantic_fidelity": 0.925,
+          "degradation": 0.0,
+          "stages_remaining": 32,
+          "artifacts_remaining": 32
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 32,
+          "post_total_count": 32,
+          "post_max_depth": 16,
+          "resolved_count": 37,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 40,
+          "structural_reachability": 0.925,
+          "semantic_fidelity": 0.925,
+          "degradation": 0.0,
+          "stages_remaining": 32,
+          "artifacts_remaining": 32
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.3,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.9166666666666666,
+        "ci_95": [
+          0.9166666666666666,
+          0.9166666666666666
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.9166666666666666,
+          0.9166666666666666,
+          0.9166666666666666
+        ]
+      },
+      "ref_classification": {
+        "resolved": 99,
+        "degraded": 0,
+        "broken": 9,
+        "total": 108,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 28.0,
+        "per_chamber": [
+          28,
+          28,
+          28
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 28,
+          "post_total_count": 28,
+          "post_max_depth": 14,
+          "resolved_count": 33,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 36,
+          "structural_reachability": 0.9166666666666666,
+          "semantic_fidelity": 0.9166666666666666,
+          "degradation": 0.0,
+          "stages_remaining": 28,
+          "artifacts_remaining": 28
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 28,
+          "post_total_count": 28,
+          "post_max_depth": 14,
+          "resolved_count": 33,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 36,
+          "structural_reachability": 0.9166666666666666,
+          "semantic_fidelity": 0.9166666666666666,
+          "degradation": 0.0,
+          "stages_remaining": 28,
+          "artifacts_remaining": 28
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 28,
+          "post_total_count": 28,
+          "post_max_depth": 14,
+          "resolved_count": 33,
+          "degraded_count": 0,
+          "broken_count": 3,
+          "ref_total": 36,
+          "structural_reachability": 0.9166666666666666,
+          "semantic_fidelity": 0.9166666666666666,
+          "degradation": 0.0,
+          "stages_remaining": 28,
+          "artifacts_remaining": 28
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.4,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.875,
+        "ci_95": [
+          0.875,
+          0.875
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.875,
+          0.875,
+          0.875
+        ]
+      },
+      "ref_classification": {
+        "resolved": 84,
+        "degraded": 0,
+        "broken": 12,
+        "total": 96,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 24.0,
+        "per_chamber": [
+          24,
+          24,
+          24
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 24,
+          "post_total_count": 24,
+          "post_max_depth": 12,
+          "resolved_count": 28,
+          "degraded_count": 0,
+          "broken_count": 4,
+          "ref_total": 32,
+          "structural_reachability": 0.875,
+          "semantic_fidelity": 0.875,
+          "degradation": 0.0,
+          "stages_remaining": 24,
+          "artifacts_remaining": 24
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 24,
+          "post_total_count": 24,
+          "post_max_depth": 12,
+          "resolved_count": 28,
+          "degraded_count": 0,
+          "broken_count": 4,
+          "ref_total": 32,
+          "structural_reachability": 0.875,
+          "semantic_fidelity": 0.875,
+          "degradation": 0.0,
+          "stages_remaining": 24,
+          "artifacts_remaining": 24
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 24,
+          "post_total_count": 24,
+          "post_max_depth": 12,
+          "resolved_count": 28,
+          "degraded_count": 0,
+          "broken_count": 4,
+          "ref_total": 32,
+          "structural_reachability": 0.875,
+          "semantic_fidelity": 0.875,
+          "degradation": 0.0,
+          "stages_remaining": 24,
+          "artifacts_remaining": 24
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.5,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.8214285714285715,
+        "ci_95": [
+          0.8214285714285715,
+          0.8214285714285715
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.8214285714285714,
+          0.8214285714285714,
+          0.8214285714285714
+        ]
+      },
+      "ref_classification": {
+        "resolved": 69,
+        "degraded": 0,
+        "broken": 15,
+        "total": 84,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 20.0,
+        "per_chamber": [
+          20,
+          20,
+          20
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 20,
+          "post_total_count": 20,
+          "post_max_depth": 10,
+          "resolved_count": 23,
+          "degraded_count": 0,
+          "broken_count": 5,
+          "ref_total": 28,
+          "structural_reachability": 0.8214285714285714,
+          "semantic_fidelity": 0.8214285714285714,
+          "degradation": 0.0,
+          "stages_remaining": 20,
+          "artifacts_remaining": 20
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 20,
+          "post_total_count": 20,
+          "post_max_depth": 10,
+          "resolved_count": 23,
+          "degraded_count": 0,
+          "broken_count": 5,
+          "ref_total": 28,
+          "structural_reachability": 0.8214285714285714,
+          "semantic_fidelity": 0.8214285714285714,
+          "degradation": 0.0,
+          "stages_remaining": 20,
+          "artifacts_remaining": 20
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 20,
+          "post_total_count": 20,
+          "post_max_depth": 10,
+          "resolved_count": 23,
+          "degraded_count": 0,
+          "broken_count": 5,
+          "ref_total": 28,
+          "structural_reachability": 0.8214285714285714,
+          "semantic_fidelity": 0.8214285714285714,
+          "degradation": 0.0,
+          "stages_remaining": 20,
+          "artifacts_remaining": 20
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.6,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.75,
+        "ci_95": [
+          0.75,
+          0.75
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "ref_classification": {
+        "resolved": 54,
+        "degraded": 0,
+        "broken": 18,
+        "total": 72,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 16.0,
+        "per_chamber": [
+          16,
+          16,
+          16
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 16,
+          "post_total_count": 16,
+          "post_max_depth": 8,
+          "resolved_count": 18,
+          "degraded_count": 0,
+          "broken_count": 6,
+          "ref_total": 24,
+          "structural_reachability": 0.75,
+          "semantic_fidelity": 0.75,
+          "degradation": 0.0,
+          "stages_remaining": 16,
+          "artifacts_remaining": 16
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 16,
+          "post_total_count": 16,
+          "post_max_depth": 8,
+          "resolved_count": 18,
+          "degraded_count": 0,
+          "broken_count": 6,
+          "ref_total": 24,
+          "structural_reachability": 0.75,
+          "semantic_fidelity": 0.75,
+          "degradation": 0.0,
+          "stages_remaining": 16,
+          "artifacts_remaining": 16
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 16,
+          "post_total_count": 16,
+          "post_max_depth": 8,
+          "resolved_count": 18,
+          "degraded_count": 0,
+          "broken_count": 6,
+          "ref_total": 24,
+          "structural_reachability": 0.75,
+          "semantic_fidelity": 0.75,
+          "degradation": 0.0,
+          "stages_remaining": 16,
+          "artifacts_remaining": 16
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.7,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.55,
+        "ci_95": [
+          0.55,
+          0.55
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.55,
+          0.55,
+          0.55
+        ]
+      },
+      "ref_classification": {
+        "resolved": 33,
+        "degraded": 0,
+        "broken": 27,
+        "total": 60,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 12.0,
+        "per_chamber": [
+          12,
+          12,
+          12
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 12,
+          "post_total_count": 12,
+          "post_max_depth": 4,
+          "resolved_count": 11,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 20,
+          "structural_reachability": 0.55,
+          "semantic_fidelity": 0.55,
+          "degradation": 0.0,
+          "stages_remaining": 12,
+          "artifacts_remaining": 12
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 12,
+          "post_total_count": 12,
+          "post_max_depth": 4,
+          "resolved_count": 11,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 20,
+          "structural_reachability": 0.55,
+          "semantic_fidelity": 0.55,
+          "degradation": 0.0,
+          "stages_remaining": 12,
+          "artifacts_remaining": 12
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 12,
+          "post_total_count": 12,
+          "post_max_depth": 4,
+          "resolved_count": 11,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 20,
+          "structural_reachability": 0.55,
+          "semantic_fidelity": 0.55,
+          "degradation": 0.0,
+          "stages_remaining": 12,
+          "artifacts_remaining": 12
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.8,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.4375,
+        "ci_95": [
+          0.4375,
+          0.4375
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.4375,
+          0.4375,
+          0.4375
+        ]
+      },
+      "ref_classification": {
+        "resolved": 21,
+        "degraded": 0,
+        "broken": 27,
+        "total": 48,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 8.0,
+        "per_chamber": [
+          8,
+          8,
+          8
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 8,
+          "post_total_count": 8,
+          "post_max_depth": 2,
+          "resolved_count": 7,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 16,
+          "structural_reachability": 0.4375,
+          "semantic_fidelity": 0.4375,
+          "degradation": 0.0,
+          "stages_remaining": 8,
+          "artifacts_remaining": 8
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 8,
+          "post_total_count": 8,
+          "post_max_depth": 2,
+          "resolved_count": 7,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 16,
+          "structural_reachability": 0.4375,
+          "semantic_fidelity": 0.4375,
+          "degradation": 0.0,
+          "stages_remaining": 8,
+          "artifacts_remaining": 8
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 8,
+          "post_total_count": 8,
+          "post_max_depth": 2,
+          "resolved_count": 7,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 16,
+          "structural_reachability": 0.4375,
+          "semantic_fidelity": 0.4375,
+          "degradation": 0.0,
+          "stages_remaining": 8,
+          "artifacts_remaining": 8
+        }
+      ]
+    },
+    {
+      "deletion_fraction": 0.9,
+      "n_chambers": 3,
+      "bfs_reachability": {
+        "mean": 1.0,
+        "ci_95": [
+          0.2924017738212866,
+          1.0
+        ],
+        "method": "clopper_pearson",
+        "per_chamber": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "structural_reachability": {
+        "mean": 0.25,
+        "ci_95": [
+          0.25,
+          0.25
+        ],
+        "method": "bootstrap",
+        "per_chamber": [
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      "ref_classification": {
+        "resolved": 9,
+        "degraded": 0,
+        "broken": 27,
+        "total": 36,
+        "note": "degraded=0 expected for simulated LLM compaction (deletion removes artifacts entirely, does not summarize)"
+      },
+      "degradation": {
+        "mean": 0.0,
+        "per_chamber": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "stages_remaining": {
+        "mean": 4.0,
+        "per_chamber": [
+          4,
+          4,
+          4
+        ]
+      },
+      "per_chamber_detail": [
+        {
+          "chamber_index": 0,
+          "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 4,
+          "post_total_count": 4,
+          "post_max_depth": 1,
+          "resolved_count": 3,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 12,
+          "structural_reachability": 0.25,
+          "semantic_fidelity": 0.25,
+          "degradation": 0.0,
+          "stages_remaining": 4,
+          "artifacts_remaining": 4
+        },
+        {
+          "chamber_index": 1,
+          "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 4,
+          "post_total_count": 4,
+          "post_max_depth": 1,
+          "resolved_count": 3,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 12,
+          "structural_reachability": 0.25,
+          "semantic_fidelity": 0.25,
+          "degradation": 0.0,
+          "stages_remaining": 4,
+          "artifacts_remaining": 4
+        },
+        {
+          "chamber_index": 2,
+          "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+          "post_reachability_fraction": 1.0,
+          "post_reachable_count": 4,
+          "post_total_count": 4,
+          "post_max_depth": 1,
+          "resolved_count": 3,
+          "degraded_count": 0,
+          "broken_count": 9,
+          "ref_total": 12,
+          "structural_reachability": 0.25,
+          "semantic_fidelity": 0.25,
+          "degradation": 0.0,
+          "stages_remaining": 4,
+          "artifacts_remaining": 4
+        }
+      ]
+    }
+  ],
+  "monotonicity_verified": {
+    "structural_reachability": true,
+    "bfs_reachability": true
+  },
+  "violation_regression": {
+    "per_chamber": [
+      {
+        "chamber_index": 0,
+        "chamber_id": "chamber:openclaw:compaction-campaign-00:v1",
+        "per_type": {
+          "D1": {
+            "injected": true,
+            "detected": true
+          },
+          "D2": {
+            "injected": true,
+            "detected": true
+          },
+          "D5": {
+            "injected": true,
+            "detected": true
+          },
+          "D9": {
+            "injected": true,
+            "detected": true
+          }
+        },
+        "regression_passed": true,
+        "types_tested": 4,
+        "types_detected": 4
+      },
+      {
+        "chamber_index": 1,
+        "chamber_id": "chamber:openclaw:compaction-campaign-01:v1",
+        "per_type": {
+          "D1": {
+            "injected": true,
+            "detected": true
+          },
+          "D2": {
+            "injected": true,
+            "detected": true
+          },
+          "D5": {
+            "injected": true,
+            "detected": true
+          },
+          "D9": {
+            "injected": true,
+            "detected": true
+          }
+        },
+        "regression_passed": true,
+        "types_tested": 4,
+        "types_detected": 4
+      },
+      {
+        "chamber_index": 2,
+        "chamber_id": "chamber:openclaw:compaction-campaign-02:v1",
+        "per_type": {
+          "D1": {
+            "injected": true,
+            "detected": true
+          },
+          "D2": {
+            "injected": true,
+            "detected": true
+          },
+          "D5": {
+            "injected": true,
+            "detected": true
+          },
+          "D9": {
+            "injected": true,
+            "detected": true
+          }
+        },
+        "regression_passed": true,
+        "types_tested": 4,
+        "types_detected": 4
+      }
+    ],
+    "all_passed": true,
+    "fault_types_tested": [
+      "D1",
+      "D2",
+      "D5",
+      "D9"
+    ],
+    "note": "D3/D4/D6/D7/D8 gaps are known architectural findings (Phase 3), not regressions to test"
+  },
+  "anchor_comparison": {
+    "mocklm_ceiling": {
+      "source": "tools/experiment_results.json (ref-mock-experiment)",
+      "reachability": 1.0,
+      "forge_trace_compression_pct": 87.0,
+      "pre_compaction_matches": true
+    },
+    "phase2_baseline": {
+      "source": "data/baselines/baseline-report.json",
+      "reachability": 1.0,
+      "compression_ratio": 1.18,
+      "depth": 21,
+      "pre_compaction_matches": true
+    },
+    "backtracking_threshold": {
+      "reachability_floor": 0.5,
+      "bfs_crossing_fraction": null,
+      "structural_crossing_fraction": 0.8,
+      "note": "Fraction at which reachability drops below 0.5"
+    },
+    "per_deletion_fraction": {
+      "0.1": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.9318181818181818,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.06818181818181823,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": true
+      },
+      "0.2": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.9250000000000002,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.07499999999999984,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": true
+      },
+      "0.3": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.9166666666666666,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.08333333333333337,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": true
+      },
+      "0.4": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.875,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.125,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": true
+      },
+      "0.5": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.8214285714285715,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.1785714285714285,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": true
+      },
+      "0.6": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.75,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.25,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": true
+      },
+      "0.7": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.55,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.44999999999999996,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": true
+      },
+      "0.8": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.4375,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.5625,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": false
+      },
+      "0.9": {
+        "bfs_reachability": 1.0,
+        "structural_reachability": 0.25,
+        "gap_to_mocklm_bfs": 0.0,
+        "gap_to_mocklm_structural": 0.75,
+        "above_backtracking_bfs": true,
+        "above_backtracking_structural": false
+      }
+    }
+  },
+  "metadata": {
+    "timestamp": "2026-03-16T03:05:25.517067+00:00",
+    "harness_version": "compaction_harness.py v1 (Plan 04-01)",
+    "seed": 42,
+    "deletion_fractions": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "ci_config": {
+      "bootstrap_B": 10000,
+      "bootstrap_seed": 42,
+      "boundary_method": "clopper_pearson",
+      "interior_method": "bootstrap",
+      "alpha": 0.05
+    },
+    "data_source": "integration_samples/openclaw/queue_ledger.sample.jsonl",
+    "python_version": "3.14.2 (v3.14.2:df793163d58, Dec  5 2025, 12:18:06) [Clang 16.0.0 (clang-1600.0.26.6)]"
+  }
+}
