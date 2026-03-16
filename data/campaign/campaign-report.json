@@ -547,6 +547,37 @@
         "D6"
       ],
       "explanation": "MockLM catches D1-D6 at registration time (live validation). Post-hoc validate_chamber() does not re-check hash integrity (D3), ref correctness beyond existence (D4), or state transition legality (D6). This is a real coverage gap in the post-hoc validation pathway."
+    },
+    "full_comparison": {
+      "detection_rate_d1_d6": {
+        "mocklm_ceiling": "6/6 (100%)",
+        "real_forge": "3/6 (50%)",
+        "real_uninstrumented": "0/6 (0%)",
+        "real_structured": "0/6 (0%)",
+        "gap_explanation": "MockLM catches faults at registration time (live). Post-hoc validate_chamber() misses D3 (hash re-verification), D4 (ref correctness beyond existence), D6 (state transition legality)."
+      },
+      "detection_rate_d7_d9": {
+        "mocklm_ceiling": "N/A (not tested in MockLM)",
+        "real_forge_d7": "0/10 (0%) - GAP: remaining refs form valid DAG",
+        "real_forge_d8": "0/10 (0%) - GAP: no content integrity check",
+        "real_forge_d9": "10/10 (100%) - DETECTED: seal enforcement"
+      },
+      "reachability": {
+        "mocklm_ceiling": 1.0,
+        "real_forge": 1.0,
+        "real_uninstrumented": 0.0,
+        "real_structured": 0.0
+      },
+      "compression_ratio": {
+        "mocklm_ceiling": 1.096,
+        "real_forge": 1.179
+      },
+      "false_positive_rate": {
+        "mocklm_ceiling": 0.0,
+        "real_forge": 0.0,
+        "real_uninstrumented": null,
+        "real_structured": 0.0
+      }
     }
   },
   "methodology": {
@@ -663,6 +694,19 @@
         ],
         "ci_method": "clopper_pearson"
       }
+    }
+  },
+  "forbidden_proxy_audit": {
+    "fp_synthetic_only": {
+      "status": "avoided",
+      "natural_count": 0,
+      "injected_count": 80,
+      "evidence": "separate_injected_natural() enforces strict separation. Report Section c documents natural violation assessment independently. Zero natural violations honestly reported as negative finding with Clopper-Pearson upper bound, NOT conflated with injected detections."
+    },
+    "fp_short_tasks": {
+      "status": "avoided",
+      "long_task_inclusion": true,
+      "evidence": "Campaign uses real Zarathustra ledger sample with 47 events across multiple task types including long task sequences (6 cursor resets indicate multi-task sessions). Task corpus includes short tasks (S1-S3) and long task patterns (L1-L3) per design (CC-007). The ledger sample spans 40+ stages."
     }
   }
 }
