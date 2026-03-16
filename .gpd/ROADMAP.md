@@ -180,11 +180,12 @@ Plans:
 
 **Backtracking trigger:** If synthesis reveals that forbidden proxies were not actually avoided (e.g., all tasks were short, all violations were synthetic), the relevant measurement phase must be re-run with corrected task design before synthesis can conclude.
 
-**Plans:** TBD
+**Plans:** 2 plans
 
 Plans:
 
-- [ ] 05-01: TBD
+- [ ] 05-01-PLAN.md -- Build synthesis script: programmatic side-by-side table from JSON data (MockLM ceiling | uninstrumented | structured | forge | gap | differential), validation tests, dual JSON+Markdown output
+- [ ] 05-02-PLAN.md -- Write cross-reference report: RQ verdicts (PASS/PARTIAL/PARTIAL), gap analysis, forbidden proxy retrospective audit, stop/rethink evaluation, limitations, future work
 
 ## Risk Register
 
