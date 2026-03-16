@@ -154,12 +154,12 @@ Plans:
 
 **Backtracking trigger:** If provenance chains break systematically under real compaction (reachability drops below 50% with no clear mitigation path), this triggers the stop/rethink condition: "Compaction grounding proves too brittle to preserve meaningful return paths." Report as a negative finding on RQ3 and assess whether partial mitigation (e.g., pre-compaction checkpointing) is viable before concluding.
 
-**Plans:** TBD
+**Plans:** 2 plans
 
 Plans:
 
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md -- Build compaction measurement harness: pre/post snapshots, three-tier ref classifier, BFS reachability, simulated compaction, violation regression
+- [ ] 04-02-PLAN.md -- Execute simulated compaction campaign on Phase 2 chambers and produce compaction report with MockLM anchor comparison
 
 ### Phase 5: Cross-Reference and Synthesis
 
