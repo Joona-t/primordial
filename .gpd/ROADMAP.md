@@ -44,7 +44,7 @@ This roadmap validates whether typed absence, explicit provenance, and recoverab
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Ontology Formalization and Verification** - Formally specify and verify the 8-state absence ontology with complete transition rules and property-based tests
-- [ ] **Phase 2: Integration and Baseline Establishment** - Instrument Zarathustra with forge tools and establish uninstrumented + structured-logging baselines on real tasks
+- [x] **Phase 2: Integration and Baseline Establishment** - Instrument Zarathustra with forge tools and establish uninstrumented + structured-logging baselines on real tasks
 - [ ] **Phase 3: Violation Detection Campaign** - Measure whether forge detects structural failures missed by uninstrumented and structured-logging baselines on real tasks
 - [ ] **Phase 4: Compaction Survival Measurement** - Measure provenance chain survival through real context-window compaction with structural reachability analysis
 - [ ] **Phase 5: Cross-Reference and Synthesis** - Integrate results across all phases, compare against MockLM ceiling, and assess all three research questions
@@ -102,10 +102,10 @@ Plans:
 
 Plans:
 
-- [ ] 02-01-PLAN.md -- Characterize target runtime LLM compaction mechanism and resolve Zarathustra identity (INTG-02)
-- [ ] 02-02-PLAN.md -- Build forge-to-runtime integration adapter following PrimordialRLM pattern (INTG-01)
-- [ ] 02-03-PLAN.md -- Design real-task corpus and build measurement framework + structured logging baseline (BASE-01/BASE-02 prep)
-- [ ] 02-04-PLAN.md -- Execute three-tier baseline measurement on real task set and produce comparison report (BASE-01 + BASE-02)
+- [x] 02-01-PLAN.md -- Characterize OpenClaw queue worker compaction mechanism and resolve Zarathustra identity (INTG-02)
+- [x] 02-02-PLAN.md -- Build forge-to-OpenClaw adapter with 4 interception points, 53 new tests (INTG-01)
+- [x] 02-03-PLAN.md -- Design real-task corpus (3 short + 3 long coding tasks) and build measurement framework + structured logging baseline (BASE-01/BASE-02 prep)
+- [x] 02-04-PLAN.md -- Execute three-tier baseline measurement on real ledger data and produce comparison report (BASE-01 + BASE-02)
 
 ### Phase 3: Violation Detection Campaign
 
@@ -204,7 +204,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 | --- | --- | --- | --- |
 | 1. Ontology Formalization | 2/2 | Complete | 2026-03-16 |
-| 2. Integration and Baselines | 0/TBD | Not started | - |
+| 2. Integration and Baselines | 4/4 | Complete | 2026-03-16 |
 | 3. Violation Detection | 0/TBD | Not started | - |
 | 4. Compaction Survival | 0/TBD | Not started | - |
 | 5. Cross-Reference and Synthesis | 0/TBD | Not started | - |
