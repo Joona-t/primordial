@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A formal systems research project investigating whether typed absence, explicit provenance, and recoverable compaction can prevent silent state loss in long-running autonomous agents. The project has a working prototype (forge tools with 103 passing tests on MockLM) and aims to validate these protocols on a real agent runtime (Zarathustra/OpenClaw) under genuine context pressure.
+A formal systems research project investigating whether typed absence, explicit provenance, and recoverable compaction can prevent silent state loss in long-running autonomous agents. v1.0 validated the forge protocol suite on the OpenClaw agent runtime using post-hoc JSONL ledger analysis, establishing that the 8-state absence ontology is formally sound (PASS), violation detection works on injected faults but zero natural violations were observed (PARTIAL), and structural provenance reachability degrades gracefully under simulated compaction (PARTIAL). The project has 453 passing tests, a complete measurement pipeline, and honest negative findings.
 
 ## Core Research Question
 
@@ -64,25 +64,28 @@ Can typed absence, explicit provenance, and recoverable compaction prevent silen
 
 ### Open Contract Questions
 
-- What specific real tasks constitute a sufficient stress test for compaction?
-- Should timed_out and interrupted be distinct absence states?
-- Should recoverability be binary or graded?
+- ~~What specific real tasks constitute a sufficient stress test for compaction?~~ RESOLVED v1.0: Coding/patching tasks from real Zarathustra workflows; fp-short-tasks remains partially unresolved (simulated compaction only)
+- ~~Should timed_out and interrupted be distinct absence states?~~ RESOLVED v1.0 Phase 1: NOT added; metadata enrichment sufficient (CC-002)
+- ~~Should recoverability be binary or graded?~~ RESOLVED v1.0 Phase 1: Binary for now; graded deferred as metadata (CC-003)
 
 ## Research Questions
 
 ### Answered
 
-(None yet — investigate to answer)
+- [x] RQ1: Can absence be formalized as a useful computational ontology rather than an implementation accident? — **PASS** (v1.0): 8-state ontology formalized with 64-entry transition table, 300K adversarial transitions with 0 violations, 99% mutation score
+- [~] RQ2: Do typed absence and provenance-preserving protocols detect structural failures missed by ordinary logging and summary-based memory? — **PARTIAL** (v1.0): 44.4% detection on D1-D9 injected faults, 0% FPR, but zero natural violations observed (0/30, CP upper bound 11.6%). Mechanism proven; real-world incidence unknown.
+- [~] RQ3: Can history be compacted while preserving grounded return paths to source artifacts? — **PARTIAL** (v1.0): Structural reachability degrades gracefully (0.93→0.25 over 10-90% simulated deletion), backtracking at 80%. Simulated compaction only — genuine LLM compaction untested.
 
 ### Active
 
-- [ ] RQ1: Can absence be formalized as a useful computational ontology rather than an implementation accident?
-- [ ] RQ2: Do typed absence and provenance-preserving protocols detect structural failures missed by ordinary logging and summary-based memory?
-- [ ] RQ3: Can history be compacted while preserving grounded return paths to source artifacts?
+- [ ] RQ2b: Do natural violations occur at detectable rates on longer/harder real agent tasks?
+- [ ] RQ3b: Does structural reachability hold under genuine LLM context-window compaction (not simulated)?
+- [ ] RQ4: Do these gains transfer beyond a single recursive runtime into other agent architectures?
 
 ### Out of Scope
 
-- RQ4: Do these gains transfer beyond a single recursive runtime into other agent architectures? — deferred to future milestone
+- Full semantic reachability measurement (content fidelity behind refs) — needs definition work first
+- Paper writing — deferred to future milestone after RQ2b/RQ3b resolution
 
 ## Research Context
 
@@ -107,13 +110,20 @@ Formal state machines with typed absence ontology. Eight canonical absence state
 
 ### Known Results
 
-- MockLM experiment: 100% provenance reachability, 6/6 deliberate violations caught, 87% trace compression vs vanilla logger
-- 103 passing tests across forge tools
-- Null ontology draft v0 with 8 states and initial transition sketch
+**MockLM anchor (controlled ceiling):**
+- 100% provenance reachability, 6/6 deliberate violations caught, 87% trace compression vs vanilla logger
+
+**v1.0 results (real OpenClaw runtime):**
+- 8-state ontology: 64-entry transition table, 300K adversarial transitions, 0 violations, 99% mutation score
+- OpenClaw adapter: 4 interception points, post-hoc JSONL, 453 passing tests
+- Baselines: uninstrumented reachability=0.0, forge reachability=1.0, compression=1.18x
+- Violation detection: 44.4% aggregate on D1-D9 [CI: 0.344-0.544], 0% FPR, 0 natural violations
+- Compaction: structural reachability 0.93 (10% deletion) → 0.25 (90%), backtracking at 80%
+- Synthesis: RQ1 PASS, RQ2 PARTIAL, RQ3 PARTIAL; no stop/rethink conditions triggered
 
 ### What Is New
 
-Moving from controlled MockLM to real LLM-backed agent runtime under genuine context pressure. Testing whether the protocols hold when compaction is forced by real memory constraints rather than simulated.
+v1.0 moved from controlled MockLM to real OpenClaw agent runtime. Key gaps remaining: no naturally-occurring violations observed (may need longer/harder tasks or larger sample); compaction was simulated only (genuine LLM compaction untested due to opaque inner execution layer).
 
 ### Target Venue
 
@@ -133,7 +143,34 @@ Not applicable (formal systems / software engineering research).
 
 ## Requirements
 
-See `.gpd/REQUIREMENTS.md` for the detailed requirements specification.
+### Validated
+
+- [x] FORM-01: 8-state absence ontology with 64-entry transition table — v1.0
+- [x] FORM-02: Property-based testing (300K transitions, 0 violations; 99% mutation score) — v1.0
+- [x] FORM-03: Ontology design questions resolved (timed_out/interrupted NOT added; binary recoverability) — v1.0
+- [x] INTG-01: Forge-to-OpenClaw adapter (4 interception points, 53 tests) — v1.0
+- [x] INTG-02: Compaction mechanism characterized (semi-transparent, post-hoc JSONL strategy) — v1.0
+- [x] BASE-01: Uninstrumented Zarathustra baseline (reachability=0.0) — v1.0
+- [x] BASE-02: Structured-logging intermediate baseline — v1.0
+- [x] BASE-03: Forge-instrumented baseline (reachability=1.0) — v1.0
+- [x] VIOL-01: Differential detection (+0.444, CI excludes zero) — v1.0
+- [x] VIOL-02: D1-D9 fault injection (90+ injections, 4/9 detected) — v1.0
+- [x] COMP-02: Structural reachability post-compaction (0.93→0.25) — v1.0
+- [x] COMP-03: Compression ratio vs MockLM (1.18x vs 1.10x) — v1.0
+- [x] XREF-01: Side-by-side metrics table vs MockLM — v1.0
+- [x] XREF-02: RQ verdicts (PASS/PARTIAL/PARTIAL) — v1.0
+- [x] XREF-03: Gap analysis with explanations — v1.0
+
+### Partial (negative findings, honestly documented)
+
+- [~] VIOL-03: Natural violation detection — 0/30, CP upper bound 11.6% (negative finding)
+- [~] COMP-01: Real compaction (128K+ tokens) — simulated only, honestly documented
+
+### Active
+
+(None yet — define with `/gpd:new-milestone`)
+
+See `.gpd/milestones/v1.0-REQUIREMENTS.md` for archived v1.0 requirements.
 
 ## Key References
 
@@ -149,10 +186,16 @@ See `.gpd/REQUIREMENTS.md` for the detailed requirements specification.
 
 | Decision | Rationale | Outcome |
 | -------- | --------- | ------- |
-| Violation detection is primary signal over provenance scores | Real-world reliability matters more than perfect metrics | Guides acceptance criteria |
-| Both MockLM and fresh Zarathustra baseline as anchors | Cross-reference between controlled and real conditions | Dual baseline design |
-| System first, paper later | Build and validate before writing up | Paper deferred to future milestone |
+| Violation detection is primary signal over provenance scores | Real-world reliability matters more than perfect metrics | Good: guided honest negative finding on VIOL-03 |
+| Both MockLM and fresh Zarathustra baseline as anchors | Cross-reference between controlled and real conditions | Good: dual baseline enabled gap analysis |
+| System first, paper later | Build and validate before writing up | Good: paper deferred; v1.0 produced honest partial results |
+| CC-001: resolved is REF state, not absence state | Implementation (forge_nulls.py) is ground truth | Good: eliminated documentation ambiguity |
+| CC-002: timed_out/interrupted NOT added | Identical transition rules; metadata sufficient | Good: kept ontology at 8 states |
+| CC-005: Post-hoc JSONL as primary adapter approach | Non-invasive, works across VM boundary | Good: enabled measurement without modifying OpenClaw |
+| CC-009: Post-hoc injection reveals architectural gap | 3/6 D1-D6 post-hoc vs 6/6 MockLM registration-time | Revisit: registration-time detection needed for D3/D4/D6 |
+| CC-011: Accept negative finding on natural violations | Honest reporting over false claims | Good: 0/30 with CI honestly documented |
+| CC-013: structural_reachability over BFS for compaction | BFS stays 1.0 for linear chains; struct_reach sensitive | Good: correct metric selected |
 
 ---
 
-_Last updated: 2025-03-15 after initialization_
+_Last updated: 2026-03-16 after v1.0 milestone_
