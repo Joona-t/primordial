@@ -5,23 +5,23 @@
 See: .gpd/PROJECT.md
 
 **Core research question:** Can typed absence, explicit provenance, and recoverable compaction prevent silent state loss in real long-running autonomous agents?
-**Current focus:** Phase 2 complete. Ready to plan Phase 3.
+**Current focus:** Phase 3 complete. Ready for verification then Phase 4.
 
 ## Current Position
 
-**Current Phase:** 2 (complete)
-**Current Phase Name:** Integration and Baseline Establishment
+**Current Phase:** 3 (complete)
+**Current Phase Name:** Violation Detection Campaign
 **Total Phases:** 5
-**Current Plan:** 4/4 (all complete)
-**Total Plans in Phase:** 4
-**Status:** Phase 2 complete
-**Last Activity:** 2026-03-16 — Phase 2 execution complete (all plans passed, baselines approved)
+**Current Plan:** 2/2 (all complete)
+**Total Plans in Phase:** 2
+**Status:** Phase 3 complete
+**Last Activity:** 2026-03-16 — Phase 3 execution complete (both plans passed, campaign results approved)
 
-**Progress:** [████░░░░░░] 40%
+**Progress:** [██████░░░░] 60%
 
 ## Active Calculations
 
-None (Phase 2 complete, Phase 3 not started).
+None (Phase 3 complete, Phase 4 not started).
 
 ## Intermediate Results
 
@@ -33,6 +33,17 @@ None (Phase 2 complete, Phase 3 not started).
 - **Forge adapter:** tools/openclaw_adapter.py — 4 interception points, post-hoc JSONL primary
 - **Baseline measurements (ledger sample):** uninstrumented reachability=0.0, forge reachability=1.0, forge depth=21, compression=1.18x, cursor resets=6
 - **Measurement framework:** tools/baseline_measurement.py — 5 canonical metrics + bootstrap 95% CIs
+- **Fault injector:** tools/fault_injector.py — 9 injection methods (D1-D9) + verify_injection()
+- **Campaign orchestrator:** tools/detection_campaign.py — 90+ injections, three-tier comparison, CI framework
+- **Post-hoc forge detection:** 4/9 types detected (D1, D2, D5, D9); 5 gaps (D3, D4, D6, D7, D8)
+- **D1-D6 vs MockLM:** 3/6 = 50% post-hoc (gap: D3 hash, D4 ref correctness, D6 transition legality)
+- **Clean FPR:** 0.0 (0/5 runs)
+- **Total test count:** 404 (354 existing + 50 new fault injector/campaign tests)
+- **Campaign detection:** 40/90 = 44.4% aggregate [CI: 0.344, 0.544]; D1/D2/D5/D9 at 100%, D3/D4/D6/D7/D8 at 0%
+- **Natural violations:** 0 (0/30 clean runs, CP upper bound 11.6%) — negative finding, honestly reported
+- **FPR:** 0.0% (0/30, CP upper bound 11.6%)
+- **Differential:** forge - uninstrumented = +0.444, CI excludes zero
+- **Three-tier ordering:** holds for all 9 fault types
 
 ## Open Questions
 
@@ -59,6 +70,9 @@ None (Phase 2 complete, Phase 3 not started).
 - [Phase 2]: CC-006: Task corpus domain = coding/patching (real Zarathustra workflows) — Ledger data confirms OpenClaw does patch propose/validate/apply workflows. User directed: stay with what it actually does.
 - [Phase 2]: CC-007: Task corpus scope = 3 short + 3 long, expandable — Option C scope with Option A domain. Budget is session time (subscription), not per-token.
 - [Phase 2]: CC-008: Benchmark source = real Zarathustra tasks, NOT SWE-bench — User directed: test on this agent's actual failure modes, not external benchmarks.
+- [Phase 3]: CC-009: Post-hoc injection approach reveals architectural gap vs MockLM registration-time detection (3/6 D1-D6 vs 6/6). Gap is real, not a bug.
+- [Phase 3]: CC-010: D7/D8 gaps are findings about forge coverage limitations, not test failures. D7 may be fundamentally undetectable by structural validation.
+- [Phase 3]: CC-011: Accepted negative finding on natural violations. Forge mechanism proven on injected faults; natural violations are zero on this sample (0/30 clean runs, CP upper bound 11.6%).
 
 ### Active Approximations
 
@@ -113,5 +127,5 @@ None
 ## Session Continuity
 
 **Last session:** 2026-03-16
-**Stopped at:** Phase 1 complete. Ready to plan Phase 2.
+**Stopped at:** Phase 3 complete. Ready for Phase 4.
 **Resume file:** —

@@ -45,7 +45,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Ontology Formalization and Verification** - Formally specify and verify the 8-state absence ontology with complete transition rules and property-based tests
 - [x] **Phase 2: Integration and Baseline Establishment** - Instrument Zarathustra with forge tools and establish uninstrumented + structured-logging baselines on real tasks
-- [ ] **Phase 3: Violation Detection Campaign** - Measure whether forge detects structural failures missed by uninstrumented and structured-logging baselines on real tasks
+- [x] **Phase 3: Violation Detection Campaign** - Measure whether forge detects structural failures missed by uninstrumented and structured-logging baselines on real tasks
 - [ ] **Phase 4: Compaction Survival Measurement** - Measure provenance chain survival through real context-window compaction with structural reachability analysis
 - [ ] **Phase 5: Cross-Reference and Synthesis** - Integrate results across all phases, compare against MockLM ceiling, and assess all three research questions
 
@@ -131,8 +131,8 @@ Plans:
 
 Plans:
 
-- [ ] 03-01-PLAN.md -- Build fault injection framework (D1-D9 FaultInjector + DetectionCampaign orchestrator with three-tier comparison and CI computation)
-- [ ] 03-02-PLAN.md -- Execute D1-D9 injection campaign + clean campaign + produce violation report with MockLM anchor comparison
+- [x] 03-01-PLAN.md -- Build fault injection framework (D1-D9 FaultInjector + DetectionCampaign orchestrator with three-tier comparison and CI computation)
+- [x] 03-02-PLAN.md -- Execute D1-D9 injection campaign + clean campaign + produce violation report with MockLM anchor comparison
 
 ### Phase 4: Compaction Survival Measurement
 
@@ -205,6 +205,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | --- | --- | --- | --- |
 | 1. Ontology Formalization | 2/2 | Complete | 2026-03-16 |
 | 2. Integration and Baselines | 4/4 | Complete | 2026-03-16 |
-| 3. Violation Detection | 0/TBD | Not started | - |
+| 3. Violation Detection | 2/2 | Complete | 2026-03-16 |
 | 4. Compaction Survival | 0/TBD | Not started | - |
 | 5. Cross-Reference and Synthesis | 0/TBD | Not started | - |
