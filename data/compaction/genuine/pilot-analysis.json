@@ -1,0 +1,237 @@
+{
+  "pilot_summary": {
+    "mode": "dry-run",
+    "total_trials": 6,
+    "trials_with_compaction": 6,
+    "compaction_event_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "timestamp": "2026-03-28T04:32:07.634456+00:00"
+  },
+  "global_statistics": {
+    "artifact_id_survival": {
+      "mean": 0.25,
+      "min": 0.25,
+      "max": 0.25,
+      "range": 0.0,
+      "n": 6
+    },
+    "structural_reachability": {
+      "mean": 0.25,
+      "min": 0.25,
+      "max": 0.25,
+      "range": 0.0,
+      "n": 6
+    },
+    "degraded_fraction": {
+      "mean": 0.25,
+      "min": 0.25,
+      "max": 0.25,
+      "range": 0.0,
+      "n": 6
+    },
+    "compression_ratio": {
+      "mean": 214.55,
+      "min": 214.55,
+      "max": 214.55,
+      "range": 0.0,
+      "n": 6
+    },
+    "semantic_fidelity": {
+      "mean": 0.0161,
+      "min": 0.0161,
+      "max": 0.0161,
+      "range": 0.0,
+      "n": 6
+    }
+  },
+  "per_category": {
+    "coding": {
+      "artifact_id_survival": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "structural_reachability": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "degraded_fraction": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "compression_ratio": {
+        "mean": 214.55,
+        "min": 214.55,
+        "max": 214.55,
+        "range": 0.0,
+        "n": 2
+      },
+      "semantic_fidelity": {
+        "mean": 0.0161,
+        "min": 0.0161,
+        "max": 0.0161,
+        "range": 0.0,
+        "n": 2
+      }
+    },
+    "debugging": {
+      "artifact_id_survival": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "structural_reachability": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "degraded_fraction": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "compression_ratio": {
+        "mean": 214.55,
+        "min": 214.55,
+        "max": 214.55,
+        "range": 0.0,
+        "n": 2
+      },
+      "semantic_fidelity": {
+        "mean": 0.0161,
+        "min": 0.0161,
+        "max": 0.0161,
+        "range": 0.0,
+        "n": 2
+      }
+    },
+    "specification": {
+      "artifact_id_survival": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "structural_reachability": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "degraded_fraction": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25,
+        "range": 0.0,
+        "n": 2
+      },
+      "compression_ratio": {
+        "mean": 214.55,
+        "min": 214.55,
+        "max": 214.55,
+        "range": 0.0,
+        "n": 2
+      },
+      "semantic_fidelity": {
+        "mean": 0.0161,
+        "min": 0.0161,
+        "max": 0.0161,
+        "range": 0.0,
+        "n": 2
+      }
+    }
+  },
+  "provenance_aware_delta": {
+    "coding": {
+      "survival_delta": 0.0,
+      "reachability_delta": 0.0,
+      "aware_survival": 0.25,
+      "unaware_survival": 0.25,
+      "aware_reachability": 0.25,
+      "unaware_reachability": 0.25
+    },
+    "debugging": {
+      "survival_delta": 0.0,
+      "reachability_delta": 0.0,
+      "aware_survival": 0.25,
+      "unaware_survival": 0.25,
+      "aware_reachability": 0.25,
+      "unaware_reachability": 0.25
+    },
+    "specification": {
+      "survival_delta": 0.0,
+      "reachability_delta": 0.0,
+      "aware_survival": 0.25,
+      "unaware_survival": 0.25,
+      "aware_reachability": 0.25,
+      "unaware_reachability": 0.25
+    }
+  },
+  "anchor_comparisons": {
+    "mockml_ceiling": {
+      "description": "MockLM experiment: 100% reachability, 100% survival (controlled ceiling)",
+      "pilot_mean_survival": 0.25,
+      "pilot_mean_reachability": 0.25,
+      "delta_from_ceiling_survival": -0.75,
+      "delta_from_ceiling_reachability": -0.75
+    },
+    "knowledge_objects": {
+      "description": "Zahn & Chana March 2026: 60% fact loss per LLM compression pass",
+      "expected_survival_if_unstructured": 0.4,
+      "pilot_mean_survival": 0.25,
+      "survival_vs_unstructured": "worse_or_equal"
+    },
+    "v1_simulated": {
+      "description": "v1.0 simulated compaction: reachability 0.93 (10% del) to 0.25 (90% del)",
+      "v1_at_50pct_deletion": 0.82,
+      "pilot_mean_reachability": 0.25,
+      "note": "Comparison requires matching compression ratio from pilot to simulated deletion percentage"
+    }
+  },
+  "tier_distribution": {
+    "resolved": {
+      "count": 0,
+      "fraction": 0.0
+    },
+    "degraded": {
+      "count": 30,
+      "fraction": 0.25
+    },
+    "broken": {
+      "count": 90,
+      "fraction": 0.75
+    }
+  },
+  "go_nogo": {
+    "decision": "BLOCKED",
+    "reason": "Dry-run only \u2014 live API required for go/no-go decision",
+    "criteria": {
+      "pipeline_valid": true,
+      "compaction_fires": true,
+      "metrics_measurable": true,
+      "live_mode": false
+    }
+  }
+}
