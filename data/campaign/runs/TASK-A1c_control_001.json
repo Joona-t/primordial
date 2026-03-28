@@ -1,0 +1,776 @@
+{
+  "run_id": "TASK-A1c_control_001",
+  "task_id": "TASK-A1c",
+  "stress_level": "control",
+  "run_index": 1,
+  "timestamp": "2026-03-28T06:31:02.989247+00:00",
+  "chamber": {
+    "chamber_id": "chamber:campaign:TASK-A1c:control:v1",
+    "schema_version": "forge.internal.v1",
+    "created_at": "2026-03-28T06:31:02.989321+00:00",
+    "status": "sealed",
+    "stages": [
+      {
+        "stage_index": 0,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+        "seat": "agent-step-0",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "c1390726a4b38822dcc6d5092415185a07eafc35e705b3ec44a0c1a14966d6ae"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-0/r1.json",
+          "refs": [],
+          "created_at": "2026-03-28T06:31:02.989445+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-0",
+          "output": "Step 0 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-0:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.989473+00:00",
+          "summary": "Summary of step 0",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "f5a5a0bff8efddbb0241ac3c1bf9242bdb3ce5ce88eb532b9189d949546d2606"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.989501+00:00"
+      },
+      {
+        "stage_index": 1,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+        "seat": "agent-step-1",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "1686520a1b717cde2f6bca55c08cba838fb3794531154eb47bebe5a19083817d"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-1/r1.json",
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+              "state": "resolved"
+            }
+          ],
+          "created_at": "2026-03-28T06:31:02.989618+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-1",
+          "output": "Step 1 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-1:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.989645+00:00",
+          "summary": "Summary of step 1",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "155b7f5bb0db7fb17b162adc1a809acdd914c66ba8d62a7aa814f91db8e80337"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.989675+00:00"
+      },
+      {
+        "stage_index": 2,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+        "seat": "agent-step-2",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "4d8ef99ba6c71393fd9b825717cbad8f53882f0dee86c61a9b57c9503a3a277d"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-2/r1.json",
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+              "state": "resolved"
+            }
+          ],
+          "created_at": "2026-03-28T06:31:02.989792+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-2",
+          "output": "Step 2 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-2:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.989820+00:00",
+          "summary": "Summary of step 2",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "4c612ef97582cf19f460b50fec0b8245db1be6c4904f81924039dd49774e2c7e"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.989851+00:00"
+      },
+      {
+        "stage_index": 3,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+        "seat": "agent-step-3",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "ab8f8491e3617e126424d46f7e4479346ca2a03c4405036a8178cfee4597570e"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-3/r1.json",
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+              "state": "resolved"
+            }
+          ],
+          "created_at": "2026-03-28T06:31:02.989968+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-3",
+          "output": "Step 3 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-3:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.989995+00:00",
+          "summary": "Summary of step 3",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "87174ee7099786c094b24c0adf3c68eaccaf1bdf2446d84c744f56738e97daf3"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.990031+00:00"
+      },
+      {
+        "stage_index": 4,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+        "seat": "agent-step-4",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "1a87a26980e16fce21a40f9bed2e4beb6a2f5bb67b8c44d95c1f0c4ef66dacca"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-4/r1.json",
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+              "state": "resolved"
+            }
+          ],
+          "created_at": "2026-03-28T06:31:02.990147+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-4",
+          "output": "Step 4 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-4:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.990173+00:00",
+          "summary": "Summary of step 4",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "4f66b4ab6ad85e636305ce83d50df15bb6acbe174d851ae82c9bdb7988155134"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.990206+00:00"
+      },
+      {
+        "stage_index": 5,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+        "seat": "agent-step-5",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "83785c45d902e545e3b2590072a7401f9dff464ff50ac1045a60a528e5fc25a0"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-5/r1.json",
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+              "state": "resolved"
+            }
+          ],
+          "created_at": "2026-03-28T06:31:02.990321+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-5",
+          "output": "Step 5 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-5:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.990350+00:00",
+          "summary": "Summary of step 5",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "89496b2deb5832b12938f300d12a4c245cb1b8994abc69479366ae6f61a9b188"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.990380+00:00"
+      },
+      {
+        "stage_index": 6,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+        "seat": "agent-step-6",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "119acb27188033021fe7850ae3502554b6323a4f1f67676b205052e1532dda18"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-6/r1.json",
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+              "state": "resolved"
+            }
+          ],
+          "created_at": "2026-03-28T06:31:02.990499+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-6",
+          "output": "Step 6 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-6:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.990526+00:00",
+          "summary": "Summary of step 6",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "9a8e4460a837d51a9e3180b4de255e729868b3dac6e3a7c7d32a8103244ee8a2"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.990560+00:00"
+      },
+      {
+        "stage_index": 7,
+        "stage_id": "artifact:campaign:TASK-A1c:stage:agent-step-7:r1",
+        "seat": "agent-step-7",
+        "artifact": {
+          "id": "artifact:campaign:TASK-A1c:stage:agent-step-7:r1",
+          "type": "stage_output",
+          "schema_version": "forge.internal.v1",
+          "hash": {
+            "algorithm": "sha256",
+            "value": "dc3dd61d1d9b98663926dd9acec6f9e5e6ca1c8fcfa407de9d27973465019884"
+          },
+          "loc": "memory/stages/artifact/campaign/TASK-A1c/stage/agent-step-7/r1.json",
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+              "state": "resolved"
+            }
+          ],
+          "created_at": "2026-03-28T06:31:02.990674+00:00",
+          "producer": {
+            "name": "mock-lm",
+            "role": "agent",
+            "version": "1.0.0"
+          },
+          "seat": "agent-step-7",
+          "output": "Step 7 output for TASK-A1c (204 chars prompt)",
+          "status": "complete",
+          "stop_reason": null,
+          "stop_reason_state": "not_invoked",
+          "findings": null,
+          "findings_state": "not_generated"
+        },
+        "summary": {
+          "id": "artifact:campaign:TASK-A1c:summary:stage:agent-step-7:r1",
+          "type": "summary_view",
+          "schema_version": "forge.internal.v1",
+          "created_at": "2026-03-28T06:31:02.990701+00:00",
+          "summary": "Summary of step 7",
+          "source_refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-7:r1",
+              "state": "resolved"
+            },
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+              "state": "resolved"
+            }
+          ],
+          "view_of": "artifact:campaign:TASK-A1c:stage:agent-step-7:r1",
+          "summary_hash": {
+            "algorithm": "sha256",
+            "value": "fc1428cdb42d1037ce22b1f4aaf85bb6788cc42fd48efb0a203125ba649a700a"
+          },
+          "refs": [
+            {
+              "ref": "artifact:campaign:TASK-A1c:stage:agent-step-7:r1",
+              "state": "resolved"
+            }
+          ]
+        },
+        "summary_state": null,
+        "registered_at": "2026-03-28T06:31:02.990731+00:00"
+      }
+    ],
+    "artifact_index": [
+      "artifact:campaign:TASK-A1c:stage:agent-step-0:r1",
+      "artifact:campaign:TASK-A1c:stage:agent-step-1:r1",
+      "artifact:campaign:TASK-A1c:stage:agent-step-2:r1",
+      "artifact:campaign:TASK-A1c:stage:agent-step-3:r1",
+      "artifact:campaign:TASK-A1c:stage:agent-step-4:r1",
+      "artifact:campaign:TASK-A1c:stage:agent-step-5:r1",
+      "artifact:campaign:TASK-A1c:stage:agent-step-6:r1",
+      "artifact:campaign:TASK-A1c:stage:agent-step-7:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-0:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-1:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-2:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-3:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-4:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-5:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-6:r1",
+      "artifact:campaign:TASK-A1c:summary:stage:agent-step-7:r1",
+      "chamber:campaign:TASK-A1c:control:v1"
+    ]
+  },
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Step 0 instruction (204 chars)",
+      "tokens": 295
+    },
+    {
+      "role": "assistant",
+      "content": "Step 0 response for TASK-A1c",
+      "tokens": 347
+    },
+    {
+      "role": "user",
+      "content": "Step 1 instruction (204 chars)",
+      "tokens": 406
+    },
+    {
+      "role": "assistant",
+      "content": "Step 1 response for TASK-A1c",
+      "tokens": 517
+    },
+    {
+      "role": "user",
+      "content": "Step 2 instruction (204 chars)",
+      "tokens": 466
+    },
+    {
+      "role": "assistant",
+      "content": "Step 2 response for TASK-A1c",
+      "tokens": 434
+    },
+    {
+      "role": "user",
+      "content": "Step 3 instruction (204 chars)",
+      "tokens": 207
+    },
+    {
+      "role": "assistant",
+      "content": "Step 3 response for TASK-A1c",
+      "tokens": 451
+    },
+    {
+      "role": "user",
+      "content": "Step 4 instruction (204 chars)",
+      "tokens": 419
+    },
+    {
+      "role": "assistant",
+      "content": "Step 4 response for TASK-A1c",
+      "tokens": 339
+    },
+    {
+      "role": "user",
+      "content": "Step 5 instruction (204 chars)",
+      "tokens": 370
+    },
+    {
+      "role": "assistant",
+      "content": "Step 5 response for TASK-A1c",
+      "tokens": 600
+    },
+    {
+      "role": "user",
+      "content": "Step 6 instruction (204 chars)",
+      "tokens": 395
+    },
+    {
+      "role": "assistant",
+      "content": "Step 6 response for TASK-A1c",
+      "tokens": 798
+    },
+    {
+      "role": "user",
+      "content": "Step 7 instruction (204 chars)",
+      "tokens": 470
+    },
+    {
+      "role": "assistant",
+      "content": "Step 7 response for TASK-A1c",
+      "tokens": 534
+    }
+  ],
+  "tool_call_log": [
+    {
+      "tool": "file_read",
+      "call_id": "call_000",
+      "input": {
+        "step": 0,
+        "args": "args_for_file_read"
+      },
+      "output": {
+        "result": "output_step_0"
+      },
+      "duration_ms": 1022,
+      "error": null
+    },
+    {
+      "tool": "search",
+      "call_id": "call_001",
+      "input": {
+        "step": 1,
+        "args": "args_for_search"
+      },
+      "output": {
+        "result": "output_step_1"
+      },
+      "duration_ms": 1850,
+      "error": null
+    },
+    {
+      "tool": "run_tests",
+      "call_id": "call_002",
+      "input": {
+        "step": 2,
+        "args": "args_for_run_tests"
+      },
+      "output": {
+        "result": "output_step_2"
+      },
+      "duration_ms": 1647,
+      "error": null
+    },
+    {
+      "tool": "debug",
+      "call_id": "call_003",
+      "input": {
+        "step": 3,
+        "args": "args_for_debug"
+      },
+      "output": {
+        "result": "output_step_3"
+      },
+      "duration_ms": 121,
+      "error": null
+    },
+    {
+      "tool": "file_read",
+      "call_id": "call_004",
+      "input": {
+        "step": 4,
+        "args": "args_for_file_read"
+      },
+      "output": {
+        "result": "output_step_4"
+      },
+      "duration_ms": 1939,
+      "error": null
+    },
+    {
+      "tool": "search",
+      "call_id": "call_005",
+      "input": {
+        "step": 5,
+        "args": "args_for_search"
+      },
+      "output": {
+        "result": "output_step_5"
+      },
+      "duration_ms": 1927,
+      "error": null
+    },
+    {
+      "tool": "run_tests",
+      "call_id": "call_006",
+      "input": {
+        "step": 6,
+        "args": "args_for_run_tests"
+      },
+      "output": {
+        "result": "output_step_6"
+      },
+      "duration_ms": 1588,
+      "error": null
+    },
+    {
+      "tool": "debug",
+      "call_id": "call_007",
+      "input": {
+        "step": 7,
+        "args": "args_for_debug"
+      },
+      "output": {
+        "result": "output_step_7"
+      },
+      "duration_ms": 1963,
+      "error": null
+    }
+  ],
+  "compaction_events": [
+    {
+      "timestamp": "2026-03-28T06:31:02.990749+00:00",
+      "type": "llm_context_compaction",
+      "tokens_before": 7048,
+      "tokens_after": 4228
+    }
+  ],
+  "token_count": {
+    "per_call": [
+      295,
+      347,
+      406,
+      517,
+      466,
+      434,
+      207,
+      451,
+      419,
+      339,
+      370,
+      600,
+      395,
+      798,
+      470,
+      534
+    ],
+    "cumulative": 7048
+  },
+  "wall_clock_seconds": 0.0015058330027386546,
+  "framework_version": "primordial-v2.0-phase7",
+  "task_completed": true,
+  "task_success": true,
+  "timed_out": false,
+  "errors": []
+}
