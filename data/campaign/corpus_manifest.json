@@ -1,0 +1,569 @@
+{
+  "version": "7.0",
+  "total_tasks": 20,
+  "total_planned_runs": 201,
+  "tier_distribution": {
+    "SHORT": 5,
+    "MEDIUM": 7,
+    "LONG": 7,
+    "EXTREME": 1
+  },
+  "categories": {
+    "A1": [
+      "TASK-A1a",
+      "TASK-A1b",
+      "TASK-A1c"
+    ],
+    "A2": [
+      "TASK-A2a",
+      "TASK-A2b",
+      "TASK-A2c"
+    ],
+    "A3": [
+      "TASK-A3a",
+      "TASK-A3b"
+    ],
+    "A4": [
+      "TASK-A4a",
+      "TASK-A4b"
+    ],
+    "B5": [
+      "TASK-B5a",
+      "TASK-B5b"
+    ],
+    "B6": [
+      "TASK-B6a",
+      "TASK-B6b"
+    ],
+    "B7": [
+      "TASK-B7a",
+      "TASK-B7b"
+    ],
+    "B8": [
+      "TASK-B8a"
+    ],
+    "C9": [
+      "TASK-C9a",
+      "TASK-C9b",
+      "TASK-C9c"
+    ]
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-A1a",
+      "category": "A1-multistep-chains",
+      "tier": "LONG",
+      "title": "Full-Stack Feature Implementation",
+      "target_dtypes": [
+        "D1",
+        "D2",
+        "D3",
+        "D5",
+        "D7",
+        "D8"
+      ],
+      "expected_tokens": "150K-250K",
+      "expected_retries": "3-7",
+      "stress_mechanism": "By step 10, early artifacts (schema from step 2) may be compacted. Provenance chain must survive.",
+      "control_variant": "TASK-A1a-control",
+      "runs_planned": 12,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A1b",
+      "category": "A1-multistep-chains",
+      "tier": "LONG",
+      "title": "Repository-Wide Refactoring",
+      "target_dtypes": [
+        "D2",
+        "D3",
+        "D7"
+      ],
+      "expected_tokens": "200K-300K",
+      "expected_retries": "3-10",
+      "stress_mechanism": "Each file change references the plan artifact. After LLM compaction, dangling refs to the plan emerge.",
+      "control_variant": "TASK-A1b-control",
+      "runs_planned": 12,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A1c",
+      "category": "A1-multistep-chains",
+      "tier": "LONG",
+      "title": "Multi-File Bug Investigation",
+      "target_dtypes": [
+        "D2",
+        "D3",
+        "D7"
+      ],
+      "expected_tokens": "150K-200K",
+      "expected_retries": "5-8",
+      "stress_mechanism": "Each investigation round produces artifacts referencing all previously read files. Provenance DAG grows wide and deep.",
+      "control_variant": "TASK-A1c-control",
+      "runs_planned": 12,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A2a",
+      "category": "A2-backtracking-retry",
+      "tier": "LONG",
+      "title": "Adversarial Linting Gauntlet",
+      "target_dtypes": [
+        "D3",
+        "D6",
+        "D9"
+      ],
+      "expected_tokens": "128K-200K",
+      "expected_retries": "7-15",
+      "stress_mechanism": "Each failed lint attempt creates abandoned artifacts. Refs to them must be typed as superseded.",
+      "control_variant": "TASK-A2a-control",
+      "runs_planned": 12,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A2b",
+      "category": "A2-backtracking-retry",
+      "tier": "LONG",
+      "title": "Test-Driven Development with Moving Target",
+      "target_dtypes": [
+        "D2",
+        "D3"
+      ],
+      "expected_tokens": "128K-200K",
+      "expected_retries": "5-10",
+      "stress_mechanism": "Agent must maintain references to evolving test specs. Older test refs become stale (D3). Summary of requirements may lose grounding (D2).",
+      "control_variant": "TASK-A2b-control",
+      "runs_planned": 12,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A2c",
+      "category": "A2-backtracking-retry",
+      "tier": "EXTREME",
+      "title": "Configuration Debugging",
+      "target_dtypes": [
+        "D3",
+        "D7"
+      ],
+      "expected_tokens": "256K-400K",
+      "expected_retries": "8-20",
+      "stress_mechanism": "Backtracking requires referencing earlier states. If rollback target artifact has been compacted, D3 and D7 surface.",
+      "control_variant": "TASK-A2c-control",
+      "runs_planned": 12,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A3a",
+      "category": "A3-parallel-coordination",
+      "tier": "MEDIUM",
+      "title": "Divide-and-Conquer Code Review",
+      "target_dtypes": [
+        "D3",
+        "D4"
+      ],
+      "expected_tokens": "50K-80K",
+      "expected_retries": "1-3",
+      "stress_mechanism": "Concurrent ID generation must avoid D4. Cross-chunk references require refs across sub-agent boundaries.",
+      "control_variant": "TASK-A3a-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A3b",
+      "category": "A3-parallel-coordination",
+      "tier": "MEDIUM",
+      "title": "Parallel Test Execution and Aggregation",
+      "target_dtypes": [
+        "D1",
+        "D4",
+        "D6"
+      ],
+      "expected_tokens": "50K-80K",
+      "expected_retries": "1-3",
+      "stress_mechanism": "If one suite times out (empty output), D1 surfaces. Late arrivals after report sealed produce D6.",
+      "control_variant": "TASK-A3b-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A4a",
+      "category": "A4-error-recovery",
+      "tier": "MEDIUM",
+      "title": "Deploy-Then-Rollback",
+      "target_dtypes": [
+        "D4",
+        "D6",
+        "D9"
+      ],
+      "expected_tokens": "50K-80K",
+      "expected_retries": "2-4",
+      "stress_mechanism": "Direct D4 (duplicate ID on re-registration), D6 (post-seal registration), and D9 (seal violation). Agent must register new artifacts in a chamber that was sealed.",
+      "control_variant": "TASK-A4a-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-A4b",
+      "category": "A4-error-recovery",
+      "tier": "MEDIUM",
+      "title": "Review-Approve-Reject Cycle",
+      "target_dtypes": [
+        "D3",
+        "D9"
+      ],
+      "expected_tokens": "50K-80K",
+      "expected_retries": "2-4",
+      "stress_mechanism": "Re-entry after approval-seal tests D9. References from rejection path to approved state test D3.",
+      "control_variant": "TASK-A4b-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-B5a",
+      "category": "B5-ambiguous-partial",
+      "tier": "MEDIUM",
+      "title": "API with Intermittent Failures",
+      "target_dtypes": [
+        "D1",
+        "D5",
+        "D8"
+      ],
+      "expected_tokens": "50K-80K",
+      "expected_retries": "3-6",
+      "stress_mechanism": "Empty responses should be typed as not_generated or invalid, not bare null. Tests D1, D5, D8.",
+      "control_variant": "TASK-B5a-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-B5b",
+      "category": "B5-ambiguous-partial",
+      "tier": "SHORT",
+      "title": "File Read with Encoding Issues",
+      "target_dtypes": [
+        "D5",
+        "D8"
+      ],
+      "expected_tokens": "15K-25K",
+      "expected_retries": "1-3",
+      "stress_mechanism": "Empty decoded fields test D5. Garbage content tests D8.",
+      "control_variant": "TASK-B5b-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-B6a",
+      "category": "B6-long-horizon",
+      "tier": "MEDIUM",
+      "title": "Multi-Hop Research Synthesis",
+      "target_dtypes": [
+        "D2",
+        "D7"
+      ],
+      "expected_tokens": "50K-80K",
+      "expected_retries": "1-3",
+      "stress_mechanism": "Summary may lose source_refs (D2). Provenance chain is 5+ hops deep.",
+      "control_variant": "TASK-B6a-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-B6b",
+      "category": "B6-long-horizon",
+      "tier": "MEDIUM",
+      "title": "Iterative Data Analysis Pipeline",
+      "target_dtypes": [
+        "D3",
+        "D7"
+      ],
+      "expected_tokens": "50K-80K",
+      "expected_retries": "1-3",
+      "stress_mechanism": "By step 10, step 1 artifacts (raw data load) may be compacted. References from report to early steps test D3 and D7.",
+      "control_variant": "TASK-B6b-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-B7a",
+      "category": "B7-context-overflow",
+      "tier": "LONG",
+      "title": "Large Codebase Exploration",
+      "target_dtypes": [
+        "D3",
+        "D7"
+      ],
+      "expected_tokens": "150K-250K",
+      "expected_retries": "2-5",
+      "stress_mechanism": "Post-LLM compaction, refs to files read in the first batch may dangle (D3). Trace metadata from early reads lost (D7).",
+      "control_variant": "TASK-B7a-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-B7b",
+      "category": "B7-context-overflow",
+      "tier": "LONG",
+      "title": "Context Window Fill via Documentation",
+      "target_dtypes": [
+        "D7",
+        "D8"
+      ],
+      "expected_tokens": "150K-250K",
+      "expected_retries": "2-5",
+      "stress_mechanism": "Documentation generation fills context; LLM compaction may corrupt provenance metadata (D7) or content (D8).",
+      "control_variant": "TASK-B7b-control",
+      "runs_planned": 10,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-B8a",
+      "category": "B8-encoding-edge-cases",
+      "tier": "SHORT",
+      "title": "Mixed Encoding File Processing",
+      "target_dtypes": [
+        "D5",
+        "D8"
+      ],
+      "expected_tokens": "15K-25K",
+      "expected_retries": "1-3",
+      "stress_mechanism": "Mixed encodings and binary data corrupt content (D8). Missing decoded fields test D5.",
+      "control_variant": "TASK-B8a-control",
+      "runs_planned": 8,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-C9a",
+      "category": "C9-control",
+      "tier": "SHORT",
+      "title": "Add License Header",
+      "target_dtypes": [
+        "D1"
+      ],
+      "expected_tokens": "5K-10K",
+      "expected_retries": "0",
+      "stress_mechanism": "None -- baseline control. Expected 0 violations.",
+      "control_variant": null,
+      "runs_planned": 7,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-C9b",
+      "category": "C9-control",
+      "tier": "SHORT",
+      "title": "Fix One-Line Bug",
+      "target_dtypes": [
+        "D1"
+      ],
+      "expected_tokens": "5K-10K",
+      "expected_retries": "0",
+      "stress_mechanism": "None -- baseline control.",
+      "control_variant": null,
+      "runs_planned": 7,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "task_id": "TASK-C9c",
+      "category": "C9-control",
+      "tier": "SHORT",
+      "title": "Write Three Unit Tests",
+      "target_dtypes": [
+        "D1"
+      ],
+      "expected_tokens": "5K-10K",
+      "expected_retries": "0",
+      "stress_mechanism": "None -- baseline control.",
+      "control_variant": null,
+      "runs_planned": 7,
+      "stress_levels": [
+        "control",
+        "mild",
+        "moderate",
+        "heavy"
+      ]
+    }
+  ],
+  "dtype_coverage_matrix": {
+    "D1": [
+      "TASK-A1a",
+      "TASK-A3b",
+      "TASK-B5a",
+      "TASK-C9a",
+      "TASK-C9b",
+      "TASK-C9c"
+    ],
+    "D2": [
+      "TASK-A1a",
+      "TASK-A1b",
+      "TASK-A1c",
+      "TASK-A2b",
+      "TASK-B6a"
+    ],
+    "D3": [
+      "TASK-A1a",
+      "TASK-A1b",
+      "TASK-A1c",
+      "TASK-A2a",
+      "TASK-A2b",
+      "TASK-A2c",
+      "TASK-A3a",
+      "TASK-A4b",
+      "TASK-B6b",
+      "TASK-B7a"
+    ],
+    "D4": [
+      "TASK-A3a",
+      "TASK-A3b",
+      "TASK-A4a"
+    ],
+    "D5": [
+      "TASK-A1a",
+      "TASK-B5a",
+      "TASK-B5b",
+      "TASK-B8a"
+    ],
+    "D6": [
+      "TASK-A2a",
+      "TASK-A3b",
+      "TASK-A4a"
+    ],
+    "D7": [
+      "TASK-A1a",
+      "TASK-A1b",
+      "TASK-A1c",
+      "TASK-A2c",
+      "TASK-B6a",
+      "TASK-B6b",
+      "TASK-B7a",
+      "TASK-B7b"
+    ],
+    "D8": [
+      "TASK-A1a",
+      "TASK-B5a",
+      "TASK-B5b",
+      "TASK-B7b",
+      "TASK-B8a"
+    ],
+    "D9": [
+      "TASK-A2a",
+      "TASK-A4a",
+      "TASK-A4b"
+    ]
+  },
+  "stress_levels": {
+    "control": {
+      "epsilon": 0.0,
+      "lambda_": 0.0,
+      "label": "No stress"
+    },
+    "mild": {
+      "epsilon": 0.1,
+      "lambda_": 0.1,
+      "label": "10% ambiguity, 10% tool failure"
+    },
+    "moderate": {
+      "epsilon": 0.2,
+      "lambda_": 0.2,
+      "label": "20% ambiguity, 20% tool failure"
+    },
+    "heavy": {
+      "epsilon": 0.1,
+      "lambda_": 0.3,
+      "label": "10% ambiguity, 30% tool failure"
+    }
+  }
+}
