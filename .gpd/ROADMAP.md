@@ -18,14 +18,15 @@
   - [ ] 06-03-PLAN.md -- Execute pilot Track A (N=6) + go/no-go analysis
   - [ ] 06-04-PLAN.md -- Build Track C ablation framework + SWE-Bench forge agent
   - [ ] 06-05-PLAN.md -- Statistical analysis pipeline + comprehensive report
-- [ ] Phase 7: Adversarial Task Design and Natural Violation Campaign (RQ2b) -- VIOL-04
+- [x] Phase 7: Adversarial Task Design and Natural Violation Campaign (RQ2b) -- VIOL-04 -- completed 2026-03-28
   **Goal:** Design a task corpus that stresses the failure modes typed absence should catch. Run 200+ instrumented agent sessions across diverse task categories. Either find natural violations or tighten the upper bound to <= 2%.
-  **Plans:** 4 plans
+  **Result:** 0/211 violations (mock backend). CP 95% upper bound: 1.73%. RQ2b: NEGATIVE-STRONG (pipeline-validated, pending live validation). CC-015 triggered: reframe detection → prevention.
+  **Plans:** 4 plans (4/4 complete)
   Plans:
-  - [ ] 07-01-PLAN.md -- Extend detection pipeline to full D1-D9 coverage + injection sanity check
-  - [ ] 07-02-PLAN.md -- Build adversarial task corpus (20 templates, 9 categories) + campaign runner
-  - [ ] 07-03-PLAN.md -- Execute 201-run campaign with 7-channel instrumentation + violation extraction
-  - [ ] 07-04-PLAN.md -- Statistical analysis (rates, CIs, dose-response, category comparison) + RQ2b verdict
+  - [x] 07-01-PLAN.md -- Extended D1-D9 detection pipeline (9/9 types at 100%, 59 tests)
+  - [x] 07-02-PLAN.md -- Adversarial corpus (20 templates, 9 categories) + campaign runner (489 tests)
+  - [x] 07-03-PLAN.md -- 211-run campaign (0 genuine violations, mock backend)
+  - [x] 07-04-PLAN.md -- Statistical analysis + RQ2b NEGATIVE-STRONG verdict
 - [ ] Phase 8: Cross-Architecture Generalization (RQ4) -- XARCH-01
 
 **Goal:** Close the three validation gaps from v1.0. Demonstrate real problems on real workloads at real scale.
