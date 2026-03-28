@@ -1,0 +1,768 @@
+{
+  "timestamp": "2026-03-28T06:22:12.699382+00:00",
+  "total_injections": 90,
+  "per_type": {
+    "D1": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        }
+      ]
+    },
+    "D2": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "REF.REF_UNRESOLVED"
+        }
+      ]
+    },
+    "D3": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        }
+      ]
+    },
+    "D4": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D4_SUSPICIOUS_REF_TARGET"
+        }
+      ]
+    },
+    "D5": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ABSENCE.MISSING_STATE_LABEL, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        }
+      ]
+    },
+    "D6": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": false,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": false,
+          "mechanism": "EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D6_ILLEGAL_TRANSITION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        }
+      ]
+    },
+    "D7": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D7_TRACE_DATA_LOSS"
+        }
+      ]
+    },
+    "D8": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "EXTENDED.D8_CONTENT_TRUNCATION, EXTENDED.D3_CONTENT_HASH_MISMATCH"
+        }
+      ]
+    },
+    "D9": {
+      "injections": 10,
+      "detected": 10,
+      "rate": 1.0,
+      "ci_lower": 0.6915,
+      "ci_upper": 1.0,
+      "ci_method": "clopper_pearson",
+      "details": [
+        {
+          "trial": 0,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 1,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 2,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 3,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 4,
+          "n_stages": 12,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 5,
+          "n_stages": 15,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 6,
+          "n_stages": 3,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 7,
+          "n_stages": 5,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 8,
+          "n_stages": 8,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        },
+        {
+          "trial": 9,
+          "n_stages": 10,
+          "detected": true,
+          "matched_dtype": true,
+          "mechanism": "ForgeChamberError_at_registration"
+        }
+      ]
+    }
+  },
+  "aggregate": {
+    "injections": 90,
+    "detected": 90,
+    "rate": 1.0,
+    "ci_lower": 0.9598,
+    "ci_upper": 1.0,
+    "ci_method": "clopper_pearson"
+  },
+  "v1_comparison": {
+    "v1_types_detected": [
+      "D1",
+      "D2",
+      "D5",
+      "D9"
+    ],
+    "v1_types_count": 4,
+    "v1_aggregate_rate": 0.444,
+    "v2_types_detected": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9"
+    ],
+    "v2_types_count": 9,
+    "v2_aggregate_rate": 1.0,
+    "improvement": "4/9 types -> 9/9 types",
+    "mocklm_anchor": {
+      "detection_at_registration": "6/6 (100%)",
+      "note": "MockLM catches all D1-D6 at registration time; post-hoc detection ceiling may be lower for some D-types"
+    }
+  },
+  "false_positive_rate": {
+    "clean_chambers_tested": 10,
+    "false_positives": 0,
+    "rate": 0.0,
+    "note": "0/10 clean chambers produced extended validation errors"
+  }
+}
