@@ -1,0 +1,144 @@
+[
+  {
+    "framework": "ag2",
+    "adapter_version": "Phase 8 Plan 01",
+    "intercepted_transitions": [
+      {
+        "transition": "agent_turn",
+        "hook": "safeguard_llm_outputs",
+        "description": "Every agent reply is captured via the safeguard_llm_outputs hook. Present outputs are recorded as artifacts; None outputs are recorded with NOT_GENERATED typed absence.",
+        "coverage": "complete"
+      },
+      {
+        "transition": "tool_call",
+        "hook": "safeguard_tool_outputs",
+        "description": "Every tool execution result is captured via safeguard_tool_outputs. Tool failures are captured via on_error with INVALID absence state.",
+        "coverage": "complete"
+      },
+      {
+        "transition": "compaction_event",
+        "hook": "on_compaction (manual)",
+        "description": "AG2 has no built-in compaction. Manual truncation events can be registered via on_compaction(). SPF metric computed for compaction quality.",
+        "coverage": "partial \u2014 requires explicit invocation"
+      },
+      {
+        "transition": "error_event",
+        "hook": "on_error",
+        "description": "Exceptions during agent reply or tool execution are captured with INVALID absence state.",
+        "coverage": "complete for caught exceptions"
+      },
+      {
+        "transition": "session_lifecycle",
+        "hook": "start_session / end_session",
+        "description": "Session boundaries are tracked. Chamber sealed at end with full validation.",
+        "coverage": "complete"
+      }
+    ],
+    "invisible_transitions": [
+      {
+        "transition": "process_death",
+        "gap_reason": "AG2 has no built-in persistence. If the process dies mid-session, ALL in-memory state is lost with no trace. The adapter's chamber exists only in-process.",
+        "gap_severity": "HIGH",
+        "mitigation": "Periodic chamber export to disk (not implemented in adapter). External process monitoring can detect death but not recover state."
+      },
+      {
+        "transition": "context_variables_mutation",
+        "gap_reason": "AG2's ContextVariables dict can be mutated by any agent at any time. These mutations are not hooked \u2014 they bypass all safeguard_ hooks because they go through dict.__setitem__, not through a message.",
+        "gap_severity": "MEDIUM",
+        "mitigation": "Could wrap ContextVariables in a Proxy that triggers forge registration on __setitem__. Requires modifying how ContextVariables is initialized (user-level, not framework-level)."
+      },
+      {
+        "transition": "groupchat_broadcast_implicit",
+        "gap_reason": "When GroupChatManager broadcasts a message to all agents, the broadcast itself is implicit \u2014 the hook fires on each agent's receive, but there's no single event representing 'this message was broadcast to N agents'. The adapter sees N individual receives, not the broadcast intent.",
+        "gap_severity": "LOW",
+        "mitigation": "Could reconstruct broadcast topology from timestamp correlation. Not needed for structural integrity (each receive is individually tracked)."
+      },
+      {
+        "transition": "speaker_selection_internal",
+        "gap_reason": "GroupChatManager's speaker selection logic (round-robin, random, auto, manual) runs internally. The adapter sees who spoke, but not WHY they were selected or who was considered and rejected.",
+        "gap_severity": "LOW",
+        "mitigation": "Hook process_speaker_selection to capture selection metadata. Not currently wired in the adapter."
+      },
+      {
+        "transition": "message_history_truncation",
+        "gap_reason": "If an agent's _oai_messages list is manually truncated (common pattern to manage context length), this mutation is not intercepted by any hook.",
+        "gap_severity": "MEDIUM",
+        "mitigation": "Requires wrapping _oai_messages with a proxy list that fires on __delitem__ / __setitem__. Framework modification needed."
+      }
+    ]
+  },
+  {
+    "framework": "langgraph",
+    "adapter_version": "Phase 8 Plan 02",
+    "intercepted_transitions": [
+      {
+        "transition": "node_execution",
+        "hook": "ForgeCheckpointSaver.put()",
+        "description": "Every node execution that produces a checkpoint is intercepted via the ForgeCheckpointSaver wrapper. Present outputs are recorded with full state; None-returning nodes get NOT_GENERATED absence.",
+        "coverage": "complete for checkpointed nodes"
+      },
+      {
+        "transition": "conditional_edge_routing",
+        "hook": "MockCompiledGraph._get_all_possible_targets() diff",
+        "description": "Skipped nodes from conditional routing are detected by comparing all possible targets vs actual target. Skipped nodes get NOT_INVOKED typed absence.",
+        "coverage": "complete for conditional edges with explicit mappings"
+      },
+      {
+        "transition": "tool_call",
+        "hook": "adapter.on_tool_call()",
+        "description": "Tool calls registered explicitly by tool nodes. Tool failures propagate as error events.",
+        "coverage": "complete when tool nodes call adapter explicitly"
+      },
+      {
+        "transition": "error_event",
+        "hook": "adapter.on_error() via CompiledGraph exception handling",
+        "description": "Node exceptions trigger on_error with INVALID absence. Error handler nodes are routed to if configured.",
+        "coverage": "complete for exceptions during invoke()"
+      },
+      {
+        "transition": "session_lifecycle",
+        "hook": "start_session / end_session",
+        "description": "Session boundaries tracked. Chamber sealed with validation.",
+        "coverage": "complete"
+      }
+    ],
+    "invisible_transitions": [
+      {
+        "transition": "reducer_merge_logic",
+        "gap_reason": "LangGraph's reducer functions (e.g., add_messages, custom reducers) merge node outputs into shared state. The merge logic is opaque \u2014 the adapter sees the state BEFORE and AFTER, but not HOW the reducer transformed it. A reducer could silently drop messages, reorder them, or merge conflicting values.",
+        "gap_severity": "HIGH",
+        "mitigation": "Would need a reducer wrapper protocol: intercept each reducer call with pre/post snapshots and diff. Requires LangGraph framework changes or monkey-patching the Annotated type processing."
+      },
+      {
+        "transition": "conditional_edge_skipped_not_natively_reported",
+        "gap_reason": "LangGraph does not natively report which nodes were skipped by conditional routing. The adapter infers this by comparing all-possible-targets vs actual-targets, but this inference only works for edges with explicit mapping dicts. Dynamic routing functions without mapping cannot be analyzed.",
+        "gap_severity": "MEDIUM",
+        "mitigation": "Current adapter handles the common case (explicit mapping dict). Fully dynamic routing (lambda-based with no mapping) would require runtime tracing of the condition function."
+      },
+      {
+        "transition": "async_variant_coverage",
+        "gap_reason": "The adapter only covers synchronous graph execution (invoke()). LangGraph's async variants (ainvoke(), astream()) use the same checkpointer but with async method signatures. The ForgeCheckpointSaver would need async wrappers.",
+        "gap_severity": "MEDIUM",
+        "mitigation": "Add async variants of ForgeCheckpointSaver methods. Straightforward implementation but doubles the API surface."
+      },
+      {
+        "transition": "middleware_api_unstable",
+        "gap_reason": "LangGraph's @hook_config middleware for before_model/after_model is still evolving (LangChain 0.3+). Changes to the middleware API could break the hook-based interception path.",
+        "gap_severity": "LOW",
+        "mitigation": "The primary interception path (ForgeCheckpointSaver) does not depend on middleware. Middleware would be a secondary, optional channel."
+      },
+      {
+        "transition": "thread_deletion",
+        "gap_reason": "When delete_thread() is called on the checkpointer, all checkpoints for that thread are destroyed. The ForgeCheckpointSaver delegates this to the inner checkpointer, and the forge chamber is not updated \u2014 the artifacts become orphaned references to deleted state.",
+        "gap_severity": "MEDIUM",
+        "mitigation": "Intercept delete_thread() to register a chamber-level absence event (pruned_recoverable or destroyed). Requires adding delete_thread wrapper to ForgeCheckpointSaver."
+      },
+      {
+        "transition": "subgraph_state",
+        "gap_reason": "LangGraph supports subgraphs (nested graph execution). Subgraph state transitions go through their own checkpointer instance, which may or may not be instrumented. The parent graph's adapter has no visibility into subgraph internals unless the subgraph also uses a ForgeCheckpointSaver.",
+        "gap_severity": "MEDIUM",
+        "mitigation": "Propagate ForgeCheckpointSaver to subgraph compilation. Requires consistent instrumentation across graph nesting levels."
+      }
+    ]
+  }
+]
