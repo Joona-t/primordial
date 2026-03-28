@@ -1,0 +1,433 @@
+{
+  "timestamp": "2026-03-28T05:01:19.501299+00:00",
+  "data_mode": "dry-run",
+  "total_trials": 6,
+  "track_a_trials": 6,
+  "track_b_trials": 0,
+  "track_c_trials": 0,
+  "hypothesis_tests": {
+    "structural_reachability": {
+      "test_name": "one_sample_t_test_structural_reachability",
+      "h0": "structural_reachability <= 0.5",
+      "h1": "structural_reachability > 0.5",
+      "statistic": "-inf",
+      "p_value": 1.0,
+      "p_value_corrected": null,
+      "effect_size_d": "-inf",
+      "mean": 0.25,
+      "std": 0.0,
+      "ci_95": [
+        0.25,
+        0.25
+      ],
+      "ci_method": "bootstrap_small_n",
+      "n": 6,
+      "reject_h0": "False",
+      "alpha": 0.05,
+      "interpretation": "Fail to reject H0: insufficient evidence that structural_reachability > 0.5 (t=-inf, p=1.000000, d=-inf, N=6)"
+    },
+    "artifact_id_survival": {
+      "test_name": "one_sample_t_test_artifact_id_survival",
+      "h0": "artifact_id_survival <= 0.5",
+      "h1": "artifact_id_survival > 0.5",
+      "statistic": "-inf",
+      "p_value": 1.0,
+      "p_value_corrected": null,
+      "effect_size_d": "-inf",
+      "mean": 0.25,
+      "std": 0.0,
+      "ci_95": [
+        0.25,
+        0.25
+      ],
+      "ci_method": "bootstrap_small_n",
+      "n": 6,
+      "reject_h0": "False",
+      "alpha": 0.05,
+      "interpretation": "Fail to reject H0: insufficient evidence that artifact_id_survival > 0.5 (t=-inf, p=1.000000, d=-inf, N=6)"
+    },
+    "instruction_delta": {
+      "test_name": "instruction_delta_artifact_id_survival",
+      "h0": "delta(artifact_id_survival) <= 0",
+      "h1": "delta(artifact_id_survival) > 0",
+      "statistic": 4.5,
+      "p_value": 1.0,
+      "p_value_corrected": 1.0,
+      "effect_size_d": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        0.0,
+        0.0
+      ],
+      "ci_method": "normal_approx",
+      "n": 3,
+      "reject_h0": false,
+      "alpha": 0.05,
+      "interpretation": "Fail to reject H0: no significant improvement from provenance-aware instructions on artifact_id_survival (delta=0.0000, p_raw=1.000000, p_corrected=1.000000, d=0.000, test=mann_whitney_u, N=3)"
+    }
+  },
+  "aggregate_metrics": {
+    "structural_reachability": 0.25,
+    "structural_reachability_std": 0.0,
+    "structural_reachability_ci": [
+      0.25,
+      0.25
+    ],
+    "structural_reachability_ci_method": "bootstrap_small_n",
+    "structural_reachability_n": 6,
+    "artifact_id_survival": 0.25,
+    "artifact_id_survival_std": 0.0,
+    "artifact_id_survival_ci": [
+      0.25,
+      0.25
+    ],
+    "artifact_id_survival_ci_method": "bootstrap_small_n",
+    "artifact_id_survival_n": 6,
+    "semantic_fidelity": 0.0161,
+    "semantic_fidelity_std": 0.0,
+    "semantic_fidelity_ci": [
+      0.0161,
+      0.0161
+    ],
+    "semantic_fidelity_ci_method": "bootstrap_small_n",
+    "semantic_fidelity_n": 6,
+    "degraded_fraction": 0.25,
+    "degraded_fraction_std": 0.0,
+    "degraded_fraction_ci": [
+      0.25,
+      0.25
+    ],
+    "degraded_fraction_ci_method": "bootstrap_small_n",
+    "degraded_fraction_n": 6,
+    "compression_ratio": 214.55,
+    "compression_ratio_std": 0.0,
+    "compression_ratio_ci": [
+      214.55,
+      214.55
+    ],
+    "compression_ratio_ci_method": "bootstrap_small_n",
+    "compression_ratio_n": 6
+  },
+  "per_category": {
+    "coding": {
+      "structural_reachability": 0.25,
+      "structural_reachability_std": 0.0,
+      "structural_reachability_ci": [
+        0.25,
+        0.25
+      ],
+      "structural_reachability_ci_method": "bootstrap_small_n",
+      "structural_reachability_n": 2,
+      "artifact_id_survival": 0.25,
+      "artifact_id_survival_std": 0.0,
+      "artifact_id_survival_ci": [
+        0.25,
+        0.25
+      ],
+      "artifact_id_survival_ci_method": "bootstrap_small_n",
+      "artifact_id_survival_n": 2,
+      "semantic_fidelity": 0.0161,
+      "semantic_fidelity_std": 0.0,
+      "semantic_fidelity_ci": [
+        0.0161,
+        0.0161
+      ],
+      "semantic_fidelity_ci_method": "bootstrap_small_n",
+      "semantic_fidelity_n": 2,
+      "degraded_fraction": 0.25,
+      "degraded_fraction_std": 0.0,
+      "degraded_fraction_ci": [
+        0.25,
+        0.25
+      ],
+      "degraded_fraction_ci_method": "bootstrap_small_n",
+      "degraded_fraction_n": 2,
+      "compression_ratio": 214.55,
+      "compression_ratio_std": 0.0,
+      "compression_ratio_ci": [
+        214.55,
+        214.55
+      ],
+      "compression_ratio_ci_method": "bootstrap_small_n",
+      "compression_ratio_n": 2
+    },
+    "debugging": {
+      "structural_reachability": 0.25,
+      "structural_reachability_std": 0.0,
+      "structural_reachability_ci": [
+        0.25,
+        0.25
+      ],
+      "structural_reachability_ci_method": "bootstrap_small_n",
+      "structural_reachability_n": 2,
+      "artifact_id_survival": 0.25,
+      "artifact_id_survival_std": 0.0,
+      "artifact_id_survival_ci": [
+        0.25,
+        0.25
+      ],
+      "artifact_id_survival_ci_method": "bootstrap_small_n",
+      "artifact_id_survival_n": 2,
+      "semantic_fidelity": 0.0161,
+      "semantic_fidelity_std": 0.0,
+      "semantic_fidelity_ci": [
+        0.0161,
+        0.0161
+      ],
+      "semantic_fidelity_ci_method": "bootstrap_small_n",
+      "semantic_fidelity_n": 2,
+      "degraded_fraction": 0.25,
+      "degraded_fraction_std": 0.0,
+      "degraded_fraction_ci": [
+        0.25,
+        0.25
+      ],
+      "degraded_fraction_ci_method": "bootstrap_small_n",
+      "degraded_fraction_n": 2,
+      "compression_ratio": 214.55,
+      "compression_ratio_std": 0.0,
+      "compression_ratio_ci": [
+        214.55,
+        214.55
+      ],
+      "compression_ratio_ci_method": "bootstrap_small_n",
+      "compression_ratio_n": 2
+    },
+    "specification": {
+      "structural_reachability": 0.25,
+      "structural_reachability_std": 0.0,
+      "structural_reachability_ci": [
+        0.25,
+        0.25
+      ],
+      "structural_reachability_ci_method": "bootstrap_small_n",
+      "structural_reachability_n": 2,
+      "artifact_id_survival": 0.25,
+      "artifact_id_survival_std": 0.0,
+      "artifact_id_survival_ci": [
+        0.25,
+        0.25
+      ],
+      "artifact_id_survival_ci_method": "bootstrap_small_n",
+      "artifact_id_survival_n": 2,
+      "semantic_fidelity": 0.0161,
+      "semantic_fidelity_std": 0.0,
+      "semantic_fidelity_ci": [
+        0.0161,
+        0.0161
+      ],
+      "semantic_fidelity_ci_method": "bootstrap_small_n",
+      "semantic_fidelity_n": 2,
+      "degraded_fraction": 0.25,
+      "degraded_fraction_std": 0.0,
+      "degraded_fraction_ci": [
+        0.25,
+        0.25
+      ],
+      "degraded_fraction_ci_method": "bootstrap_small_n",
+      "degraded_fraction_n": 2,
+      "compression_ratio": 214.55,
+      "compression_ratio_std": 0.0,
+      "compression_ratio_ci": [
+        214.55,
+        214.55
+      ],
+      "compression_ratio_ci_method": "bootstrap_small_n",
+      "compression_ratio_n": 2
+    }
+  },
+  "provenance_delta": {
+    "coding": {
+      "aware_survival": 0.25,
+      "default_survival": 0.25,
+      "delta": 0.0
+    },
+    "debugging": {
+      "aware_survival": 0.25,
+      "default_survival": 0.25,
+      "delta": 0.0
+    },
+    "specification": {
+      "aware_survival": 0.25,
+      "default_survival": 0.25,
+      "delta": 0.0
+    }
+  },
+  "anchors": {
+    "mockml": {
+      "anchor_name": "MockLM Ceiling",
+      "source": "ref-mock-experiment: 100% reachability, 100% survival (controlled)",
+      "mockml_reachability": 1.0,
+      "mockml_survival": 1.0,
+      "genuine_reachability": 0.25,
+      "genuine_survival": 0.25,
+      "gap_reachability": 0.75,
+      "gap_survival": 0.75,
+      "interpretation": "Genuine reachability is 75.0% below MockLM ceiling. Genuine survival is 75.0% below MockLM ceiling. Expected direction: genuine < ceiling."
+    },
+    "knowledge_objects": {
+      "anchor_name": "Knowledge Objects (Zahn & Chana, March 2026)",
+      "source": "60% fact loss per LLM compression pass -> 40% survival",
+      "ko_survival_threshold": 0.4,
+      "genuine_survival": 0.25,
+      "delta_from_ko": -0.15,
+      "structured_beats_unstructured": false,
+      "interpretation": "Artifact ID survival (0.250) is AT OR BELOW the Knowledge Objects baseline (0.4). Structured provenance does NOT demonstrably outperform unstructured facts."
+    },
+    "v1_simulated": {
+      "anchor_name": "v1.0 Simulated Compaction",
+      "source": "data/compaction/compaction-report.json",
+      "v1_sweep_points": 9,
+      "v1_at_50pct_deletion": 0.8214285714285715,
+      "v1_at_80pct_deletion": 0.4375,
+      "v1_backtracking_crossing": 0.8,
+      "genuine_reachability": 0.25,
+      "gap_genuine_vs_v1_50pct": -0.571429,
+      "interpretation": "Genuine reachability (0.250) vs v1.0 simulated at 50% deletion (0.821): delta = -0.571. Genuine compaction is worse than or equal to simulated deletion. Note: comparison requires matching compression ratios for fair assessment."
+    },
+    "overall_verdict": "fail"
+  },
+  "track_summary": {
+    "track_a": {
+      "n": 6,
+      "modes": [
+        "dry-run"
+      ],
+      "data_mode": "dry-run",
+      "structural_reachability": {
+        "mean": 0.25,
+        "std": 0.0,
+        "min": 0.25,
+        "max": 0.25,
+        "ci_95": [
+          0.25,
+          0.25
+        ],
+        "ci_method": "bootstrap_small_n",
+        "n": 6
+      },
+      "artifact_id_survival": {
+        "mean": 0.25,
+        "std": 0.0,
+        "min": 0.25,
+        "max": 0.25,
+        "ci_95": [
+          0.25,
+          0.25
+        ],
+        "ci_method": "bootstrap_small_n",
+        "n": 6
+      },
+      "semantic_fidelity": {
+        "mean": 0.0161,
+        "std": 0.0,
+        "min": 0.0161,
+        "max": 0.0161,
+        "ci_95": [
+          0.0161,
+          0.0161
+        ],
+        "ci_method": "bootstrap_small_n",
+        "n": 6
+      },
+      "degraded_fraction": {
+        "mean": 0.25,
+        "std": 0.0,
+        "min": 0.25,
+        "max": 0.25,
+        "ci_95": [
+          0.25,
+          0.25
+        ],
+        "ci_method": "bootstrap_small_n",
+        "n": 6
+      },
+      "compression_ratio": {
+        "mean": 214.55,
+        "std": 0.0,
+        "min": 214.55,
+        "max": 214.55,
+        "ci_95": [
+          214.55,
+          214.55
+        ],
+        "ci_method": "bootstrap_small_n",
+        "n": 6
+      },
+      "compaction_events": {
+        "total": 6,
+        "mean_per_trial": 1,
+        "trials_with_compaction": 6
+      },
+      "tier_distribution": {
+        "resolved": 0,
+        "degraded": 30,
+        "broken": 90,
+        "total_refs": 120,
+        "resolved_fraction": 0.0,
+        "degraded_fraction": 0.25,
+        "broken_fraction": 0.75
+      }
+    },
+    "track_b": {
+      "status": "no_data",
+      "n": 0
+    },
+    "track_c": {
+      "status": "no_data",
+      "n": 0
+    },
+    "cross_track_consistency": {
+      "status": "insufficient_tracks"
+    }
+  },
+  "forbidden_proxy_audit": [
+    {
+      "proxy_id": "fp-cherry-picked",
+      "status": "rejected",
+      "evidence": "All conditions reported: tracks=['A'], categories=['coding', 'debugging', 'specification'], provenance_aware=['False', 'True']",
+      "notes": "Analysis includes all available conditions. No cherry-picking."
+    },
+    {
+      "proxy_id": "fp-simulated-only",
+      "status": "violated",
+      "evidence": "All 6 trials are mode='dry-run'. No live API data.",
+      "notes": "This forbidden proxy IS triggered. Dry-run data validates pipeline but does not constitute genuine LLM compaction measurement. Live API execution required via ANTHROPIC_API_KEY."
+    },
+    {
+      "proxy_id": "fp-short-tasks",
+      "status": "rejected",
+      "evidence": "6/6 trials triggered compaction events.",
+      "notes": "Compaction events are necessary for measurement validity."
+    }
+  ],
+  "verdicts": {
+    "claim-compaction-survival": {
+      "claim_id": "claim-compaction-survival",
+      "verdict": "PARTIAL",
+      "evidence": [
+        "Data is dry-run (synthetic), not genuine LLM compaction",
+        "Pipeline validated: 6 trials processed",
+        "Metrics computed: reachability=0.2500",
+        "Forbidden proxy fp-simulated-only is VIOLATED: analysis on dry-run data only"
+      ],
+      "criteria_used": "PARTIAL because data_mode='dry-run' -- genuine LLM compaction data required for PASS/FAIL",
+      "sample_size_caveat": "N=6 (all dry-run; live API data required)",
+      "confidence_tag": "LOW"
+    },
+    "claim-instruction-effect": {
+      "claim_id": "claim-instruction-effect",
+      "verdict": "PARTIAL",
+      "evidence": [
+        "Data is dry-run: synthetic compaction ignores instructions",
+        "Delta = 0.0000 (expected 0 in dry-run)",
+        "Live API data required to test instruction effect"
+      ],
+      "criteria_used": "PARTIAL: dry-run data cannot test instruction hypothesis",
+      "sample_size_caveat": "N=3 (all dry-run)",
+      "confidence_tag": "LOW"
+    }
+  },
+  "rq3b_verdict": "PARTIAL"
+}
