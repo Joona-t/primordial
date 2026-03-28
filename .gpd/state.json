@@ -1,8 +1,8 @@
 {
   "project_reference": {
-    "project_md_updated": null,
+    "project_md_updated": "2026-03-27",
     "core_research_question": "Can typed absence, explicit provenance, and recoverable compaction prevent silent state loss in real long-running autonomous agents?",
-    "current_focus": "Milestone 1 complete. All 5 phases executed and verified."
+    "current_focus": "v2.0 \u2014 The Forgetting Agent: close validation gaps with genuine compaction, diverse workloads, and cross-architecture testing"
   },
   "project_contract": {
     "schema_version": 1,
@@ -288,183 +288,113 @@
     }
   },
   "position": {
-    "current_phase": "5 (complete)",
-    "current_phase_name": "Cross-Reference and Synthesis",
-    "total_phases": 5,
-    "current_plan": "2/2 (all complete)",
-    "total_plans_in_phase": 2,
+    "current_phase": "8 (Cross-Architecture) \u2014 COMPLETE",
+    "current_phase_name": null,
+    "total_phases": null,
+    "current_plan": "4/4",
+    "total_plans_in_phase": 4,
     "status": "Milestone complete",
-    "last_activity": "2026-03-16",
+    "last_activity": "2026-03-28",
     "last_activity_desc": null,
     "progress_percent": 100,
     "paused_at": null
   },
-  "active_calculations": [],
-  "intermediate_results": [
-    "**TRANSITION_TABLE:** 64 entries (45 legal, 19 illegal) \u2014 tools/forge_nulls.py",
-    "**validate_transition():** function returning bool, ValueError for invalid states \u2014 tools/forge_nulls.py",
-    "**Hypothesis verification:** 10K examples x 30 steps = 300K transitions, 0 invariant violations",
-    "**Mutation score:** 99.0% adjusted (103/110 killed, 6 equivalent, 1 low-value)",
-    "**Total test count:** 354 (103 existing + 198 ontology + 53 adapter)",
-    "**Forge adapter:** tools/openclaw_adapter.py \u2014 4 interception points, post-hoc JSONL primary",
-    "**Baseline measurements (ledger sample):** uninstrumented reachability=0.0, forge reachability=1.0, forge depth=21, compression=1.18x, cursor resets=6",
-    "**Measurement framework:** tools/baseline_measurement.py \u2014 5 canonical metrics + bootstrap 95% CIs",
-    "**Fault injector:** tools/fault_injector.py \u2014 9 injection methods (D1-D9) + verify_injection()",
-    "**Campaign orchestrator:** tools/detection_campaign.py \u2014 90+ injections, three-tier comparison, CI framework",
-    "**Post-hoc forge detection:** 4/9 types detected (D1, D2, D5, D9); 5 gaps (D3, D4, D6, D7, D8)",
-    "**D1-D6 vs MockLM:** 3/6 = 50% post-hoc (gap: D3 hash, D4 ref correctness, D6 transition legality)",
-    "**Clean FPR:** 0.0 (0/5 runs)",
-    "**Total test count:** 404 (354 existing + 50 new fault injector/campaign tests)",
-    "**Campaign detection:** 40/90 = 44.4% aggregate [CI: 0.344, 0.544]; D1/D2/D5/D9 at 100%, D3/D4/D6/D7/D8 at 0%",
-    "**Natural violations:** 0 (0/30 clean runs, CP upper bound 11.6%) \u2014 negative finding, honestly reported",
-    "**FPR:** 0.0% (0/30, CP upper bound 11.6%)",
-    "**Differential:** forge - uninstrumented = +0.444, CI excludes zero",
-    "**Three-tier ordering:** holds for all 9 fault types",
-    "**Compaction harness:** tools/compaction_harness.py \u2014 CompactionSnapshot, classify_refs, measure_reachability, simulate_compaction, violation_regression, run_compaction_measurement",
-    "**Harness tests:** tools/test_compaction_harness.py \u2014 49 tests, all passing",
-    "**Pre-compaction reachability:** 1.0 (matches Phase 2 baseline and MockLM ceiling)",
-    "**Structural_reachability monotonicity:** verified at deletion fractions 0.0, 0.1, 0.3, 0.5, 0.7, 0.9",
-    "**Violation regression:** D1/D2/D5/D9 all detected (100% pass)",
-    "**Total test count:** 453 (404 existing + 49 new compaction harness tests)",
-    "**Simulated LLM compaction campaign:** 3 chambers x 9 deletion fractions (0.1-0.9)",
-    "**Pre-compaction reachability:** 1.0 (Phase 2 + MockLM anchor match, gap=0)",
-    "**Structural reachability degradation:** 0.932 (10%) -> 0.821 (50%) -> 0.250 (90%), monotonic",
-    "**Backtracking threshold (0.5):** crossed at 80% deletion (struct_reach=0.4375)",
-    "**Degraded refs:** 0 at all fractions (simulated deletion is binary)",
-    "**Violation regression post-compaction:** D1/D2/D5/D9 all detected (100%)",
-    "**Forbidden proxy audit:** fp-short-tasks partially addressed, fp-shallow-traces rejected (depth=21)",
-    "**Compaction report:** docs/compaction-report.md (human-readable), data/compaction/compaction-report.json (machine-readable)"
+  "active_calculations": [
+    "Phase 2.1 research: genuine compaction experiment design (agent running)",
+    "Phase 2.2 research: adversarial task corpus design (agent running)",
+    "Phase 2.3 research: cross-architecture adapter feasibility (agent running)",
+    "Publication deadline research (agent running)"
   ],
+  "intermediate_results": [],
   "open_questions": [
-    "Does run_queue.py use session-layer LLM compaction during task execution? (HIGH, affects Phase 3/4 adapter scope)",
-    "What is the queue file rotation/deletion policy in production? (MEDIUM, affects long-term source_ref resolvability)",
-    "Can semantic reachability (content fidelity behind pruned_recoverable refs) be measured? (HIGH, blocks Phase 4)"
+    "Does run_queue.py use session-layer LLM compaction during task execution? (HIGH \u2014 from v1.0)",
+    "What is the queue file rotation/deletion policy in production? (MEDIUM \u2014 from v1.0)",
+    "Can semantic reachability (content fidelity behind pruned_recoverable refs) be measured? (HIGH \u2014 SPF-01)",
+    "~~Which agent frameworks have the most accessible instrumentation hooks?~~ RESOLVED Phase 8: AG2 (safeguard hooks) and LangGraph (CheckpointSaver) both provide adequate interception points",
+    "~~What sample size is needed to detect a 5% natural violation rate?~~ RESOLVED Phase 7: N=211, CP upper 1.73%, 98%+ power at 2% rate"
   ],
   "performance_metrics": {
-    "rows": [
-      {
-        "label": "Plan 01-01",
-        "duration": "~5 min",
-        "tasks": "3",
-        "files": "4"
-      },
-      {
-        "label": "Plan 01-02",
-        "duration": "~20 min",
-        "tasks": "3",
-        "files": "7"
-      }
-    ]
+    "rows": []
   },
   "decisions": [
     {
       "phase": null,
-      "summary": "**CC-001:** resolved is a REF state, not an absence state; not_generated is the correct 8th absence state (Phase 1 Plan 01 Task 1)",
+      "summary": "CC-014: Multi-architecture validation required for PhD-level generality claim",
       "rationale": null
     },
     {
       "phase": null,
-      "summary": "**CC-002:** timed_out/interrupted NOT added as distinct absence states \u2014 identical transition rules to existing states; metadata enrichment sufficient (Phase 1 Plan 01 Task 3)",
+      "summary": "CC-015: Reframe detection \u2192 prevention if 0 natural violations persist on 200+ diverse runs \u2014 **TRIGGERED** (0/211 on mock backend)",
       "rationale": null
     },
     {
       "phase": null,
-      "summary": "**CC-003:** Recoverability stays binary for Phase 1 \u2014 does not change transition rules; no empirical compaction data yet; YAGNI (Phase 1 Plan 01 Task 3)",
+      "summary": "CC-016: Semantic Provenance Fidelity (SPF) as new metric class bridging structural/semantic gap",
       "rationale": null
     },
     {
       "phase": null,
-      "summary": "**CC-004:** Custom AST mutation testing over mutmut (Python 3.14 incompatibility) (Phase 1 Plan 02 Task 3)",
+      "summary": "CC-017: D4 detection requires 4 heuristics (self-ref, forward-ref, cross-type, gap) for 100% on injected faults",
       "rationale": null
     },
     {
-      "phase": "2",
-      "summary": "CC-005: Zarathustra IS OpenClaw on separate VM (user confirmed). Pure Python stdlib queue worker, directly importable.",
-      "rationale": "Environmental investigation found no local OpenClaw installation. User confirmed OpenClaw runs on separate VM and pushed integration samples (commit 028d235)."
-    },
-    {
-      "phase": "2",
-      "summary": "CC-006: Task corpus domain = coding/patching (real Zarathustra workflows)",
-      "rationale": "Ledger data confirms OpenClaw does patch propose/validate/apply workflows. User directed: stay with what it actually does."
-    },
-    {
-      "phase": "2",
-      "summary": "CC-007: Task corpus scope = 3 short + 3 long, expandable",
-      "rationale": "Option C scope with Option A domain. Budget is session time (subscription), not per-token."
-    },
-    {
-      "phase": "2",
-      "summary": "CC-008: Benchmark source = real Zarathustra tasks, NOT SWE-bench",
-      "rationale": "User directed: test on this agent's actual failure modes, not external benchmarks."
-    },
-    {
-      "phase": "3",
-      "summary": "CC-009: Post-hoc injection approach reveals architectural gap vs MockLM registration-time detection (3/6 D1-D6 vs 6/6). Gap is real, not a bug.",
+      "phase": null,
+      "summary": "CC-018: D7 detection requires external tool_call_log; cannot be detected from chamber structure alone",
       "rationale": null
     },
     {
-      "phase": "3",
-      "summary": "CC-010: D7/D8 gaps are findings about forge coverage limitations, not test failures. D7 may be fundamentally undetectable by structural validation.",
+      "phase": null,
+      "summary": "CC-019: Empty strings are present output (not absent) \u2014 adapter wraps to sentinel for forge compliance",
       "rationale": null
     },
     {
-      "phase": "3",
-      "summary": "CC-011: Accepted negative finding on natural violations. Forge mechanism proven on injected faults; natural violations are zero on this sample (0/30 clean runs, CP upper bound 11.6%).",
+      "phase": null,
+      "summary": "CC-020: Reversibility uses root-node reachability; ForgeCheckpointSaver wrapping pattern validated for graph-based architectures",
       "rationale": null
     },
     {
-      "phase": "4",
-      "summary": "CC-012: BFS reachability measures internal connectivity; structural_reachability from classify_refs captures provenance breakage. Both reported.",
-      "rationale": null
-    },
-    {
-      "phase": "4",
-      "summary": "CC-013: Structural_reachability is the sensitive compaction metric (BFS stays 1.0 for linear chains). Both metrics reported; downstream should use structural_reachability.",
+      "phase": null,
+      "summary": "CC-021: RQ4 verdict POSITIVE (pipeline-validated, pending live validation) \u2014 forge guarantees transfer across 3 architecture types",
       "rationale": null
     }
   ],
   "approximations": [],
   "convention_lock": {
-    "metric_signature": "N/A",
-    "fourier_convention": "N/A",
-    "natural_units": "N/A",
-    "gauge_choice": "N/A",
-    "regularization_scheme": "N/A",
-    "renormalization_scheme": "N/A",
-    "coordinate_system": "N/A",
-    "spin_basis": "N/A",
-    "state_normalization": "N/A",
-    "coupling_convention": "N/A",
-    "index_positioning": "N/A",
-    "time_ordering": "N/A",
-    "commutation_convention": "N/A",
-    "levi_civita_sign": "N/A",
-    "generator_normalization": "N/A",
-    "covariant_derivative_sign": "N/A",
-    "gamma_matrix_convention": "N/A",
-    "creation_annihilation_order": "N/A",
+    "metric_signature": null,
+    "fourier_convention": null,
+    "natural_units": null,
+    "gauge_choice": null,
+    "regularization_scheme": null,
+    "renormalization_scheme": null,
+    "coordinate_system": null,
+    "spin_basis": null,
+    "state_normalization": null,
+    "coupling_convention": null,
+    "index_positioning": null,
+    "time_ordering": null,
+    "commutation_convention": null,
+    "levi_civita_sign": null,
+    "generator_normalization": null,
+    "covariant_derivative_sign": null,
+    "gamma_matrix_convention": null,
+    "creation_annihilation_order": null,
     "custom_conventions": {
-      "absence_state_ontology": "8 states: not_generated, not_invoked, unknown, unresolved, withheld, invalid, deleted, pruned_recoverable. Deprecated alias: pruned -> pruned_recoverable. FORMALIZED in Phase 1 FORM-01.",
-      "absence_object_form": "Canonical v1: {value: null, state: <AbsenceState>}. Legacy ingress: {value: null, absence_state: <AbsenceState>} accepted and normalized. Sibling pattern: {field: null, field_state: <AbsenceState>}.",
-      "state_transition_legality": "8x8 matrix (64 entries). 45 legal, 19 illegal. TRANSITION_TABLE in forge_nulls.py is source of truth. validate_transition() enforces. Initial states (not_invoked, not_generated) have no incoming. Terminal state (deleted) has no outgoing. Self-transitions always legal.",
-      "provenance_reference_format": "Lightweight parent_id + source_refs list. Not full W3C PROV. Empty refs valid. Unresolvable ref = REF.REF_UNRESOLVED error.",
-      "artifact_id_format": "Colon-separated hierarchical. Artifacts: artifact:<run>:stage:<seat>:<revision>. Chambers: chamber:<seg1>:<seg2>[:<segN>]. Regex validated.",
-      "compaction_disambiguation": "TWO meanings, always qualified. Forge compaction = lossless hash-verified dedup. LLM compaction = lossy semantic summarization. Unqualified 'compaction' FORBIDDEN.",
-      "metrics_definitions": "reachability_fraction=(reachable/total via BFS). compression_ratio=original/encoded. vs_vanilla_pct=(forge-vanilla)/vanilla*100. All dimensionless. MockLM anchors: reach=1.0, detect=6/6, compress=87%.",
-      "violation_classification": "Structural only: illegal state transitions or missing metadata. NOT hallucination, NOT fault, NOT semantic error. Fault taxonomy D1-D9.",
-      "unit_system_project": "N/A -- formal systems research. All metrics dimensionless ratios or counts. No physical units.",
-      "hash_integrity": "SHA-256 on canonical JSON: json.dumps(obj, sort_keys=True, ensure_ascii=True). Round-trip verification for forge trace compression.",
-      "protocol_versioning": "schema_version=forge.internal.v1 (chambers/artifacts). encoding=forge.trace.v1 (trace codec). Legacy pre-v1 accepted at ingress, normalized."
+      "semantic_provenance_fidelity": "embedding cosine similarity between original and recovered artifacts",
+      "genuine_vs_simulated_compaction": "explicitly labeled in all measurements",
+      "cross_architecture_metrics": "same definitions across frameworks, architectural differences documented"
     }
   },
   "propagated_uncertainties": [],
   "pending_todos": [],
-  "blockers": [],
+  "blockers": [
+    "SWE-Bench setup requirements unknown (need research agent output)",
+    "Agent framework API stability uncertain (LangGraph/CrewAI evolve rapidly)"
+  ],
   "session": {
-    "last_date": "2026-03-16",
-    "stopped_at": "Phase 3 complete. Ready for Phase 4.",
+    "last_date": "2026-03-28",
+    "stopped_at": "Phase 8 complete. All v2.0 phases done. Milestone v2.0 ready for completion.",
     "resume_file": null
   },
   "_version": 1,
-  "_synced_at": "2026-03-16T04:45:51.646945+00:00"
+  "_synced_at": "2026-03-28T18:10:29.983518+00:00"
 }
