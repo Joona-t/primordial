@@ -106,8 +106,13 @@ def fishers_exact_2x2(table: list[list[int]]) -> dict[str, Any]:
     Returns odds_ratio and p_value.
     """
     odds_ratio, p_value = fisher_exact(table, alternative="two-sided")
+    # Handle NaN odds_ratio (occurs when both groups have 0 events)
+    import math
+    or_val = float(odds_ratio)
+    if math.isnan(or_val):
+        or_val = None  # JSON-safe: NaN is not valid JSON
     return {
-        "odds_ratio": float(odds_ratio),
+        "odds_ratio": or_val,
         "p_value": float(p_value),
         "table": table,
     }
