@@ -145,7 +145,7 @@
   },
   "comparisons": {
     "adversarial_vs_control": {
-      "odds_ratio": NaN,
+      "odds_ratio": null,
       "p_value": 1.0,
       "table": [
         [
@@ -180,7 +180,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         },
         "A2": {
@@ -188,7 +188,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         },
         "A3": {
@@ -196,7 +196,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         },
         "A4": {
@@ -204,7 +204,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         },
         "B5": {
@@ -212,7 +212,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         },
         "B6": {
@@ -220,7 +220,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         },
         "B7": {
@@ -228,7 +228,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         },
         "B8": {
@@ -236,7 +236,7 @@
           "violations": 0,
           "rate": 0.0,
           "fisher_p": 1.0,
-          "odds_ratio": NaN,
+          "odds_ratio": null,
           "significant_bonferroni": false
         }
       }
