@@ -20,3 +20,19 @@
 
 ---
 
+## v2.0 The Forgetting Agent (Shipped: 2026-03-28)
+
+**Phases completed:** 3 phases (6-8), 13 plans
+
+**Key accomplishments:**
+- Built complete genuine compaction measurement pipeline: summary parser, embedding similarity, experiment runner, Track A/C frameworks, statistical analysis (223 tests). RQ3b: PARTIAL (pipeline-validated, live API required)
+- Extended forge detection from 4/9 to 9/9 D-types at 100% (90/90 injected faults), closing CC-009 gap from v1.0
+- 211-run adversarial campaign across 20 tasks, 9 categories, 4 stress levels: 0 genuine violations (CP upper 1.73%, Bayesian P(rate>2%)=1.38%). RQ2b: NEGATIVE-STRONG. CC-015 triggered: reframe detection → structural prevention
+- AG2 adapter validated (36 tests, reversibility=1.0, 0 null violations, 100% fault detection)
+- LangGraph adapter validated (37 tests, reversibility=1.0, checkpointer transparency confirmed)
+- 110-session cross-architecture campaign: 0 violations (CP combined upper 3.30%). All 321 sessions: CP upper 1.14%. RQ4: POSITIVE. CC-014 satisfied (3 architecture types)
+
+**Verdicts:** RQ2b NEGATIVE-STRONG | RQ3b PARTIAL | RQ4 POSITIVE (all pipeline-validated, pending live validation)
+
+---
+

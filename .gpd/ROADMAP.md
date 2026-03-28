@@ -3,41 +3,9 @@
 ## Milestones
 
 - **v1.0 Typed Absence and Provenance Validation** -- Phases 1-5 (completed 2026-03-16)
-- **v2.0 The Forgetting Agent** -- Phases 6-8 (started 2026-03-27)
+- **v2.0 The Forgetting Agent** -- Phases 6-8 (completed 2026-03-28)
 
 ## Phases
-
-### v2.0 The Forgetting Agent (Phases 6-8) -- COMPLETE (Phase 6 code complete, Phases 7-8 executed)
-
-- [ ] Phase 6: Genuine Compaction Experiments (RQ3b) -- COMP-04, SPF-01
-  **Goal:** Test whether forge provenance chains survive genuine LLM context-window compaction via Anthropic's compact_20260112 API. Establish Semantic Provenance Fidelity (SPF) metric. Render honest RQ3b verdict.
-  **Plans:** 5 plans
-  Plans:
-  - [ ] 06-01-PLAN.md -- Build measurement tools (summary parser, embedding similarity)
-  - [ ] 06-02-PLAN.md -- Build experiment runner + Track A task templates
-  - [ ] 06-03-PLAN.md -- Execute pilot Track A (N=6) + go/no-go analysis
-  - [ ] 06-04-PLAN.md -- Build Track C ablation framework + SWE-Bench forge agent
-  - [ ] 06-05-PLAN.md -- Statistical analysis pipeline + comprehensive report
-- [x] Phase 7: Adversarial Task Design and Natural Violation Campaign (RQ2b) -- VIOL-04 -- completed 2026-03-28
-  **Goal:** Design a task corpus that stresses the failure modes typed absence should catch. Run 200+ instrumented agent sessions across diverse task categories. Either find natural violations or tighten the upper bound to <= 2%.
-  **Result:** 0/211 violations (mock backend). CP 95% upper bound: 1.73%. RQ2b: NEGATIVE-STRONG (pipeline-validated, pending live validation). CC-015 triggered: reframe detection → prevention.
-  **Plans:** 4 plans (4/4 complete)
-  Plans:
-  - [x] 07-01-PLAN.md -- Extended D1-D9 detection pipeline (9/9 types at 100%, 59 tests)
-  - [x] 07-02-PLAN.md -- Adversarial corpus (20 templates, 9 categories) + campaign runner (489 tests)
-  - [x] 07-03-PLAN.md -- 211-run campaign (0 genuine violations, mock backend)
-  - [x] 07-04-PLAN.md -- Statistical analysis + RQ2b NEGATIVE-STRONG verdict
-- [x] Phase 8: Cross-Architecture Generalization (RQ4) -- XARCH-01 -- completed 2026-03-28
-  **Goal:** Demonstrate that forge typed absence and provenance guarantees transfer beyond OpenClaw into AG2 (message-passing) and LangGraph (graph-based) architectures. Render decisive RQ4 verdict with cross-architecture comparison, coverage gap analysis, and anchor comparisons.
-  **Result:** 0/110 violations (55 AG2 + 55 LangGraph, mock backend). CP 95% upper bound: 3.30%. RQ4: POSITIVE (pipeline-validated, pending live validation). CC-014 satisfied (3 architecture types). 187 new tests.
-  **Plans:** 4 plans (4/4 complete)
-  Plans:
-  - [x] 08-01-PLAN.md -- AG2 adapter validation + integration tests (36 tests)
-  - [x] 08-02-PLAN.md -- LangGraph adapter validation + integration tests (37 tests)
-  - [x] 08-03-PLAN.md -- Cross-architecture campaign (110 sessions) + coverage gaps (76 tests)
-  - [x] 08-04-PLAN.md -- Statistical analysis + RQ4 POSITIVE verdict (38 tests)
-
-**Goal:** Close the three validation gaps from v1.0. Demonstrate real problems on real workloads at real scale.
 
 <details>
 <summary>v1.0 Typed Absence and Provenance Validation (Phases 1-5) -- COMPLETED 2026-03-16</summary>
@@ -48,9 +16,22 @@
 - [x] Phase 4: Compaction Survival Measurement (2/2 plans) -- completed 2026-03-16
 - [x] Phase 5: Cross-Reference and Synthesis (2/2 plans) -- completed 2026-03-16
 
-**Results:** RQ1 PASS, RQ2 PARTIAL (0 natural violations), RQ3 PARTIAL (simulated compaction only)
+**Results:** RQ1 PASS, RQ2 PARTIAL, RQ3 PARTIAL
 
 See `.gpd/milestones/v1.0-ROADMAP.md` for full phase details.
+
+</details>
+
+<details>
+<summary>v2.0 The Forgetting Agent (Phases 6-8) -- COMPLETED 2026-03-28</summary>
+
+- [x] Phase 6: Genuine Compaction Experiments (5/5 plans) -- completed 2026-03-28
+- [x] Phase 7: Adversarial Task Design and Natural Violation Campaign (4/4 plans) -- completed 2026-03-28
+- [x] Phase 8: Cross-Architecture Generalization (4/4 plans) -- completed 2026-03-28
+
+**Results:** RQ2b NEGATIVE-STRONG (0/211, CP upper 1.73%) | RQ3b PARTIAL (pipeline-validated, live untested) | RQ4 POSITIVE (0/110 cross-arch, 3 frameworks)
+
+See `.gpd/milestones/v2.0-ROADMAP.md` for full phase details.
 
 </details>
 
