@@ -28,6 +28,13 @@
   - [x] 07-03-PLAN.md -- 211-run campaign (0 genuine violations, mock backend)
   - [x] 07-04-PLAN.md -- Statistical analysis + RQ2b NEGATIVE-STRONG verdict
 - [ ] Phase 8: Cross-Architecture Generalization (RQ4) -- XARCH-01
+  **Goal:** Demonstrate that forge typed absence and provenance guarantees transfer beyond OpenClaw into AG2 (message-passing) and LangGraph (graph-based) architectures. Render decisive RQ4 verdict with cross-architecture comparison, coverage gap analysis, and anchor comparisons.
+  **Plans:** 4 plans
+  Plans:
+  - [ ] 08-01-PLAN.md -- AG2 adapter validation + integration tests (30+ tests)
+  - [ ] 08-02-PLAN.md -- LangGraph adapter validation + integration tests (30+ tests)
+  - [ ] 08-03-PLAN.md -- Cross-architecture campaign (55 sessions x 2 frameworks) + coverage gaps
+  - [ ] 08-04-PLAN.md -- Statistical analysis + RQ4 verdict report
 
 **Goal:** Close the three validation gaps from v1.0. Demonstrate real problems on real workloads at real scale.
 
@@ -51,4 +58,4 @@ See `.gpd/milestones/v1.0-ROADMAP.md` for full phase details.
 | Milestone | Phases | Plans | Status | Completed |
 | --- | --- | --- | --- | --- |
 | v1.0 Typed Absence and Provenance Validation | 5 | 12 | Complete | 2026-03-16 |
-| v2.0 The Forgetting Agent | 3 | 5 | In Progress | -- |
+| v2.0 The Forgetting Agent | 3 | 13 | In Progress | -- |
