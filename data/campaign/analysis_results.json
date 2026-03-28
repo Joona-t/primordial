@@ -1,0 +1,361 @@
+{
+  "campaign_summary": {
+    "total_runs": 211,
+    "backend": "mock",
+    "backend_caveat": "BACKEND=mock: violations are forge-layer only, not LLM-behavioral. RQ2b verdict must carry 'pending live validation' qualifier.",
+    "violations_found": 0,
+    "mock_d7_artifacts_excluded": 1262,
+    "campaign_id": "v2.0-viol04",
+    "seed": 42
+  },
+  "aggregate": {
+    "violations": 0,
+    "runs": 211,
+    "rate": 0.0,
+    "ci_lower": 0.0,
+    "ci_upper": 0.017330902875054677,
+    "ci_method": "clopper_pearson",
+    "ci_convention": "two-sided 95% (alpha=0.05, alpha/2=0.025 per tail)",
+    "bayesian_posterior": {
+      "prior": "Beta(1.0, 1.0)",
+      "posterior": "Beta(1.0, 212.0)",
+      "mean": 0.004694835680751174,
+      "median": 0.003264222974584371,
+      "credible_interval_95": [
+        0.00011941649185045304,
+        0.017249862516595875
+      ],
+      "prob_rate_exceeds": {
+        "0.01": 0.11875755691154333,
+        "0.02": 0.013801555837664403,
+        "0.05": 1.8941061806998505e-05,
+        "0.1": 1.992562781438778e-10
+      }
+    }
+  },
+  "per_category": {
+    "A1": {
+      "runs": 37,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.09489058741498987
+    },
+    "A2": {
+      "runs": 37,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.09489058741498987
+    },
+    "A3": {
+      "runs": 21,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.1610976152190796
+    },
+    "A4": {
+      "runs": 21,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.1610976152190796
+    },
+    "B5": {
+      "runs": 21,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.1610976152190796
+    },
+    "B6": {
+      "runs": 21,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.1610976152190796
+    },
+    "B7": {
+      "runs": 21,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.1610976152190796
+    },
+    "B8": {
+      "runs": 9,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.3362671168799428
+    },
+    "C9": {
+      "runs": 23,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.14818512891522437
+    }
+  },
+  "per_dtype": {
+    "D1": 0,
+    "D2": 0,
+    "D3": 0,
+    "D4": 0,
+    "D5": 0,
+    "D6": 0,
+    "D7": 0,
+    "D8": 0,
+    "D9": 0
+  },
+  "per_stress_level": {
+    "control": {
+      "runs": 58,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.06162100890391983,
+      "score": 0
+    },
+    "mild": {
+      "runs": 57,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.06266748091448493,
+      "score": 1
+    },
+    "moderate": {
+      "runs": 50,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.07112173646419764,
+      "score": 2
+    },
+    "heavy": {
+      "runs": 46,
+      "violations": 0,
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.07706182705190072,
+      "score": 3
+    }
+  },
+  "comparisons": {
+    "adversarial_vs_control": {
+      "odds_ratio": NaN,
+      "p_value": 1.0,
+      "table": [
+        [
+          0,
+          188
+        ],
+        [
+          0,
+          23
+        ]
+      ],
+      "adversarial": {
+        "runs": 188,
+        "violations": 0,
+        "rate": 0.0
+      },
+      "control": {
+        "runs": 23,
+        "violations": 0,
+        "rate": 0.0
+      }
+    },
+    "per_category_vs_control": {
+      "bonferroni_correction": {
+        "n_comparisons": 8,
+        "alpha_original": 0.05,
+        "alpha_corrected": 0.00625
+      },
+      "per_category": {
+        "A1": {
+          "runs": 37,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        },
+        "A2": {
+          "runs": 37,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        },
+        "A3": {
+          "runs": 21,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        },
+        "A4": {
+          "runs": 21,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        },
+        "B5": {
+          "runs": 21,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        },
+        "B6": {
+          "runs": 21,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        },
+        "B7": {
+          "runs": 21,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        },
+        "B8": {
+          "runs": 9,
+          "violations": 0,
+          "rate": 0.0,
+          "fisher_p": 1.0,
+          "odds_ratio": NaN,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    "dose_response": {
+      "per_stress_level": {
+        "control": {
+          "runs": 58,
+          "violations": 0,
+          "rate": 0.0,
+          "ci_lower": 0.0,
+          "ci_upper": 0.06162100890391983,
+          "score": 0
+        },
+        "mild": {
+          "runs": 57,
+          "violations": 0,
+          "rate": 0.0,
+          "ci_lower": 0.0,
+          "ci_upper": 0.06266748091448493,
+          "score": 1
+        },
+        "moderate": {
+          "runs": 50,
+          "violations": 0,
+          "rate": 0.0,
+          "ci_lower": 0.0,
+          "ci_upper": 0.07112173646419764,
+          "score": 2
+        },
+        "heavy": {
+          "runs": 46,
+          "violations": 0,
+          "rate": 0.0,
+          "ci_lower": 0.0,
+          "ci_upper": 0.07706182705190072,
+          "score": 3
+        }
+      },
+      "trend_test": {
+        "test": "cochran_armitage_not_applicable",
+        "reason": "0 violations at all stress levels; dose-response is flat at zero",
+        "trend_p_value": null,
+        "interpretation": "No evidence of dose-response relationship. All stress levels produced 0 violations."
+      },
+      "reference": "ReliabilityBench (arxiv:2601.06112) epsilon/lambda stress framework"
+    }
+  },
+  "anchors": {
+    "v1_comparison": {
+      "v1": {
+        "violations": 0,
+        "runs": 30,
+        "rate": 0.0,
+        "ci_upper": 0.11570330822202778
+      },
+      "v2": {
+        "violations": 0,
+        "runs": 211,
+        "rate": 0.0,
+        "ci_upper": 0.017330902875054677
+      },
+      "improvement_factor": 6.676126977121655,
+      "fisher_p": 1.0,
+      "interpretation": "v1.0 CP upper: 0.1157 (0/30). v2.0 CP upper: 0.0173 (0/211). Bound tightened by 6.7x. Fisher's exact p = 1.0000 (both zero -- no rate difference detectable)."
+    },
+    "mock_comparison": {
+      "mock_injection": {
+        "detected": 6,
+        "total": 6,
+        "rate": 1.0,
+        "description": "MockLM experiment: 6/6 injected violations caught at registration time"
+      },
+      "injection_sanity_plan01": {
+        "detected": 90,
+        "total": 90,
+        "rate": 1.0,
+        "description": "Plan 01 extended validator: 90/90 = 100% across all 9 D-types"
+      },
+      "natural_campaign": {
+        "violations": 0,
+        "runs": 211,
+        "rate": 0.0,
+        "backend": "mock"
+      },
+      "gap_explanation": "Three non-exclusive hypotheses explain the gap between MockLM injection detection (100%) and 0 natural violations: (a) The forge framework's type system structurally prevents violations that would occur without it (prevention > detection). (b) The mock backend cannot produce the behavioral patterns that cause real LLM violations (mock limitation). (c) Natural violations are genuinely rare at rates below the CP upper bound (0.0173). Hypothesis (b) is the primary concern: mock backend results validate pipeline correctness but not natural violation rates."
+    }
+  },
+  "verdict": {
+    "rq2b": "NEGATIVE-STRONG (pipeline-validated, pending live validation)",
+    "confidence": "medium",
+    "summary": "0/211 violations on mock backend. CP 95% upper bound: 0.0173. Bayesian P(rate > 2%) = 0.0138. Pipeline is functional (100% injection detection, 0 false positives, 0 natural violations). Mock backend validates pipeline correctness but cannot produce LLM-behavioral violations. A decisive RQ2b verdict requires live agent validation.",
+    "backend_caveat": "BACKEND=mock: violations are forge-layer only, not LLM-behavioral. RQ2b verdict must carry 'pending live validation' qualifier.",
+    "statistical_basis": {
+      "violations": 0,
+      "runs": 211,
+      "rate": 0.0,
+      "cp_upper": 0.017330902875054677,
+      "bayesian_p_gt_2pct": 0.013801555837664403
+    }
+  },
+  "forbidden_proxy_audit": {
+    "fp-injection-as-natural": {
+      "status": "clean",
+      "evidence": "Natural violation count is computed solely from raw_violations.jsonl violation_count field. Injection sanity check (Plan 01) is a separate dataset (injection_sanity_check.json). Total natural: 0/211. No injection data mixed in."
+    },
+    "fp-mock-as-real": {
+      "status": "clean",
+      "evidence": "Backend: mock. Verdict: 'NEGATIVE-STRONG (pipeline-validated, pending live validation)'. Mock qualifier present."
+    },
+    "fp-weak-bound": {
+      "status": "clean",
+      "evidence": "CP upper bound: 0.0173. Below 5% threshold."
+    },
+    "fp-no-comparison": {
+      "status": "clean",
+      "evidence": "Analysis includes compare_v1_baseline() and compare_mock_experiment(). Both anchor comparisons present."
+    }
+  },
+  "cc015_trigger": true,
+  "cc015_assessment": "CC-015 TRIGGERED: 0 violations on 200+ diverse adversarial runs. Recommendation: reframe from 'violation detection' to 'structural violation prevention.' The value of typed absence lies not in detecting rare failures, but in preventing them structurally. The negative finding IS the finding."
+}
