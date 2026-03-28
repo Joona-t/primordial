@@ -1,0 +1,99 @@
+{
+  "timestamp": "2026-03-28T06:34:46.858497+00:00",
+  "total_runs_validated": 211,
+  "total_violations_found": 0,
+  "runs_with_violations": 0,
+  "violation_rate": 0.0,
+  "per_dtype": {
+    "D1": 0,
+    "D2": 0,
+    "D3": 0,
+    "D4": 0,
+    "D5": 0,
+    "D6": 0,
+    "D7": 0,
+    "D8": 0,
+    "D9": 0
+  },
+  "per_category": {
+    "A1": {
+      "runs": 37,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "A2": {
+      "runs": 37,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "A3": {
+      "runs": 21,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "A4": {
+      "runs": 21,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "B5": {
+      "runs": 21,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "B6": {
+      "runs": 21,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "B7": {
+      "runs": 21,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "B8": {
+      "runs": 9,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "C9": {
+      "runs": 23,
+      "violations": 0,
+      "runs_with_violations": 0
+    }
+  },
+  "per_stress_level": {
+    "control": {
+      "runs": 58,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "heavy": {
+      "runs": 46,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "mild": {
+      "runs": 57,
+      "violations": 0,
+      "runs_with_violations": 0
+    },
+    "moderate": {
+      "runs": 50,
+      "violations": 0,
+      "runs_with_violations": 0
+    }
+  },
+  "adversarial_vs_control": {
+    "adversarial_runs": 188,
+    "adversarial_violations": 0,
+    "control_runs": 23,
+    "control_violations": 0
+  },
+  "mock_d7_artifacts": {
+    "total_excluded": 1262,
+    "explanation": "MockLM generates tool_call_log with synthetic call_ids (call_000, call_001, ...) that are never embedded in chamber content. The D7 checker correctly detects these as 'tool calls not found in chamber trace.' These are expected structural artifacts of the mock backend, not genuine trace data loss. With a real LLM, tool call IDs would be embedded in the artifacts they produce, so D7 would only trigger on genuine data loss. Excluded from violation counts."
+  },
+  "backend": "mock",
+  "backend_caveat": "If mock: violations are forge-layer only, not LLM-behavioral. MockLM D7 artifacts (synthetic call_ids not in chamber) are excluded from violation counts as expected mock behavior."
+}

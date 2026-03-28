@@ -1,0 +1,197 @@
+{
+  "timestamp": "2026-03-28T06:34:46.860674+00:00",
+  "runs_reviewed": 10,
+  "selection_criteria": "2 runs from each of A1-A4 at heavy stress + 2 from Tier B at moderate/heavy stress",
+  "findings": [
+    {
+      "run_id": "TASK-A1a_heavy_009",
+      "task_id": "TASK-A1a",
+      "category": "A1",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 16,
+      "chamber_stages": 8,
+      "tool_errors_count": 1,
+      "compaction_events_count": 1,
+      "unmatched_tool_calls": 8,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "1 compaction event(s) recorded. With MockLM, compaction is simulated (no actual data loss). Real LLM compaction could mask violations undetectable by the current pipeline.",
+        "8 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-A1a_heavy_010",
+      "task_id": "TASK-A1a",
+      "category": "A1",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 16,
+      "chamber_stages": 8,
+      "tool_errors_count": 1,
+      "compaction_events_count": 1,
+      "unmatched_tool_calls": 8,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "1 compaction event(s) recorded. With MockLM, compaction is simulated (no actual data loss). Real LLM compaction could mask violations undetectable by the current pipeline.",
+        "8 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-A2a_heavy_009",
+      "task_id": "TASK-A2a",
+      "category": "A2",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 16,
+      "chamber_stages": 8,
+      "tool_errors_count": 2,
+      "compaction_events_count": 1,
+      "unmatched_tool_calls": 8,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "1 compaction event(s) recorded. With MockLM, compaction is simulated (no actual data loss). Real LLM compaction could mask violations undetectable by the current pipeline.",
+        "8 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-A2a_heavy_010",
+      "task_id": "TASK-A2a",
+      "category": "A2",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 16,
+      "chamber_stages": 8,
+      "tool_errors_count": 2,
+      "compaction_events_count": 1,
+      "unmatched_tool_calls": 8,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "1 compaction event(s) recorded. With MockLM, compaction is simulated (no actual data loss). Real LLM compaction could mask violations undetectable by the current pipeline.",
+        "8 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-A3a_heavy_008",
+      "task_id": "TASK-A3a",
+      "category": "A3",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 10,
+      "chamber_stages": 5,
+      "tool_errors_count": 2,
+      "compaction_events_count": 0,
+      "unmatched_tool_calls": 5,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "5 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-A3a_heavy_009",
+      "task_id": "TASK-A3a",
+      "category": "A3",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 10,
+      "chamber_stages": 5,
+      "tool_errors_count": 2,
+      "compaction_events_count": 0,
+      "unmatched_tool_calls": 5,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "5 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-A4a_heavy_008",
+      "task_id": "TASK-A4a",
+      "category": "A4",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 10,
+      "chamber_stages": 5,
+      "tool_errors_count": 3,
+      "compaction_events_count": 0,
+      "unmatched_tool_calls": 5,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "5 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-A4a_heavy_009",
+      "task_id": "TASK-A4a",
+      "category": "A4",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 10,
+      "chamber_stages": 5,
+      "tool_errors_count": 3,
+      "compaction_events_count": 0,
+      "unmatched_tool_calls": 5,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "5 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-B5a_heavy_008",
+      "task_id": "TASK-B5a",
+      "category": "B5",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 10,
+      "chamber_stages": 5,
+      "tool_errors_count": 2,
+      "compaction_events_count": 0,
+      "unmatched_tool_calls": 5,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "5 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    },
+    {
+      "run_id": "TASK-B5a_heavy_009",
+      "task_id": "TASK-B5a",
+      "category": "B5",
+      "stress_level": "heavy",
+      "violation_count": 0,
+      "transcript_length": 10,
+      "chamber_stages": 5,
+      "tool_errors_count": 2,
+      "compaction_events_count": 0,
+      "unmatched_tool_calls": 5,
+      "potential_false_negatives": [
+        "Tool errors present but no D7 -- expected: MockLM records all calls including failed ones, so D7 (trace data loss) does not apply. Would differ with real LLM if tool calls are dropped from transcript during compaction.",
+        "5 tool call IDs not in chamber content -- expected MockLM artifact (synthetic call_ids are independent of chamber). D7 correctly fires but is excluded from genuine violation counts. With real LLM, only genuinely dropped calls would trigger D7."
+      ],
+      "detection_gaps": [],
+      "assessment": "No detection gaps identified for this run. MockLM produces structurally valid chambers; natural violations can only arise from forge instrumentation bugs."
+    }
+  ],
+  "summary": {
+    "total_detection_gaps": 0,
+    "total_potential_false_negatives": 24,
+    "overall_assessment": "No detection pipeline blind spots identified in transcript review. All detected violations (if any) are correctly classified. MockLM limitations: tool errors are simulated but recorded (no D7 trigger), compaction is simulated (no actual data loss). These limitations mean the pipeline cannot be tested for false negatives arising from real LLM compaction behavior."
+  },
+  "backend": "mock"
+}
