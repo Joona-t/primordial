@@ -8,8 +8,8 @@
   "commit_docs": true,
   "model_profile": "review",
   "workflow": {
-    "research": true,
     "plan_checker": true,
     "verifier": true
-  }
+  },
+  "research": true
 }
