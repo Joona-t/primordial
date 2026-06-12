@@ -5,15 +5,15 @@
 See: GPD/PROJECT.md (updated 2026-03-28)
 
 **Core research question:** Can typed absence, explicit provenance, and recoverable compaction prevent silent state loss in real long-running autonomous agents?
-**Current focus:** Planning next research stage
+**Current focus:** v3.0 Live Validation — defining objectives
 
 ## Current Position
 
 **Milestones completed:** v1.0 (2026-03-16), v2.0 (2026-03-28)
 **Total Phases:** 8 (5 in v1.0, 3 in v2.0)
 **Total Plans:** 25 (12 in v1.0, 13 in v2.0)
-**Status:** v2.0 milestone archived. Between milestones.
-**Last Activity:** 2026-03-28 — v2.0 milestone completed and archived
+**Status:** Planning
+**Last Activity:** 2026-06-12 — v3.0 Live Validation milestone started
 
 **Progress:** [██████████] 100% (v1.0 + v2.0 complete)
 
@@ -48,6 +48,7 @@ See `GPD/milestones/v2.0/RESEARCH-DIGEST.md` for complete v2.0 results.
 ### Decisions
 
 Full decision log: see `GPD/PROJECT.md` Key Decisions table (CC-001 through CC-021).
+- [Phase 0]: Started milestone v3.0: Live Validation — New milestone cycle: convert v2.0 pipeline-validated verdicts to live results via Claude Code CLI subprocess (no paid API)
 
 ### Active Approximations
 
@@ -63,6 +64,9 @@ None active. Between milestones.
 
 ## Session Continuity
 
-**Last session:** 2026-03-28
-**Stopped at:** v2.0 milestone archived. Next: `/gpd:new-milestone` for v3.0 planning.
-**Resume file:** —
+**Last session:** none
+**Stopped at:** none
+**Resume file:** none
+**Last result ID:** none
+**Hostname:** none
+**Platform:** none

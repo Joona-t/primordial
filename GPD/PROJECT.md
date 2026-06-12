@@ -8,6 +8,19 @@ A formal systems research project investigating whether typed absence, explicit 
 
 Can typed absence, explicit provenance, and recoverable compaction prevent silent state loss in real long-running autonomous agents?
 
+## Current Milestone: v3.0 Live Validation
+
+**Goal:** Convert every v2.0 "pipeline-validated, pending live validation" verdict into a live result by driving real Claude Code sessions via local subprocess (`claude -p` / Agent SDK on the user's subscription — no paid API key), using Claude Code's own auto-compaction as the genuine compaction event RQ3b requires.
+
+**Target results:**
+
+- RQ3b live: SPF (Jaccard / weighted / embedding) and structural + semantic reachability measured on real LLM compaction summaries from live chambers (COMP-04, SPF-01)
+- RQ2b live: subset of the 20-task adversarial corpus re-run against live sessions; Clopper-Pearson bounds updated with live (non-mock) data
+- RQ5: forge instrumentation overhead measured against an uninstrumented baseline on live sessions, <20% target
+- `data/synthesis/rq-verdicts.json` regenerated with the mock-backend qualifier removed where live evidence lands; all existing tests still passing
+
+**Constraint carried from house rules:** no paid LLM API anywhere in the pipeline — live sessions run through the locally installed Claude Code CLI/subscription only.
+
 ## Scoping Contract Summary
 
 ### Contract Coverage
@@ -83,8 +96,8 @@ Can typed absence, explicit provenance, and recoverable compaction prevent silen
 
 ### Open
 
-- [ ] RQ3b: Does structural reachability hold under genuine LLM context-window compaction (not simulated)? — Pipeline built and dry-run validated; live API execution blocked by missing ANTHROPIC_API_KEY.
-- [ ] RQ5: Can forge tools be deployed with acceptable overhead on production agent systems?
+- [ ] RQ3b: Does structural reachability hold under genuine LLM context-window compaction (not simulated)? — Pipeline built and dry-run validated. v3.0 unblocks live execution via Claude Code CLI subprocess (subscription auth, no API key): Claude Code's auto-compaction is the genuine compaction event.
+- [ ] RQ5: Can forge tools be deployed with acceptable overhead on production agent systems? — v3.0 measures overhead vs uninstrumented baseline on live sessions (<20% target).
 
 ### Out of Scope
 
@@ -238,4 +251,4 @@ See `GPD/milestones/v2.0-REQUIREMENTS.md` for archived v2.0 requirements.
 
 ---
 
-_Last updated: 2026-03-28 after v2.0 milestone_
+_Last updated: 2026-06-12 at v3.0 milestone start_
