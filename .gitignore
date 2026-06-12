@@ -4,3 +4,6 @@ __pycache__/
 .env
 .venv/
 out/
+.hypothesis/
+.mutmut-cache
+GPD/state.json.bak

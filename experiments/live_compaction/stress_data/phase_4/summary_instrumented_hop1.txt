@@ -1,0 +1,310 @@
+# Compaction Summary — Hop 1
+# Source: context_instrumented.txt
+# Protocol: Typed Absence — Primordial Forge Phase 4
+# Compactor: Claude Sonnet 4.6
+
+---
+
+## Provenance Chain (dependency order)
+
+artifact:stress:auth:r1
+  → artifact:stress:billing:r1
+    → artifact:stress:ingestion:r1
+      → artifact:stress:analytics:r1
+        → artifact:stress:notification:r1
+          → artifact:stress:search:r1
+            → artifact:stress:storage:r1
+              → artifact:stress:gateway:r1
+                → artifact:stress:scheduler:r1
+                  → artifact:stress:monitoring:r1
+                    → artifact:stress:compliance:r1
+                      → artifact:stress:reporting:r1
+                        → artifact:stress:migration:r1
+
+---
+
+## Shared Infrastructure Context (applies to all stages)
+PRUNED_RECOVERABLE [source: all stages, boilerplate paragraphs]
+- Observability: Prometheus (metrics), Jaeger (tracing), Elasticsearch (logs), PagerDuty alerting
+- Service mesh: mTLS, circuit breaking, retry policies, canary via weighted routing
+- Deployment pipeline: unit → integration → contract → canary; blue-green rollback with health checks
+- API versioning: URL-based major, header-based minor; 6-month backward compat after deprecation
+- Data governance: PII classified + encrypted at rest; debug logs 30-day retention, financial records 7 years; GDPR cross-border restrictions on EU data
+- Performance testing: weekly (load, stress, soak); capacity plans updated quarterly
+
+---
+
+## Stage 1 — Auth Service (artifact:stress:auth:r1)
+
+HIGH — exact throughput measurements (33 readings, all pending full reconciliation):
+[C0000] 17,706 eps / buffer 35,607
+[C0015] 37,173 eps / buffer 25,669 (pending review cycle 4)
+[C0030] 35,305 eps / buffer 65,590 (pending review cycle 3)
+[C0045] 35,885 eps / buffer 75,487 (pending review cycle 1)
+[C0060] 804 eps / buffer 44,376
+[C0075] 62,826 eps / buffer 37,978
+[C0090] 82,174 eps / buffer 23,184
+[C0105] 97,209 eps / buffer 74,151
+[C0120] 62,691 eps / buffer 87,165
+[C0135] 57,183 eps / buffer 13,309 (pending review cycle 5)
+[C0150] 76,548 eps / buffer 83,807 (pending review cycle 4)
+[C0165] 75,116 eps / buffer 547
+[C0180] 58,297 eps / buffer 22,343
+[C0195] 97,423 eps / buffer 4,726
+[C0210] 85,932 eps / buffer 34,962 (pending review cycle 5)
+[C0225] 2,540 eps / buffer 97,431
+[C0240] 20,474 eps / buffer 17,276 (pending review cycle 1)
+[C0255] 72,931 eps / buffer 81,741
+[C0270] 28,214 eps / buffer 76,827 (pending review cycle 2)
+[C0285] 71,037 eps / buffer 54,242 (pending review cycle 4)
+[C0300] 18,584 eps / buffer 56,279
+[C0315] 13,958 eps / buffer 64,897
+[C0330] 31,243 eps / buffer 76,850 (pending review cycle 3)
+[C0345] 54,705 eps / buffer 15,593
+[C0360] 69,312 eps / buffer 41,583
+[C0375] 2,374 eps / buffer 32,281
+[C0390] 52,009 eps / buffer 60,767
+[C0405] 71,612 eps / buffer 74,031 (pending review cycle 3)
+[C0420] 70,173 eps / buffer 23,974
+[C0435] 39,869 eps / buffer 63,791
+[C0450] 14,257 eps / buffer 16,264
+[C0465] 92,809 eps / buffer 43,088 (pending review cycle 4)
+[C0480] 85,693 eps / buffer 97,382
+[C0495] 67,292 eps / buffer 84,451
+
+---
+
+## Stage 2 — Billing Service (artifact:stress:billing:r1)
+Depends-on: artifact:stress:auth:r1
+
+PRUNED_RECOVERABLE [C0001–C0496, type:identifier] — 33 entry point functions identified across billing/core/{validator,dispatcher,router,processor,engine,handler}.py. Functions include: dispatch_notification, execute_reconciliation, sync_upstream_state, transform_payload, handle_event_stream, aggregate_metrics, validate_and_route, run_compliance_check. Exact file paths and line numbers available in source.
+
+---
+
+## Stage 3 — Ingestion Service (artifact:stress:ingestion:r1)
+Depends-on: artifact:stress:billing:r1
+
+PRUNED_RECOVERABLE [C0002–C0497, type:causal] — 33 retry-limit change records. Pattern: retry limit adjusted (up or down) after cascading-failure incidents INC-XXXXX. Exact before/after values and incident IDs preserved in source. All changes carry MEDIUM priority and several have pending review cycles (1–5).
+
+---
+
+## Stage 4 — Analytics Service (artifact:stress:analytics:r1)
+Depends-on: artifact:stress:ingestion:r1
+
+HIGH — negation constraints (analytics does NOT write directly to storage; all writes route through an event bus first):
+[C0003] NOT S3 direct → DynamoDB event bus
+[C0018] NOT DynamoDB direct → S3 event bus (pending cycle 3)
+[C0033] NOT DynamoDB direct → S3 event bus (pending cycle 5)
+[C0048] NOT DynamoDB direct → PostgreSQL event bus
+[C0063] NOT Elasticsearch direct → Redis event bus
+[C0078] NOT Elasticsearch direct → Elasticsearch event bus
+[C0093] NOT S3 direct → Elasticsearch event bus
+[C0108] NOT Elasticsearch direct → Redis event bus
+[C0123] NOT PostgreSQL direct → PostgreSQL event bus (pending cycle 2)
+[C0138] NOT Redis direct → Redis event bus (pending cycle 4)
+[C0153] NOT DynamoDB direct → Elasticsearch event bus (pending cycle 2)
+[C0168] NOT PostgreSQL direct → DynamoDB event bus
+[C0183] NOT Redis direct → S3 event bus (pending cycle 2)
+[C0198] NOT PostgreSQL direct → DynamoDB event bus (pending cycle 1)
+[C0213] NOT DynamoDB direct → S3 event bus
+[C0228] NOT Redis direct → Redis event bus
+[C0243] NOT Redis direct → Redis event bus (pending cycle 5)
+[C0258] NOT Redis direct → DynamoDB event bus
+[C0273] NOT S3 direct → Redis event bus (pending cycle 2)
+[C0288] NOT S3 direct → PostgreSQL event bus (pending cycle 5)
+[C0303] NOT Elasticsearch direct → DynamoDB event bus
+[C0318] NOT DynamoDB direct → DynamoDB event bus
+[C0333] NOT Elasticsearch direct → PostgreSQL event bus
+[C0348] NOT Elasticsearch direct → S3 event bus
+[C0363] NOT S3 direct → Elasticsearch event bus (pending cycle 3)
+[C0378] NOT Redis direct → Redis event bus
+[C0393] NOT PostgreSQL direct → DynamoDB event bus (pending cycle 1)
+[C0408] NOT DynamoDB direct → Redis event bus
+[C0423] NOT S3 direct → Redis event bus
+[C0438] NOT Elasticsearch direct → Elasticsearch event bus
+[C0453] NOT Elasticsearch direct → Redis event bus
+[C0468] NOT Elasticsearch direct → DynamoDB event bus
+[C0483] NOT Redis direct → PostgreSQL event bus (pending cycle 2)
+[C0498] NOT S3 direct → S3 event bus (pending cycle 2)
+
+---
+
+## Stage 5 — Notification Service (artifact:stress:notification:r1)
+Depends-on: artifact:stress:analytics:r1
+
+PRUNED_RECOVERABLE [C0004–C0499, type:provenance] — 33 security-review provenance records. Each notification security review in a given stage depends on the analytics reporting architecture; if the named COND-XXXX changes, re-audit is required. Provenance parent: artifact:stress:analytics:r1. Full stage numbers and condition IDs in source.
+
+---
+
+## Stage 6 — Search Service (artifact:stress:search:r1)
+Depends-on: artifact:stress:notification:r1
+
+HIGH — exact throughput measurements (33 readings):
+[C0005] 98,668 eps / buffer 31,823 (pending cycle 1)
+[C0020] 87,547 eps / buffer 21,217
+[C0035] 3,593 eps / buffer 18,607 (pending cycle 4)
+[C0050] 92,100 eps / buffer 63,057
+[C0065] 57,300 eps / buffer 66,887 (pending cycle 3)
+[C0080] 82,710 eps / buffer 15,055
+[C0095] 5,490 eps / buffer 94,273
+[C0110] 59,171 eps / buffer 43,047
+[C0125] 56,452 eps / buffer 12,545 (pending cycle 4)
+[C0140] 75,046 eps / buffer 65,025 (pending cycle 3)
+[C0155] 35,118 eps / buffer 55,243 (pending cycle 2)
+[C0170] 16,854 eps / buffer 72,452
+[C0185] 88,376 eps / buffer 49,527 (pending cycle 5)
+[C0200] 24,004 eps / buffer 1,202
+[C0215] 77,498 eps / buffer 13,559 (pending cycle 3)
+[C0230] 90,354 eps / buffer 50,162
+[C0245] 7,581 eps / buffer 7,729 (pending cycle 3)
+[C0260] 16,695 eps / buffer 26,976 (pending cycle 3)
+[C0275] 74,697 eps / buffer 63,717 (pending cycle 4)
+[C0290] 71,292 eps / buffer 19,040
+[C0305] 60,042 eps / buffer 58,350 (pending cycle 3)
+[C0320] 84,600 eps / buffer 84,037 (pending cycle 5)
+[C0335] 1,502 eps / buffer 32,140 (pending cycle 3)
+[C0350] 5,465 eps / buffer 97,215
+[C0365] 5,135 eps / buffer 3,412
+[C0380] 90,055 eps / buffer 24,289
+[C0395] 29,870 eps / buffer 81,947 (pending cycle 3)
+[C0410] 84,921 eps / buffer 29,675 (pending cycle 4)
+[C0425] 31,973 eps / buffer 31,791
+[C0440] 46,160 eps / buffer 18,977
+[C0455] 44,410 eps / buffer 59,400 (pending cycle 1)
+[C0470] 74,886 eps / buffer 80,908
+[C0485] 40,656 eps / buffer 54,530
+
+---
+
+## Stage 7 — Storage Service (artifact:stress:storage:r1)
+Depends-on: artifact:stress:search:r1
+
+PRUNED_RECOVERABLE [C0006–C0486, type:identifier] — 33 entry point functions identified across storage/core/{handler,dispatcher,engine,router,processor,validator}.py. Functions include: validate_and_route, execute_reconciliation, dispatch_notification, handle_event_stream, transform_payload, run_compliance_check, aggregate_metrics, sync_upstream_state, process_incoming_batch. Exact line numbers in source.
+
+---
+
+## Stage 8 — Gateway Service (artifact:stress:gateway:r1)
+Depends-on: artifact:stress:storage:r1
+
+PRUNED_RECOVERABLE [C0007–C0487, type:causal] — 33 gateway retry-limit change records after cascading-failure incidents. Same pattern as ingestion. Exact before/after values and INC IDs in source.
+
+---
+
+## Stage 9 — Scheduler Service (artifact:stress:scheduler:r1)
+Depends-on: artifact:stress:gateway:r1
+
+HIGH — negation constraints (scheduler does NOT write directly to storage; all writes route through event bus):
+[C0008] NOT S3 direct → Redis event bus (pending cycle 5)
+[C0023] NOT S3 direct → S3 event bus
+[C0038] NOT S3 direct → DynamoDB event bus (pending cycle 4)
+[C0053] NOT DynamoDB direct → Redis event bus
+[C0068] NOT DynamoDB direct → Elasticsearch event bus
+[C0083] NOT PostgreSQL direct → DynamoDB event bus (pending cycle 3)
+[C0098] NOT PostgreSQL direct → DynamoDB event bus
+[C0113] NOT Elasticsearch direct → S3 event bus (pending cycle 2)
+[C0128] NOT PostgreSQL direct → Redis event bus
+[C0143] NOT DynamoDB direct → Elasticsearch event bus (pending cycle 3)
+[C0158] NOT Elasticsearch direct → S3 event bus
+[C0173] NOT DynamoDB direct → Elasticsearch event bus
+[C0188] NOT Redis direct → S3 event bus
+[C0203] NOT PostgreSQL direct → Elasticsearch event bus (pending cycle 3)
+[C0218] NOT DynamoDB direct → Redis event bus
+[C0233] NOT PostgreSQL direct → Elasticsearch event bus
+[C0248] NOT Redis direct → PostgreSQL event bus
+[C0263] NOT Elasticsearch direct → Redis event bus (pending cycle 3)
+[C0278] NOT DynamoDB direct → PostgreSQL event bus (pending cycle 3)
+[C0293] NOT PostgreSQL direct → PostgreSQL event bus
+[C0308] NOT DynamoDB direct → Elasticsearch event bus
+[C0323] NOT S3 direct → DynamoDB event bus
+[C0338] NOT PostgreSQL direct → S3 event bus
+[C0353] NOT Redis direct → Elasticsearch event bus
+[C0368] NOT S3 direct → Redis event bus (pending cycle 3)
+[C0383] NOT Elasticsearch direct → DynamoDB event bus
+[C0398] NOT Elasticsearch direct → S3 event bus
+[C0413] NOT DynamoDB direct → Elasticsearch event bus
+[C0428] NOT Elasticsearch direct → Elasticsearch event bus
+[C0443] NOT Redis direct → PostgreSQL event bus (pending cycle 1)
+[C0458] NOT Elasticsearch direct → PostgreSQL event bus
+[C0473] NOT PostgreSQL direct → PostgreSQL event bus (pending cycle 2)
+[C0488] NOT Redis direct → PostgreSQL event bus
+
+---
+
+## Stage 10 — Monitoring Service (artifact:stress:monitoring:r1)
+Depends-on: artifact:stress:scheduler:r1
+
+PRUNED_RECOVERABLE [C0009–C0489, type:provenance] — 33 security-review provenance records. Each monitoring security review depends on the billing architecture in artifact:stress:scheduler:r1; re-audit required if named COND-XXXX changes. Full stage numbers and condition IDs in source.
+
+---
+
+## Stage 11 — Compliance Service (artifact:stress:compliance:r1)
+Depends-on: artifact:stress:monitoring:r1
+
+HIGH — exact throughput measurements (33 readings):
+[C0010] 48,810 eps / buffer 43,759
+[C0025] 23,003 eps / buffer 92,235
+[C0040] 36,187 eps / buffer 87,527 (pending cycle 2)
+[C0055] 82,454 eps / buffer 85,531 (pending cycle 2)
+[C0070] 97,708 eps / buffer 1,920
+[C0085] 9,834 eps / buffer 94,863
+[C0100] 18,895 eps / buffer 41,445
+[C0115] 78,866 eps / buffer 33,169
+[C0130] 3,879 eps / buffer 47,833
+[C0145] 77,307 eps / buffer 42,515
+[C0160] 16,383 eps / buffer 43,226 (pending cycle 1)
+[C0175] 77,498 eps / buffer 53,103
+[C0190] 27,222 eps / buffer 62,208
+[C0205] 48,957 eps / buffer 1,507
+[C0220] 11,268 eps / buffer 16,558
+[C0235] 93,325 eps / buffer 94,548
+[C0250] 4,657 eps / buffer 23,905
+[C0265] 39,411 eps / buffer 72,797 (pending cycle 5)
+[C0280] 36,047 eps / buffer 47,103
+[C0295] 68,951 eps / buffer 32,604
+[C0310] 81,277 eps / buffer 58,148
+[C0325] 98,135 eps / buffer 9,924
+[C0340] 67,685 eps / buffer 92,861
+[C0355] 29,978 eps / buffer 39,413 (pending cycle 4)
+[C0370] 15,780 eps / buffer 97,694 (pending cycle 2)
+[C0385] 66,934 eps / buffer 12,032 (pending cycle 5)
+[C0400] 600 eps / buffer 91,681
+[C0415] 26,326 eps / buffer 70,132
+[C0430] 56,236 eps / buffer 67,575
+[C0445] 74,261 eps / buffer 9,585
+[C0460] 95,885 eps / buffer 85,001
+[C0475] 38,767 eps / buffer 50,077
+[C0490] 7,381 eps / buffer 53,022
+
+---
+
+## Stage 12 — Reporting Service (artifact:stress:reporting:r1)
+Depends-on: artifact:stress:compliance:r1
+
+PRUNED_RECOVERABLE [C0011–C0491, type:identifier] — 33 entry point functions across reporting/core/{validator,processor,handler,router,engine,dispatcher}.py. Functions include: handle_event_stream, execute_reconciliation, aggregate_metrics, sync_upstream_state, validate_and_route, run_compliance_check, dispatch_notification, transform_payload, process_incoming_batch. Exact line numbers in source.
+
+---
+
+## Stage 13 — Migration Service (artifact:stress:migration:r1)
+Depends-on: artifact:stress:reporting:r1
+
+PRUNED_RECOVERABLE [C0012–C0497+, type:causal] — Migration retry-limit change records after cascading-failure incidents (same pattern as ingestion/gateway). Exact before/after values and INC IDs in source. Note: file was truncated at line ~1100; remaining migration artifact IDs [C0132+] are NOT_GENERATED in this hop — re-read source to recover.
+
+---
+
+## Absence Register
+
+| Absence State | Count | Description |
+|---|---|---|
+| PRUNED_RECOVERABLE | ~198 artifacts | Billing identifiers, ingestion causal, notification provenance, storage identifiers, gateway causal, monitoring provenance, reporting identifiers, migration causal — all detail in source |
+| NOT_GENERATED | unknown | Migration artifacts beyond C0117 not read (file truncation at compaction boundary) |
+| DELETED | 0 | No facts intentionally removed |
+| UNKNOWN | 0 | All artifacts classified |
+
+---
+
+## Critical Reminders for Hop 2
+1. All exact numbers above are verbatim — do NOT round or approximate.
+2. All negations (NOT direct writes) must be preserved in any further hop.
+3. Provenance dependencies: analytics negations gate notification security reviews; scheduler negations gate monitoring security reviews.
+4. Migration stage is incomplete — re-read source from line ~1087 onward if migration causal records are needed.
+5. Several artifacts carry "Further analysis pending review cycle N" — these are unresolved and should not be treated as final values.

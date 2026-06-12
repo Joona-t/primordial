@@ -28,7 +28,7 @@
 - Documentation discrepancy resolved (CC-001)
 - FORM-03 decisions documented (CC-002, CC-003)
 - All 103 tests pass, all contract claims satisfied
-**Files:** .gpd/phases/01-ontology-formalization-and-verification/01-01-SUMMARY.md
+**Files:** GPD/phases/01-ontology-formalization-and-verification/01-01-SUMMARY.md
 **Commit:** 336312c
 
 ## : |2026-03-16|||validate(05-01): add synthesis test suite with 39 tests, all passing
@@ -71,7 +71,7 @@
 - Mark FORM-03 Q2 as RESOLVED: recoverability stays binary for
   Phase 1; graded deferred to Phase 4 as metadata (CC-003)
 - Update convention #3 from skeleton to complete (delivered)
-**Files:** .gpd/CONVENTIONS.md
+**Files:** GPD/CONVENTIONS.md
 **Commit:** 8975287
 
 ## : |2026-03-16|||docs(05-02): complete cross-reference synthesis plan with SUMMARY
@@ -81,7 +81,7 @@
 - All gaps explained, forbidden proxy audit honest (fp-short-tasks=unresolved)
 - Stop/rethink evaluated: none triggered, compaction inconclusive
 - Researcher approved at checkpoint gate
-**Files:** .gpd/phases/05-cross-reference-and-synthesis/05-02-SUMMARY.md
+**Files:** GPD/phases/05-cross-reference-and-synthesis/05-02-SUMMARY.md
 **Commit:** 8c9d724
 
 ## : |2026-03-15|||docs(01-01): reconcile resolved/not_generated discrepancy
@@ -92,7 +92,7 @@
 - Document semantic distinction: absence states (value absence
   reasons) vs ref states (source_ref link status) are orthogonal
 - Mark CONVENTIONS.md known discrepancy as RESOLVED (CC-001)
-**Files:** .gpd/CONVENTIONS.md,.gpd/PROJECT.md
+**Files:** GPD/CONVENTIONS.md,GPD/PROJECT.md
 **Commit:** 904d65b
 
 ## : |2026-03-16|||docs(05-02): write cross-reference report with RQ verdicts, gap analysis, proxy audit, stop/rethink evaluation
@@ -138,6 +138,12 @@
 - BFS reachability: stdlib collections.deque, no networkx dependency.
 **Files:** tools/compaction_harness.py
 **Commit:** f9d902a
+
+## 2026-06-12: ITER — Migrate legacy .gpd/ layout to GPD/ and repair project contract for GPD v1.2.2
+
+**Problem:** GPD tooling (now v1.2.2) no longer recognized the project: `init new-milestone` reported `project_exists: false`, blocking the v3.0 milestone kickoff.
+**Root cause:** The project was scaffolded under the legacy `.gpd/` planning directory; GPD v1.2.2 canonicalized `PLANNING_DIR_NAME = "GPD"` with no auto-migration from `.gpd/`. Additionally the stored project contract failed new semantic integrity gates: (a) the anchor string "6/6 violations" matched the path-like heuristic (slash regex) and failed file resolution; (b) `ref-mock-experiment` had a prose locator instead of a concrete artifact path.
+**Fix:** `git mv .gpd GPD` (history-preserving); swept `.gpd/` → `GPD/` references in planning docs, `docs/research-v2.md`, `BUGS_AND_ITERATIONS.md`, `tools/seed_ledger.py` (left `data/` untouched — historical refs inside hash-relevant records); repaired `GPD/state.json` contract: slash-free anchor prose with corrected Convention-7 metrics (compression_ratio ~1.096x, ~87% smaller vs vanilla — not "87% compression ratio"), `ref-mock-experiment.locator` → `tools/experiment_results.json`, `must_include_prior_outputs` → `tools/`-prefixed resolvable paths, added `data/baselines/baseline-report.json` to known-good baselines. Contract gate now `authoritative: true`, validation `valid: true`.
 
 <!-- Format:
 ## YYYY-MM-DD: Short Title

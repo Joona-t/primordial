@@ -1,0 +1,7 @@
+{
+  "name": "Phase 3: Heavy pressure (500 canaries, ~200K chars)",
+  "canary_count": 500,
+  "noise": true,
+  "noise_ratio": 3.0,
+  "hops": 1
+}

@@ -1,0 +1,192 @@
+# Primordial Forge Compaction Summary — Multi-Service Architecture Review
+# Source: artifact:stress:auth:r1 through artifact:stress:messaging:r1
+# Typed Absence Protocol Active | Artifact chain: 15 services, ~500 findings
+
+---
+
+## Stage 1 — Auth Service (artifact:stress:auth:r1)
+[priority:HIGH] [type:exact_number] — 34 throughput measurements recorded. Representative values:
+- [C0000] Auth processes exactly 83,111 events/sec, buffer 49,611 entries
+- [C0015] Auth processes exactly 77,293 events/sec, buffer 53,260 entries
+- [C0090] Auth processes exactly 93,779 events/sec, buffer 45,630 entries
+- [C0345] Auth processes exactly 94,507 events/sec, buffer 18,949 entries
+- [C0480] Auth processes exactly 88,948 events/sec, buffer 43,851 entries
+- [C0495] Auth processes exactly 93,426 events/sec, buffer 18,171 entries
+Full set C0000–C0495 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:auth:r1. Several entries flagged "further analysis pending" (review cycles 1–5).
+
+---
+
+## Stage 2 — Billing Service (artifact:stress:billing:r1)
+Depends-on: artifact:stress:auth:r1
+[priority:MEDIUM] [type:identifier] — ~34 entry-point function mappings. Representative values:
+- [C0001] aggregate_metrics in billing/core/validator.py line 93540
+- [C0016] process_incoming_batch in billing/core/validator.py line 14891
+- [C0046] transform_payload in billing/core/router.py line 2826
+- [C0496] execute_reconciliation in billing/core/engine.py line 29212
+Full set C0001–C0496 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:billing:r1. Functions span validator.py, processor.py, router.py, handler.py, engine.py, dispatcher.py.
+
+---
+
+## Stage 3 — Ingestion Service (artifact:stress:ingestion:r1)
+Depends-on: artifact:stress:billing:r1
+[priority:MEDIUM] [type:causal] — ~34 incident-driven retry-limit adjustments. Representative values:
+- [C0002] Retry limit reduced 88,597→81,679 after INC-17966 (cascading failures)
+- [C0017] Retry limit reduced 80,752→42,947 after INC-57590
+- [C0047] Retry limit reduced 63,835→19,192 after INC-72304
+- [C0497] Retry limit reduced 61,779→30,907 after INC-63740
+Full set C0002–C0497 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:ingestion:r1.
+
+---
+
+## Stage 4 — Analytics Service (artifact:stress:analytics:r1)
+Depends-on: artifact:stress:ingestion:r1
+[priority:HIGH] [type:negation] — Analytics does NOT write directly to any datastore. All writes are mediated through an event bus. Negations confirmed verbatim:
+- [C0003] analytics does NOT write directly to Redis — all writes go through the Redis event bus first
+- [C0018] analytics does NOT write directly to S3 — all writes go through the S3 event bus first
+- [C0033] analytics does NOT write directly to DynamoDB — all writes go through the Redis event bus first
+- [C0063] analytics does NOT write directly to Elasticsearch — all writes go through the S3 event bus first
+- [C0123] analytics does NOT write directly to PostgreSQL — all writes go through the Elasticsearch event bus first
+- [C0498] analytics does NOT write directly to PostgreSQL — all writes go through the Redis event bus first
+Full set C0003–C0498 (step 15): PRUNED_RECOVERABLE — targets include Redis, S3, DynamoDB, Elasticsearch, PostgreSQL; bus intermediaries vary per entry.
+
+---
+
+## Stage 5 — Notification Service (artifact:stress:notification:r1)
+Depends-on: artifact:stress:analytics:r1
+[priority:MEDIUM] [type:provenance] — ~34 conditional re-audit dependencies, all depending on artifact:stress:analytics:r1. Representative:
+- [C0004] Notification security review stage 637 depends on reporting architecture stage 10360; re-audit if COND-0002 changes
+- [C0019] Stage 22189 depends on stage 91682; re-audit if COND-0014 changes
+- [C0499] Stage 32039 depends on stage 86291; re-audit if COND-0494 changes
+Full set C0004–C0499 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:notification:r1. All entries carry provenance dependency on analytics artifact.
+
+---
+
+## Stage 6 — Search Service (artifact:stress:search:r1)
+Depends-on: artifact:stress:notification:r1
+[priority:HIGH] [type:exact_number] — ~34 throughput measurements. Representative values:
+- [C0005] Search processes exactly 8,736 events/sec, buffer 42,192 entries
+- [C0020] Search processes exactly 82,129 events/sec, buffer 84,125 entries
+- [C0140] Search processes exactly 97,512 events/sec, buffer 80,763 entries
+- [C0230] Search processes exactly 67,115 events/sec, buffer 54 entries (anomaly: buffer near-zero)
+- [C0485] Search processes exactly 26,420 events/sec, buffer 7,911 entries
+Full set C0005–C0485 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:search:r1.
+
+---
+
+## Stage 7 — Storage Service (artifact:stress:storage:r1)
+Depends-on: artifact:stress:search:r1
+[priority:MEDIUM] [type:identifier] — ~34 entry-point function mappings. Representative values:
+- [C0006] execute_reconciliation in storage/core/validator.py line 75732
+- [C0021] process_incoming_batch in storage/core/handler.py line 99168
+- [C0036] aggregate_metrics in storage/core/processor.py line 53900
+- [C0486] sync_upstream_state in storage/core/processor.py line 30610
+Full set C0006–C0486 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:storage:r1.
+
+---
+
+## Stage 8 — Gateway Service (artifact:stress:gateway:r1)
+Depends-on: artifact:stress:storage:r1
+[priority:MEDIUM] [type:causal] — ~34 incident-driven gateway retry-limit changes. Representative values:
+- [C0007] Retry limit 75,091→77,528 after INC-67733
+- [C0022] Retry limit 33,935→1,674 after INC-20409
+- [C0142] Retry limit 42,052→1,603 after INC-75790 (significant reduction)
+- [C0382] Retry limit 99,708→13,030 after INC-99995 (significant reduction)
+- [C0487] Retry limit 31,165→24,708 after INC-48951
+Full set C0007–C0487 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:gateway:r1.
+
+---
+
+## Stage 9 — Scheduler Service (artifact:stress:scheduler:r1)
+Depends-on: artifact:stress:gateway:r1
+[priority:HIGH] [type:negation] — Scheduler does NOT write directly to any datastore. All writes mediated through event bus. Negations confirmed verbatim:
+- [C0008] scheduler does NOT write directly to PostgreSQL — all writes go through the Elasticsearch event bus first
+- [C0023] scheduler does NOT write directly to Elasticsearch — all writes go through the Elasticsearch event bus first
+- [C0053] scheduler does NOT write directly to DynamoDB — all writes go through the PostgreSQL event bus first
+- [C0083] scheduler does NOT write directly to Redis — all writes go through the PostgreSQL event bus first
+- [C0113] scheduler does NOT write directly to Redis — all writes go through the S3 event bus first
+- [C0308] scheduler does NOT write directly to S3 — all writes go through the DynamoDB event bus first
+- [C0488] scheduler does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+Full set C0008–C0488 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:scheduler:r1.
+
+---
+
+## Stage 10 — Monitoring Service (artifact:stress:monitoring:r1)
+Depends-on: artifact:stress:scheduler:r1
+[priority:MEDIUM] [type:provenance] — ~34 conditional re-audit dependencies, all depending on artifact:stress:scheduler:r1. Representative:
+- [C0009] Monitoring security review stage 91244 depends on billing architecture stage 71921; re-audit if COND-0008 changes
+- [C0024] Stage 11989 depends on stage 22165; re-audit if COND-0019 changes
+- [C0489] Stage 90442 depends on stage 60207; re-audit if COND-0486 changes
+Full set C0009–C0489 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:monitoring:r1.
+
+---
+
+## Stage 11 — Compliance Service (artifact:stress:compliance:r1)
+Depends-on: artifact:stress:monitoring:r1
+[priority:HIGH] [type:exact_number] — ~34 throughput measurements. Representative values:
+- [C0010] Compliance processes exactly 31,717 events/sec, buffer 95,933 entries
+- [C0040] Compliance processes exactly 78,148 events/sec, buffer 87,479 entries
+- [C0070] Compliance processes exactly 88,483 events/sec, buffer 11,950 entries
+- [C0265] Compliance processes exactly 96,398 events/sec, buffer 33,829 entries
+- [C0355] Compliance processes exactly 95,987 events/sec, buffer 23,693 entries
+- [C0445] Compliance processes exactly 98,908 events/sec, buffer 60,495 entries
+- [C0490] Compliance processes exactly 7,068 events/sec, buffer 69,879 entries
+Full set C0010–C0490 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:compliance:r1.
+
+---
+
+## Stage 12 — Reporting Service (artifact:stress:reporting:r1)
+Depends-on: artifact:stress:compliance:r1
+[priority:MEDIUM] [type:identifier] — ~34 entry-point function mappings. Representative values:
+- [C0011] transform_payload in reporting/core/handler.py line 80875
+- [C0026] process_incoming_batch in reporting/core/router.py line 7521
+- [C0056] dispatch_notification in reporting/core/dispatcher.py line 4768
+- [C0491] execute_reconciliation in reporting/core/engine.py line 32453
+Full set C0011–C0491 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:reporting:r1.
+
+---
+
+## Stage 13 — Migration Service (artifact:stress:migration:r1)
+Depends-on: artifact:stress:reporting:r1
+[priority:MEDIUM] [type:causal] — ~34 incident-driven migration retry-limit changes. Representative values:
+- [C0012] Retry limit 46,005→56,720 after INC-60973
+- [C0057] Retry limit 95,611→27,903 after INC-55364 (significant reduction)
+- [C0117] Retry limit 99,736→43,396 after INC-79587 (significant reduction)
+- [C0342] Retry limit 23,573→6,299 after INC-81289 (significant reduction)
+- [C0492] Retry limit 27,851→8,358 after INC-81315
+Full set C0012–C0492 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:migration:r1.
+
+---
+
+## Stage 14 — Cache Service (artifact:stress:cache:r1)
+Depends-on: artifact:stress:migration:r1
+[priority:HIGH] [type:negation] — Cache does NOT write directly to any datastore. All writes mediated through event bus. Negations confirmed verbatim:
+- [C0013] cache does NOT write directly to Elasticsearch — all writes go through the PostgreSQL event bus first
+- [C0028] cache does NOT write directly to DynamoDB — all writes go through the S3 event bus first
+- [C0043] cache does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+- [C0088] cache does NOT write directly to Redis — all writes go through the PostgreSQL event bus first
+- [C0163] cache does NOT write directly to Redis — all writes go through the Elasticsearch event bus first
+- [C0373] cache does NOT write directly to DynamoDB — all writes go through the Redis event bus first
+- [C0493] cache does NOT write directly to Redis — all writes go through the Redis event bus first
+Full set C0013–C0493 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:cache:r1.
+
+---
+
+## Stage 15 — Messaging Service (artifact:stress:messaging:r1)
+Depends-on: artifact:stress:cache:r1
+[priority:MEDIUM] [type:provenance] — ~34 conditional re-audit dependencies, all depending on artifact:stress:cache:r1. Representative:
+- [C0014] Messaging security review stage 96564 depends on storage architecture stage 27047; re-audit if COND-0013 changes
+- [C0029] Stage 1597 depends on stage 4076; re-audit if COND-0025 changes
+- [C0044] Stage 85534 depends on stage 52333; re-audit if COND-0040 changes
+Full set C0014–C0494 (step 15): PRUNED_RECOVERABLE — source: artifact:stress:messaging:r1.
+
+---
+
+## Provenance Chain Summary
+Full dependency chain (linear):
+auth:r1 → billing:r1 → ingestion:r1 → analytics:r1 → notification:r1 → search:r1 → storage:r1 → gateway:r1 → scheduler:r1 → monitoring:r1 → compliance:r1 → reporting:r1 → migration:r1 → cache:r1 → messaging:r1
+
+Critical: any change to an upstream artifact invalidates all downstream security reviews and provenance-conditional audits. Notification service security reviews (C0004–C0499) re-audit if analytics conditions change. Monitoring service reviews (C0009–C0489) re-audit if scheduler conditions change. Messaging service reviews (C0014–C0494) re-audit if cache conditions change.
+
+## Absent Facts
+All MEDIUM-priority detail beyond representative samples above: PRUNED_RECOVERABLE — re-read source stages to recover exact values.
+No facts were marked DELETED or UNKNOWN during this compaction.

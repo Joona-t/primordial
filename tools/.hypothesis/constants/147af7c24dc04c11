@@ -1,0 +1,4 @@
+# file: /Users/darkfire/forge/primordial/tools/forge_reversible_summary.py
+# hypothesis_version: 6.151.9
+
+['\nAll checks passed.', '   PASSED\n', 'A lossy summary', 'No refs here', 'Summary', '__main__', 'algorithm', 'created_at', 'forge.internal.v1', 'id', 'invalid', 'just-a-string', 'ref', 'refs', 'resolved', 'schema_version', 'sha256', 'source_refs', 'state', 'summary', 'summary_hash', 'summary_view', 'type', 'utf-8', 'value', 'view_of']

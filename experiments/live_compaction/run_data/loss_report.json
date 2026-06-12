@@ -1,0 +1,339 @@
+{
+  "summary_length_chars": 1569,
+  "total_canaries": 20,
+  "survived": 20,
+  "lost": 0,
+  "survival_rate": 1.0,
+  "provenance_reachability": 1.0,
+  "by_type": {
+    "exact_number": {
+      "total": 5,
+      "survived": 5,
+      "rate": 1.0
+    },
+    "identifier": {
+      "total": 5,
+      "survived": 5,
+      "rate": 1.0
+    },
+    "causal": {
+      "total": 5,
+      "survived": 5,
+      "rate": 1.0
+    },
+    "negation": {
+      "total": 5,
+      "survived": 5,
+      "rate": 1.0
+    }
+  },
+  "by_stage": {
+    "architect": {
+      "total": 4,
+      "survived": 4,
+      "rate": 1.0
+    },
+    "builder": {
+      "total": 4,
+      "survived": 4,
+      "rate": 1.0
+    },
+    "critic": {
+      "total": 4,
+      "survived": 4,
+      "rate": 1.0
+    },
+    "analyst": {
+      "total": 4,
+      "survived": 4,
+      "rate": 1.0
+    },
+    "integrator": {
+      "total": 4,
+      "survived": 4,
+      "rate": 1.0
+    }
+  },
+  "absence_classifications": {},
+  "details": [
+    {
+      "canary_id": "C01",
+      "survived": true,
+      "description": "exact request rate (3,847 rps)",
+      "signals_checked": [
+        "3,847",
+        "3847"
+      ],
+      "signals_found": [
+        "3,847"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C02",
+      "survived": true,
+      "description": "database name",
+      "signals_checked": [
+        "helios-prod-west-7"
+      ],
+      "signals_found": [
+        "helios-prod-west-7"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C03",
+      "survived": true,
+      "description": "specific CVE for connection pooling",
+      "signals_checked": [
+        "CVE-2024-31891"
+      ],
+      "signals_found": [
+        "CVE-2024-31891"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C04",
+      "survived": true,
+      "description": "NOT JWT \u2014 opaque sessions",
+      "signals_checked": [
+        "opaque session"
+      ],
+      "signals_found": [
+        "opaque session"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C05",
+      "survived": true,
+      "description": "exact backoff base delay (237ms)",
+      "signals_checked": [
+        "237"
+      ],
+      "signals_found": [
+        "237"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C06",
+      "survived": true,
+      "description": "function name",
+      "signals_checked": [
+        "handle_batch_ingestion"
+      ],
+      "signals_found": [
+        "handle_batch_ingestion"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C07",
+      "survived": true,
+      "description": "memory spike size (2.3GB)",
+      "signals_checked": [
+        "2.3"
+      ],
+      "signals_found": [
+        "2.3"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C08",
+      "survived": true,
+      "description": "validation only at transform stage",
+      "signals_checked": [
+        "transform stage",
+        "transform phase"
+      ],
+      "signals_found": [
+        "transform stage"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C09",
+      "survived": true,
+      "description": "exact count: 14 high-severity",
+      "signals_checked": [
+        "14"
+      ],
+      "signals_found": [
+        "14"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C10",
+      "survived": true,
+      "description": "specific finding ID",
+      "signals_checked": [
+        "FORGE-SEC-2024-0042"
+      ],
+      "signals_found": [
+        "FORGE-SEC-2024-0042"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C11",
+      "survived": true,
+      "description": "header name in rate limit bypass",
+      "signals_checked": [
+        "X-Forwarded-For"
+      ],
+      "signals_found": [
+        "X-Forwarded-For"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C12",
+      "survived": true,
+      "description": "TLS version pinned to 1.2",
+      "signals_checked": [
+        "TLS 1.2",
+        "TLS1.2",
+        "legacy HSM"
+      ],
+      "signals_found": [
+        "legacy HSM"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C13",
+      "survived": true,
+      "description": "P99 latency (847ms)",
+      "signals_checked": [
+        "847"
+      ],
+      "signals_found": [
+        "847"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C14",
+      "survived": true,
+      "description": "slowest endpoint path",
+      "signals_checked": [
+        "reconciliation/batch",
+        "reconciliation"
+      ],
+      "signals_found": [
+        "reconciliation/batch",
+        "reconciliation"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C15",
+      "survived": true,
+      "description": "GC collector names",
+      "signals_checked": [
+        "G1GC",
+        "ZGC"
+      ],
+      "signals_found": [
+        "G1GC",
+        "ZGC"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C16",
+      "survived": true,
+      "description": "cache eviction policy (LFU, 16GB cap)",
+      "signals_checked": [
+        "LFU",
+        "16GB"
+      ],
+      "signals_found": [
+        "LFU",
+        "16GB"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C17",
+      "survived": true,
+      "description": "cross-service failure rate",
+      "signals_checked": [
+        "0.3%",
+        "0.3 percent",
+        "67%",
+        "67 percent"
+      ],
+      "signals_found": [
+        "0.3%"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C18",
+      "survived": true,
+      "description": "circuit breaker library name",
+      "signals_checked": [
+        "resilience4j"
+      ],
+      "signals_found": [
+        "resilience4j"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C19",
+      "survived": true,
+      "description": "event bus migration (Rabbit\u2192Kafka)",
+      "signals_checked": [
+        "RabbitMQ",
+        "Kafka"
+      ],
+      "signals_found": [
+        "RabbitMQ",
+        "Kafka"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    },
+    {
+      "canary_id": "C20",
+      "survived": true,
+      "description": "service discovery (etcd, 3s TTL)",
+      "signals_checked": [
+        "etcd",
+        "3-second",
+        "3 second",
+        "3s"
+      ],
+      "signals_found": [
+        "etcd",
+        "3-second"
+      ],
+      "absence_state": null,
+      "classification": "survived"
+    }
+  ]
+}

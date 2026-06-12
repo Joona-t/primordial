@@ -1,0 +1,7 @@
+{
+  "name": "Phase 2: Medium pressure (150 canaries, ~50K chars)",
+  "canary_count": 150,
+  "noise": true,
+  "noise_ratio": 2.0,
+  "hops": 1
+}

@@ -1,0 +1,509 @@
+{
+  "ablation_id": "ablation-1774673053",
+  "conditions": {
+    "C-default-50K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-default-80K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-default-120K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-provenance_aware-50K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-provenance_aware-80K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-provenance_aware-120K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-minimal-50K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-minimal-80K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    },
+    "C-minimal-120K-sonnet": {
+      "condition_id": "dry-1774673053",
+      "n_trials": 1,
+      "metrics": {
+        "structural_reachability": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "artifact_id_survival": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        },
+        "semantic_fidelity": {
+          "mean": 0.0161,
+          "std": 0.0,
+          "ci_lower": 0.0161,
+          "ci_upper": 0.0161
+        },
+        "compression_ratio": {
+          "mean": 214.55,
+          "std": 0.0,
+          "ci_lower": 214.55,
+          "ci_upper": 214.55
+        },
+        "degraded_fraction": {
+          "mean": 0.25,
+          "std": 0.0,
+          "ci_lower": 0.25,
+          "ci_upper": 0.25
+        }
+      }
+    }
+  },
+  "deltas": {
+    "instruction_effect": {
+      "provenance_aware_delta": {
+        "50K": {
+          "metric": "artifact_id_survival",
+          "delta": 0.0,
+          "p_value_uncorrected": 1.0
+        },
+        "80K": {
+          "metric": "artifact_id_survival",
+          "delta": 0.0,
+          "p_value_uncorrected": 1.0
+        },
+        "120K": {
+          "metric": "artifact_id_survival",
+          "delta": 0.0,
+          "p_value_uncorrected": 1.0
+        }
+      },
+      "pairwise": {
+        "50K": [
+          {
+            "comparison": "default_vs_provenance",
+            "threshold": "50K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          },
+          {
+            "comparison": "default_vs_minimal",
+            "threshold": "50K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          },
+          {
+            "comparison": "provenance_vs_minimal",
+            "threshold": "50K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          }
+        ],
+        "80K": [
+          {
+            "comparison": "default_vs_provenance",
+            "threshold": "80K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          },
+          {
+            "comparison": "default_vs_minimal",
+            "threshold": "80K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          },
+          {
+            "comparison": "provenance_vs_minimal",
+            "threshold": "80K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          }
+        ],
+        "120K": [
+          {
+            "comparison": "default_vs_provenance",
+            "threshold": "120K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          },
+          {
+            "comparison": "default_vs_minimal",
+            "threshold": "120K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          },
+          {
+            "comparison": "provenance_vs_minimal",
+            "threshold": "120K",
+            "delta": 0.0,
+            "p_value_uncorrected": 1.0,
+            "p_value_corrected": 1.0,
+            "significant_at_0_05": false,
+            "bonferroni_alpha": 0.0167
+          }
+        ]
+      }
+    },
+    "threshold_effect": {
+      "default": {
+        "trend": [
+          {
+            "threshold": "50K",
+            "mean_survival": 0.25
+          },
+          {
+            "threshold": "80K",
+            "mean_survival": 0.25
+          },
+          {
+            "threshold": "120K",
+            "mean_survival": 0.25
+          }
+        ],
+        "overall_trend": "flat"
+      },
+      "provenance_aware": {
+        "trend": [
+          {
+            "threshold": "50K",
+            "mean_survival": 0.25
+          },
+          {
+            "threshold": "80K",
+            "mean_survival": 0.25
+          },
+          {
+            "threshold": "120K",
+            "mean_survival": 0.25
+          }
+        ],
+        "overall_trend": "flat"
+      },
+      "minimal": {
+        "trend": [
+          {
+            "threshold": "50K",
+            "mean_survival": 0.25
+          },
+          {
+            "threshold": "80K",
+            "mean_survival": 0.25
+          },
+          {
+            "threshold": "120K",
+            "mean_survival": 0.25
+          }
+        ],
+        "overall_trend": "flat"
+      }
+    }
+  },
+  "timestamp": "2026-03-28T04:44:14.610113+00:00",
+  "config_summary": {
+    "n_conditions": 9,
+    "n_per_condition": 1,
+    "instruction_variants": [
+      "default",
+      "provenance_aware",
+      "minimal"
+    ],
+    "threshold_levels": [
+      50000,
+      80000,
+      120000
+    ],
+    "model": "claude-sonnet-4-20250514",
+    "dry_run": true
+  }
+}
