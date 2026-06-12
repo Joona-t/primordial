@@ -93,24 +93,30 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 | ----------- | ----- | ------ |
-| LIVE-01 | TBD (roadmap) | Pending |
-| LIVE-02 | TBD (roadmap) | Pending |
-| LIVE-03 | TBD (roadmap) | Pending |
-| LIVE-04 | TBD (roadmap) | Pending |
-| SPF-02 | TBD (roadmap) | Pending |
-| PREG-01 | TBD (roadmap) | Pending |
-| COMP-05 | TBD (roadmap) | Pending |
-| VIOL-05 | TBD (roadmap) | Pending |
-| OVER-01 | TBD (roadmap) | Pending |
-| XREF-04 | TBD (roadmap) | Pending |
+| LIVE-01 | Phase 9 — Free-Corpus Harness Construction | Pending |
+| LIVE-02 | Phase 10 — Live Driver, Pilot, and Calibration | Pending |
+| LIVE-03 | Phase 9 — Free-Corpus Harness Construction | Pending |
+| LIVE-04 | Phase 10 — Live Driver, Pilot, and Calibration | Pending |
+| SPF-02 | Phase 9 — Free-Corpus Harness Construction | Pending |
+| PREG-01 | Phase 11 — Pre-Registration Gate | Pending |
+| COMP-05 | Phase 12 — Live Compaction and Violation Campaign | Pending |
+| VIOL-05 | Phase 12 — Live Compaction and Violation Campaign | Pending |
+| OVER-01 | Phase 13 — Instrumentation Overhead Campaign | Pending |
+| XREF-04 | Phase 14 — Synthesis and Verdict Regeneration | Pending |
 
 **Coverage:**
 
 - Primary requirements: 10 total
-- Mapped to phases: 0 (roadmap pending)
-- Unmapped: 10 (expected — roadmap not yet created)
+- Mapped to phases: 10/10 (each to exactly one primary phase; no orphans, no duplicates)
+- Unmapped: 0
+
+**Mapping notes:**
+
+- LIVE-02 maps to Phase 10 (not 9) because the driver's acceptance behaviors (env-var firing, hook callbacks, session pinning) are only verifiable on live sessions — the pilot phase is where they are exercised.
+- Phase 10 carries the external prerequisite: Agent SDK monthly credit opt-in (user action; $200/mo on Max 20x, effective 2026-06-15). Phase 9 is zero live spend.
+- The open context gap (live task subset not yet locked) is resolved inside PREG-01 / Phase 11 via task-subset selection from the 20-task adversarial corpus.
 
 ---
 
 _Requirements defined: 2026-06-12_
-_Last updated: 2026-06-12 at v3.0 milestone definition_
+_Last updated: 2026-06-12 — traceability mapped at v3.0 roadmap creation (Phases 9-14)_
