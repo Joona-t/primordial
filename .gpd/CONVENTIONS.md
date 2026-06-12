@@ -156,7 +156,7 @@ These will be verified and extended by Phase 1.
 **MockLM anchor values (controlled-condition ceiling):**
 - reachability_fraction = 1.0 (100%)
 - Violation detection = 6/6 (100%)
-- Trace compression vs vanilla = 87% reduction (compression_ratio >= 1.87)
+- Trace compression vs vanilla = 87% reduction (vs_vanilla_pct ≈ -87%; compression_ratio ≈ 1.096)
 
 ### 8. Violation Classification
 
