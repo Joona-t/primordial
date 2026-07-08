@@ -1,5 +1,38 @@
 # Bugs & Iterations
 
+## ITER-021 | 2026-07-08 | CI green-gate scoped to the pre-existing-green test subset (P1-3)
+
+**Problem:** `.github/workflows/test.yml` ran bare `pytest . -q` in `tools/`,
+which hard-fails on 9 pre-existing module-collection errors
+(`test_ag2_integration.py`, `test_embedding_similarity.py`,
+`test_forge_ontology.py`, `test_genuine_compaction_runner.py`,
+`test_langgraph_integration.py`, `test_swebench_forge_agent.py`,
+`test_task_templates.py`, `test_track_c_ablation.py`,
+`test_xarch_campaign.py`) plus 1 pre-existing test failure
+(`test_summary_parser.py::TestClassifyRefTier::test_fallback_similarity`),
+so CI would never go green as written.
+
+**Root cause:** All 10 broken spots trace to the same cause — three modules
+imported by production code were never committed to the repo:
+`compaction_experiment.py`, `findings_ledger.py`, and
+`semantic_provenance_fidelity.py`. The 9 files import one of these at module
+level (hard collection error); `test_fallback_similarity` hits it lazily
+inside `classify_ref_tier`'s fallback branch (runtime `ModuleNotFoundError`,
+not a collection error). Confirmed pre-existing and unrelated to any current
+work: reproduces identically on `main` at the same tree state, not
+introduced by this branch. Full suite locally: `1 failed, 1030 passed, 9
+errors` (1031 collected).
+
+**Fix:** Per unit spec P1-3 ("do NOT chase it"), scoped CI to the
+deterministically-green subset instead of fixing the missing modules:
+`--ignore` for the 9 files with collection errors, `--deselect` for the 1
+failing test, both with inline comments in the workflow explaining why.
+Verified locally: `1030 passed, 1 deselected` — matches the fleet audit's
+expected green count. If the three missing modules are ever restored, revert
+this scoping and let full coverage run again.
+
+**Files:** `.github/workflows/test.yml`
+
 ## BUG-020 | 2026-07-08 | Live-API path instantiated the paid Anthropic SDK client directly
 
 **Problem:** `tools/genuine_compaction_runner.py::_run_live` called
