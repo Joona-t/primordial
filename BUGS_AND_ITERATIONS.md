@@ -1,5 +1,63 @@
 # Bugs & Iterations
 
+## BUG-020 | 2026-07-08 | Live-API path instantiated the paid Anthropic SDK client directly
+
+**Problem:** `tools/genuine_compaction_runner.py::_run_live` called
+`client = anthropic.Anthropic()` — the raw Anthropic SDK, reading
+`ANTHROPIC_API_KEY` straight from the process environment — whenever
+`RunnerConfig.dry_run=False`. Worse, `run_trial()`'s dispatch was
+`is_dry_run = self.config.dry_run or not os.environ.get("ANTHROPIC_API_KEY")`:
+if a caller left `dry_run` at its default (`False`) and simply *happened* to
+have `ANTHROPIC_API_KEY` set in their shell for an unrelated tool, this
+pipeline would silently start making real, billed API calls. The downstream
+`tools/run_pilot_track_a.py` pilot runner had the identical
+`has_api_key`-gates-`mode` pattern. This is fleet CLAUDE.md Rule #10 ("NO
+PAID LLM API, EVER") violated architecturally, and it is the exact
+stray-inherited-key-causes-silent-paid-billing failure mode that astrospark's
+BUG-010 already proved happens in production.
+
+**Root cause:** The research question (RQ3b, "does the fleet's provenance
+scheme survive Anthropic's own `compact_20260112` context-compaction beta
+feature") can only be answered by calling Anthropic's raw Messages API with
+that beta flag — there is no `claude -p` / `codex exec` / sparkd equivalent
+that exposes it. Rather than treating that as a hard blocker, the runner was
+written to opportunistically go live whenever a key happened to be present,
+instead of requiring explicit, code-level opt-in.
+
+**Fix:** Per CLAUDE.md Rule #10's own guidance ("if a feature is impossible
+without paid API, the feature gets cut, not papered over"): `_run_live` now
+unconditionally raises `RuntimeError` pointing at this entry instead of
+constructing a client. `run_trial()`'s dispatch no longer reads
+`ANTHROPIC_API_KEY` at all — dry-run vs. live is governed solely by the
+explicit `RunnerConfig.dry_run` flag, so a stray inherited key can never
+change behavior. `run_pilot_track_a.py::run_pilot` now always runs in
+dry-run mode for the same reason. `tools/swebench_forge_agent.py::_run_live`
+(a dead stub that already always fell back to dry-run) had its now-pointless
+`import anthropic` and misleading "Requires ANTHROPIC_API_KEY" docstring
+removed. Stale report-generation strings in `tools/compaction_analysis.py`
+that told a human researcher to "Set ANTHROPIC_API_KEY and run live pilot"
+were corrected to state that live measurement is disabled fleet-wide.
+Separately, narrowed a bare `except Exception: pass` in
+`tools/baseline_measurement.py::collect_metrics` (around the
+`forge_chamber.validate_chamber` call) to catch only
+`(KeyError, TypeError, ImportError)` and record an explicit
+`detection_error` field instead of silently reporting 0 detected
+violations. Added `.github/workflows/test.yml` (runs `pytest tools/` +
+a grep gate for paid-API patterns on every push/PR) and
+`scripts/hooks/pre-push` (the same grep gate, installable locally) so this
+class of regression is caught before merge, not just by convention.
+**Pre-existing, out of scope for this fix:** `tools/compaction_experiment.py`
+and `tools/findings_ledger.py` are imported by 10 modules (including
+`genuine_compaction_runner.py` itself) but do not exist anywhere in this
+repo's git history — 9 test modules fail to even collect
+(`ModuleNotFoundError`). This predates this fix (confirmed via
+`git log --all --diff-filter=D`) and is unrelated to the paid-API removal;
+flagging here for a future unit.
+**Files:** tools/genuine_compaction_runner.py, tools/run_pilot_track_a.py,
+tools/swebench_forge_agent.py, tools/compaction_analysis.py,
+tools/baseline_measurement.py, .github/workflows/test.yml,
+scripts/hooks/pre-push, README.md
+
 ## : |2026-03-16|||compute(03-02): execute D1-D9 injection campaign and clean campaign on real data
 
 **Problem:** |2026-03-16|||compute(03-02): execute D1-D9 injection campaign and clean campaign on real data

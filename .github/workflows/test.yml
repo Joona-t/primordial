@@ -1,0 +1,52 @@
+name: test
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install pytest hypothesis
+          # Best-effort: pick up any repo-declared deps if present.
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+
+      - name: Run tools/ test suite
+        working-directory: tools
+        run: python3 -m pytest . -q
+
+      - name: Paid LLM API grep gate (fleet CLAUDE.md Rule #10)
+        run: |
+          set -e
+          echo "Scanning for paid-API client instantiation / raw key usage..."
+          # Lines that intentionally *discuss* these patterns in a docstring or
+          # comment (e.g. "this code never calls anthropic.Anthropic()") are
+          # tagged with the trailing marker below so they don't trip the gate.
+          # Any other match is a real violation.
+          if grep -rniE 'anthropic\.Anthropic\(|api\.anthropic\.com|ANTHROPIC_API_KEY|OPENAI_API_KEY' \
+              --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=.git \
+              --include='*.py' --include='*.ts' --include='*.js' . \
+              | grep -v 'paid-api-gate:doc-ref'; then
+            echo ""
+            echo "FAIL: found a live paid-API client pattern. Per CLAUDE.md Rule #10" \
+                 "(NO PAID LLM API, EVER), all LLM calls must route through a local" \
+                 "CLI subprocess (claude -p / codex exec) or sparkd. See BUG-020 in" \
+                 "BUGS_AND_ITERATIONS.md for the pattern to follow. If this is a" \
+                 "genuine doc/comment reference (not live code), tag the line with" \
+                 "a trailing '# paid-api-gate:doc-ref' comment."
+            exit 1
+          fi
+          echo "OK: no paid-API client instantiation found."
