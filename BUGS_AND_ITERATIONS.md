@@ -28,6 +28,22 @@ deterministically-green subset instead of fixing the missing modules:
 `--ignore` for the 9 files with collection errors, `--deselect` for the 1
 failing test, both with inline comments in the workflow explaining why.
 Verified locally: `1030 passed, 1 deselected` — matches the fleet audit's
+
+**Follow-up (same day):** the first CI run on this fix still failed —
+`numpy`/`scipy` aren't installed in the runner and the repo had no
+`requirements-dev.txt`, so `test_compaction_analysis.py`,
+`test_violation_analysis.py`, and `test_xarch_analysis.py` (part of the
+"green" 1030, not among the 9 ignored files) hit fresh
+`ModuleNotFoundError`s in CI that never showed up locally (both packages
+were already present in the ambient dev environment). Confirmed pre-existing
+too — the very first CI run on this workflow (commit `a7bf4f4`, before this
+fix) also failed the same way. Added `requirements-dev.txt` pinning
+`numpy>=1.26` / `scipy>=1.11` (the only two third-party imports across the
+green subset besides `hypothesis`/`pytest`, already installed). `test.yml`
+already had the `pip install -r requirements-dev.txt` conditional from
+`a7bf4f4` — no workflow change needed, just the missing file. Verified in a
+throwaway clean venv reproducing the CI install steps exactly: `1030
+passed, 1 deselected`.
 expected green count. If the three missing modules are ever restored, revert
 this scoping and let full coverage run again.
 
