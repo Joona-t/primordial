@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Pre-push hook: block pushes that introduce a paid LLM API client.
+#
+# Fleet CLAUDE.md Rule #10: NO PAID LLM API, EVER. All LLM calls must route
+# through a local CLI subprocess (claude -p / codex exec) or sparkd. See
+# BUG-020 in BUGS_AND_ITERATIONS.md for the incident this hook prevents from
+# regressing: tools/genuine_compaction_runner.py used to instantiate
+# `anthropic.Anthropic()` directly from a raw ANTHROPIC_API_KEY env var, with
+# no explicit opt-in gate -- the exact "stray inherited key -> silent paid
+# billing" pattern documented in astrospark BUG-010.
+#
+# Install (not enabled by default -- git does not version .git/hooks):
+#   ln -sf ../../scripts/hooks/pre-push .git/hooks/pre-push
+#   chmod +x .git/hooks/pre-push
+#
+# The same check runs in CI on every push/PR (.github/workflows/test.yml,
+# job "Paid LLM API grep gate") -- this hook just catches it before you push.
+
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo "Checking for paid LLM API client patterns (CLAUDE.md Rule #10)..."
+
+MATCHES="$(grep -rniE 'anthropic\.Anthropic\(|api\.anthropic\.com|ANTHROPIC_API_KEY|OPENAI_API_KEY' \
+    --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=.git \
+    --include='*.py' --include='*.ts' --include='*.js' . \
+    | grep -v 'paid-api-gate:doc-ref' || true)"
+
+if [ -n "$MATCHES" ]; then
+    echo ""
+    echo "$MATCHES"
+    echo ""
+    echo "BLOCKED: found a live paid-API client pattern. Per CLAUDE.md Rule #10"
+    echo "(NO PAID LLM API, EVER), all LLM calls must route through a local CLI"
+    echo "subprocess (claude -p / codex exec) or sparkd. See BUG-020 in"
+    echo "BUGS_AND_ITERATIONS.md for the pattern to follow."
+    echo ""
+    echo "If this is a genuine doc/comment reference (not live code), tag the"
+    echo "line with a trailing '# paid-api-gate:doc-ref' comment."
+    exit 1
+fi
+
+echo "OK: no paid-API client instantiation found."

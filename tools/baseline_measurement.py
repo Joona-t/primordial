@@ -389,13 +389,18 @@ def collect_metrics(
 
     # Forge detection: count structural violations found via chamber validation
     forge_violations_detected = 0
+    forge_detection_error: str | None = None
     if chamber:
         try:
             from forge_chamber import validate_chamber
             validation_errors = validate_chamber(chamber)
             forge_violations_detected = len(validation_errors)
-        except Exception:
-            pass
+        except (KeyError, TypeError, ImportError) as e:
+            # Malformed chamber dict (missing/renamed keys) or a broken
+            # forge_chamber install -- record it explicitly rather than
+            # silently reporting 0 violations, which would read as "forge
+            # detected nothing" instead of "detection itself failed".
+            forge_detection_error = f"{type(e).__name__}: {e}"
 
     # Total violations: determined during execution (injected or naturally occurring)
     # For clean runs, total_violations = 0 and detection_rate is N/A
@@ -443,6 +448,7 @@ def collect_metrics(
             "forge": {
                 "violations_detected": forge_violations_detected,
                 "false_alarms": 0,
+                "detection_error": forge_detection_error,
             },
         },
 
