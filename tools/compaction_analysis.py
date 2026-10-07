@@ -859,7 +859,9 @@ def audit_forbidden_proxies(
             notes=(
                 "This forbidden proxy IS triggered. Dry-run data validates pipeline "
                 "but does not constitute genuine LLM compaction measurement. "
-                "Live API execution required via ANTHROPIC_API_KEY."
+                "Genuine live measurement is disabled fleet-wide per CLAUDE.md "
+                "Rule #10 (NO PAID LLM API, EVER) -- see BUG-020 in "
+                "BUGS_AND_ITERATIONS.md."
             ),
         ))
     elif "dry-run" in modes and "live" in modes:
@@ -1301,7 +1303,9 @@ def generate_report(analysis: dict) -> str:
                      "Results validate the analysis pipeline but do NOT measure "
                      "genuine LLM context-window compaction. All metrics below are "
                      "from deterministic synthetic compaction (midpoint-split). "
-                     "Live API execution (ANTHROPIC_API_KEY) is required for genuine measurement.")
+                     "Genuine live measurement is disabled fleet-wide per CLAUDE.md "
+                     "Rule #10 (NO PAID LLM API, EVER) -- see BUG-020 in "
+                     "BUGS_AND_ITERATIONS.md.")
         lines.append("")
 
     lines.append(f"**RQ3b Verdict: {verdict}**")
@@ -1560,10 +1564,12 @@ def generate_report(analysis: dict) -> str:
         lines.append("- Run Track C ablation to identify optimal instruction strategy.")
     elif verdict == "PARTIAL":
         if analysis.get("data_mode") == "dry-run":
-            lines.append("- **Set ANTHROPIC_API_KEY and run live pilot** (`python3 tools/run_pilot_track_a.py`).")
-            lines.append("- Estimated cost: $12-30 for 6 pilot trials.")
-            lines.append("- Live pilot data is required before any verdict can be rendered.")
-            lines.append("- Pipeline is validated and ready for live execution.")
+            lines.append("- **Live pilot data would be required before any verdict can be "
+                          "rendered, but live-API mode is disabled fleet-wide** per "
+                          "CLAUDE.md Rule #10 (NO PAID LLM API, EVER) -- see BUG-020 in "
+                          "BUGS_AND_ITERATIONS.md.")
+            lines.append("- Pipeline is validated in dry-run/synthetic mode; genuine "
+                          "live measurement is out of scope for this codebase.")
         else:
             lines.append("- **Collect more data.** Current sample is insufficient for significance.")
             lines.append("- Consider running full N=60 Track A before making architectural decisions.")

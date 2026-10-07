@@ -117,20 +117,26 @@ class TestCompactionExperiment(unittest.TestCase):
             result = exp._run_simulated()
             self.assertEqual(result["task_category"], cat)
 
-    def test_api_falls_back_to_simulated(self):
-        """Without ANTHROPIC_API_KEY, run_api should fall back to simulated."""
-        old_key = os.environ.pop("ANTHROPIC_API_KEY", None)
-        try:
-            config = ExperimentConfig(run_id="test-fallback", num_iterations=3)
-            exp = CompactionExperiment(config, self.ledger)
-            result = exp.run_api()
-            self.assertEqual(result["run_id"], "test-fallback")
-        finally:
-            if old_key:
-                os.environ["ANTHROPIC_API_KEY"] = old_key
+    def test_run_api_never_goes_live_even_with_key_present(self):
+        """BUG-022 regression: run_api must raise and must NOT touch the SDK
+        or read a key, even when ANTHROPIC_API_KEY is set in the environment.  # paid-api-gate:doc-ref
+        (The old body silently flipped into billed live calls in that case.)"""
+        fake_anthropic = mock.MagicMock()
+        config = ExperimentConfig(run_id="test-no-live", num_iterations=3)
+        exp = CompactionExperiment(config, self.ledger)
+        with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": "not-a-real-key"}):  # paid-api-gate:doc-ref
+            with mock.patch.dict(sys.modules, {"anthropic": fake_anthropic}):
+                with self.assertRaises(RuntimeError) as ctx:
+                    exp.run_api()
+        self.assertIn("Rule #10", str(ctx.exception))
+        fake_anthropic.Anthropic.assert_not_called()
+        # The synthetic path is still the supported one.
+        self.assertEqual(exp._run_simulated()["run_id"], "test-no-live")
 
 
-import os  # needed for test_api_falls_back
+import os
+import sys
+from unittest import mock
 
 if __name__ == "__main__":
     unittest.main()

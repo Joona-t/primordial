@@ -19,7 +19,6 @@ Convention assertions (project-specific — physics conventions N/A):
 """
 
 import json
-import os
 import time
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
@@ -149,8 +148,20 @@ DEFAULT_PROVENANCE_INSTRUCTIONS = (
 class GenuineCompactionRunner:
     """Orchestrates genuine LLM compaction experiments.
 
-    Supports both live API mode (requires ANTHROPIC_API_KEY) and
-    dry-run mode (synthetic data for pipeline validation).
+    Dry-run mode (synthetic data for pipeline validation) is the only
+    supported execution path in this codebase.
+
+    Live-API mode (calling Anthropic's raw Messages API with the
+    compact_20260112 beta feature) is intentionally disabled per fleet
+    CLAUDE.md Rule #10 ("NO PAID LLM API, EVER") — see BUG-020 in
+    BUGS_AND_ITERATIONS.md. This runner never constructs an
+    `anthropic.Anthropic()` client and never reads ANTHROPIC_API_KEY to  # paid-api-gate:doc-ref
+    decide whether to spend money: dry-run vs. live is governed solely by
+    the explicit `RunnerConfig.dry_run` flag, so a stray inherited API key
+    in the environment can never silently flip this pipeline into paid
+    billing (the exact failure mode documented in astrospark BUG-010).
+    Calling `run_trial()` with `dry_run=False` raises immediately with a
+    pointer to this policy instead of attempting a live call.
 
     Usage:
         config = RunnerConfig(dry_run=True)
@@ -189,10 +200,11 @@ class GenuineCompactionRunner:
         self._boundaries = []
         self._events = []
 
-        # Determine mode
-        is_dry_run = self.config.dry_run or not os.environ.get("ANTHROPIC_API_KEY")
-
-        if is_dry_run:
+        # Determine mode. Deliberately NOT gated on os.environ["ANTHROPIC_API_KEY"]:  # paid-api-gate:doc-ref
+        # a stray inherited key must never silently switch this pipeline into paid
+        # live-API mode (see BUG-020 / astrospark BUG-010). Only the explicit
+        # RunnerConfig.dry_run flag controls dispatch.
+        if self.config.dry_run:
             return self._run_dry(task_template)
         else:
             return self._run_live(task_template)
@@ -405,100 +417,29 @@ class GenuineCompactionRunner:
         )
 
     def _run_live(self, task_template) -> TrialResult:
-        """Live API mode: genuine LLM compaction via compact_20260112.
+        """Live-API mode is disabled fleet-wide. Always raises.
 
-        Uses the Anthropic Messages API with pause_after_compaction
-        for boundary capture.
+        This codebase never instantiates `anthropic.Anthropic()` and never  # paid-api-gate:doc-ref
+        spends money automatically. Per CLAUDE.md Rule #10 ("NO PAID LLM
+        API, EVER"): "If a feature is impossible without paid API, the
+        feature gets cut, not papered over." Genuine live LLM-compaction
+        measurement requires Anthropic's raw Messages API beta feature
+        (compact_20260112 + pause_after_compaction), which has no
+        local-CLI-subprocess (claude -p / codex exec) or sparkd
+        equivalent — so rather than silently falling back to dry-run
+        (which would mask a caller's explicit intent) or auto-reading
+        ANTHROPIC_API_KEY from the environment (the exact silent-billing  # paid-api-gate:doc-ref
+        pattern documented in astrospark BUG-010), this path fails loudly.
+
+        See BUG-020 in BUGS_AND_ITERATIONS.md for the full rationale.
         """
-        try:
-            import anthropic
-        except ImportError:
-            # Fallback to dry-run if anthropic not installed
-            return self._run_dry(task_template)
-
-        trial_id = f"live-{int(time.time())}"
-        task_category = getattr(task_template, "category", "coding")
-        track = getattr(task_template, "track", "A")
-
-        # Initialize forge chamber
-        self._chamber = create_chamber(f"chamber:compaction:{trial_id}:v1")
-
-        client = anthropic.Anthropic()
-        system_prompt = self._build_system_prompt()
-        messages = []
-        total_input_tokens = 0
-        total_output_tokens = 0
-
-        for i in range(self.config.num_iterations):
-            prompt = task_template.generate_iteration(i)
-            messages.append({"role": "user", "content": prompt})
-
-            # API call with retry logic
-            response = self._api_call_with_retry(
-                client, system_prompt, messages, trial_id, i
-            )
-            if response is None:
-                break  # All retries exhausted
-
-            # Extract response text and compaction block
-            output_text = ""
-            compaction_block = None
-            for block in response.content:
-                if hasattr(block, "type"):
-                    if block.type == "text":
-                        output_text += block.text
-                    elif block.type == "compaction":
-                        compaction_block = {
-                            "type": "compaction",
-                            "text": getattr(block, "text", getattr(block, "content", "")),
-                        }
-
-            # Track tokens
-            if hasattr(response, "usage"):
-                total_input_tokens = getattr(response.usage, "input_tokens", 0)
-                total_output_tokens += getattr(response.usage, "output_tokens", 0)
-
-            # Register forge artifact
-            self._register_artifact(i, output_text, trial_id)
-
-            # Add assistant response to conversation
-            messages.append({"role": "assistant", "content": output_text})
-
-            # Check for LLM compaction event
-            if response.stop_reason == "compaction" or compaction_block:
-                if compaction_block is None:
-                    # Extract from response content if stop_reason indicates compaction
-                    compaction_block = {"type": "compaction", "text": output_text}
-
-                self.capture_boundary(
-                    messages=messages,
-                    compaction_block=compaction_block,
-                    chamber=self._chamber,
-                )
-
-        # Seal chamber and compute trace
-        seal_chamber(self._chamber)
-        trace = encode_trace(self._chamber)
-        stats = trace_stats(trace)
-
-        # Compute aggregate metrics from all boundaries
-        aggregate_metrics = self._compute_live_aggregate_metrics()
-
-        return TrialResult(
-            trial_id=trial_id,
-            track=track,
-            task_category=task_category,
-            model=self.config.model,
-            mode="live",
-            provenance_aware=self.config.provenance_aware_instructions is not None,
-            threshold=self.config.threshold,
-            num_iterations=self.config.num_iterations,
-            compaction_events=[b.to_dict() for b in self._boundaries],
-            aggregate_metrics=aggregate_metrics,
-            trace_stats=stats,
-            chamber_validation=validate_chamber(self._chamber),
-            timestamp=datetime.now(timezone.utc).isoformat(),
-            boundaries=[b.to_dict() for b in self._boundaries],
+        raise RuntimeError(
+            "Live-API mode is disabled: primordial never calls the paid "
+            "Anthropic API (fleet CLAUDE.md Rule #10 — NO PAID LLM API, "
+            "EVER). Use RunnerConfig(dry_run=True) for synthetic pipeline "
+            "validation. Genuine live compaction measurement is out of "
+            "scope for this codebase; see BUG-020 in "
+            "BUGS_AND_ITERATIONS.md."
         )
 
     def _api_call_with_retry(self, client, system_prompt, messages, trial_id, iteration):

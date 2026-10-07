@@ -1,0 +1,6 @@
+# Test-only dependencies for tools/ (fleet CLAUDE.md CI green-gate, P1-3).
+# Not runtime deps of the shipped forge tooling -- only test_compaction_analysis.py,
+# test_violation_analysis.py, test_xarch_analysis.py (via compaction_analysis.py /
+# violation_analysis.py / xarch_analysis.py) import these directly.
+numpy>=1.26
+scipy>=1.11

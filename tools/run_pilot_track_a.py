@@ -25,7 +25,6 @@ Convention assertions (project-specific — physics conventions N/A):
 """
 
 import json
-import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -121,23 +120,25 @@ TRIAL_MATRIX = [
 
 
 def run_pilot(dry_run: bool = False, cost_limit: float = 50.0) -> dict:
-    """Execute 6 pilot Track A trials.
+    """Execute 6 pilot Track A trials (dry-run/synthetic only).
+
+    Live-API mode is disabled fleet-wide per CLAUDE.md Rule #10 ("NO PAID
+    LLM API, EVER") — see BUG-020 in BUGS_AND_ITERATIONS.md. This runner
+    always executes in dry-run mode regardless of whether
+    ANTHROPIC_API_KEY happens to be present in the environment: a stray  # paid-api-gate:doc-ref
+    inherited key must never silently flip a pipeline into paid billing
+    (the exact failure mode documented in astrospark BUG-010).
 
     Args:
-        dry_run: If True, use synthetic data (no API calls).
-                 If False, use live API (requires ANTHROPIC_API_KEY).
-        cost_limit: Maximum total cost before pausing ($).
+        dry_run: Accepted for call-signature compatibility; ignored —
+                 dry-run/synthetic mode is always used.
+        cost_limit: Maximum total cost before pausing ($). Unused now that
+                    live mode never runs; kept for signature compatibility.
 
     Returns:
         Dict with pilot summary: completed, failed, results, mode.
     """
-    # Check for API key
-    has_api_key = bool(os.environ.get("ANTHROPIC_API_KEY"))
-    mode = "dry-run" if (dry_run or not has_api_key) else "live"
-
-    if not has_api_key and not dry_run:
-        print("WARNING: ANTHROPIC_API_KEY not set. Running in dry-run mode.")
-        print("Set ANTHROPIC_API_KEY to run live pilot trials.\n")
+    mode = "dry-run"
 
     print(f"=" * 70)
     print(f"PILOT TRACK A — {len(TRIAL_MATRIX)} trials")

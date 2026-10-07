@@ -318,20 +318,15 @@ class SWEBenchForgeAgent:
         )
 
     def _run_live(self) -> AgentResult:
-        """Live API mode: actual LLM calls with forge instrumentation.
+        """Live-API mode is disabled fleet-wide. Always falls back to dry-run.
 
-        Requires ANTHROPIC_API_KEY and optionally Docker for SWE-Bench eval.
+        Per CLAUDE.md Rule #10 (NO PAID LLM API, EVER) this agent never
+        imports the `anthropic` SDK or reads a paid-endpoint API key --
+        see BUG-020 in BUGS_AND_ITERATIONS.md. A genuine live path (real
+        LLM calls + Docker-based SWE-Bench evaluation) was never
+        implemented for this stub; it always runs the synthetic dry-run
+        phases instead, regardless of what a caller passes.
         """
-        try:
-            import anthropic
-        except ImportError:
-            # Fallback to dry-run
-            return self._run_dry()
-
-        # Live implementation would use the compact_20260112 API
-        # with pause_after_compaction, similar to GenuineCompactionRunner.
-        # For now, fall back to dry-run since Docker setup is required
-        # for actual SWE-Bench execution.
         return self._run_dry()
 
     def _dry_understand(self) -> AgentPhaseOutput:
