@@ -1,0 +1,72 @@
+{
+  "experiment": "live_agent_primordial",
+  "timestamp": "2026-03-28T02:34:18.405449+00:00",
+  "chamber_id": "chamber:live-1774665258:v1",
+  "chamber_status": "sealed",
+  "chamber_errors": [],
+  "total_stages": 4,
+  "trace": {
+    "verified": true,
+    "hash_match": true,
+    "compression_ratio": 1.0175,
+    "shared_structures": 4,
+    "ref_replacements": 14
+  },
+  "typed_absence": {
+    "total": 0,
+    "by_state": {}
+  },
+  "provenance": {
+    "grounded": true,
+    "source_ref_count": 3,
+    "available_sources": 3
+  },
+  "spf": {
+    "pairs_measured": 4,
+    "aggregate": {
+      "count": 4,
+      "jaccard": {
+        "mean": 0.0471,
+        "min": 0.0136,
+        "max": 0.0657,
+        "n": 4
+      },
+      "token_overlap": {
+        "mean": 0.0474,
+        "min": 0.0138,
+        "max": 0.066,
+        "n": 4
+      },
+      "weighted_overlap": {
+        "mean": 0.1201,
+        "min": 0.0113,
+        "max": 0.1837,
+        "n": 4
+      },
+      "exact_match_rate": 0.0
+    }
+  },
+  "agent_timings": {
+    "architecture-analyst": {
+      "duration_ms": 104790,
+      "succeeded": true,
+      "absence_state": null
+    },
+    "performance-analyst": {
+      "duration_ms": 87076,
+      "succeeded": true,
+      "absence_state": null
+    },
+    "security-analyst": {
+      "duration_ms": 134136,
+      "succeeded": true,
+      "absence_state": null
+    },
+    "synthesizer": {
+      "duration_ms": 34204,
+      "succeeded": true,
+      "absence_state": null
+    }
+  },
+  "total_duration_ms": 360206
+}

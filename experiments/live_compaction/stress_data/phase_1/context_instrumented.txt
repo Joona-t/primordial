@@ -1,0 +1,190 @@
+# System Architecture Review — Multi-Domain Analysis
+# PRIMORDIAL FORGE INSTRUMENTED — Typed Absence Protocol Active
+
+## Compaction Instructions
+This document contains typed artifacts with provenance metadata.
+When summarizing, you MUST:
+1. Preserve all artifact IDs (format: [CXXXX])
+2. For any fact you cannot include, mark it with its absence state:
+   - PRUNED_RECOVERABLE: fact compressed but source ref preserved
+   - DELETED: fact intentionally removed (unrecoverable)
+   - UNKNOWN: unable to determine if fact is still valid
+3. Preserve provenance chains: if fact B depends on fact A, note the dependency
+4. Negations (NOT/DOES NOT) are high-priority — never silently drop a negation
+5. Exact numbers are high-priority — never round or approximate without marking
+
+## Absence State Legend
+| State | Meaning | Recovery |
+|-------|---------|----------|
+| PRUNED_RECOVERABLE | Detail compressed, source available | Re-read source stage |
+| DELETED | Removed, no recovery path | Re-run analysis |
+| UNKNOWN | Cannot determine status | Investigate |
+| NOT_GENERATED | Never produced | Run missing stage |
+
+
+## Stage 1: Auth Service
+Artifact: artifact:stress:auth:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0000] [priority:HIGH] [type:exact_number] The auth service processes exactly 66,247 events per second with a buffer of 78917 entries
+- [C0015] [priority:HIGH] [type:exact_number] The auth service processes exactly 70,808 events per second with a buffer of 10571 entries
+- [C0030] [priority:HIGH] [type:exact_number] The auth service processes exactly 97,615 events per second with a buffer of 6438 entries
+- [C0045] [priority:HIGH] [type:exact_number] The auth service processes exactly 84,050 events per second with a buffer of 63001 entries
+
+
+## Stage 2: Billing Service
+Artifact: artifact:stress:billing:r1
+Depends-on: artifact:stress:auth:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0001] [priority:MEDIUM] [type:identifier] Entry point function is run_compliance_check in billing/core/validator.py line 25213
+- [C0016] [priority:MEDIUM] [type:identifier] Entry point function is process_incoming_batch in billing/core/validator.py line 63664
+- [C0031] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in billing/core/validator.py line 97863
+- [C0046] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in billing/core/engine.py line 18201
+
+
+## Stage 3: Ingestion Service
+Artifact: artifact:stress:ingestion:r1
+Depends-on: artifact:stress:billing:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0002] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 52591 to 35103 after incident INC-62350 showed cascading failures
+- [C0017] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 85225 to 9003 after incident INC-31465 showed cascading failures
+- [C0032] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 85107 to 53526 after incident INC-64379 showed cascading failures
+- [C0047] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 46254 to 31541 after incident INC-12128 showed cascading failures
+
+
+## Stage 4: Analytics Service
+Artifact: artifact:stress:analytics:r1
+Depends-on: artifact:stress:ingestion:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0003] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+- [C0018] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the Elasticsearch event bus first
+- [C0033] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the S3 event bus first
+- [C0048] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+
+
+## Stage 5: Notification Service
+Artifact: artifact:stress:notification:r1
+Depends-on: artifact:stress:analytics:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0004] [priority:MEDIUM] [type:provenance] The notification security review in stage 7602 depends on the reporting architecture from stage 31581: if condition COND-0000 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0019] [priority:MEDIUM] [type:provenance] The notification security review in stage 98376 depends on the reporting architecture from stage 60920: if condition COND-0018 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0034] [priority:MEDIUM] [type:provenance] The notification security review in stage 31196 depends on the reporting architecture from stage 77192: if condition COND-0033 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0049] [priority:MEDIUM] [type:provenance] The notification security review in stage 48158 depends on the reporting architecture from stage 68072: if condition COND-0045 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+
+
+## Stage 6: Search Service
+Artifact: artifact:stress:search:r1
+Depends-on: artifact:stress:notification:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0005] [priority:HIGH] [type:exact_number] The search service processes exactly 30,017 events per second with a buffer of 8844 entries
+- [C0020] [priority:HIGH] [type:exact_number] The search service processes exactly 31,900 events per second with a buffer of 40145 entries
+- [C0035] [priority:HIGH] [type:exact_number] The search service processes exactly 36,056 events per second with a buffer of 81840 entries
+
+
+## Stage 7: Storage Service
+Artifact: artifact:stress:storage:r1
+Depends-on: artifact:stress:search:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0006] [priority:MEDIUM] [type:identifier] Entry point function is process_incoming_batch in storage/core/engine.py line 18383
+- [C0021] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in storage/core/handler.py line 23529
+- [C0036] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in storage/core/engine.py line 96845
+
+
+## Stage 8: Gateway Service
+Artifact: artifact:stress:gateway:r1
+Depends-on: artifact:stress:storage:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0007] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 7675 to 75924 after incident INC-84668 showed cascading failures
+- [C0022] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 78145 to 81067 after incident INC-32782 showed cascading failures
+- [C0037] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 72982 to 3451 after incident INC-38197 showed cascading failures
+
+
+## Stage 9: Scheduler Service
+Artifact: artifact:stress:scheduler:r1
+Depends-on: artifact:stress:gateway:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0008] [priority:HIGH] [type:negation] scheduler does NOT write directly to Redis — all writes go through the Elasticsearch event bus first
+- [C0023] [priority:HIGH] [type:negation] scheduler does NOT write directly to S3 — all writes go through the DynamoDB event bus first
+- [C0038] [priority:HIGH] [type:negation] scheduler does NOT write directly to Redis — all writes go through the DynamoDB event bus first
+
+
+## Stage 10: Monitoring Service
+Artifact: artifact:stress:monitoring:r1
+Depends-on: artifact:stress:scheduler:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0009] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 72522 depends on the billing architecture from stage 20384: if condition COND-0006 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0024] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 76965 depends on the billing architecture from stage 2729: if condition COND-0023 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0039] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 23038 depends on the billing architecture from stage 16942: if condition COND-0038 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+
+
+## Stage 11: Compliance Service
+Artifact: artifact:stress:compliance:r1
+Depends-on: artifact:stress:monitoring:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0010] [priority:HIGH] [type:exact_number] The compliance service processes exactly 5,492 events per second with a buffer of 40414 entries
+- [C0025] [priority:HIGH] [type:exact_number] The compliance service processes exactly 86,210 events per second with a buffer of 71128 entries
+- [C0040] [priority:HIGH] [type:exact_number] The compliance service processes exactly 44,510 events per second with a buffer of 29051 entries
+
+
+## Stage 12: Reporting Service
+Artifact: artifact:stress:reporting:r1
+Depends-on: artifact:stress:compliance:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0011] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in reporting/core/engine.py line 3111
+- [C0026] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in reporting/core/dispatcher.py line 66708
+- [C0041] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in reporting/core/handler.py line 19796
+
+
+## Stage 13: Migration Service
+Artifact: artifact:stress:migration:r1
+Depends-on: artifact:stress:reporting:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0012] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 94307 to 97258 after incident INC-35144 showed cascading failures
+- [C0027] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 91432 to 31310 after incident INC-23154 showed cascading failures
+- [C0042] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 13576 to 45025 after incident INC-92691 showed cascading failures
+
+
+## Stage 14: Cache Service
+Artifact: artifact:stress:cache:r1
+Depends-on: artifact:stress:migration:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0013] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the Elasticsearch event bus first
+- [C0028] [priority:HIGH] [type:negation] cache does NOT write directly to S3 — all writes go through the DynamoDB event bus first
+- [C0043] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the Redis event bus first
+
+
+## Stage 15: Messaging Service
+Artifact: artifact:stress:messaging:r1
+Depends-on: artifact:stress:cache:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+- [C0014] [priority:MEDIUM] [type:provenance] The messaging security review in stage 55734 depends on the storage architecture from stage 28693: if condition COND-0010 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0029] [priority:MEDIUM] [type:provenance] The messaging security review in stage 65240 depends on the storage architecture from stage 76445: if condition COND-0025 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0044] [priority:MEDIUM] [type:provenance] The messaging security review in stage 17186 depends on the storage architecture from stage 78292: if condition COND-0041 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+
+
+## End of Instrumented Session
+If compacting: list ALL artifact IDs that were PRUNED or DELETED with their absence state.

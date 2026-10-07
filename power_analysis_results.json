@@ -1,0 +1,210 @@
+{
+  "upper_bound_if_zero": [
+    {
+      "n": 30,
+      "k": 0,
+      "cp_upper_95": 0.1157,
+      "cp_upper_pct": "11.6%"
+    },
+    {
+      "n": 50,
+      "k": 0,
+      "cp_upper_95": 0.0711,
+      "cp_upper_pct": "7.1%"
+    },
+    {
+      "n": 75,
+      "k": 0,
+      "cp_upper_95": 0.048,
+      "cp_upper_pct": "4.8%"
+    },
+    {
+      "n": 100,
+      "k": 0,
+      "cp_upper_95": 0.0362,
+      "cp_upper_pct": "3.6%"
+    },
+    {
+      "n": 150,
+      "k": 0,
+      "cp_upper_95": 0.0243,
+      "cp_upper_pct": "2.4%"
+    },
+    {
+      "n": 200,
+      "k": 0,
+      "cp_upper_95": 0.0183,
+      "cp_upper_pct": "1.8%"
+    },
+    {
+      "n": 300,
+      "k": 0,
+      "cp_upper_95": 0.0122,
+      "cp_upper_pct": "1.2%"
+    },
+    {
+      "n": 500,
+      "k": 0,
+      "cp_upper_95": 0.0074,
+      "cp_upper_pct": "0.7%"
+    },
+    {
+      "n": 750,
+      "k": 0,
+      "cp_upper_95": 0.0049,
+      "cp_upper_pct": "0.5%"
+    },
+    {
+      "n": 1000,
+      "k": 0,
+      "cp_upper_95": 0.0037,
+      "cp_upper_pct": "0.4%"
+    }
+  ],
+  "sample_size_for_bound": [
+    {
+      "target_upper_pct": "10.0%",
+      "required_n": 36,
+      "actual_upper": 0.0974
+    },
+    {
+      "target_upper_pct": "5.0%",
+      "required_n": 72,
+      "actual_upper": 0.0499
+    },
+    {
+      "target_upper_pct": "3.0%",
+      "required_n": 122,
+      "actual_upper": 0.0298
+    },
+    {
+      "target_upper_pct": "2.0%",
+      "required_n": 183,
+      "actual_upper": 0.02
+    },
+    {
+      "target_upper_pct": "1.0%",
+      "required_n": 368,
+      "actual_upper": 0.01
+    },
+    {
+      "target_upper_pct": "0.5%",
+      "required_n": 736,
+      "actual_upper": 0.005
+    }
+  ],
+  "power_matrix": [
+    {
+      "true_rate_pct": "1%",
+      "n=30": "0.260",
+      "n=50": "0.395",
+      "n=100": "0.634",
+      "n=200": "0.866",
+      "n=300": "0.951",
+      "n=500": "0.993"
+    },
+    {
+      "true_rate_pct": "2%",
+      "n=30": "0.455",
+      "n=50": "0.636",
+      "n=100": "0.867",
+      "n=200": "0.982",
+      "n=300": "0.998",
+      "n=500": "1.000"
+    },
+    {
+      "true_rate_pct": "5%",
+      "n=30": "0.785",
+      "n=50": "0.923",
+      "n=100": "0.994",
+      "n=200": "1.000",
+      "n=300": "1.000",
+      "n=500": "1.000"
+    },
+    {
+      "true_rate_pct": "10%",
+      "n=30": "0.958",
+      "n=50": "0.995",
+      "n=100": "1.000",
+      "n=200": "1.000",
+      "n=300": "1.000",
+      "n=500": "1.000"
+    },
+    {
+      "true_rate_pct": "15%",
+      "n=30": "0.992",
+      "n=50": "1.000",
+      "n=100": "1.000",
+      "n=200": "1.000",
+      "n=300": "1.000",
+      "n=500": "1.000"
+    },
+    {
+      "true_rate_pct": "20%",
+      "n=30": "0.999",
+      "n=50": "1.000",
+      "n=100": "1.000",
+      "n=200": "1.000",
+      "n=300": "1.000",
+      "n=500": "1.000"
+    }
+  ],
+  "sample_size_for_power": [
+    {
+      "true_rate_pct": "1%",
+      "power=0.8": 161,
+      "power=0.9": 230,
+      "power=0.95": 299,
+      "power=0.99": 459
+    },
+    {
+      "true_rate_pct": "2%",
+      "power=0.8": 80,
+      "power=0.9": 114,
+      "power=0.95": 149,
+      "power=0.99": 228
+    },
+    {
+      "true_rate_pct": "5%",
+      "power=0.8": 32,
+      "power=0.9": 45,
+      "power=0.95": 59,
+      "power=0.99": 90
+    },
+    {
+      "true_rate_pct": "10%",
+      "power=0.8": 16,
+      "power=0.9": 22,
+      "power=0.95": 29,
+      "power=0.99": 44
+    },
+    {
+      "true_rate_pct": "15%",
+      "power=0.8": 10,
+      "power=0.9": 15,
+      "power=0.95": 19,
+      "power=0.99": 29
+    },
+    {
+      "true_rate_pct": "20%",
+      "power=0.8": 8,
+      "power=0.9": 11,
+      "power=0.95": 14,
+      "power=0.99": 21
+    }
+  ],
+  "v1_baseline": {
+    "n": 30,
+    "k": 0,
+    "cp_upper_95": 0.1157,
+    "note": "v1.0 result: 0/30 natural violations"
+  },
+  "v2_target": {
+    "n": 200,
+    "k_expected": 0,
+    "cp_upper_95_if_zero": 0.0183,
+    "power_at_5pct_rate": 1.0,
+    "power_at_2pct_rate": 0.9824,
+    "note": "v2.0 target: 200 runs, tighten bound to ~1.5%"
+  }
+}

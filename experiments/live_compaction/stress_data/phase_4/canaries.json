@@ -1,0 +1,5302 @@
+[
+  {
+    "id": "C0000",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 17,706 events per second with a buffer of 35607 entries",
+    "stage": "auth",
+    "signals": [
+      "17,706"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0001",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in billing/core/validator.py line 46061",
+    "stage": "billing",
+    "signals": [
+      "46,061",
+      "dispatch_notification"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0002",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 81809 to 75496 after incident INC-90042 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "81,809"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0003",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to S3 \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "49,447",
+      "gRPC"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0004",
+    "type": "provenance",
+    "claim": "The notification security review in stage 68993 depends on the reporting architecture from stage 90834: if condition COND-0001 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "68,993",
+      "M-0004"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0005",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 98,668 events per second with a buffer of 31823 entries",
+    "stage": "search",
+    "signals": [
+      "98,668"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0006",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in storage/core/handler.py line 63424",
+    "stage": "storage",
+    "signals": [
+      "63,424",
+      "validate_and_route"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0007",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 65492 to 68721 after incident INC-54244 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "65,492"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0008",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to S3 \u2014 all writes go through the Redis event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "81,829",
+      "Consul"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0009",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 64868 depends on the billing architecture from stage 84277: if condition COND-0007 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "64,868",
+      "M-0009"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0010",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 48,810 events per second with a buffer of 43759 entries",
+    "stage": "compliance",
+    "signals": [
+      "48,810"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0011",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/validator.py line 92202",
+    "stage": "reporting",
+    "signals": [
+      "92,202",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0012",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 41672 to 82990 after incident INC-92465 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "41,672"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0013",
+    "type": "negation",
+    "claim": "cache does NOT write directly to S3 \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "33,682",
+      "RabbitMQ"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0014",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 11186 depends on the storage architecture from stage 23039: if condition COND-0009 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "11,186",
+      "M-0014"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0015",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 37,173 events per second with a buffer of 25669 entries",
+    "stage": "auth",
+    "signals": [
+      "37,173"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0016",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in billing/core/dispatcher.py line 68024",
+    "stage": "billing",
+    "signals": [
+      "68,024",
+      "execute_reconciliation"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0017",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 93259 to 52239 after incident INC-39843 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "93,259"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0018",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to DynamoDB \u2014 all writes go through the S3 event bus first",
+    "stage": "analytics",
+    "signals": [
+      "66,138",
+      "Memcached"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0019",
+    "type": "provenance",
+    "claim": "The notification security review in stage 10960 depends on the reporting architecture from stage 8607: if condition COND-0017 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "10,960",
+      "M-0019"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0020",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 87,547 events per second with a buffer of 21217 entries",
+    "stage": "search",
+    "signals": [
+      "87,547"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0021",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in storage/core/dispatcher.py line 66904",
+    "stage": "storage",
+    "signals": [
+      "66,904",
+      "execute_reconciliation"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0022",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 42794 to 18614 after incident INC-33494 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "42,794"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0023",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to S3 \u2014 all writes go through the S3 event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "32,965",
+      "GraphQL"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0024",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 79065 depends on the billing architecture from stage 16953: if condition COND-0023 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "79,065",
+      "M-0024"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0025",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 23,003 events per second with a buffer of 92235 entries",
+    "stage": "compliance",
+    "signals": [
+      "23,003"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0026",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/processor.py line 86441",
+    "stage": "reporting",
+    "signals": [
+      "86,441",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0027",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 10654 to 47787 after incident INC-86287 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "10,654"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0028",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "79,911",
+      "MongoDB"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0029",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 54168 depends on the storage architecture from stage 89923: if condition COND-0026 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "54,168",
+      "M-0029"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0030",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 35,305 events per second with a buffer of 65590 entries",
+    "stage": "auth",
+    "signals": [
+      "35,305"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0031",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in billing/core/router.py line 20253",
+    "stage": "billing",
+    "signals": [
+      "20,253",
+      "sync_upstream_state"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0032",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 7918 to 71542 after incident INC-45898 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "7,918"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0033",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to DynamoDB \u2014 all writes go through the S3 event bus first",
+    "stage": "analytics",
+    "signals": [
+      "84,842",
+      "NATS"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0034",
+    "type": "provenance",
+    "claim": "The notification security review in stage 65808 depends on the reporting architecture from stage 99972: if condition COND-0029 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "65,808",
+      "M-0034"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0035",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 3,593 events per second with a buffer of 18607 entries",
+    "stage": "search",
+    "signals": [
+      "3,593"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0036",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in storage/core/handler.py line 16689",
+    "stage": "storage",
+    "signals": [
+      "16,689",
+      "dispatch_notification"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0037",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 79812 to 71764 after incident INC-32300 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "79,812"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0038",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to S3 \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "66,940",
+      "Cassandra"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0039",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 62137 depends on the billing architecture from stage 86546: if condition COND-0035 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "62,137",
+      "M-0039"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0040",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 36,187 events per second with a buffer of 87527 entries",
+    "stage": "compliance",
+    "signals": [
+      "36,187"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0041",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/validator.py line 81132",
+    "stage": "reporting",
+    "signals": [
+      "81,132",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0042",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 26492 to 37479 after incident INC-55976 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "26,492"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0043",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "90,603",
+      "PostgreSQL"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0044",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 68541 depends on the storage architecture from stage 17412: if condition COND-0043 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "68,541",
+      "M-0044"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0045",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 35,885 events per second with a buffer of 75487 entries",
+    "stage": "auth",
+    "signals": [
+      "35,885"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0046",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in billing/core/validator.py line 97039",
+    "stage": "billing",
+    "signals": [
+      "97,039",
+      "transform_payload"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0047",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 78664 to 89340 after incident INC-35769 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "78,664"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0048",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to DynamoDB \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "analytics",
+    "signals": [
+      "47,970",
+      "Cassandra"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0049",
+    "type": "provenance",
+    "claim": "The notification security review in stage 53434 depends on the reporting architecture from stage 45704: if condition COND-0044 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "53,434",
+      "M-0049"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0050",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 92,100 events per second with a buffer of 63057 entries",
+    "stage": "search",
+    "signals": [
+      "92,100"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0051",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in storage/core/engine.py line 31113",
+    "stage": "storage",
+    "signals": [
+      "31,113",
+      "handle_event_stream"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0052",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 88555 to 1427 after incident INC-25014 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "88,555"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0053",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the Redis event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "48,697",
+      "MongoDB"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0054",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 61247 depends on the billing architecture from stage 41899: if condition COND-0050 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "61,247",
+      "M-0054"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0055",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 82,454 events per second with a buffer of 85531 entries",
+    "stage": "compliance",
+    "signals": [
+      "82,454"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0056",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in reporting/core/handler.py line 92735",
+    "stage": "reporting",
+    "signals": [
+      "92,735",
+      "execute_reconciliation"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0057",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 64087 to 55111 after incident INC-74493 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "64,087"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0058",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the S3 event bus first",
+    "stage": "cache",
+    "signals": [
+      "23,724",
+      "Kafka"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0059",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 75040 depends on the storage architecture from stage 34792: if condition COND-0058 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "75,040",
+      "M-0059"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0060",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 804 events per second with a buffer of 44376 entries",
+    "stage": "auth",
+    "signals": [
+      "804"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0061",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in billing/core/validator.py line 21576",
+    "stage": "billing",
+    "signals": [
+      "21,576",
+      "transform_payload"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0062",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 37549 to 61130 after incident INC-28768 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "37,549"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0063",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "1,457",
+      "RabbitMQ"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0064",
+    "type": "provenance",
+    "claim": "The notification security review in stage 72785 depends on the reporting architecture from stage 44983: if condition COND-0062 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "72,785",
+      "M-0064"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0065",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 57,300 events per second with a buffer of 66887 entries",
+    "stage": "search",
+    "signals": [
+      "57,300"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0066",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in storage/core/router.py line 53808",
+    "stage": "storage",
+    "signals": [
+      "53,808",
+      "handle_event_stream"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0067",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 63100 to 47168 after incident INC-95618 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "63,100"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0068",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "75,750",
+      "gRPC"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0069",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 82321 depends on the billing architecture from stage 93192: if condition COND-0068 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "82,321",
+      "M-0069"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0070",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 97,708 events per second with a buffer of 1920 entries",
+    "stage": "compliance",
+    "signals": [
+      "97,708"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0071",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in reporting/core/validator.py line 91615",
+    "stage": "reporting",
+    "signals": [
+      "91,615",
+      "aggregate_metrics"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0072",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 11026 to 33953 after incident INC-27088 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "11,026"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0073",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Redis \u2014 all writes go through the S3 event bus first",
+    "stage": "cache",
+    "signals": [
+      "43,561",
+      "Kafka"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0074",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 67022 depends on the storage architecture from stage 650: if condition COND-0072 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "67,022",
+      "M-0074"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0075",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 62,826 events per second with a buffer of 37978 entries",
+    "stage": "auth",
+    "signals": [
+      "62,826"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0076",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/processor.py line 65995",
+    "stage": "billing",
+    "signals": [
+      "65,995",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0077",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 7125 to 49343 after incident INC-81413 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "7,125"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0078",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "analytics",
+    "signals": [
+      "42,450",
+      "RabbitMQ"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0079",
+    "type": "provenance",
+    "claim": "The notification security review in stage 12785 depends on the reporting architecture from stage 11156: if condition COND-0075 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "12,785",
+      "M-0079"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0080",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 82,710 events per second with a buffer of 15055 entries",
+    "stage": "search",
+    "signals": [
+      "82,710"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0081",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in storage/core/handler.py line 16249",
+    "stage": "storage",
+    "signals": [
+      "16,249",
+      "validate_and_route"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0082",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 71140 to 60054 after incident INC-67058 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "71,140"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0083",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "78,615",
+      "PostgreSQL"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0084",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 39340 depends on the billing architecture from stage 76949: if condition COND-0079 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "39,340",
+      "M-0084"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0085",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 9,834 events per second with a buffer of 94863 entries",
+    "stage": "compliance",
+    "signals": [
+      "9,834"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0086",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/processor.py line 88507",
+    "stage": "reporting",
+    "signals": [
+      "88,507",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0087",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 58110 to 91761 after incident INC-69374 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "58,110"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0088",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "cache",
+    "signals": [
+      "32,032",
+      "gRPC"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0089",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 41689 depends on the storage architecture from stage 34457: if condition COND-0087 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "41,689",
+      "M-0089"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0090",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 82,174 events per second with a buffer of 23184 entries",
+    "stage": "auth",
+    "signals": [
+      "82,174"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0091",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/engine.py line 25868",
+    "stage": "billing",
+    "signals": [
+      "25,868",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0092",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 13410 to 829 after incident INC-27373 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "13,410"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0093",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to S3 \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "analytics",
+    "signals": [
+      "41,354",
+      "DynamoDB"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0094",
+    "type": "provenance",
+    "claim": "The notification security review in stage 6948 depends on the reporting architecture from stage 12839: if condition COND-0093 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "6,948",
+      "M-0094"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0095",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 5,490 events per second with a buffer of 94273 entries",
+    "stage": "search",
+    "signals": [
+      "5,490"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0096",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in storage/core/processor.py line 27347",
+    "stage": "storage",
+    "signals": [
+      "27,347",
+      "transform_payload"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0097",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 78524 to 36625 after incident INC-80763 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "78,524"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0098",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "31,429",
+      "Cassandra"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0099",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 47715 depends on the billing architecture from stage 95158: if condition COND-0095 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "47,715",
+      "M-0099"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0100",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 18,895 events per second with a buffer of 41445 entries",
+    "stage": "compliance",
+    "signals": [
+      "18,895"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0101",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in reporting/core/processor.py line 40386",
+    "stage": "reporting",
+    "signals": [
+      "40,386",
+      "execute_reconciliation"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0102",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 31112 to 12341 after incident INC-51734 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "31,112"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0103",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "61,980",
+      "etcd"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0104",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 93478 depends on the storage architecture from stage 43725: if condition COND-0101 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "93,478",
+      "M-0104"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0105",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 97,209 events per second with a buffer of 74151 entries",
+    "stage": "auth",
+    "signals": [
+      "97,209"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0106",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in billing/core/engine.py line 47295",
+    "stage": "billing",
+    "signals": [
+      "47,295",
+      "aggregate_metrics"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0107",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 63860 to 68238 after incident INC-60612 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "63,860"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0108",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "94,739",
+      "MongoDB"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0109",
+    "type": "provenance",
+    "claim": "The notification security review in stage 31211 depends on the reporting architecture from stage 27595: if condition COND-0108 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "31,211",
+      "M-0109"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0110",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 59,171 events per second with a buffer of 43047 entries",
+    "stage": "search",
+    "signals": [
+      "59,171"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0111",
+    "type": "identifier",
+    "claim": "Entry point function is run_compliance_check in storage/core/dispatcher.py line 98935",
+    "stage": "storage",
+    "signals": [
+      "98,935",
+      "run_compliance_check"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0112",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 23481 to 23405 after incident INC-55684 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "23,481"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0113",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Elasticsearch \u2014 all writes go through the S3 event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "97,619",
+      "gRPC"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0114",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 54143 depends on the billing architecture from stage 13956: if condition COND-0109 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "54,143",
+      "M-0114"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0115",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 78,866 events per second with a buffer of 33169 entries",
+    "stage": "compliance",
+    "signals": [
+      "78,866"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0116",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in reporting/core/handler.py line 66211",
+    "stage": "reporting",
+    "signals": [
+      "66,211",
+      "sync_upstream_state"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0117",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 92697 to 43154 after incident INC-32461 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "92,697"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0118",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "91,677",
+      "gRPC"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0119",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 47794 depends on the storage architecture from stage 4135: if condition COND-0118 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "47,794",
+      "M-0119"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0120",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 62,691 events per second with a buffer of 87165 entries",
+    "stage": "auth",
+    "signals": [
+      "62,691"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0121",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in billing/core/dispatcher.py line 75255",
+    "stage": "billing",
+    "signals": [
+      "75,255",
+      "transform_payload"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0122",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 6667 to 30470 after incident INC-69395 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "6,667"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0123",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to PostgreSQL \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "analytics",
+    "signals": [
+      "967",
+      "NATS"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0124",
+    "type": "provenance",
+    "claim": "The notification security review in stage 74616 depends on the reporting architecture from stage 57382: if condition COND-0123 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "74,616",
+      "M-0124"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0125",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 56,452 events per second with a buffer of 12545 entries",
+    "stage": "search",
+    "signals": [
+      "56,452"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0126",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in storage/core/processor.py line 81467",
+    "stage": "storage",
+    "signals": [
+      "81,467",
+      "handle_event_stream"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0127",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 63253 to 45816 after incident INC-53332 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "63,253"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0128",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the Redis event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "70,018",
+      "gRPC"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0129",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 63819 depends on the billing architecture from stage 55074: if condition COND-0125 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "63,819",
+      "M-0129"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0130",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 3,879 events per second with a buffer of 47833 entries",
+    "stage": "compliance",
+    "signals": [
+      "3,879"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0131",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in reporting/core/router.py line 59532",
+    "stage": "reporting",
+    "signals": [
+      "59,532",
+      "aggregate_metrics"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0132",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 34598 to 40410 after incident INC-72054 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "34,598"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0133",
+    "type": "negation",
+    "claim": "cache does NOT write directly to S3 \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "44,373",
+      "Cassandra"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0134",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 54490 depends on the storage architecture from stage 78676: if condition COND-0130 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "54,490",
+      "M-0134"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0135",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 57,183 events per second with a buffer of 13309 entries",
+    "stage": "auth",
+    "signals": [
+      "57,183"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0136",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in billing/core/processor.py line 89107",
+    "stage": "billing",
+    "signals": [
+      "89,107",
+      "aggregate_metrics"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0137",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 2771 to 86649 after incident INC-43994 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "2,771"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0138",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Redis \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "51,495",
+      "Consul"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0139",
+    "type": "provenance",
+    "claim": "The notification security review in stage 94229 depends on the reporting architecture from stage 54585: if condition COND-0138 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "94,229",
+      "M-0139"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0140",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 75,046 events per second with a buffer of 65025 entries",
+    "stage": "search",
+    "signals": [
+      "75,046"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0141",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in storage/core/engine.py line 65177",
+    "stage": "storage",
+    "signals": [
+      "65,177",
+      "handle_event_stream"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0142",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 97900 to 81440 after incident INC-50044 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "97,900"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0143",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "25,641",
+      "Kafka"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0144",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 67737 depends on the billing architecture from stage 44409: if condition COND-0143 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "67,737",
+      "M-0144"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0145",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 77,307 events per second with a buffer of 42515 entries",
+    "stage": "compliance",
+    "signals": [
+      "77,307"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0146",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in reporting/core/validator.py line 54682",
+    "stage": "reporting",
+    "signals": [
+      "54,682",
+      "execute_reconciliation"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0147",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 9634 to 50209 after incident INC-61747 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "9,634"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0148",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "85,683",
+      "Kafka"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0149",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 33018 depends on the storage architecture from stage 80055: if condition COND-0144 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "33,018",
+      "M-0149"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0150",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 76,548 events per second with a buffer of 83807 entries",
+    "stage": "auth",
+    "signals": [
+      "76,548"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0151",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/router.py line 90048",
+    "stage": "billing",
+    "signals": [
+      "90,048",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0152",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 8169 to 1661 after incident INC-22774 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "8,169"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0153",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "analytics",
+    "signals": [
+      "90,896",
+      "Kafka"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0154",
+    "type": "provenance",
+    "claim": "The notification security review in stage 17770 depends on the reporting architecture from stage 96823: if condition COND-0150 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "17,770",
+      "M-0154"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0155",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 35,118 events per second with a buffer of 55243 entries",
+    "stage": "search",
+    "signals": [
+      "35,118"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0156",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in storage/core/validator.py line 99700",
+    "stage": "storage",
+    "signals": [
+      "99,700",
+      "handle_event_stream"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0157",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 82966 to 26878 after incident INC-63307 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "82,966"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0158",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Elasticsearch \u2014 all writes go through the S3 event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "31,774",
+      "DynamoDB"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0159",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 22100 depends on the billing architecture from stage 97290: if condition COND-0156 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "22,100",
+      "M-0159"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0160",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 16,383 events per second with a buffer of 43226 entries",
+    "stage": "compliance",
+    "signals": [
+      "16,383"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0161",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/processor.py line 18525",
+    "stage": "reporting",
+    "signals": [
+      "18,525",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0162",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 96499 to 83433 after incident INC-97990 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "96,499"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0163",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the S3 event bus first",
+    "stage": "cache",
+    "signals": [
+      "37,696",
+      "Kafka"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0164",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 75043 depends on the storage architecture from stage 69221: if condition COND-0163 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "75,043",
+      "M-0164"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0165",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 75,116 events per second with a buffer of 547 entries",
+    "stage": "auth",
+    "signals": [
+      "75,116"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0166",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in billing/core/processor.py line 55416",
+    "stage": "billing",
+    "signals": [
+      "55,416",
+      "dispatch_notification"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0167",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 14879 to 34100 after incident INC-14097 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "14,879"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0168",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to PostgreSQL \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "67,468",
+      "Redis"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0169",
+    "type": "provenance",
+    "claim": "The notification security review in stage 94019 depends on the reporting architecture from stage 14137: if condition COND-0166 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "94,019",
+      "M-0169"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0170",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 16,854 events per second with a buffer of 72452 entries",
+    "stage": "search",
+    "signals": [
+      "16,854"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0171",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in storage/core/engine.py line 30924",
+    "stage": "storage",
+    "signals": [
+      "30,924",
+      "sync_upstream_state"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0172",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 41256 to 23416 after incident INC-49294 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "41,256"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0173",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "45,158",
+      "DynamoDB"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0174",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 99310 depends on the billing architecture from stage 41264: if condition COND-0169 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "99,310",
+      "M-0174"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0175",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 77,498 events per second with a buffer of 53103 entries",
+    "stage": "compliance",
+    "signals": [
+      "77,498"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0176",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in reporting/core/handler.py line 73893",
+    "stage": "reporting",
+    "signals": [
+      "73,893",
+      "validate_and_route"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0177",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 86084 to 70492 after incident INC-94113 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "86,084"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0178",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the Redis event bus first",
+    "stage": "cache",
+    "signals": [
+      "9,654",
+      "NATS"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0179",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 32153 depends on the storage architecture from stage 88134: if condition COND-0174 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "32,153",
+      "M-0179"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0180",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 58,297 events per second with a buffer of 22343 entries",
+    "stage": "auth",
+    "signals": [
+      "58,297"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0181",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in billing/core/engine.py line 27783",
+    "stage": "billing",
+    "signals": [
+      "27,783",
+      "sync_upstream_state"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0182",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 4249 to 77428 after incident INC-81867 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "4,249"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0183",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Redis \u2014 all writes go through the S3 event bus first",
+    "stage": "analytics",
+    "signals": [
+      "1,266",
+      "Consul"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0184",
+    "type": "provenance",
+    "claim": "The notification security review in stage 97171 depends on the reporting architecture from stage 49556: if condition COND-0183 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "97,171",
+      "M-0184"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0185",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 88,376 events per second with a buffer of 49527 entries",
+    "stage": "search",
+    "signals": [
+      "88,376"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0186",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in storage/core/router.py line 34003",
+    "stage": "storage",
+    "signals": [
+      "34,003",
+      "dispatch_notification"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0187",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 74245 to 38621 after incident INC-41283 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "74,245"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0188",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Redis \u2014 all writes go through the S3 event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "74,061",
+      "MongoDB"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0189",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 50373 depends on the billing architecture from stage 29988: if condition COND-0186 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "50,373",
+      "M-0189"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0190",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 27,222 events per second with a buffer of 62208 entries",
+    "stage": "compliance",
+    "signals": [
+      "27,222"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0191",
+    "type": "identifier",
+    "claim": "Entry point function is run_compliance_check in reporting/core/handler.py line 70389",
+    "stage": "reporting",
+    "signals": [
+      "70,389",
+      "run_compliance_check"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0192",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 29276 to 64 after incident INC-52076 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "29,276"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0193",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "83,740",
+      "RabbitMQ"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0194",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 8175 depends on the storage architecture from stage 93581: if condition COND-0190 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "8,175",
+      "M-0194"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0195",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 97,423 events per second with a buffer of 4726 entries",
+    "stage": "auth",
+    "signals": [
+      "97,423"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0196",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in billing/core/processor.py line 69250",
+    "stage": "billing",
+    "signals": [
+      "69,250",
+      "validate_and_route"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0197",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 96062 to 17151 after incident INC-15250 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "96,062"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0198",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to PostgreSQL \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "40,478",
+      "Memcached"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0199",
+    "type": "provenance",
+    "claim": "The notification security review in stage 85120 depends on the reporting architecture from stage 87655: if condition COND-0197 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "85,120",
+      "M-0199"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0200",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 24,004 events per second with a buffer of 1202 entries",
+    "stage": "search",
+    "signals": [
+      "24,004"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0201",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in storage/core/dispatcher.py line 12024",
+    "stage": "storage",
+    "signals": [
+      "12,024",
+      "aggregate_metrics"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0202",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 98887 to 29601 after incident INC-52070 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "98,887"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0203",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "54,065",
+      "Cassandra"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0204",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 81124 depends on the billing architecture from stage 71687: if condition COND-0203 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "81,124",
+      "M-0204"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0205",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 48,957 events per second with a buffer of 1507 entries",
+    "stage": "compliance",
+    "signals": [
+      "48,957"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0206",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in reporting/core/router.py line 21811",
+    "stage": "reporting",
+    "signals": [
+      "21,811",
+      "aggregate_metrics"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0207",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 82768 to 60266 after incident INC-75572 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "82,768"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0208",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the Redis event bus first",
+    "stage": "cache",
+    "signals": [
+      "50,866",
+      "REST"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0209",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 75359 depends on the storage architecture from stage 55753: if condition COND-0206 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "75,359",
+      "M-0209"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0210",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 85,932 events per second with a buffer of 34962 entries",
+    "stage": "auth",
+    "signals": [
+      "85,932"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0211",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in billing/core/engine.py line 91045",
+    "stage": "billing",
+    "signals": [
+      "91,045",
+      "aggregate_metrics"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0212",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 30886 to 21415 after incident INC-17928 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "30,886"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0213",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to DynamoDB \u2014 all writes go through the S3 event bus first",
+    "stage": "analytics",
+    "signals": [
+      "35,752",
+      "MongoDB"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0214",
+    "type": "provenance",
+    "claim": "The notification security review in stage 16615 depends on the reporting architecture from stage 55257: if condition COND-0212 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "16,615",
+      "M-0214"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0215",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 77,498 events per second with a buffer of 13559 entries",
+    "stage": "search",
+    "signals": [
+      "77,498"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0216",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in storage/core/processor.py line 30755",
+    "stage": "storage",
+    "signals": [
+      "30,755",
+      "sync_upstream_state"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0217",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 67704 to 65786 after incident INC-43379 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "67,704"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0218",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the Redis event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "52,154",
+      "Memcached"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0219",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 39899 depends on the billing architecture from stage 26580: if condition COND-0217 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "39,899",
+      "M-0219"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0220",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 11,268 events per second with a buffer of 16558 entries",
+    "stage": "compliance",
+    "signals": [
+      "11,268"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0221",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in reporting/core/engine.py line 24769",
+    "stage": "reporting",
+    "signals": [
+      "24,769",
+      "sync_upstream_state"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0222",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 72325 to 38244 after incident INC-85688 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "72,325"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0223",
+    "type": "negation",
+    "claim": "cache does NOT write directly to S3 \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "73,174",
+      "RabbitMQ"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0224",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 91373 depends on the storage architecture from stage 16479: if condition COND-0222 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "91,373",
+      "M-0224"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0225",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 2,540 events per second with a buffer of 97431 entries",
+    "stage": "auth",
+    "signals": [
+      "2,540"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0226",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in billing/core/dispatcher.py line 63414",
+    "stage": "billing",
+    "signals": [
+      "63,414",
+      "execute_reconciliation"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0227",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 33630 to 87963 after incident INC-38279 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "33,630"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0228",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Redis \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "25,095",
+      "PostgreSQL"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0229",
+    "type": "provenance",
+    "claim": "The notification security review in stage 71713 depends on the reporting architecture from stage 32777: if condition COND-0226 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "71,713",
+      "M-0229"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0230",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 90,354 events per second with a buffer of 50162 entries",
+    "stage": "search",
+    "signals": [
+      "90,354"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0231",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in storage/core/dispatcher.py line 40538",
+    "stage": "storage",
+    "signals": [
+      "40,538",
+      "execute_reconciliation"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0232",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 31661 to 35592 after incident INC-32625 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "31,661"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0233",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "38,697",
+      "PostgreSQL"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0234",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 53314 depends on the billing architecture from stage 57762: if condition COND-0230 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "53,314",
+      "M-0234"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0235",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 93,325 events per second with a buffer of 94548 entries",
+    "stage": "compliance",
+    "signals": [
+      "93,325"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0236",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/processor.py line 50413",
+    "stage": "reporting",
+    "signals": [
+      "50,413",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0237",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 27963 to 53338 after incident INC-17333 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "27,963"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0238",
+    "type": "negation",
+    "claim": "cache does NOT write directly to PostgreSQL \u2014 all writes go through the Redis event bus first",
+    "stage": "cache",
+    "signals": [
+      "22,481",
+      "DynamoDB"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0239",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 27757 depends on the storage architecture from stage 14273: if condition COND-0236 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "27,757",
+      "M-0239"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0240",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 20,474 events per second with a buffer of 17276 entries",
+    "stage": "auth",
+    "signals": [
+      "20,474"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0241",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in billing/core/router.py line 48362",
+    "stage": "billing",
+    "signals": [
+      "48,362",
+      "aggregate_metrics"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0242",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 43451 to 64257 after incident INC-13070 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "43,451"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0243",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Redis \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "44,020",
+      "Consul"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0244",
+    "type": "provenance",
+    "claim": "The notification security review in stage 67541 depends on the reporting architecture from stage 11948: if condition COND-0239 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "67,541",
+      "M-0244"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0245",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 7,581 events per second with a buffer of 7729 entries",
+    "stage": "search",
+    "signals": [
+      "7,581"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0246",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in storage/core/handler.py line 23552",
+    "stage": "storage",
+    "signals": [
+      "23,552",
+      "sync_upstream_state"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0247",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 51051 to 20183 after incident INC-99566 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "51,051"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0248",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Redis \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "67,473",
+      "RabbitMQ"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0249",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 7087 depends on the billing architecture from stage 3607: if condition COND-0247 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "7,087",
+      "M-0249"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0250",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 4,657 events per second with a buffer of 23905 entries",
+    "stage": "compliance",
+    "signals": [
+      "4,657"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0251",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/handler.py line 16290",
+    "stage": "reporting",
+    "signals": [
+      "16,290",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0252",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 74237 to 43064 after incident INC-43800 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "74,237"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0253",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "55,849",
+      "gRPC"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0254",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 25907 depends on the storage architecture from stage 94823: if condition COND-0250 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "25,907",
+      "M-0254"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0255",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 72,931 events per second with a buffer of 81741 entries",
+    "stage": "auth",
+    "signals": [
+      "72,931"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0256",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in billing/core/validator.py line 68077",
+    "stage": "billing",
+    "signals": [
+      "68,077",
+      "transform_payload"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0257",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 76288 to 34553 after incident INC-37351 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "76,288"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0258",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Redis \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "84,534",
+      "RabbitMQ"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0259",
+    "type": "provenance",
+    "claim": "The notification security review in stage 60936 depends on the reporting architecture from stage 21638: if condition COND-0257 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "60,936",
+      "M-0259"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0260",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 16,695 events per second with a buffer of 26976 entries",
+    "stage": "search",
+    "signals": [
+      "16,695"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0261",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in storage/core/router.py line 34441",
+    "stage": "storage",
+    "signals": [
+      "34,441",
+      "aggregate_metrics"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0262",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 7982 to 8304 after incident INC-49702 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "7,982"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0263",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Elasticsearch \u2014 all writes go through the Redis event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "61,899",
+      "MongoDB"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0264",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 40877 depends on the billing architecture from stage 44285: if condition COND-0259 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "40,877",
+      "M-0264"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0265",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 39,411 events per second with a buffer of 72797 entries",
+    "stage": "compliance",
+    "signals": [
+      "39,411"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0266",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in reporting/core/engine.py line 47892",
+    "stage": "reporting",
+    "signals": [
+      "47,892",
+      "dispatch_notification"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0267",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 30449 to 95790 after incident INC-27347 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "30,449"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0268",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "cache",
+    "signals": [
+      "19,757",
+      "RabbitMQ"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0269",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 73961 depends on the storage architecture from stage 6517: if condition COND-0268 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "73,961",
+      "M-0269"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0270",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 28,214 events per second with a buffer of 76827 entries",
+    "stage": "auth",
+    "signals": [
+      "28,214"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0271",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/handler.py line 52243",
+    "stage": "billing",
+    "signals": [
+      "52,243",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0272",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 17680 to 39099 after incident INC-17991 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "17,680"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0273",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to S3 \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "82,990",
+      "Consul"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0274",
+    "type": "provenance",
+    "claim": "The notification security review in stage 42719 depends on the reporting architecture from stage 94953: if condition COND-0271 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "42,719",
+      "M-0274"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0275",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 74,697 events per second with a buffer of 63717 entries",
+    "stage": "search",
+    "signals": [
+      "74,697"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0276",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in storage/core/engine.py line 72025",
+    "stage": "storage",
+    "signals": [
+      "72,025",
+      "validate_and_route"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0277",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 6882 to 49244 after incident INC-81571 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "6,882"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0278",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "68,504",
+      "Consul"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0279",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 41611 depends on the billing architecture from stage 25405: if condition COND-0274 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "41,611",
+      "M-0279"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0280",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 36,047 events per second with a buffer of 47103 entries",
+    "stage": "compliance",
+    "signals": [
+      "36,047"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0281",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in reporting/core/handler.py line 39402",
+    "stage": "reporting",
+    "signals": [
+      "39,402",
+      "transform_payload"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0282",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 19138 to 43808 after incident INC-27368 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "19,138"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0283",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Redis \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "cache",
+    "signals": [
+      "41,030",
+      "Kafka"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0284",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 28327 depends on the storage architecture from stage 6725: if condition COND-0282 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "28,327",
+      "M-0284"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0285",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 71,037 events per second with a buffer of 54242 entries",
+    "stage": "auth",
+    "signals": [
+      "71,037"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0286",
+    "type": "identifier",
+    "claim": "Entry point function is run_compliance_check in billing/core/dispatcher.py line 3607",
+    "stage": "billing",
+    "signals": [
+      "3,607",
+      "run_compliance_check"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0287",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 4043 to 87628 after incident INC-30507 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "4,043"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0288",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to S3 \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "analytics",
+    "signals": [
+      "15,623",
+      "GraphQL"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0289",
+    "type": "provenance",
+    "claim": "The notification security review in stage 30842 depends on the reporting architecture from stage 35169: if condition COND-0284 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "30,842",
+      "M-0289"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0290",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 71,292 events per second with a buffer of 19040 entries",
+    "stage": "search",
+    "signals": [
+      "71,292"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0291",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in storage/core/router.py line 6464",
+    "stage": "storage",
+    "signals": [
+      "6,464",
+      "dispatch_notification"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0292",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 90604 to 41902 after incident INC-49218 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "90,604"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0293",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "50,062",
+      "PostgreSQL"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0294",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 61900 depends on the billing architecture from stage 81385: if condition COND-0290 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "61,900",
+      "M-0294"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0295",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 68,951 events per second with a buffer of 32604 entries",
+    "stage": "compliance",
+    "signals": [
+      "68,951"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0296",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in reporting/core/validator.py line 38534",
+    "stage": "reporting",
+    "signals": [
+      "38,534",
+      "execute_reconciliation"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0297",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 72199 to 33207 after incident INC-36409 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "72,199"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0298",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "cache",
+    "signals": [
+      "88,670",
+      "Cassandra"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0299",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 84461 depends on the storage architecture from stage 10915: if condition COND-0296 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "84,461",
+      "M-0299"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0300",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 18,584 events per second with a buffer of 56279 entries",
+    "stage": "auth",
+    "signals": [
+      "18,584"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0301",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in billing/core/router.py line 62667",
+    "stage": "billing",
+    "signals": [
+      "62,667",
+      "transform_payload"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0302",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 37944 to 87001 after incident INC-85880 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "37,944"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0303",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "89,372",
+      "PostgreSQL"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0304",
+    "type": "provenance",
+    "claim": "The notification security review in stage 87594 depends on the reporting architecture from stage 25473: if condition COND-0301 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "87,594",
+      "M-0304"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0305",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 60,042 events per second with a buffer of 58350 entries",
+    "stage": "search",
+    "signals": [
+      "60,042"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0306",
+    "type": "identifier",
+    "claim": "Entry point function is process_incoming_batch in storage/core/engine.py line 98185",
+    "stage": "storage",
+    "signals": [
+      "98,185",
+      "process_incoming_batch"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0307",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 66692 to 89229 after incident INC-69801 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "66,692"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0308",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "20,749",
+      "DynamoDB"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0309",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 88735 depends on the billing architecture from stage 80157: if condition COND-0304 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "88,735",
+      "M-0309"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0310",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 81,277 events per second with a buffer of 58148 entries",
+    "stage": "compliance",
+    "signals": [
+      "81,277"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0311",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in reporting/core/validator.py line 90746",
+    "stage": "reporting",
+    "signals": [
+      "90,746",
+      "validate_and_route"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0312",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 29503 to 50241 after incident INC-96775 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "29,503"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0313",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "64,525",
+      "gRPC"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0314",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 28625 depends on the storage architecture from stage 82618: if condition COND-0312 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "28,625",
+      "M-0314"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0315",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 13,958 events per second with a buffer of 64897 entries",
+    "stage": "auth",
+    "signals": [
+      "13,958"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0316",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/handler.py line 29764",
+    "stage": "billing",
+    "signals": [
+      "29,764",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0317",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 4971 to 37362 after incident INC-73090 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "4,971"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0318",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to DynamoDB \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "57,277",
+      "Consul"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0319",
+    "type": "provenance",
+    "claim": "The notification security review in stage 4158 depends on the reporting architecture from stage 90663: if condition COND-0316 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "4,158",
+      "M-0319"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0320",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 84,600 events per second with a buffer of 84037 entries",
+    "stage": "search",
+    "signals": [
+      "84,600"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0321",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in storage/core/engine.py line 21114",
+    "stage": "storage",
+    "signals": [
+      "21,114",
+      "handle_event_stream"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0322",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 78315 to 86326 after incident INC-74930 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "78,315"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0323",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to S3 \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "39,274",
+      "gRPC"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0324",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 63921 depends on the billing architecture from stage 9354: if condition COND-0323 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "63,921",
+      "M-0324"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0325",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 98,135 events per second with a buffer of 9924 entries",
+    "stage": "compliance",
+    "signals": [
+      "98,135"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0326",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/engine.py line 42071",
+    "stage": "reporting",
+    "signals": [
+      "42,071",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0327",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 19277 to 50612 after incident INC-95893 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "19,277"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0328",
+    "type": "negation",
+    "claim": "cache does NOT write directly to PostgreSQL \u2014 all writes go through the S3 event bus first",
+    "stage": "cache",
+    "signals": [
+      "9,391",
+      "NATS"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0329",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 75015 depends on the storage architecture from stage 32955: if condition COND-0327 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "75,015",
+      "M-0329"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0330",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 31,243 events per second with a buffer of 76850 entries",
+    "stage": "auth",
+    "signals": [
+      "31,243"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0331",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in billing/core/processor.py line 89210",
+    "stage": "billing",
+    "signals": [
+      "89,210",
+      "execute_reconciliation"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0332",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 91985 to 89436 after incident INC-84935 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "91,985"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0333",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "analytics",
+    "signals": [
+      "70,988",
+      "Memcached"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0334",
+    "type": "provenance",
+    "claim": "The notification security review in stage 59971 depends on the reporting architecture from stage 65537: if condition COND-0330 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "59,971",
+      "M-0334"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0335",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 1,502 events per second with a buffer of 32140 entries",
+    "stage": "search",
+    "signals": [
+      "1,502"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0336",
+    "type": "identifier",
+    "claim": "Entry point function is process_incoming_batch in storage/core/handler.py line 85501",
+    "stage": "storage",
+    "signals": [
+      "85,501",
+      "process_incoming_batch"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0337",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 17836 to 82754 after incident INC-90020 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "17,836"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0338",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the S3 event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "39,402",
+      "Kafka"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0339",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 81624 depends on the billing architecture from stage 44411: if condition COND-0337 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "81,624",
+      "M-0339"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0340",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 67,685 events per second with a buffer of 92861 entries",
+    "stage": "compliance",
+    "signals": [
+      "67,685"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0341",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in reporting/core/validator.py line 88163",
+    "stage": "reporting",
+    "signals": [
+      "88,163",
+      "execute_reconciliation"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0342",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 10663 to 28970 after incident INC-59021 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "10,663"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0343",
+    "type": "negation",
+    "claim": "cache does NOT write directly to S3 \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "6,899",
+      "DynamoDB"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0344",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 27329 depends on the storage architecture from stage 33432: if condition COND-0339 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "27,329",
+      "M-0344"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0345",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 54,705 events per second with a buffer of 15593 entries",
+    "stage": "auth",
+    "signals": [
+      "54,705"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0346",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/handler.py line 92855",
+    "stage": "billing",
+    "signals": [
+      "92,855",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0347",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 95311 to 5405 after incident INC-45215 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "95,311"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0348",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the S3 event bus first",
+    "stage": "analytics",
+    "signals": [
+      "62,786",
+      "MongoDB"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0349",
+    "type": "provenance",
+    "claim": "The notification security review in stage 72516 depends on the reporting architecture from stage 2882: if condition COND-0346 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "72,516",
+      "M-0349"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0350",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 5,465 events per second with a buffer of 97215 entries",
+    "stage": "search",
+    "signals": [
+      "5,465"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0351",
+    "type": "identifier",
+    "claim": "Entry point function is aggregate_metrics in storage/core/validator.py line 33955",
+    "stage": "storage",
+    "signals": [
+      "33,955",
+      "aggregate_metrics"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0352",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 85307 to 90725 after incident INC-99869 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "85,307"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0353",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Redis \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "96,502",
+      "GraphQL"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0354",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 37518 depends on the billing architecture from stage 94565: if condition COND-0349 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "37,518",
+      "M-0354"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0355",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 29,978 events per second with a buffer of 39413 entries",
+    "stage": "compliance",
+    "signals": [
+      "29,978"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0356",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in reporting/core/handler.py line 98148",
+    "stage": "reporting",
+    "signals": [
+      "98,148",
+      "dispatch_notification"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0357",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 81270 to 33171 after incident INC-99394 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "81,270"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0358",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "cache",
+    "signals": [
+      "45,728",
+      "Cassandra"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0359",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 76904 depends on the storage architecture from stage 15583: if condition COND-0356 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "76,904",
+      "M-0359"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0360",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 69,312 events per second with a buffer of 41583 entries",
+    "stage": "auth",
+    "signals": [
+      "69,312"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0361",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in billing/core/validator.py line 42643",
+    "stage": "billing",
+    "signals": [
+      "42,643",
+      "dispatch_notification"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0362",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 6727 to 70539 after incident INC-90598 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "6,727"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0363",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to S3 \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "analytics",
+    "signals": [
+      "94,443",
+      "Kafka"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0364",
+    "type": "provenance",
+    "claim": "The notification security review in stage 73068 depends on the reporting architecture from stage 82460: if condition COND-0363 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "73,068",
+      "M-0364"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0365",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 5,135 events per second with a buffer of 3412 entries",
+    "stage": "search",
+    "signals": [
+      "5,135"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0366",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in storage/core/handler.py line 69878",
+    "stage": "storage",
+    "signals": [
+      "69,878",
+      "dispatch_notification"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0367",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 97831 to 80083 after incident INC-53293 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "97,831"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0368",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to S3 \u2014 all writes go through the Redis event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "39,657",
+      "PostgreSQL"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0369",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 15112 depends on the billing architecture from stage 28411: if condition COND-0366 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "15,112",
+      "M-0369"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0370",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 15,780 events per second with a buffer of 97694 entries",
+    "stage": "compliance",
+    "signals": [
+      "15,780"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0371",
+    "type": "identifier",
+    "claim": "Entry point function is process_incoming_batch in reporting/core/engine.py line 3066",
+    "stage": "reporting",
+    "signals": [
+      "3,066",
+      "process_incoming_batch"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0372",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 12707 to 17899 after incident INC-76778 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "12,707"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0373",
+    "type": "negation",
+    "claim": "cache does NOT write directly to PostgreSQL \u2014 all writes go through the S3 event bus first",
+    "stage": "cache",
+    "signals": [
+      "63,357",
+      "MongoDB"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0374",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 86821 depends on the storage architecture from stage 31844: if condition COND-0370 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "86,821",
+      "M-0374"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0375",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 2,374 events per second with a buffer of 32281 entries",
+    "stage": "auth",
+    "signals": [
+      "2,374"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0376",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/validator.py line 61634",
+    "stage": "billing",
+    "signals": [
+      "61,634",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0377",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 34720 to 47312 after incident INC-12838 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "34,720"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0378",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Redis \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "32,765",
+      "Kafka"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0379",
+    "type": "provenance",
+    "claim": "The notification security review in stage 73642 depends on the reporting architecture from stage 67835: if condition COND-0378 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "73,642",
+      "M-0379"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0380",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 90,055 events per second with a buffer of 24289 entries",
+    "stage": "search",
+    "signals": [
+      "90,055"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0381",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in storage/core/router.py line 58228",
+    "stage": "storage",
+    "signals": [
+      "58,228",
+      "validate_and_route"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0382",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 68781 to 8963 after incident INC-67833 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "68,781"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0383",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Elasticsearch \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "46,713",
+      "Memcached"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0384",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 17720 depends on the billing architecture from stage 99644: if condition COND-0379 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "17,720",
+      "M-0384"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0385",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 66,934 events per second with a buffer of 12032 entries",
+    "stage": "compliance",
+    "signals": [
+      "66,934"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0386",
+    "type": "identifier",
+    "claim": "Entry point function is execute_reconciliation in reporting/core/engine.py line 65442",
+    "stage": "reporting",
+    "signals": [
+      "65,442",
+      "execute_reconciliation"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0387",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 38331 to 86081 after incident INC-85243 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "38,331"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0388",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the S3 event bus first",
+    "stage": "cache",
+    "signals": [
+      "73,134",
+      "NATS"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0389",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 80602 depends on the storage architecture from stage 95576: if condition COND-0387 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "80,602",
+      "M-0389"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0390",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 52,009 events per second with a buffer of 60767 entries",
+    "stage": "auth",
+    "signals": [
+      "52,009"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0391",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/router.py line 68926",
+    "stage": "billing",
+    "signals": [
+      "68,926",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0392",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 76872 to 65334 after incident INC-95445 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "76,872"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0393",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to PostgreSQL \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "64,179",
+      "etcd"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0394",
+    "type": "provenance",
+    "claim": "The notification security review in stage 73699 depends on the reporting architecture from stage 86819: if condition COND-0389 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "73,699",
+      "M-0394"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0395",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 29,870 events per second with a buffer of 81947 entries",
+    "stage": "search",
+    "signals": [
+      "29,870"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0396",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in storage/core/router.py line 32446",
+    "stage": "storage",
+    "signals": [
+      "32,446",
+      "sync_upstream_state"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0397",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 83071 to 30737 after incident INC-57793 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "83,071"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0398",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Elasticsearch \u2014 all writes go through the S3 event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "67,151",
+      "PostgreSQL"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0399",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 54678 depends on the billing architecture from stage 82979: if condition COND-0395 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "54,678",
+      "M-0399"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0400",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 600 events per second with a buffer of 91681 entries",
+    "stage": "compliance",
+    "signals": [
+      "600"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0401",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in reporting/core/dispatcher.py line 66127",
+    "stage": "reporting",
+    "signals": [
+      "66,127",
+      "handle_event_stream"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0402",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 43760 to 18746 after incident INC-96630 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "43,760"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0403",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "2,380",
+      "Redis"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0404",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 27277 depends on the storage architecture from stage 55259: if condition COND-0399 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "27,277",
+      "M-0404"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0405",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 71,612 events per second with a buffer of 74031 entries",
+    "stage": "auth",
+    "signals": [
+      "71,612"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0406",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/router.py line 4742",
+    "stage": "billing",
+    "signals": [
+      "4,742",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0407",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 66271 to 22898 after incident INC-22810 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "66,271"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0408",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to DynamoDB \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "44,618",
+      "Cassandra"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0409",
+    "type": "provenance",
+    "claim": "The notification security review in stage 54860 depends on the reporting architecture from stage 59339: if condition COND-0406 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "54,860",
+      "M-0409"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0410",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 84,921 events per second with a buffer of 29675 entries",
+    "stage": "search",
+    "signals": [
+      "84,921"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0411",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in storage/core/dispatcher.py line 18419",
+    "stage": "storage",
+    "signals": [
+      "18,419",
+      "validate_and_route"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0412",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 55311 to 58550 after incident INC-53574 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "55,311"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0413",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "61,137",
+      "Kafka"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0414",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 70069 depends on the billing architecture from stage 3331: if condition COND-0413 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "70,069",
+      "M-0414"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0415",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 26,326 events per second with a buffer of 70132 entries",
+    "stage": "compliance",
+    "signals": [
+      "26,326"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0416",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in reporting/core/router.py line 78722",
+    "stage": "reporting",
+    "signals": [
+      "78,722",
+      "dispatch_notification"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0417",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 5388 to 35718 after incident INC-82073 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "5,388"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0418",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the S3 event bus first",
+    "stage": "cache",
+    "signals": [
+      "27,191",
+      "RabbitMQ"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0419",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 25425 depends on the storage architecture from stage 89255: if condition COND-0417 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "25,425",
+      "M-0419"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0420",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 70,173 events per second with a buffer of 23974 entries",
+    "stage": "auth",
+    "signals": [
+      "70,173"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0421",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in billing/core/validator.py line 7297",
+    "stage": "billing",
+    "signals": [
+      "7,297",
+      "sync_upstream_state"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0422",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 36289 to 56717 after incident INC-58866 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "36,289"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0423",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to S3 \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "6,437",
+      "MongoDB"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0424",
+    "type": "provenance",
+    "claim": "The notification security review in stage 53114 depends on the reporting architecture from stage 80864: if condition COND-0422 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "53,114",
+      "M-0424"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0425",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 31,973 events per second with a buffer of 31791 entries",
+    "stage": "search",
+    "signals": [
+      "31,973"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0426",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in storage/core/validator.py line 53562",
+    "stage": "storage",
+    "signals": [
+      "53,562",
+      "sync_upstream_state"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0427",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 1881 to 56652 after incident INC-70333 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "1,881"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0428",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Elasticsearch \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "95,465",
+      "DynamoDB"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0429",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 80798 depends on the billing architecture from stage 43998: if condition COND-0428 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "80,798",
+      "M-0429"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0430",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 56,236 events per second with a buffer of 67575 entries",
+    "stage": "compliance",
+    "signals": [
+      "56,236"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0431",
+    "type": "identifier",
+    "claim": "Entry point function is transform_payload in reporting/core/dispatcher.py line 89048",
+    "stage": "reporting",
+    "signals": [
+      "89,048",
+      "transform_payload"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0432",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 35794 to 5863 after incident INC-45429 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "35,794"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0433",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the Redis event bus first",
+    "stage": "cache",
+    "signals": [
+      "85,579",
+      "etcd"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0434",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 27925 depends on the storage architecture from stage 45528: if condition COND-0433 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "27,925",
+      "M-0434"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0435",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 39,869 events per second with a buffer of 63791 entries",
+    "stage": "auth",
+    "signals": [
+      "39,869"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0436",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/dispatcher.py line 40103",
+    "stage": "billing",
+    "signals": [
+      "40,103",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0437",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 19763 to 12262 after incident INC-92063 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "19,763"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0438",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "analytics",
+    "signals": [
+      "98,293",
+      "etcd"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0439",
+    "type": "provenance",
+    "claim": "The notification security review in stage 72027 depends on the reporting architecture from stage 9803: if condition COND-0435 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "72,027",
+      "M-0439"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0440",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 46,160 events per second with a buffer of 18977 entries",
+    "stage": "search",
+    "signals": [
+      "46,160"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0441",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in storage/core/engine.py line 39608",
+    "stage": "storage",
+    "signals": [
+      "39,608",
+      "dispatch_notification"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0442",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 62975 to 52816 after incident INC-31947 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "62,975"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0443",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Redis \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "28,747",
+      "RabbitMQ"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0444",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 16321 depends on the billing architecture from stage 59123: if condition COND-0440 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "16,321",
+      "M-0444"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0445",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 74,261 events per second with a buffer of 9585 entries",
+    "stage": "compliance",
+    "signals": [
+      "74,261"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0446",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in reporting/core/dispatcher.py line 80754",
+    "stage": "reporting",
+    "signals": [
+      "80,754",
+      "dispatch_notification"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0447",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 29032 to 81212 after incident INC-72716 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "29,032"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0448",
+    "type": "negation",
+    "claim": "cache does NOT write directly to Elasticsearch \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "7,888",
+      "Redis"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0449",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 8494 depends on the storage architecture from stage 66747: if condition COND-0447 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "8,494",
+      "M-0449"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0450",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 14,257 events per second with a buffer of 16264 entries",
+    "stage": "auth",
+    "signals": [
+      "14,257"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0451",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in billing/core/validator.py line 78838",
+    "stage": "billing",
+    "signals": [
+      "78,838",
+      "handle_event_stream"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0452",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 34701 to 10358 after incident INC-69640 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "34,701"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0453",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the Redis event bus first",
+    "stage": "analytics",
+    "signals": [
+      "51,947",
+      "Consul"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0454",
+    "type": "provenance",
+    "claim": "The notification security review in stage 86245 depends on the reporting architecture from stage 7875: if condition COND-0453 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "86,245",
+      "M-0454"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0455",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 44,410 events per second with a buffer of 59400 entries",
+    "stage": "search",
+    "signals": [
+      "44,410"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0456",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in storage/core/dispatcher.py line 79555",
+    "stage": "storage",
+    "signals": [
+      "79,555",
+      "validate_and_route"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0457",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 972 to 26340 after incident INC-87572 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "972"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0458",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Elasticsearch \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "30,618",
+      "Memcached"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0459",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 97405 depends on the billing architecture from stage 49252: if condition COND-0454 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "97,405",
+      "M-0459"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0460",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 95,885 events per second with a buffer of 85001 entries",
+    "stage": "compliance",
+    "signals": [
+      "95,885"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0461",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in reporting/core/validator.py line 33743",
+    "stage": "reporting",
+    "signals": [
+      "33,743",
+      "dispatch_notification"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0462",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 79464 to 3049 after incident INC-29458 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "79,464"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0463",
+    "type": "negation",
+    "claim": "cache does NOT write directly to DynamoDB \u2014 all writes go through the Elasticsearch event bus first",
+    "stage": "cache",
+    "signals": [
+      "64,242",
+      "REST"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0464",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 10191 depends on the storage architecture from stage 21868: if condition COND-0462 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "10,191",
+      "M-0464"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0465",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 92,809 events per second with a buffer of 43088 entries",
+    "stage": "auth",
+    "signals": [
+      "92,809"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0466",
+    "type": "identifier",
+    "claim": "Entry point function is run_compliance_check in billing/core/dispatcher.py line 36695",
+    "stage": "billing",
+    "signals": [
+      "36,695",
+      "run_compliance_check"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0467",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 73747 to 65663 after incident INC-52809 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "73,747"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0468",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Elasticsearch \u2014 all writes go through the DynamoDB event bus first",
+    "stage": "analytics",
+    "signals": [
+      "94,441",
+      "DynamoDB"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0469",
+    "type": "provenance",
+    "claim": "The notification security review in stage 87483 depends on the reporting architecture from stage 20343: if condition COND-0464 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "87,483",
+      "M-0469"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0470",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 74,886 events per second with a buffer of 80908 entries",
+    "stage": "search",
+    "signals": [
+      "74,886"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0471",
+    "type": "identifier",
+    "claim": "Entry point function is handle_event_stream in storage/core/processor.py line 62319",
+    "stage": "storage",
+    "signals": [
+      "62,319",
+      "handle_event_stream"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0472",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 78353 to 343 after incident INC-40474 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "78,353"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0473",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to PostgreSQL \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "78,970",
+      "Redis"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0474",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 98424 depends on the billing architecture from stage 67839: if condition COND-0473 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "98,424",
+      "M-0474"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0475",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 38,767 events per second with a buffer of 50077 entries",
+    "stage": "compliance",
+    "signals": [
+      "38,767"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0476",
+    "type": "identifier",
+    "claim": "Entry point function is validate_and_route in reporting/core/processor.py line 53437",
+    "stage": "reporting",
+    "signals": [
+      "53,437",
+      "validate_and_route"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0477",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 19758 to 37646 after incident INC-16430 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "19,758"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0478",
+    "type": "negation",
+    "claim": "cache does NOT write directly to S3 \u2014 all writes go through the Redis event bus first",
+    "stage": "cache",
+    "signals": [
+      "97,047",
+      "DynamoDB"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0479",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 35031 depends on the storage architecture from stage 47982: if condition COND-0474 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "35,031",
+      "M-0479"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0480",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 85,693 events per second with a buffer of 97382 entries",
+    "stage": "auth",
+    "signals": [
+      "85,693"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0481",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in billing/core/engine.py line 59729",
+    "stage": "billing",
+    "signals": [
+      "59,729",
+      "sync_upstream_state"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0482",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 26915 to 65118 after incident INC-13114 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "26,915"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0483",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to Redis \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "analytics",
+    "signals": [
+      "51,983",
+      "etcd"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0484",
+    "type": "provenance",
+    "claim": "The notification security review in stage 55152 depends on the reporting architecture from stage 62127: if condition COND-0482 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "55,152",
+      "M-0484"
+    ],
+    "domain": "notification"
+  },
+  {
+    "id": "C0485",
+    "type": "exact_number",
+    "claim": "The search service processes exactly 40,656 events per second with a buffer of 54530 entries",
+    "stage": "search",
+    "signals": [
+      "40,656"
+    ],
+    "domain": "search"
+  },
+  {
+    "id": "C0486",
+    "type": "identifier",
+    "claim": "Entry point function is dispatch_notification in storage/core/dispatcher.py line 56401",
+    "stage": "storage",
+    "signals": [
+      "56,401",
+      "dispatch_notification"
+    ],
+    "domain": "storage"
+  },
+  {
+    "id": "C0487",
+    "type": "causal",
+    "claim": "The gateway retry limit was reduced from 54266 to 61770 after incident INC-31437 showed cascading failures",
+    "stage": "gateway",
+    "signals": [
+      "54,266"
+    ],
+    "domain": "gateway"
+  },
+  {
+    "id": "C0488",
+    "type": "negation",
+    "claim": "scheduler does NOT write directly to Redis \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "scheduler",
+    "signals": [
+      "45,077",
+      "Memcached"
+    ],
+    "domain": "scheduler"
+  },
+  {
+    "id": "C0489",
+    "type": "provenance",
+    "claim": "The monitoring security review in stage 72769 depends on the billing architecture from stage 27132: if condition COND-0487 changes, re-audit required",
+    "stage": "monitoring",
+    "signals": [
+      "72,769",
+      "M-0489"
+    ],
+    "domain": "monitoring"
+  },
+  {
+    "id": "C0490",
+    "type": "exact_number",
+    "claim": "The compliance service processes exactly 7,381 events per second with a buffer of 53022 entries",
+    "stage": "compliance",
+    "signals": [
+      "7,381"
+    ],
+    "domain": "compliance"
+  },
+  {
+    "id": "C0491",
+    "type": "identifier",
+    "claim": "Entry point function is process_incoming_batch in reporting/core/engine.py line 63199",
+    "stage": "reporting",
+    "signals": [
+      "63,199",
+      "process_incoming_batch"
+    ],
+    "domain": "reporting"
+  },
+  {
+    "id": "C0492",
+    "type": "causal",
+    "claim": "The migration retry limit was reduced from 92154 to 99000 after incident INC-26110 showed cascading failures",
+    "stage": "migration",
+    "signals": [
+      "92,154"
+    ],
+    "domain": "migration"
+  },
+  {
+    "id": "C0493",
+    "type": "negation",
+    "claim": "cache does NOT write directly to PostgreSQL \u2014 all writes go through the PostgreSQL event bus first",
+    "stage": "cache",
+    "signals": [
+      "21,032",
+      "PostgreSQL"
+    ],
+    "domain": "cache"
+  },
+  {
+    "id": "C0494",
+    "type": "provenance",
+    "claim": "The messaging security review in stage 17491 depends on the storage architecture from stage 32408: if condition COND-0491 changes, re-audit required",
+    "stage": "messaging",
+    "signals": [
+      "17,491",
+      "M-0494"
+    ],
+    "domain": "messaging"
+  },
+  {
+    "id": "C0495",
+    "type": "exact_number",
+    "claim": "The auth service processes exactly 67,292 events per second with a buffer of 84451 entries",
+    "stage": "auth",
+    "signals": [
+      "67,292"
+    ],
+    "domain": "auth"
+  },
+  {
+    "id": "C0496",
+    "type": "identifier",
+    "claim": "Entry point function is sync_upstream_state in billing/core/router.py line 97022",
+    "stage": "billing",
+    "signals": [
+      "97,022",
+      "sync_upstream_state"
+    ],
+    "domain": "billing"
+  },
+  {
+    "id": "C0497",
+    "type": "causal",
+    "claim": "The ingestion retry limit was reduced from 61342 to 49245 after incident INC-38242 showed cascading failures",
+    "stage": "ingestion",
+    "signals": [
+      "61,342"
+    ],
+    "domain": "ingestion"
+  },
+  {
+    "id": "C0498",
+    "type": "negation",
+    "claim": "analytics does NOT write directly to S3 \u2014 all writes go through the S3 event bus first",
+    "stage": "analytics",
+    "signals": [
+      "90,750",
+      "Kafka"
+    ],
+    "domain": "analytics"
+  },
+  {
+    "id": "C0499",
+    "type": "provenance",
+    "claim": "The notification security review in stage 19552 depends on the reporting architecture from stage 64112: if condition COND-0495 changes, re-audit required",
+    "stage": "notification",
+    "signals": [
+      "19,552",
+      "M-0499"
+    ],
+    "domain": "notification"
+  }
+]

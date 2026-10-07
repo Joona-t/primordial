@@ -1,0 +1,7 @@
+{
+  "name": "Phase 1: Warm-up (50 canaries, ~10K chars)",
+  "canary_count": 50,
+  "noise": false,
+  "noise_ratio": 0,
+  "hops": 1
+}

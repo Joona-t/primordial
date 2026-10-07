@@ -1,0 +1,236 @@
+{
+  "phase": 3,
+  "name": "Phase 3: Heavy pressure (500 canaries, ~200K chars)",
+  "raw": {
+    "condition": "raw",
+    "summary_length": 8026,
+    "total_canaries": 500,
+    "survived": 190,
+    "lost": 310,
+    "survival_rate": 0.38,
+    "ids_preserved": 0,
+    "ids_preserved_rate": 0.0,
+    "absence_marked": 0,
+    "absence_marked_rate": 0.0,
+    "by_type": {
+      "causal": {
+        "total": 100,
+        "survived": 24,
+        "rate": 0.24
+      },
+      "exact_number": {
+        "total": 100,
+        "survived": 15,
+        "rate": 0.15
+      },
+      "identifier": {
+        "total": 100,
+        "survived": 100,
+        "rate": 1.0
+      },
+      "negation": {
+        "total": 100,
+        "survived": 32,
+        "rate": 0.32
+      },
+      "provenance": {
+        "total": 100,
+        "survived": 19,
+        "rate": 0.19
+      }
+    },
+    "by_domain": {
+      "analytics": {
+        "total": 34,
+        "survived": 9,
+        "rate": 0.2647058823529412
+      },
+      "auth": {
+        "total": 34,
+        "survived": 4,
+        "rate": 0.11764705882352941
+      },
+      "billing": {
+        "total": 34,
+        "survived": 34,
+        "rate": 1.0
+      },
+      "cache": {
+        "total": 33,
+        "survived": 10,
+        "rate": 0.30303030303030304
+      },
+      "compliance": {
+        "total": 33,
+        "survived": 6,
+        "rate": 0.18181818181818182
+      },
+      "gateway": {
+        "total": 33,
+        "survived": 7,
+        "rate": 0.21212121212121213
+      },
+      "ingestion": {
+        "total": 34,
+        "survived": 9,
+        "rate": 0.2647058823529412
+      },
+      "messaging": {
+        "total": 33,
+        "survived": 6,
+        "rate": 0.18181818181818182
+      },
+      "migration": {
+        "total": 33,
+        "survived": 8,
+        "rate": 0.24242424242424243
+      },
+      "monitoring": {
+        "total": 33,
+        "survived": 5,
+        "rate": 0.15151515151515152
+      },
+      "notification": {
+        "total": 34,
+        "survived": 8,
+        "rate": 0.23529411764705882
+      },
+      "reporting": {
+        "total": 33,
+        "survived": 33,
+        "rate": 1.0
+      },
+      "scheduler": {
+        "total": 33,
+        "survived": 13,
+        "rate": 0.3939393939393939
+      },
+      "search": {
+        "total": 33,
+        "survived": 5,
+        "rate": 0.15151515151515152
+      },
+      "storage": {
+        "total": 33,
+        "survived": 33,
+        "rate": 1.0
+      }
+    }
+  },
+  "instrumented": {
+    "condition": "instrumented",
+    "summary_length": 12165,
+    "total_canaries": 500,
+    "survived": 134,
+    "lost": 366,
+    "survival_rate": 0.268,
+    "ids_preserved": 74,
+    "ids_preserved_rate": 0.148,
+    "absence_marked": 23,
+    "absence_marked_rate": 0.06284153005464481,
+    "by_type": {
+      "causal": {
+        "total": 100,
+        "survived": 14,
+        "rate": 0.14
+      },
+      "exact_number": {
+        "total": 100,
+        "survived": 18,
+        "rate": 0.18
+      },
+      "identifier": {
+        "total": 100,
+        "survived": 71,
+        "rate": 0.71
+      },
+      "negation": {
+        "total": 100,
+        "survived": 30,
+        "rate": 0.3
+      },
+      "provenance": {
+        "total": 100,
+        "survived": 1,
+        "rate": 0.01
+      }
+    },
+    "by_domain": {
+      "analytics": {
+        "total": 34,
+        "survived": 9,
+        "rate": 0.2647058823529412
+      },
+      "auth": {
+        "total": 34,
+        "survived": 6,
+        "rate": 0.17647058823529413
+      },
+      "billing": {
+        "total": 34,
+        "survived": 22,
+        "rate": 0.6470588235294118
+      },
+      "cache": {
+        "total": 33,
+        "survived": 9,
+        "rate": 0.2727272727272727
+      },
+      "compliance": {
+        "total": 33,
+        "survived": 7,
+        "rate": 0.21212121212121213
+      },
+      "gateway": {
+        "total": 33,
+        "survived": 5,
+        "rate": 0.15151515151515152
+      },
+      "ingestion": {
+        "total": 34,
+        "survived": 4,
+        "rate": 0.11764705882352941
+      },
+      "messaging": {
+        "total": 33,
+        "survived": 0,
+        "rate": 0.0
+      },
+      "migration": {
+        "total": 33,
+        "survived": 5,
+        "rate": 0.15151515151515152
+      },
+      "monitoring": {
+        "total": 33,
+        "survived": 0,
+        "rate": 0.0
+      },
+      "notification": {
+        "total": 34,
+        "survived": 1,
+        "rate": 0.029411764705882353
+      },
+      "reporting": {
+        "total": 33,
+        "survived": 26,
+        "rate": 0.7878787878787878
+      },
+      "scheduler": {
+        "total": 33,
+        "survived": 12,
+        "rate": 0.36363636363636365
+      },
+      "search": {
+        "total": 33,
+        "survived": 5,
+        "rate": 0.15151515151515152
+      },
+      "storage": {
+        "total": 33,
+        "survived": 23,
+        "rate": 0.696969696969697
+      }
+    }
+  }
+}

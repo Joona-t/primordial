@@ -1,0 +1,7 @@
+{
+  "name": "Phase 5: Adversarial (500 canaries, 500K+ chars, high noise)",
+  "canary_count": 500,
+  "noise": true,
+  "noise_ratio": 8.0,
+  "hops": 1
+}

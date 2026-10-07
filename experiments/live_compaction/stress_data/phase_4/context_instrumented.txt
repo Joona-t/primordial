@@ -1,0 +1,1364 @@
+# System Architecture Review — Multi-Domain Analysis
+# PRIMORDIAL FORGE INSTRUMENTED — Typed Absence Protocol Active
+
+## Compaction Instructions
+This document contains typed artifacts with provenance metadata.
+When summarizing, you MUST:
+1. Preserve all artifact IDs (format: [CXXXX])
+2. For any fact you cannot include, mark it with its absence state:
+   - PRUNED_RECOVERABLE: fact compressed but source ref preserved
+   - DELETED: fact intentionally removed (unrecoverable)
+   - UNKNOWN: unable to determine if fact is still valid
+3. Preserve provenance chains: if fact B depends on fact A, note the dependency
+4. Negations (NOT/DOES NOT) are high-priority — never silently drop a negation
+5. Exact numbers are high-priority — never round or approximate without marking
+
+## Absence State Legend
+| State | Meaning | Recovery |
+|-------|---------|----------|
+| PRUNED_RECOVERABLE | Detail compressed, source available | Re-read source stage |
+| DELETED | Removed, no recovery path | Re-run analysis |
+| UNKNOWN | Cannot determine status | Investigate |
+| NOT_GENERATED | Never produced | Run missing stage |
+
+
+## Stage 1: Auth Service
+Artifact: artifact:stress:auth:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+- [C0000] [priority:HIGH] [type:exact_number] The auth service processes exactly 17,706 events per second with a buffer of 35607 entries
+- [C0015] [priority:HIGH] [type:exact_number] The auth service processes exactly 37,173 events per second with a buffer of 25669 entries
+  (Further analysis pending review cycle 4)
+
+- [C0030] [priority:HIGH] [type:exact_number] The auth service processes exactly 35,305 events per second with a buffer of 65590 entries
+  (Further analysis pending review cycle 3)
+
+- [C0045] [priority:HIGH] [type:exact_number] The auth service processes exactly 35,885 events per second with a buffer of 75487 entries
+  (Further analysis pending review cycle 1)
+
+- [C0060] [priority:HIGH] [type:exact_number] The auth service processes exactly 804 events per second with a buffer of 44376 entries
+- [C0075] [priority:HIGH] [type:exact_number] The auth service processes exactly 62,826 events per second with a buffer of 37978 entries
+- [C0090] [priority:HIGH] [type:exact_number] The auth service processes exactly 82,174 events per second with a buffer of 23184 entries
+- [C0105] [priority:HIGH] [type:exact_number] The auth service processes exactly 97,209 events per second with a buffer of 74151 entries
+- [C0120] [priority:HIGH] [type:exact_number] The auth service processes exactly 62,691 events per second with a buffer of 87165 entries
+- [C0135] [priority:HIGH] [type:exact_number] The auth service processes exactly 57,183 events per second with a buffer of 13309 entries
+  (Further analysis pending review cycle 5)
+
+- [C0150] [priority:HIGH] [type:exact_number] The auth service processes exactly 76,548 events per second with a buffer of 83807 entries
+  (Further analysis pending review cycle 4)
+
+- [C0165] [priority:HIGH] [type:exact_number] The auth service processes exactly 75,116 events per second with a buffer of 547 entries
+- [C0180] [priority:HIGH] [type:exact_number] The auth service processes exactly 58,297 events per second with a buffer of 22343 entries
+- [C0195] [priority:HIGH] [type:exact_number] The auth service processes exactly 97,423 events per second with a buffer of 4726 entries
+- [C0210] [priority:HIGH] [type:exact_number] The auth service processes exactly 85,932 events per second with a buffer of 34962 entries
+  (Further analysis pending review cycle 5)
+
+- [C0225] [priority:HIGH] [type:exact_number] The auth service processes exactly 2,540 events per second with a buffer of 97431 entries
+- [C0240] [priority:HIGH] [type:exact_number] The auth service processes exactly 20,474 events per second with a buffer of 17276 entries
+  (Further analysis pending review cycle 1)
+
+- [C0255] [priority:HIGH] [type:exact_number] The auth service processes exactly 72,931 events per second with a buffer of 81741 entries
+- [C0270] [priority:HIGH] [type:exact_number] The auth service processes exactly 28,214 events per second with a buffer of 76827 entries
+  (Further analysis pending review cycle 2)
+
+- [C0285] [priority:HIGH] [type:exact_number] The auth service processes exactly 71,037 events per second with a buffer of 54242 entries
+  (Further analysis pending review cycle 4)
+
+- [C0300] [priority:HIGH] [type:exact_number] The auth service processes exactly 18,584 events per second with a buffer of 56279 entries
+- [C0315] [priority:HIGH] [type:exact_number] The auth service processes exactly 13,958 events per second with a buffer of 64897 entries
+- [C0330] [priority:HIGH] [type:exact_number] The auth service processes exactly 31,243 events per second with a buffer of 76850 entries
+  (Further analysis pending review cycle 3)
+
+- [C0345] [priority:HIGH] [type:exact_number] The auth service processes exactly 54,705 events per second with a buffer of 15593 entries
+- [C0360] [priority:HIGH] [type:exact_number] The auth service processes exactly 69,312 events per second with a buffer of 41583 entries
+- [C0375] [priority:HIGH] [type:exact_number] The auth service processes exactly 2,374 events per second with a buffer of 32281 entries
+- [C0390] [priority:HIGH] [type:exact_number] The auth service processes exactly 52,009 events per second with a buffer of 60767 entries
+- [C0405] [priority:HIGH] [type:exact_number] The auth service processes exactly 71,612 events per second with a buffer of 74031 entries
+  (Further analysis pending review cycle 3)
+
+- [C0420] [priority:HIGH] [type:exact_number] The auth service processes exactly 70,173 events per second with a buffer of 23974 entries
+- [C0435] [priority:HIGH] [type:exact_number] The auth service processes exactly 39,869 events per second with a buffer of 63791 entries
+- [C0450] [priority:HIGH] [type:exact_number] The auth service processes exactly 14,257 events per second with a buffer of 16264 entries
+- [C0465] [priority:HIGH] [type:exact_number] The auth service processes exactly 92,809 events per second with a buffer of 43088 entries
+  (Further analysis pending review cycle 4)
+
+- [C0480] [priority:HIGH] [type:exact_number] The auth service processes exactly 85,693 events per second with a buffer of 97382 entries
+- [C0495] [priority:HIGH] [type:exact_number] The auth service processes exactly 67,292 events per second with a buffer of 84451 entries
+
+
+## Stage 2: Billing Service
+Artifact: artifact:stress:billing:r1
+Depends-on: artifact:stress:auth:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+- [C0001] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in billing/core/validator.py line 46061
+  (Further analysis pending review cycle 4)
+
+- [C0016] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in billing/core/dispatcher.py line 68024
+  (Further analysis pending review cycle 4)
+
+- [C0031] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in billing/core/router.py line 20253
+- [C0046] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in billing/core/validator.py line 97039
+- [C0061] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in billing/core/validator.py line 21576
+- [C0076] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/processor.py line 65995
+- [C0091] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/engine.py line 25868
+  (Further analysis pending review cycle 5)
+
+- [C0106] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in billing/core/engine.py line 47295
+- [C0121] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in billing/core/dispatcher.py line 75255
+  (Further analysis pending review cycle 1)
+
+- [C0136] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in billing/core/processor.py line 89107
+- [C0151] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/router.py line 90048
+  (Further analysis pending review cycle 5)
+
+- [C0166] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in billing/core/processor.py line 55416
+- [C0181] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in billing/core/engine.py line 27783
+  (Further analysis pending review cycle 2)
+
+- [C0196] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in billing/core/processor.py line 69250
+- [C0211] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in billing/core/engine.py line 91045
+- [C0226] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in billing/core/dispatcher.py line 63414
+  (Further analysis pending review cycle 1)
+
+- [C0241] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in billing/core/router.py line 48362
+- [C0256] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in billing/core/validator.py line 68077
+- [C0271] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/handler.py line 52243
+- [C0286] [priority:MEDIUM] [type:identifier] Entry point function is run_compliance_check in billing/core/dispatcher.py line 3607
+- [C0301] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in billing/core/router.py line 62667
+- [C0316] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/handler.py line 29764
+- [C0331] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in billing/core/processor.py line 89210
+  (Further analysis pending review cycle 1)
+
+- [C0346] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/handler.py line 92855
+  (Further analysis pending review cycle 1)
+
+- [C0361] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in billing/core/validator.py line 42643
+- [C0376] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/validator.py line 61634
+- [C0391] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/router.py line 68926
+- [C0406] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/router.py line 4742
+  (Further analysis pending review cycle 5)
+
+- [C0421] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in billing/core/validator.py line 7297
+- [C0436] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/dispatcher.py line 40103
+- [C0451] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in billing/core/validator.py line 78838
+  (Further analysis pending review cycle 5)
+
+- [C0466] [priority:MEDIUM] [type:identifier] Entry point function is run_compliance_check in billing/core/dispatcher.py line 36695
+- [C0481] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in billing/core/engine.py line 59729
+- [C0496] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in billing/core/router.py line 97022
+
+
+## Stage 3: Ingestion Service
+Artifact: artifact:stress:ingestion:r1
+Depends-on: artifact:stress:billing:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+- [C0002] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 81809 to 75496 after incident INC-90042 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0017] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 93259 to 52239 after incident INC-39843 showed cascading failures
+- [C0032] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 7918 to 71542 after incident INC-45898 showed cascading failures
+  (Further analysis pending review cycle 3)
+
+- [C0047] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 78664 to 89340 after incident INC-35769 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0062] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 37549 to 61130 after incident INC-28768 showed cascading failures
+- [C0077] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 7125 to 49343 after incident INC-81413 showed cascading failures
+- [C0092] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 13410 to 829 after incident INC-27373 showed cascading failures
+- [C0107] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 63860 to 68238 after incident INC-60612 showed cascading failures
+- [C0122] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 6667 to 30470 after incident INC-69395 showed cascading failures
+- [C0137] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 2771 to 86649 after incident INC-43994 showed cascading failures
+- [C0152] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 8169 to 1661 after incident INC-22774 showed cascading failures
+- [C0167] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 14879 to 34100 after incident INC-14097 showed cascading failures
+- [C0182] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 4249 to 77428 after incident INC-81867 showed cascading failures
+- [C0197] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 96062 to 17151 after incident INC-15250 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0212] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 30886 to 21415 after incident INC-17928 showed cascading failures
+- [C0227] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 33630 to 87963 after incident INC-38279 showed cascading failures
+- [C0242] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 43451 to 64257 after incident INC-13070 showed cascading failures
+- [C0257] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 76288 to 34553 after incident INC-37351 showed cascading failures
+- [C0272] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 17680 to 39099 after incident INC-17991 showed cascading failures
+- [C0287] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 4043 to 87628 after incident INC-30507 showed cascading failures
+  (Further analysis pending review cycle 2)
+
+- [C0302] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 37944 to 87001 after incident INC-85880 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0317] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 4971 to 37362 after incident INC-73090 showed cascading failures
+- [C0332] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 91985 to 89436 after incident INC-84935 showed cascading failures
+- [C0347] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 95311 to 5405 after incident INC-45215 showed cascading failures
+- [C0362] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 6727 to 70539 after incident INC-90598 showed cascading failures
+  (Further analysis pending review cycle 3)
+
+- [C0377] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 34720 to 47312 after incident INC-12838 showed cascading failures
+- [C0392] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 76872 to 65334 after incident INC-95445 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0407] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 66271 to 22898 after incident INC-22810 showed cascading failures
+- [C0422] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 36289 to 56717 after incident INC-58866 showed cascading failures
+  (Further analysis pending review cycle 2)
+
+- [C0437] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 19763 to 12262 after incident INC-92063 showed cascading failures
+- [C0452] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 34701 to 10358 after incident INC-69640 showed cascading failures
+- [C0467] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 73747 to 65663 after incident INC-52809 showed cascading failures
+  (Further analysis pending review cycle 2)
+
+- [C0482] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 26915 to 65118 after incident INC-13114 showed cascading failures
+- [C0497] [priority:MEDIUM] [type:causal] The ingestion retry limit was reduced from 61342 to 49245 after incident INC-38242 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+
+
+## Stage 4: Analytics Service
+Artifact: artifact:stress:analytics:r1
+Depends-on: artifact:stress:ingestion:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+- [C0003] [priority:HIGH] [type:negation] analytics does NOT write directly to S3 — all writes go through the DynamoDB event bus first
+- [C0018] [priority:HIGH] [type:negation] analytics does NOT write directly to DynamoDB — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0033] [priority:HIGH] [type:negation] analytics does NOT write directly to DynamoDB — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 5)
+
+- [C0048] [priority:HIGH] [type:negation] analytics does NOT write directly to DynamoDB — all writes go through the PostgreSQL event bus first
+- [C0063] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the Redis event bus first
+- [C0078] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the Elasticsearch event bus first
+- [C0093] [priority:HIGH] [type:negation] analytics does NOT write directly to S3 — all writes go through the Elasticsearch event bus first
+- [C0108] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the Redis event bus first
+- [C0123] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0138] [priority:HIGH] [type:negation] analytics does NOT write directly to Redis — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 4)
+
+- [C0153] [priority:HIGH] [type:negation] analytics does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0168] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+- [C0183] [priority:HIGH] [type:negation] analytics does NOT write directly to Redis — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0198] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0213] [priority:HIGH] [type:negation] analytics does NOT write directly to DynamoDB — all writes go through the S3 event bus first
+- [C0228] [priority:HIGH] [type:negation] analytics does NOT write directly to Redis — all writes go through the Redis event bus first
+- [C0243] [priority:HIGH] [type:negation] analytics does NOT write directly to Redis — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 5)
+
+- [C0258] [priority:HIGH] [type:negation] analytics does NOT write directly to Redis — all writes go through the DynamoDB event bus first
+- [C0273] [priority:HIGH] [type:negation] analytics does NOT write directly to S3 — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0288] [priority:HIGH] [type:negation] analytics does NOT write directly to S3 — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 5)
+
+- [C0303] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the DynamoDB event bus first
+- [C0318] [priority:HIGH] [type:negation] analytics does NOT write directly to DynamoDB — all writes go through the DynamoDB event bus first
+- [C0333] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the PostgreSQL event bus first
+- [C0348] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the S3 event bus first
+- [C0363] [priority:HIGH] [type:negation] analytics does NOT write directly to S3 — all writes go through the Elasticsearch event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0378] [priority:HIGH] [type:negation] analytics does NOT write directly to Redis — all writes go through the Redis event bus first
+- [C0393] [priority:HIGH] [type:negation] analytics does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0408] [priority:HIGH] [type:negation] analytics does NOT write directly to DynamoDB — all writes go through the Redis event bus first
+- [C0423] [priority:HIGH] [type:negation] analytics does NOT write directly to S3 — all writes go through the Redis event bus first
+- [C0438] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the Elasticsearch event bus first
+- [C0453] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the Redis event bus first
+- [C0468] [priority:HIGH] [type:negation] analytics does NOT write directly to Elasticsearch — all writes go through the DynamoDB event bus first
+- [C0483] [priority:HIGH] [type:negation] analytics does NOT write directly to Redis — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0498] [priority:HIGH] [type:negation] analytics does NOT write directly to S3 — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 2)
+
+
+
+## Stage 5: Notification Service
+Artifact: artifact:stress:notification:r1
+Depends-on: artifact:stress:analytics:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+- [C0004] [priority:MEDIUM] [type:provenance] The notification security review in stage 68993 depends on the reporting architecture from stage 90834: if condition COND-0001 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0019] [priority:MEDIUM] [type:provenance] The notification security review in stage 10960 depends on the reporting architecture from stage 8607: if condition COND-0017 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0034] [priority:MEDIUM] [type:provenance] The notification security review in stage 65808 depends on the reporting architecture from stage 99972: if condition COND-0029 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0049] [priority:MEDIUM] [type:provenance] The notification security review in stage 53434 depends on the reporting architecture from stage 45704: if condition COND-0044 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0064] [priority:MEDIUM] [type:provenance] The notification security review in stage 72785 depends on the reporting architecture from stage 44983: if condition COND-0062 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0079] [priority:MEDIUM] [type:provenance] The notification security review in stage 12785 depends on the reporting architecture from stage 11156: if condition COND-0075 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0094] [priority:MEDIUM] [type:provenance] The notification security review in stage 6948 depends on the reporting architecture from stage 12839: if condition COND-0093 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 1)
+
+- [C0109] [priority:MEDIUM] [type:provenance] The notification security review in stage 31211 depends on the reporting architecture from stage 27595: if condition COND-0108 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0124] [priority:MEDIUM] [type:provenance] The notification security review in stage 74616 depends on the reporting architecture from stage 57382: if condition COND-0123 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0139] [priority:MEDIUM] [type:provenance] The notification security review in stage 94229 depends on the reporting architecture from stage 54585: if condition COND-0138 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0154] [priority:MEDIUM] [type:provenance] The notification security review in stage 17770 depends on the reporting architecture from stage 96823: if condition COND-0150 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 1)
+
+- [C0169] [priority:MEDIUM] [type:provenance] The notification security review in stage 94019 depends on the reporting architecture from stage 14137: if condition COND-0166 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0184] [priority:MEDIUM] [type:provenance] The notification security review in stage 97171 depends on the reporting architecture from stage 49556: if condition COND-0183 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 2)
+
+- [C0199] [priority:MEDIUM] [type:provenance] The notification security review in stage 85120 depends on the reporting architecture from stage 87655: if condition COND-0197 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0214] [priority:MEDIUM] [type:provenance] The notification security review in stage 16615 depends on the reporting architecture from stage 55257: if condition COND-0212 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0229] [priority:MEDIUM] [type:provenance] The notification security review in stage 71713 depends on the reporting architecture from stage 32777: if condition COND-0226 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0244] [priority:MEDIUM] [type:provenance] The notification security review in stage 67541 depends on the reporting architecture from stage 11948: if condition COND-0239 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0259] [priority:MEDIUM] [type:provenance] The notification security review in stage 60936 depends on the reporting architecture from stage 21638: if condition COND-0257 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 1)
+
+- [C0274] [priority:MEDIUM] [type:provenance] The notification security review in stage 42719 depends on the reporting architecture from stage 94953: if condition COND-0271 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 1)
+
+- [C0289] [priority:MEDIUM] [type:provenance] The notification security review in stage 30842 depends on the reporting architecture from stage 35169: if condition COND-0284 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0304] [priority:MEDIUM] [type:provenance] The notification security review in stage 87594 depends on the reporting architecture from stage 25473: if condition COND-0301 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0319] [priority:MEDIUM] [type:provenance] The notification security review in stage 4158 depends on the reporting architecture from stage 90663: if condition COND-0316 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0334] [priority:MEDIUM] [type:provenance] The notification security review in stage 59971 depends on the reporting architecture from stage 65537: if condition COND-0330 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0349] [priority:MEDIUM] [type:provenance] The notification security review in stage 72516 depends on the reporting architecture from stage 2882: if condition COND-0346 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 1)
+
+- [C0364] [priority:MEDIUM] [type:provenance] The notification security review in stage 73068 depends on the reporting architecture from stage 82460: if condition COND-0363 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0379] [priority:MEDIUM] [type:provenance] The notification security review in stage 73642 depends on the reporting architecture from stage 67835: if condition COND-0378 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0394] [priority:MEDIUM] [type:provenance] The notification security review in stage 73699 depends on the reporting architecture from stage 86819: if condition COND-0389 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 3)
+
+- [C0409] [priority:MEDIUM] [type:provenance] The notification security review in stage 54860 depends on the reporting architecture from stage 59339: if condition COND-0406 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0424] [priority:MEDIUM] [type:provenance] The notification security review in stage 53114 depends on the reporting architecture from stage 80864: if condition COND-0422 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0439] [priority:MEDIUM] [type:provenance] The notification security review in stage 72027 depends on the reporting architecture from stage 9803: if condition COND-0435 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 4)
+
+- [C0454] [priority:MEDIUM] [type:provenance] The notification security review in stage 86245 depends on the reporting architecture from stage 7875: if condition COND-0453 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0469] [priority:MEDIUM] [type:provenance] The notification security review in stage 87483 depends on the reporting architecture from stage 20343: if condition COND-0464 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+- [C0484] [priority:MEDIUM] [type:provenance] The notification security review in stage 55152 depends on the reporting architecture from stage 62127: if condition COND-0482 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 1)
+
+- [C0499] [priority:MEDIUM] [type:provenance] The notification security review in stage 19552 depends on the reporting architecture from stage 64112: if condition COND-0495 changes, re-audit required
+  └─ provenance: depends on artifact:stress:analytics:r1
+  (Further analysis pending review cycle 5)
+
+
+
+## Stage 6: Search Service
+Artifact: artifact:stress:search:r1
+Depends-on: artifact:stress:notification:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+- [C0005] [priority:HIGH] [type:exact_number] The search service processes exactly 98,668 events per second with a buffer of 31823 entries
+  (Further analysis pending review cycle 1)
+
+- [C0020] [priority:HIGH] [type:exact_number] The search service processes exactly 87,547 events per second with a buffer of 21217 entries
+- [C0035] [priority:HIGH] [type:exact_number] The search service processes exactly 3,593 events per second with a buffer of 18607 entries
+  (Further analysis pending review cycle 4)
+
+- [C0050] [priority:HIGH] [type:exact_number] The search service processes exactly 92,100 events per second with a buffer of 63057 entries
+- [C0065] [priority:HIGH] [type:exact_number] The search service processes exactly 57,300 events per second with a buffer of 66887 entries
+  (Further analysis pending review cycle 3)
+
+- [C0080] [priority:HIGH] [type:exact_number] The search service processes exactly 82,710 events per second with a buffer of 15055 entries
+- [C0095] [priority:HIGH] [type:exact_number] The search service processes exactly 5,490 events per second with a buffer of 94273 entries
+- [C0110] [priority:HIGH] [type:exact_number] The search service processes exactly 59,171 events per second with a buffer of 43047 entries
+- [C0125] [priority:HIGH] [type:exact_number] The search service processes exactly 56,452 events per second with a buffer of 12545 entries
+  (Further analysis pending review cycle 4)
+
+- [C0140] [priority:HIGH] [type:exact_number] The search service processes exactly 75,046 events per second with a buffer of 65025 entries
+  (Further analysis pending review cycle 3)
+
+- [C0155] [priority:HIGH] [type:exact_number] The search service processes exactly 35,118 events per second with a buffer of 55243 entries
+  (Further analysis pending review cycle 2)
+
+- [C0170] [priority:HIGH] [type:exact_number] The search service processes exactly 16,854 events per second with a buffer of 72452 entries
+- [C0185] [priority:HIGH] [type:exact_number] The search service processes exactly 88,376 events per second with a buffer of 49527 entries
+  (Further analysis pending review cycle 5)
+
+- [C0200] [priority:HIGH] [type:exact_number] The search service processes exactly 24,004 events per second with a buffer of 1202 entries
+- [C0215] [priority:HIGH] [type:exact_number] The search service processes exactly 77,498 events per second with a buffer of 13559 entries
+  (Further analysis pending review cycle 3)
+
+- [C0230] [priority:HIGH] [type:exact_number] The search service processes exactly 90,354 events per second with a buffer of 50162 entries
+- [C0245] [priority:HIGH] [type:exact_number] The search service processes exactly 7,581 events per second with a buffer of 7729 entries
+  (Further analysis pending review cycle 3)
+
+- [C0260] [priority:HIGH] [type:exact_number] The search service processes exactly 16,695 events per second with a buffer of 26976 entries
+  (Further analysis pending review cycle 3)
+
+- [C0275] [priority:HIGH] [type:exact_number] The search service processes exactly 74,697 events per second with a buffer of 63717 entries
+  (Further analysis pending review cycle 4)
+
+- [C0290] [priority:HIGH] [type:exact_number] The search service processes exactly 71,292 events per second with a buffer of 19040 entries
+- [C0305] [priority:HIGH] [type:exact_number] The search service processes exactly 60,042 events per second with a buffer of 58350 entries
+  (Further analysis pending review cycle 3)
+
+- [C0320] [priority:HIGH] [type:exact_number] The search service processes exactly 84,600 events per second with a buffer of 84037 entries
+  (Further analysis pending review cycle 5)
+
+- [C0335] [priority:HIGH] [type:exact_number] The search service processes exactly 1,502 events per second with a buffer of 32140 entries
+  (Further analysis pending review cycle 3)
+
+- [C0350] [priority:HIGH] [type:exact_number] The search service processes exactly 5,465 events per second with a buffer of 97215 entries
+- [C0365] [priority:HIGH] [type:exact_number] The search service processes exactly 5,135 events per second with a buffer of 3412 entries
+- [C0380] [priority:HIGH] [type:exact_number] The search service processes exactly 90,055 events per second with a buffer of 24289 entries
+- [C0395] [priority:HIGH] [type:exact_number] The search service processes exactly 29,870 events per second with a buffer of 81947 entries
+  (Further analysis pending review cycle 3)
+
+- [C0410] [priority:HIGH] [type:exact_number] The search service processes exactly 84,921 events per second with a buffer of 29675 entries
+  (Further analysis pending review cycle 4)
+
+- [C0425] [priority:HIGH] [type:exact_number] The search service processes exactly 31,973 events per second with a buffer of 31791 entries
+- [C0440] [priority:HIGH] [type:exact_number] The search service processes exactly 46,160 events per second with a buffer of 18977 entries
+- [C0455] [priority:HIGH] [type:exact_number] The search service processes exactly 44,410 events per second with a buffer of 59400 entries
+  (Further analysis pending review cycle 1)
+
+- [C0470] [priority:HIGH] [type:exact_number] The search service processes exactly 74,886 events per second with a buffer of 80908 entries
+- [C0485] [priority:HIGH] [type:exact_number] The search service processes exactly 40,656 events per second with a buffer of 54530 entries
+
+
+## Stage 7: Storage Service
+Artifact: artifact:stress:storage:r1
+Depends-on: artifact:stress:search:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+- [C0006] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in storage/core/handler.py line 63424
+  (Further analysis pending review cycle 4)
+
+- [C0021] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in storage/core/dispatcher.py line 66904
+  (Further analysis pending review cycle 3)
+
+- [C0036] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in storage/core/handler.py line 16689
+- [C0051] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in storage/core/engine.py line 31113
+- [C0066] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in storage/core/router.py line 53808
+  (Further analysis pending review cycle 2)
+
+- [C0081] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in storage/core/handler.py line 16249
+  (Further analysis pending review cycle 2)
+
+- [C0096] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in storage/core/processor.py line 27347
+- [C0111] [priority:MEDIUM] [type:identifier] Entry point function is run_compliance_check in storage/core/dispatcher.py line 98935
+  (Further analysis pending review cycle 4)
+
+- [C0126] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in storage/core/processor.py line 81467
+- [C0141] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in storage/core/engine.py line 65177
+- [C0156] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in storage/core/validator.py line 99700
+- [C0171] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in storage/core/engine.py line 30924
+  (Further analysis pending review cycle 3)
+
+- [C0186] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in storage/core/router.py line 34003
+- [C0201] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in storage/core/dispatcher.py line 12024
+- [C0216] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in storage/core/processor.py line 30755
+- [C0231] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in storage/core/dispatcher.py line 40538
+- [C0246] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in storage/core/handler.py line 23552
+- [C0261] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in storage/core/router.py line 34441
+- [C0276] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in storage/core/engine.py line 72025
+- [C0291] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in storage/core/router.py line 6464
+  (Further analysis pending review cycle 4)
+
+- [C0306] [priority:MEDIUM] [type:identifier] Entry point function is process_incoming_batch in storage/core/engine.py line 98185
+  (Further analysis pending review cycle 5)
+
+- [C0321] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in storage/core/engine.py line 21114
+- [C0336] [priority:MEDIUM] [type:identifier] Entry point function is process_incoming_batch in storage/core/handler.py line 85501
+  (Further analysis pending review cycle 2)
+
+- [C0351] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in storage/core/validator.py line 33955
+- [C0366] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in storage/core/handler.py line 69878
+  (Further analysis pending review cycle 3)
+
+- [C0381] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in storage/core/router.py line 58228
+- [C0396] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in storage/core/router.py line 32446
+- [C0411] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in storage/core/dispatcher.py line 18419
+- [C0426] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in storage/core/validator.py line 53562
+- [C0441] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in storage/core/engine.py line 39608
+- [C0456] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in storage/core/dispatcher.py line 79555
+- [C0471] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in storage/core/processor.py line 62319
+  (Further analysis pending review cycle 4)
+
+- [C0486] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in storage/core/dispatcher.py line 56401
+
+
+## Stage 8: Gateway Service
+Artifact: artifact:stress:gateway:r1
+Depends-on: artifact:stress:storage:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+- [C0007] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 65492 to 68721 after incident INC-54244 showed cascading failures
+- [C0022] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 42794 to 18614 after incident INC-33494 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0037] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 79812 to 71764 after incident INC-32300 showed cascading failures
+- [C0052] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 88555 to 1427 after incident INC-25014 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0067] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 63100 to 47168 after incident INC-95618 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0082] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 71140 to 60054 after incident INC-67058 showed cascading failures
+- [C0097] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 78524 to 36625 after incident INC-80763 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0112] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 23481 to 23405 after incident INC-55684 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0127] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 63253 to 45816 after incident INC-53332 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0142] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 97900 to 81440 after incident INC-50044 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0157] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 82966 to 26878 after incident INC-63307 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0172] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 41256 to 23416 after incident INC-49294 showed cascading failures
+- [C0187] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 74245 to 38621 after incident INC-41283 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0202] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 98887 to 29601 after incident INC-52070 showed cascading failures
+- [C0217] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 67704 to 65786 after incident INC-43379 showed cascading failures
+- [C0232] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 31661 to 35592 after incident INC-32625 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0247] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 51051 to 20183 after incident INC-99566 showed cascading failures
+  (Further analysis pending review cycle 2)
+
+- [C0262] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 7982 to 8304 after incident INC-49702 showed cascading failures
+- [C0277] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 6882 to 49244 after incident INC-81571 showed cascading failures
+- [C0292] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 90604 to 41902 after incident INC-49218 showed cascading failures
+- [C0307] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 66692 to 89229 after incident INC-69801 showed cascading failures
+- [C0322] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 78315 to 86326 after incident INC-74930 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0337] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 17836 to 82754 after incident INC-90020 showed cascading failures
+- [C0352] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 85307 to 90725 after incident INC-99869 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0367] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 97831 to 80083 after incident INC-53293 showed cascading failures
+  (Further analysis pending review cycle 3)
+
+- [C0382] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 68781 to 8963 after incident INC-67833 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0397] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 83071 to 30737 after incident INC-57793 showed cascading failures
+- [C0412] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 55311 to 58550 after incident INC-53574 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0427] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 1881 to 56652 after incident INC-70333 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0442] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 62975 to 52816 after incident INC-31947 showed cascading failures
+  (Further analysis pending review cycle 3)
+
+- [C0457] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 972 to 26340 after incident INC-87572 showed cascading failures
+  (Further analysis pending review cycle 3)
+
+- [C0472] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 78353 to 343 after incident INC-40474 showed cascading failures
+- [C0487] [priority:MEDIUM] [type:causal] The gateway retry limit was reduced from 54266 to 61770 after incident INC-31437 showed cascading failures
+
+
+## Stage 9: Scheduler Service
+Artifact: artifact:stress:scheduler:r1
+Depends-on: artifact:stress:gateway:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+- [C0008] [priority:HIGH] [type:negation] scheduler does NOT write directly to S3 — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 5)
+
+- [C0023] [priority:HIGH] [type:negation] scheduler does NOT write directly to S3 — all writes go through the S3 event bus first
+- [C0038] [priority:HIGH] [type:negation] scheduler does NOT write directly to S3 — all writes go through the DynamoDB event bus first
+  (Further analysis pending review cycle 4)
+
+- [C0053] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the Redis event bus first
+- [C0068] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+- [C0083] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0098] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the DynamoDB event bus first
+- [C0113] [priority:HIGH] [type:negation] scheduler does NOT write directly to Elasticsearch — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0128] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the Redis event bus first
+- [C0143] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0158] [priority:HIGH] [type:negation] scheduler does NOT write directly to Elasticsearch — all writes go through the S3 event bus first
+- [C0173] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+- [C0188] [priority:HIGH] [type:negation] scheduler does NOT write directly to Redis — all writes go through the S3 event bus first
+- [C0203] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the Elasticsearch event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0218] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the Redis event bus first
+- [C0233] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the Elasticsearch event bus first
+- [C0248] [priority:HIGH] [type:negation] scheduler does NOT write directly to Redis — all writes go through the PostgreSQL event bus first
+- [C0263] [priority:HIGH] [type:negation] scheduler does NOT write directly to Elasticsearch — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0278] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0293] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the PostgreSQL event bus first
+- [C0308] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+- [C0323] [priority:HIGH] [type:negation] scheduler does NOT write directly to S3 — all writes go through the DynamoDB event bus first
+- [C0338] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the S3 event bus first
+- [C0353] [priority:HIGH] [type:negation] scheduler does NOT write directly to Redis — all writes go through the Elasticsearch event bus first
+- [C0368] [priority:HIGH] [type:negation] scheduler does NOT write directly to S3 — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0383] [priority:HIGH] [type:negation] scheduler does NOT write directly to Elasticsearch — all writes go through the DynamoDB event bus first
+- [C0398] [priority:HIGH] [type:negation] scheduler does NOT write directly to Elasticsearch — all writes go through the S3 event bus first
+- [C0413] [priority:HIGH] [type:negation] scheduler does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+- [C0428] [priority:HIGH] [type:negation] scheduler does NOT write directly to Elasticsearch — all writes go through the Elasticsearch event bus first
+- [C0443] [priority:HIGH] [type:negation] scheduler does NOT write directly to Redis — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0458] [priority:HIGH] [type:negation] scheduler does NOT write directly to Elasticsearch — all writes go through the PostgreSQL event bus first
+- [C0473] [priority:HIGH] [type:negation] scheduler does NOT write directly to PostgreSQL — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0488] [priority:HIGH] [type:negation] scheduler does NOT write directly to Redis — all writes go through the PostgreSQL event bus first
+
+
+## Stage 10: Monitoring Service
+Artifact: artifact:stress:monitoring:r1
+Depends-on: artifact:stress:scheduler:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+- [C0009] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 64868 depends on the billing architecture from stage 84277: if condition COND-0007 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0024] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 79065 depends on the billing architecture from stage 16953: if condition COND-0023 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 4)
+
+- [C0039] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 62137 depends on the billing architecture from stage 86546: if condition COND-0035 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0054] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 61247 depends on the billing architecture from stage 41899: if condition COND-0050 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 1)
+
+- [C0069] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 82321 depends on the billing architecture from stage 93192: if condition COND-0068 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0084] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 39340 depends on the billing architecture from stage 76949: if condition COND-0079 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0099] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 47715 depends on the billing architecture from stage 95158: if condition COND-0095 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0114] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 54143 depends on the billing architecture from stage 13956: if condition COND-0109 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 1)
+
+- [C0129] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 63819 depends on the billing architecture from stage 55074: if condition COND-0125 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 3)
+
+- [C0144] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 67737 depends on the billing architecture from stage 44409: if condition COND-0143 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0159] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 22100 depends on the billing architecture from stage 97290: if condition COND-0156 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0174] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 99310 depends on the billing architecture from stage 41264: if condition COND-0169 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 2)
+
+- [C0189] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 50373 depends on the billing architecture from stage 29988: if condition COND-0186 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0204] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 81124 depends on the billing architecture from stage 71687: if condition COND-0203 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 2)
+
+- [C0219] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 39899 depends on the billing architecture from stage 26580: if condition COND-0217 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0234] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 53314 depends on the billing architecture from stage 57762: if condition COND-0230 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 5)
+
+- [C0249] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 7087 depends on the billing architecture from stage 3607: if condition COND-0247 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 4)
+
+- [C0264] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 40877 depends on the billing architecture from stage 44285: if condition COND-0259 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0279] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 41611 depends on the billing architecture from stage 25405: if condition COND-0274 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0294] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 61900 depends on the billing architecture from stage 81385: if condition COND-0290 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 5)
+
+- [C0309] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 88735 depends on the billing architecture from stage 80157: if condition COND-0304 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 5)
+
+- [C0324] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 63921 depends on the billing architecture from stage 9354: if condition COND-0323 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 5)
+
+- [C0339] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 81624 depends on the billing architecture from stage 44411: if condition COND-0337 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 1)
+
+- [C0354] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 37518 depends on the billing architecture from stage 94565: if condition COND-0349 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0369] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 15112 depends on the billing architecture from stage 28411: if condition COND-0366 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0384] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 17720 depends on the billing architecture from stage 99644: if condition COND-0379 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0399] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 54678 depends on the billing architecture from stage 82979: if condition COND-0395 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 1)
+
+- [C0414] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 70069 depends on the billing architecture from stage 3331: if condition COND-0413 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0429] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 80798 depends on the billing architecture from stage 43998: if condition COND-0428 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 2)
+
+- [C0444] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 16321 depends on the billing architecture from stage 59123: if condition COND-0440 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 4)
+
+- [C0459] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 97405 depends on the billing architecture from stage 49252: if condition COND-0454 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0474] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 98424 depends on the billing architecture from stage 67839: if condition COND-0473 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+- [C0489] [priority:MEDIUM] [type:provenance] The monitoring security review in stage 72769 depends on the billing architecture from stage 27132: if condition COND-0487 changes, re-audit required
+  └─ provenance: depends on artifact:stress:scheduler:r1
+  (Further analysis pending review cycle 4)
+
+
+
+## Stage 11: Compliance Service
+Artifact: artifact:stress:compliance:r1
+Depends-on: artifact:stress:monitoring:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+- [C0010] [priority:HIGH] [type:exact_number] The compliance service processes exactly 48,810 events per second with a buffer of 43759 entries
+- [C0025] [priority:HIGH] [type:exact_number] The compliance service processes exactly 23,003 events per second with a buffer of 92235 entries
+- [C0040] [priority:HIGH] [type:exact_number] The compliance service processes exactly 36,187 events per second with a buffer of 87527 entries
+  (Further analysis pending review cycle 2)
+
+- [C0055] [priority:HIGH] [type:exact_number] The compliance service processes exactly 82,454 events per second with a buffer of 85531 entries
+  (Further analysis pending review cycle 2)
+
+- [C0070] [priority:HIGH] [type:exact_number] The compliance service processes exactly 97,708 events per second with a buffer of 1920 entries
+- [C0085] [priority:HIGH] [type:exact_number] The compliance service processes exactly 9,834 events per second with a buffer of 94863 entries
+- [C0100] [priority:HIGH] [type:exact_number] The compliance service processes exactly 18,895 events per second with a buffer of 41445 entries
+- [C0115] [priority:HIGH] [type:exact_number] The compliance service processes exactly 78,866 events per second with a buffer of 33169 entries
+- [C0130] [priority:HIGH] [type:exact_number] The compliance service processes exactly 3,879 events per second with a buffer of 47833 entries
+- [C0145] [priority:HIGH] [type:exact_number] The compliance service processes exactly 77,307 events per second with a buffer of 42515 entries
+- [C0160] [priority:HIGH] [type:exact_number] The compliance service processes exactly 16,383 events per second with a buffer of 43226 entries
+  (Further analysis pending review cycle 1)
+
+- [C0175] [priority:HIGH] [type:exact_number] The compliance service processes exactly 77,498 events per second with a buffer of 53103 entries
+- [C0190] [priority:HIGH] [type:exact_number] The compliance service processes exactly 27,222 events per second with a buffer of 62208 entries
+- [C0205] [priority:HIGH] [type:exact_number] The compliance service processes exactly 48,957 events per second with a buffer of 1507 entries
+- [C0220] [priority:HIGH] [type:exact_number] The compliance service processes exactly 11,268 events per second with a buffer of 16558 entries
+- [C0235] [priority:HIGH] [type:exact_number] The compliance service processes exactly 93,325 events per second with a buffer of 94548 entries
+- [C0250] [priority:HIGH] [type:exact_number] The compliance service processes exactly 4,657 events per second with a buffer of 23905 entries
+- [C0265] [priority:HIGH] [type:exact_number] The compliance service processes exactly 39,411 events per second with a buffer of 72797 entries
+  (Further analysis pending review cycle 5)
+
+- [C0280] [priority:HIGH] [type:exact_number] The compliance service processes exactly 36,047 events per second with a buffer of 47103 entries
+- [C0295] [priority:HIGH] [type:exact_number] The compliance service processes exactly 68,951 events per second with a buffer of 32604 entries
+- [C0310] [priority:HIGH] [type:exact_number] The compliance service processes exactly 81,277 events per second with a buffer of 58148 entries
+- [C0325] [priority:HIGH] [type:exact_number] The compliance service processes exactly 98,135 events per second with a buffer of 9924 entries
+- [C0340] [priority:HIGH] [type:exact_number] The compliance service processes exactly 67,685 events per second with a buffer of 92861 entries
+- [C0355] [priority:HIGH] [type:exact_number] The compliance service processes exactly 29,978 events per second with a buffer of 39413 entries
+  (Further analysis pending review cycle 4)
+
+- [C0370] [priority:HIGH] [type:exact_number] The compliance service processes exactly 15,780 events per second with a buffer of 97694 entries
+  (Further analysis pending review cycle 2)
+
+- [C0385] [priority:HIGH] [type:exact_number] The compliance service processes exactly 66,934 events per second with a buffer of 12032 entries
+  (Further analysis pending review cycle 5)
+
+- [C0400] [priority:HIGH] [type:exact_number] The compliance service processes exactly 600 events per second with a buffer of 91681 entries
+- [C0415] [priority:HIGH] [type:exact_number] The compliance service processes exactly 26,326 events per second with a buffer of 70132 entries
+- [C0430] [priority:HIGH] [type:exact_number] The compliance service processes exactly 56,236 events per second with a buffer of 67575 entries
+- [C0445] [priority:HIGH] [type:exact_number] The compliance service processes exactly 74,261 events per second with a buffer of 9585 entries
+- [C0460] [priority:HIGH] [type:exact_number] The compliance service processes exactly 95,885 events per second with a buffer of 85001 entries
+- [C0475] [priority:HIGH] [type:exact_number] The compliance service processes exactly 38,767 events per second with a buffer of 50077 entries
+- [C0490] [priority:HIGH] [type:exact_number] The compliance service processes exactly 7,381 events per second with a buffer of 53022 entries
+
+
+## Stage 12: Reporting Service
+Artifact: artifact:stress:reporting:r1
+Depends-on: artifact:stress:compliance:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+- [C0011] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/validator.py line 92202
+- [C0026] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/processor.py line 86441
+  (Further analysis pending review cycle 5)
+
+- [C0041] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/validator.py line 81132
+- [C0056] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in reporting/core/handler.py line 92735
+  (Further analysis pending review cycle 4)
+
+- [C0071] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in reporting/core/validator.py line 91615
+  (Further analysis pending review cycle 3)
+
+- [C0086] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/processor.py line 88507
+- [C0101] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in reporting/core/processor.py line 40386
+- [C0116] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in reporting/core/handler.py line 66211
+- [C0131] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in reporting/core/router.py line 59532
+- [C0146] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in reporting/core/validator.py line 54682
+  (Further analysis pending review cycle 1)
+
+- [C0161] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/processor.py line 18525
+- [C0176] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in reporting/core/handler.py line 73893
+- [C0191] [priority:MEDIUM] [type:identifier] Entry point function is run_compliance_check in reporting/core/handler.py line 70389
+- [C0206] [priority:MEDIUM] [type:identifier] Entry point function is aggregate_metrics in reporting/core/router.py line 21811
+- [C0221] [priority:MEDIUM] [type:identifier] Entry point function is sync_upstream_state in reporting/core/engine.py line 24769
+- [C0236] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/processor.py line 50413
+- [C0251] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/handler.py line 16290
+  (Further analysis pending review cycle 3)
+
+- [C0266] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in reporting/core/engine.py line 47892
+- [C0281] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in reporting/core/handler.py line 39402
+- [C0296] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in reporting/core/validator.py line 38534
+- [C0311] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in reporting/core/validator.py line 90746
+- [C0326] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/engine.py line 42071
+  (Further analysis pending review cycle 4)
+
+- [C0341] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in reporting/core/validator.py line 88163
+- [C0356] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in reporting/core/handler.py line 98148
+  (Further analysis pending review cycle 5)
+
+- [C0371] [priority:MEDIUM] [type:identifier] Entry point function is process_incoming_batch in reporting/core/engine.py line 3066
+- [C0386] [priority:MEDIUM] [type:identifier] Entry point function is execute_reconciliation in reporting/core/engine.py line 65442
+- [C0401] [priority:MEDIUM] [type:identifier] Entry point function is handle_event_stream in reporting/core/dispatcher.py line 66127
+- [C0416] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in reporting/core/router.py line 78722
+- [C0431] [priority:MEDIUM] [type:identifier] Entry point function is transform_payload in reporting/core/dispatcher.py line 89048
+  (Further analysis pending review cycle 3)
+
+- [C0446] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in reporting/core/dispatcher.py line 80754
+  (Further analysis pending review cycle 3)
+
+- [C0461] [priority:MEDIUM] [type:identifier] Entry point function is dispatch_notification in reporting/core/validator.py line 33743
+- [C0476] [priority:MEDIUM] [type:identifier] Entry point function is validate_and_route in reporting/core/processor.py line 53437
+- [C0491] [priority:MEDIUM] [type:identifier] Entry point function is process_incoming_batch in reporting/core/engine.py line 63199
+  (Further analysis pending review cycle 3)
+
+
+
+## Stage 13: Migration Service
+Artifact: artifact:stress:migration:r1
+Depends-on: artifact:stress:reporting:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+- [C0012] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 41672 to 82990 after incident INC-92465 showed cascading failures
+- [C0027] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 10654 to 47787 after incident INC-86287 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0042] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 26492 to 37479 after incident INC-55976 showed cascading failures
+- [C0057] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 64087 to 55111 after incident INC-74493 showed cascading failures
+- [C0072] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 11026 to 33953 after incident INC-27088 showed cascading failures
+- [C0087] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 58110 to 91761 after incident INC-69374 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0102] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 31112 to 12341 after incident INC-51734 showed cascading failures
+- [C0117] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 92697 to 43154 after incident INC-32461 showed cascading failures
+  (Further analysis pending review cycle 3)
+
+- [C0132] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 34598 to 40410 after incident INC-72054 showed cascading failures
+- [C0147] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 9634 to 50209 after incident INC-61747 showed cascading failures
+- [C0162] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 96499 to 83433 after incident INC-97990 showed cascading failures
+- [C0177] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 86084 to 70492 after incident INC-94113 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0192] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 29276 to 64 after incident INC-52076 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0207] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 82768 to 60266 after incident INC-75572 showed cascading failures
+  (Further analysis pending review cycle 2)
+
+- [C0222] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 72325 to 38244 after incident INC-85688 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0237] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 27963 to 53338 after incident INC-17333 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0252] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 74237 to 43064 after incident INC-43800 showed cascading failures
+- [C0267] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 30449 to 95790 after incident INC-27347 showed cascading failures
+  (Further analysis pending review cycle 5)
+
+- [C0282] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 19138 to 43808 after incident INC-27368 showed cascading failures
+  (Further analysis pending review cycle 3)
+
+- [C0297] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 72199 to 33207 after incident INC-36409 showed cascading failures
+  (Further analysis pending review cycle 4)
+
+- [C0312] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 29503 to 50241 after incident INC-96775 showed cascading failures
+- [C0327] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 19277 to 50612 after incident INC-95893 showed cascading failures
+- [C0342] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 10663 to 28970 after incident INC-59021 showed cascading failures
+- [C0357] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 81270 to 33171 after incident INC-99394 showed cascading failures
+- [C0372] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 12707 to 17899 after incident INC-76778 showed cascading failures
+  (Further analysis pending review cycle 2)
+
+- [C0387] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 38331 to 86081 after incident INC-85243 showed cascading failures
+- [C0402] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 43760 to 18746 after incident INC-96630 showed cascading failures
+- [C0417] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 5388 to 35718 after incident INC-82073 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0432] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 35794 to 5863 after incident INC-45429 showed cascading failures
+  (Further analysis pending review cycle 1)
+
+- [C0447] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 29032 to 81212 after incident INC-72716 showed cascading failures
+- [C0462] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 79464 to 3049 after incident INC-29458 showed cascading failures
+- [C0477] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 19758 to 37646 after incident INC-16430 showed cascading failures
+- [C0492] [priority:MEDIUM] [type:causal] The migration retry limit was reduced from 92154 to 99000 after incident INC-26110 showed cascading failures
+
+
+## Stage 14: Cache Service
+Artifact: artifact:stress:cache:r1
+Depends-on: artifact:stress:migration:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+Service mesh configuration manages inter-service communication including mTLS, circuit breaking, retry policies, and load balancing. Traffic splitting for canary releases is controlled via weighted routing rules. Observability data from the mesh is correlated with application-level metrics for end-to-end visibility.
+
+- [C0013] [priority:HIGH] [type:negation] cache does NOT write directly to S3 — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0028] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the PostgreSQL event bus first
+- [C0043] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+- [C0058] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 4)
+
+- [C0073] [priority:HIGH] [type:negation] cache does NOT write directly to Redis — all writes go through the S3 event bus first
+- [C0088] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the DynamoDB event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0103] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the PostgreSQL event bus first
+- [C0118] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the PostgreSQL event bus first
+- [C0133] [priority:HIGH] [type:negation] cache does NOT write directly to S3 — all writes go through the Elasticsearch event bus first
+- [C0148] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+- [C0163] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 5)
+
+- [C0178] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0193] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the Elasticsearch event bus first
+- [C0208] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0223] [priority:HIGH] [type:negation] cache does NOT write directly to S3 — all writes go through the Elasticsearch event bus first
+- [C0238] [priority:HIGH] [type:negation] cache does NOT write directly to PostgreSQL — all writes go through the Redis event bus first
+- [C0253] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0268] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the DynamoDB event bus first
+- [C0283] [priority:HIGH] [type:negation] cache does NOT write directly to Redis — all writes go through the DynamoDB event bus first
+  (Further analysis pending review cycle 2)
+
+- [C0298] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the DynamoDB event bus first
+- [C0313] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0328] [priority:HIGH] [type:negation] cache does NOT write directly to PostgreSQL — all writes go through the S3 event bus first
+- [C0343] [priority:HIGH] [type:negation] cache does NOT write directly to S3 — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0358] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the DynamoDB event bus first
+- [C0373] [priority:HIGH] [type:negation] cache does NOT write directly to PostgreSQL — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 5)
+
+- [C0388] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 4)
+
+- [C0403] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the PostgreSQL event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0418] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the S3 event bus first
+  (Further analysis pending review cycle 3)
+
+- [C0433] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the Redis event bus first
+  (Further analysis pending review cycle 1)
+
+- [C0448] [priority:HIGH] [type:negation] cache does NOT write directly to Elasticsearch — all writes go through the Elasticsearch event bus first
+- [C0463] [priority:HIGH] [type:negation] cache does NOT write directly to DynamoDB — all writes go through the Elasticsearch event bus first
+  (Further analysis pending review cycle 4)
+
+- [C0478] [priority:HIGH] [type:negation] cache does NOT write directly to S3 — all writes go through the Redis event bus first
+- [C0493] [priority:HIGH] [type:negation] cache does NOT write directly to PostgreSQL — all writes go through the PostgreSQL event bus first
+
+
+## Stage 15: Messaging Service
+Artifact: artifact:stress:messaging:r1
+Depends-on: artifact:stress:cache:r1
+Priority: ALL facts below are CRITICAL — preserve or mark absent
+
+The API versioning strategy uses URL-based versioning for major changes and header-based feature flags for minor additions. Deprecation notices are communicated via response headers and developer portal announcements. Backward compatibility is maintained for a minimum of 6 months after deprecation.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+The deployment pipeline consists of multiple stages including unit tests, integration tests, contract tests, and canary deployments. Each stage has configurable gates that can be adjusted based on the risk profile of the change. The rollback mechanism uses blue-green deployment with automatic health checks.
+
+Infrastructure costs were analyzed across multiple dimensions including compute, storage, network egress, and managed service fees. The team identified several optimization opportunities in right-sizing instances and leveraging reserved capacity. A cost allocation model was proposed to improve visibility into per-service spending.
+
+The data governance framework requires all PII to be classified, encrypted at rest, and access-logged. Retention policies vary by data category from 30 days for debug logs to 7 years for financial records. Cross-border data transfer restrictions apply to EU user data under GDPR compliance requirements.
+
+During the review, the team discussed various approaches to improving system reliability. Several options were considered including active-passive failover, consensus-based replication, and event sourcing patterns. The tradeoffs between consistency and availability were weighed against the current SLA requirements.
+
+The observability stack includes metrics collection via Prometheus, distributed tracing via Jaeger, and centralized logging via Elasticsearch. Alert routing is handled by PagerDuty with escalation policies defined per service tier. Dashboard templates are maintained as code in a shared repository.
+
+Performance testing is conducted weekly using a combination of load tests, stress tests, and soak tests. The baseline metrics are tracked over time to detect gradual degradation. Capacity planning models are updated quarterly based on growth projections and feature roadmap impact assessments.
+
+- [C0014] [priority:MEDIUM] [type:provenance] The messaging security review in stage 11186 depends on the storage architecture from stage 23039: if condition COND-0009 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0029] [priority:MEDIUM] [type:provenance] The messaging security review in stage 54168 depends on the storage architecture from stage 89923: if condition COND-0026 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 5)
+
+- [C0044] [priority:MEDIUM] [type:provenance] The messaging security review in stage 68541 depends on the storage architecture from stage 17412: if condition COND-0043 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 3)
+
+- [C0059] [priority:MEDIUM] [type:provenance] The messaging security review in stage 75040 depends on the storage architecture from stage 34792: if condition COND-0058 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0074] [priority:MEDIUM] [type:provenance] The messaging security review in stage 67022 depends on the storage architecture from stage 650: if condition COND-0072 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0089] [priority:MEDIUM] [type:provenance] The messaging security review in stage 41689 depends on the storage architecture from stage 34457: if condition COND-0087 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 5)
+
+- [C0104] [priority:MEDIUM] [type:provenance] The messaging security review in stage 93478 depends on the storage architecture from stage 43725: if condition COND-0101 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0119] [priority:MEDIUM] [type:provenance] The messaging security review in stage 47794 depends on the storage architecture from stage 4135: if condition COND-0118 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0134] [priority:MEDIUM] [type:provenance] The messaging security review in stage 54490 depends on the storage architecture from stage 78676: if condition COND-0130 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 3)
+
+- [C0149] [priority:MEDIUM] [type:provenance] The messaging security review in stage 33018 depends on the storage architecture from stage 80055: if condition COND-0144 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0164] [priority:MEDIUM] [type:provenance] The messaging security review in stage 75043 depends on the storage architecture from stage 69221: if condition COND-0163 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0179] [priority:MEDIUM] [type:provenance] The messaging security review in stage 32153 depends on the storage architecture from stage 88134: if condition COND-0174 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 3)
+
+- [C0194] [priority:MEDIUM] [type:provenance] The messaging security review in stage 8175 depends on the storage architecture from stage 93581: if condition COND-0190 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 1)
+
+- [C0209] [priority:MEDIUM] [type:provenance] The messaging security review in stage 75359 depends on the storage architecture from stage 55753: if condition COND-0206 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 4)
+
+- [C0224] [priority:MEDIUM] [type:provenance] The messaging security review in stage 91373 depends on the storage architecture from stage 16479: if condition COND-0222 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0239] [priority:MEDIUM] [type:provenance] The messaging security review in stage 27757 depends on the storage architecture from stage 14273: if condition COND-0236 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 3)
+
+- [C0254] [priority:MEDIUM] [type:provenance] The messaging security review in stage 25907 depends on the storage architecture from stage 94823: if condition COND-0250 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0269] [priority:MEDIUM] [type:provenance] The messaging security review in stage 73961 depends on the storage architecture from stage 6517: if condition COND-0268 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 2)
+
+- [C0284] [priority:MEDIUM] [type:provenance] The messaging security review in stage 28327 depends on the storage architecture from stage 6725: if condition COND-0282 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 3)
+
+- [C0299] [priority:MEDIUM] [type:provenance] The messaging security review in stage 84461 depends on the storage architecture from stage 10915: if condition COND-0296 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0314] [priority:MEDIUM] [type:provenance] The messaging security review in stage 28625 depends on the storage architecture from stage 82618: if condition COND-0312 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 2)
+
+- [C0329] [priority:MEDIUM] [type:provenance] The messaging security review in stage 75015 depends on the storage architecture from stage 32955: if condition COND-0327 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 1)
+
+- [C0344] [priority:MEDIUM] [type:provenance] The messaging security review in stage 27329 depends on the storage architecture from stage 33432: if condition COND-0339 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 4)
+
+- [C0359] [priority:MEDIUM] [type:provenance] The messaging security review in stage 76904 depends on the storage architecture from stage 15583: if condition COND-0356 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 4)
+
+- [C0374] [priority:MEDIUM] [type:provenance] The messaging security review in stage 86821 depends on the storage architecture from stage 31844: if condition COND-0370 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0389] [priority:MEDIUM] [type:provenance] The messaging security review in stage 80602 depends on the storage architecture from stage 95576: if condition COND-0387 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 4)
+
+- [C0404] [priority:MEDIUM] [type:provenance] The messaging security review in stage 27277 depends on the storage architecture from stage 55259: if condition COND-0399 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 4)
+
+- [C0419] [priority:MEDIUM] [type:provenance] The messaging security review in stage 25425 depends on the storage architecture from stage 89255: if condition COND-0417 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 5)
+
+- [C0434] [priority:MEDIUM] [type:provenance] The messaging security review in stage 27925 depends on the storage architecture from stage 45528: if condition COND-0433 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0449] [priority:MEDIUM] [type:provenance] The messaging security review in stage 8494 depends on the storage architecture from stage 66747: if condition COND-0447 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0464] [priority:MEDIUM] [type:provenance] The messaging security review in stage 10191 depends on the storage architecture from stage 21868: if condition COND-0462 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+  (Further analysis pending review cycle 1)
+
+- [C0479] [priority:MEDIUM] [type:provenance] The messaging security review in stage 35031 depends on the storage architecture from stage 47982: if condition COND-0474 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+- [C0494] [priority:MEDIUM] [type:provenance] The messaging security review in stage 17491 depends on the storage architecture from stage 32408: if condition COND-0491 changes, re-audit required
+  └─ provenance: depends on artifact:stress:cache:r1
+
+
+## End of Instrumented Session
+If compacting: list ALL artifact IDs that were PRUNED or DELETED with their absence state.

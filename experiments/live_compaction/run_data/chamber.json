@@ -1,0 +1,309 @@
+{
+  "chamber_id": "chamber:compaction-test:live-v1",
+  "schema_version": "forge.internal.v1",
+  "created_at": "2026-03-29T07:35:12.603583+00:00",
+  "status": "sealed",
+  "stages": [
+    {
+      "stage_index": 0,
+      "stage_id": "artifact:compaction-test:stage:architect:r1",
+      "seat": "architect",
+      "artifact": {
+        "id": "artifact:compaction-test:stage:architect:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "9876eb16795f48b074313dd599b0afdbd2de914498f86e1b26a08e73916e79b7"
+        },
+        "loc": "memory/stages/artifact/compaction-test/stage/architect/r1.json",
+        "refs": [],
+        "created_at": "2026-03-29T07:35:12.604242+00:00",
+        "producer": {
+          "name": "architect-agent",
+          "role": "architect",
+          "version": "1.0.0"
+        },
+        "seat": "architect",
+        "output": "## Architect Analysis Report\n\n**[C01]** The system processes exactly 3,847 requests per second at peak load\n\n**[C02]** The primary database is named 'helios-prod-west-7'\n\n**[C03]** Connection pooling was disabled because CVE-2024-31891 affects libpq versions below 15.3\n\n**[C04]** The auth service does NOT use JWT tokens \u2014 it uses opaque session references stored in Redis\n",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": null,
+        "findings_state": "not_generated"
+      },
+      "summary": {
+        "id": "artifact:compaction-test:summary:stage:architect:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-29T07:35:12.604346+00:00",
+        "summary": "Architect stage completed with 4 key findings.",
+        "source_refs": [
+          {
+            "ref": "artifact:compaction-test:stage:architect:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:compaction-test:stage:architect:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "422e1c701e201764def8b98be72ab0977ccd5cd74b52108c60ed26dd37d6c065"
+        },
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:architect:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-29T07:35:12.604396+00:00"
+    },
+    {
+      "stage_index": 1,
+      "stage_id": "artifact:compaction-test:stage:builder:r1",
+      "seat": "builder",
+      "artifact": {
+        "id": "artifact:compaction-test:stage:builder:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "f96a290dd818be7153da2c3c0c9190ec531cddbff6659c8427faac036179f697"
+        },
+        "loc": "memory/stages/artifact/compaction-test/stage/builder/r1.json",
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:architect:r1",
+            "state": "resolved"
+          }
+        ],
+        "created_at": "2026-03-29T07:35:12.604591+00:00",
+        "producer": {
+          "name": "builder-agent",
+          "role": "builder",
+          "version": "1.0.0"
+        },
+        "seat": "builder",
+        "output": "## Builder Analysis Report\n\n**[C05]** The retry logic uses exponential backoff with base delay 237ms and max 4 retries\n\n**[C06]** The function handle_batch_ingestion in worker/pipeline.py is the entry point\n\n**[C07]** The batch size was reduced from 500 to 128 because memory profiling showed 2.3GB spikes at 500\n\n**[C08]** The pipeline does NOT validate schema on ingestion \u2014 validation happens only at the transform stage\n",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": null,
+        "findings_state": "not_generated"
+      },
+      "summary": {
+        "id": "artifact:compaction-test:summary:stage:builder:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-29T07:35:12.604654+00:00",
+        "summary": "Builder stage completed with 4 key findings.",
+        "source_refs": [
+          {
+            "ref": "artifact:compaction-test:stage:builder:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:compaction-test:stage:builder:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "fa1afa64915997806500f9262cdd22b36cef6133c72d5f8902d486c6339a4b40"
+        },
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:builder:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-29T07:35:12.604694+00:00"
+    },
+    {
+      "stage_index": 2,
+      "stage_id": "artifact:compaction-test:stage:critic:r1",
+      "seat": "critic",
+      "artifact": {
+        "id": "artifact:compaction-test:stage:critic:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "9c340c91d36694d03af400c4ec7574d3ffe04a5a06059ff87a6cb797237d2ce3"
+        },
+        "loc": "memory/stages/artifact/compaction-test/stage/critic/r1.json",
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:builder:r1",
+            "state": "resolved"
+          }
+        ],
+        "created_at": "2026-03-29T07:35:12.605008+00:00",
+        "producer": {
+          "name": "critic-agent",
+          "role": "critic",
+          "version": "1.0.0"
+        },
+        "seat": "critic",
+        "output": "## Critic Analysis Report\n\n**[C09]** The security scan found exactly 14 high-severity and 37 medium-severity findings\n\n**[C10]** The most critical finding is FORGE-SEC-2024-0042: unauthenticated access to /internal/metrics endpoint\n\n**[C11]** Rate limiting was bypassed because the X-Forwarded-For header is trusted without validation from the load balancer\n\n**[C12]** The TLS configuration does NOT support TLS 1.3 \u2014 it is pinned to TLS 1.2 due to a legacy HSM constraint\n",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": null,
+        "findings_state": "not_generated"
+      },
+      "summary": {
+        "id": "artifact:compaction-test:summary:stage:critic:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-29T07:35:12.605133+00:00",
+        "summary": "Critic stage completed with 4 key findings.",
+        "source_refs": [
+          {
+            "ref": "artifact:compaction-test:stage:critic:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:compaction-test:stage:critic:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "aee4e95c17a76b8fbc0c1a2731884b64e9cca2abe0440f9ccc7be49c242d0278"
+        },
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:critic:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-29T07:35:12.605175+00:00"
+    },
+    {
+      "stage_index": 3,
+      "stage_id": "artifact:compaction-test:stage:analyst:r1",
+      "seat": "analyst",
+      "artifact": {
+        "id": "artifact:compaction-test:stage:analyst:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "9d40aa05b5c03cb6beaff7a7eebf4f27c1cd6ba4a3fd5c4efa15faee5e45bf8b"
+        },
+        "loc": "memory/stages/artifact/compaction-test/stage/analyst/r1.json",
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:critic:r1",
+            "state": "resolved"
+          }
+        ],
+        "created_at": "2026-03-29T07:35:12.605588+00:00",
+        "producer": {
+          "name": "analyst-agent",
+          "role": "analyst",
+          "version": "1.0.0"
+        },
+        "seat": "analyst",
+        "output": "## Analyst Analysis Report\n\n**[C13]** P99 latency is 847ms, P95 is 312ms, and P50 is 23ms\n\n**[C14]** The slowest endpoint is POST /api/v2/reconciliation/batch which averages 2.1 seconds\n\n**[C15]** GC pauses increased from 12ms to 89ms after upgrading to Java 21 because ZGC was replaced with G1GC in the deployment config\n\n**[C16]** The cache layer does NOT evict on TTL \u2014 it uses LFU with a 16GB hard cap\n",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": null,
+        "findings_state": "not_generated"
+      },
+      "summary": {
+        "id": "artifact:compaction-test:summary:stage:analyst:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-29T07:35:12.605756+00:00",
+        "summary": "Analyst stage completed with 4 key findings.",
+        "source_refs": [
+          {
+            "ref": "artifact:compaction-test:stage:analyst:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:compaction-test:stage:analyst:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "cc4fc3e1c936fb85b47480b01ea16488ea130b1a1aa4183b7980a924de75a652"
+        },
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:analyst:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-29T07:35:12.605810+00:00"
+    },
+    {
+      "stage_index": 4,
+      "stage_id": "artifact:compaction-test:stage:integrator:r1",
+      "seat": "integrator",
+      "artifact": {
+        "id": "artifact:compaction-test:stage:integrator:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "f9d45f4b31aea711735234861a5a19caf9e00e97bb84907fb3318358cebad649"
+        },
+        "loc": "memory/stages/artifact/compaction-test/stage/integrator/r1.json",
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:analyst:r1",
+            "state": "resolved"
+          }
+        ],
+        "created_at": "2026-03-29T07:35:12.606160+00:00",
+        "producer": {
+          "name": "integrator-agent",
+          "role": "integrator",
+          "version": "1.0.0"
+        },
+        "seat": "integrator",
+        "output": "## Integrator Analysis Report\n\n**[C17]** Cross-service calls have a 0.3% failure rate, with 67% of failures being timeouts to the payment-gateway service\n\n**[C18]** The circuit breaker library is resilience4j v2.1.0 with half-open state threshold of 5 requests\n\n**[C19]** The event bus was migrated from RabbitMQ to Kafka because message ordering guarantees were needed for the audit trail\n\n**[C20]** Service discovery does NOT use DNS-based resolution \u2014 it uses a custom etcd registry with 3-second lease TTL\n",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": null,
+        "findings_state": "not_generated"
+      },
+      "summary": {
+        "id": "artifact:compaction-test:summary:stage:integrator:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-29T07:35:12.606203+00:00",
+        "summary": "Integrator stage completed with 4 key findings.",
+        "source_refs": [
+          {
+            "ref": "artifact:compaction-test:stage:integrator:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:compaction-test:stage:integrator:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "90b7a949f9ad1938461c9e2bc5a5562f2e925b89d587d138d6fb08b356e67fda"
+        },
+        "refs": [
+          {
+            "ref": "artifact:compaction-test:stage:integrator:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-29T07:35:12.606238+00:00"
+    }
+  ],
+  "artifact_index": "{'artifact:compaction-test:summary:stage:critic:r1', 'artifact:compaction-test:stage:integrator:r1', 'artifact:compaction-test:stage:critic:r1', 'artifact:compaction-test:stage:builder:r1', 'artifact:compaction-test:summary:stage:architect:r1', 'artifact:compaction-test:summary:stage:analyst:r1', 'artifact:compaction-test:summary:stage:builder:r1', 'artifact:compaction-test:stage:analyst:r1', 'artifact:compaction-test:stage:architect:r1', 'artifact:compaction-test:summary:stage:integrator:r1', 'chamber:compaction-test:live-v1'}",
+  "metadata": {
+    "experiment": "live_compaction_test",
+    "canary_count": 20,
+    "purpose": "Measure information loss through LLM agent compaction boundary"
+  }
+}

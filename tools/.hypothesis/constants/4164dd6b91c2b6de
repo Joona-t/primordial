@@ -1,0 +1,4 @@
+# file: /Users/darkfire/forge/primordial/tools/forge_stage_output.py
+# hypothesis_version: 6.151.9
+
+['   PASSED\n', '   UNEXPECTED PASS', '/', '1.0.0', ':', ':stage:', ':summary:stage:', 'Does not exist', 'Lossy summary.', 'MADE_UP.CODE', 'STOP', 'STOP.STOP_TIMEOUT', '__main__', 'algorithm', 'builder', 'builder-agent', 'code', 'complete', 'created_at', 'detail', 'domain', 'failed', 'findings', 'findings_state', 'forge.internal.v1', 'hash', 'id', 'loc', 'name', 'not_generated', 'not_invoked', 'output', 'output_state', 'producer', 'ref', 'refs', 'resolved', 'role', 'schema_version', 'seat', 'severity', 'sha256', 'skipped', 'some code', 'stage_id', 'stage_output', 'state', 'status', 'stop_reason', 'stop_reason_state', 'summary', 'summary_state', 'type', 'utf-8', 'value', 'version']

@@ -1,0 +1,4 @@
+# file: /Users/darkfire/forge/primordial/tools/forge_trace_codec.py
+# hypothesis_version: 6.151.9
+
+[1.0, '   PASSED', '$ref:shared.', '.', '2. Encoding trace:', '4. Decoding trace:', '6. Tamper detection:', 'No input size limit', 'TAMPERED', '__main__', 'algorithm', 'architect', 'architect-agent', 'artifact', 'builder', 'builder-agent', 'chamber:run200:v1', 'chamber_id', 'code', 'compression_ratio', 'content_match', 'created_at', 'critic', 'critic-agent', 'decoded_hash', 'detail', 'encoded_size', 'encoding', 'forge.internal.v1', 'forge.trace.v1', 'hash_match', 'name', 'original_hash', 'original_size', 'producer', 'ref', 'ref_replacements', 'refs', 'schema_version', 'seat', 'shared', 'shared_structures', 'source_refs', 'stage_count', 'stages', 'summary', 'trace_id', 'unknown', 'utf-8', 'valid']

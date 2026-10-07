@@ -1,0 +1,290 @@
+{
+  "chamber_id": "chamber:live-1774665105:v1",
+  "schema_version": "forge.internal.v1",
+  "created_at": "2026-03-28T02:31:45.373247+00:00",
+  "status": "sealed",
+  "stages": [
+    {
+      "stage_index": 0,
+      "stage_id": "artifact:live-1774665105:stage:architecture_analyst:r1",
+      "seat": "architecture_analyst",
+      "artifact": {
+        "id": "artifact:live-1774665105:stage:architecture_analyst:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "6bd9351da9504c0447efe3b3f30b4541a1738481bbffe374822c7b5c248d30bd"
+        },
+        "loc": "memory/stages/artifact/live-1774665105/stage/architecture_analyst/r1.json",
+        "refs": [],
+        "created_at": "2026-03-28T02:31:45.374446+00:00",
+        "producer": {
+          "name": "architecture-analyst",
+          "role": "architecture",
+          "version": "1.0.0"
+        },
+        "seat": "architecture_analyst",
+        "output": "# The Forge — TypeScript Codebase Analysis\n\n**21 files across 6 modules** — collectors, analysis, automation, dashboard, reports, config\n\n---\n\n## 1. Module Coupling\n\n**Architecture: Strictly acyclic, layered dependency graph.** No circular dependencies.\n\n```\ntypes/          (0 imports — pure type definitions, 23 exports)\n  ↑\nconfig/         (types only)\n  ↑\ncollectors/     (config, types, utils)\n  ↑\nanalysis/       (config, types, log-manager, collectors/utils)\n  ↑\nreports/        (config, types, log-manager)\n  ↑\nautomation/     (config, types, collectors/utils, reports — dynamic imports)\n  ↑\ndashboard/      (types, log-manager, config)\n```\n\n**Hub modules** (imported by most files):\n- `config/logger.ts` — imported by **14/21 files**\n- `types/index.ts` — imported by **18/21 files**\n- `automation/log-manager.ts` — imported by **10/21 files** (all I/O goes through here)\n\n**Key coupling risks:**\n\n| Risk | Details |\n|------|---------|\n| **Data format coupling** | `CollectorResult` shape changes break 6+ consumers (analysis, reports, dashboard) |\n| **Implicit filename contracts** | `anomaly-detector.ts:22-25` reads collector outputs by hardcoded names (`\"market-data\"`, `\"materials-pricing\"`, etc.) — no validation |\n| **Single I/O bottleneck** | All persistence routes through `log-manager.ts` — 11 exported functions consumed by 10 files |\n| **Dynamic import fragility** | `run-daily-cycle.ts:39-43` dynamically imports all 5 collectors — typos or missing exports fail at runtime only |\n\n**Strengths:** Collectors are fully independent of each other. Dashboard routers have zero mutual dependencies. Config modules are pure dependency sinks.\n\n---\n\n## 2. Error Handling Patterns\n\n**26 total try/catch blocks. 23 swallow errors. 3 rethrow.**\n\n### Propagation model\n\nErrors are caught at **four boundaries**:\n\n1. **Per-source** (inside collectors) — individual API/feed failures caught, added to `errors[]` array, loop continues\n2. **Per-collector** (`Promise.allSettled` in `run-daily-cycle.ts:54`) — one collector crashing doesn't block others\n3. **Per-phase** (`run-daily-cycle.ts:297-316`) — phase failure recorded but execution continues to next phase\n4. **Process exit** (`run-daily-cycle.ts:351`) — final `.catch()` logs fatal and exits code 1\n\n### 6 Silent Failures Identified\n\n| # | File:Line | Issue | Severity |\n|---|-----------|-------|----------|\n| 1 | `sec-filings.ts:56-58` | EDGAR search error logged but **not added to errors array** | HIGH |\n| 2 | `sec-filings.ts:111-112` | 13F parsing failure returns empty holdings silently | MEDIUM |\n| 3 | `materials-pricing.ts:98-105` | Cache corruption swallowed with `log.warn` only | LOW-MED |\n| 4 | `materials-pricing.ts:22-37` | FRED fetch returns `null` — caller can't distinguish failure from no-data | MEDIUM |\n| 5 | `cron-scheduler.ts:20-21` | Phase failures logged but **no alerting/escalation** — cron runs indefinitely with all phases failing | CRITICAL |\n| 6 | `run-daily-cycle.ts:103-106, 114-117, 141-143` | Analysis phase errors caught but phase can still report partial success | MEDIUM |\n\n### Good practices observed\n- `Promise.allSettled()` for collector parallelism (not `Promise.all`)\n- All promises properly awaited — no unhandled rejections\n- Error messages include context (ticker symbol, feed name, CIK)\n- Module-specific child loggers for traceability\n\n### Missing\n- **Zero custom error classes** — all generic `Error`\n- **No retries on collector API calls** (only `claude-analyst.ts` and `run-daily-cycle.ts` have retry logic)\n- **No env var validation at startup** — missing API keys cause failures mid-execution\n\n---\n\n## 3. Type Safety\n\n**Grade: B+** — One critical issue, otherwise well-typed.\n\n### CRITICAL (1)\n\n**`run-daily-cycle.ts:238`** — `readJSONFile<any>(date, 'dashboard-feed')`\n\nType erasure: the generic parameter `<any>` removes all type checking on the returned object. Lines 241-242 then access `feed?.summary`, `feed?.alerts?.length`, `feed?.anomalyCount` with zero compile-time guarantees. Should be `readJSONFile<DashboardFeed>(...)`.\n\n### WARNING (1)\n\n**`config/logger.ts:41`** — `(mod as string) || 'forge'`\n\nRedundant assertion. The `as string` cast followed by `||` guard suggests uncertainty about the Winston format parameter type. Works correctly but masks the actual type.\n\n### Clean bill on everything else\n\n| Check | Result |\n|-------|--------|\n| `@ts-ignore` / `@ts-expect-error` | **0 instances** |\n| Unsafe `!` non-null assertions | **0 instances** |\n| Untyped function parameters | **0 instances** |\n| Implicit `any` return types | **0 instances** |\n| Unsafe array/object access | **0 instances** — all guarded with `?.` and `??` |\n\nAll 12 remaining `as` assertions across 7 files are **properly guarded** by null checks or pre-validation before use (e.g., `dashboard/prices.ts:12` casts `as MarketDataResult` only inside an `if (raw?.data)` guard).\n\n---\n\n## Summary of Actionable Items\n\n**High priority:**\n1. Fix `run-daily-cycle.ts:238` — replace `<any>` with `<DashboardFeed>`\n2. Add error tracking to `sec-filings.ts:56-58` — push to `errors[]` array\n3. Add alerting/escalation to `cron-scheduler.ts` — silent cron failures are dangerous\n\n**Medium priority:**\n4. Add startup validation for required env vars (`ANTHROPIC_API_KEY`, `SLACK_WEBHOOK_URL`, `FRED_API_KEY`)\n5. Add retry logic to collector API calls (currently only analysis has retries)\n6. Distinguish \"API failed\" from \"no data\" in `materials-pricing.ts` FRED fetch (return `Error` instead of `null`)\n\n**Low priority:**\n7. Consider Zod schema validation at collector output boundaries\n8. Remove redundant `as string` in `logger.ts:41`",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": [
+          {
+            "code": "CRITIQUE.CRIT_ARCHITECTURE",
+            "detail": "architecture-analyst completed in 129450ms",
+            "severity": "med"
+          }
+        ]
+      },
+      "summary": {
+        "id": "artifact:live-1774665105:summary:stage:architecture_analyst:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-28T02:31:45.374789+00:00",
+        "summary": "architecture-analyst: # The Forge — TypeScript Codebase Analysis\n\n**21 files across 6 modules** — collectors, analysis, automation, dashboard, reports, config\n\n---\n\n## 1. Module Coupling\n\n**Architecture: Strictly acyclic, ...",
+        "source_refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:architecture_analyst:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:live-1774665105:stage:architecture_analyst:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "6f307cb932a3078a37e74e51734c56cadb6326584060b24446ab87b3b2d7aa71"
+        },
+        "refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:architecture_analyst:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-28T02:31:45.374873+00:00"
+    },
+    {
+      "stage_index": 1,
+      "stage_id": "artifact:live-1774665105:stage:performance_analyst:r1",
+      "seat": "performance_analyst",
+      "artifact": {
+        "id": "artifact:live-1774665105:stage:performance_analyst:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "40b7b42b895f334fa3c6791912ea785ad1fecafab51e8aa611e7482054dcf1b0"
+        },
+        "loc": "memory/stages/artifact/live-1774665105/stage/performance_analyst/r1.json",
+        "refs": [],
+        "created_at": "2026-03-28T02:31:45.375104+00:00",
+        "producer": {
+          "name": "performance-analyst",
+          "role": "performance",
+          "version": "1.0.0"
+        },
+        "seat": "performance_analyst",
+        "output": "Here's the full analysis across all three areas:\n\n---\n\n## 1. Collector Parallelization Strategy (`run-daily-cycle.ts`)\n\n**Architecture:** The 5-phase pipeline (`collect → analyze → compile → qa → deliver`) runs **sequentially** (line 295 `for...of` loop), but within the `collect` phase, all 5 collectors run in **parallel** via `Promise.allSettled` (line 54).\n\n**What's good:**\n- `Promise.allSettled` at `run-daily-cycle.ts:54` — one failing collector doesn't crash the others\n- Dynamic imports at `:39-43` — lazy-loads collector modules only when needed\n- Each collector is wrapped in its own `try/catch` at `:56-64` inside the `.map()`, so errors are captured twice (once here, once by `allSettled`)\n\n**The problem — all 5 collectors fire simultaneously with no concurrency limit:**\n\nThe 5 collectors all start at the same instant. This is fine for RSS-based collectors (china-intel, news-aggregator) which are lightweight, but `market-data.ts` internally loops through **28 tickers sequentially** with 500ms delays (14 seconds minimum), while `sec-filings.ts` makes multiple EDGAR requests with 150ms delays, and `materials-pricing.ts` scrapes 4 websites with 1500ms delays.\n\nThese all compete for the same outbound HTTP connection pool and memory simultaneously. If you later add more tickers or collectors, there's no throttle.\n\n**Retry behavior:** `withRetry` at `:12-29` wraps each **entire phase** (not individual collectors). If one collector fails inside the parallel batch, the phase still succeeds (partial errors are logged). The retry only triggers if the entire `runCollect` function throws — which only happens on an unhandled error escaping `Promise.allSettled`, which shouldn't happen by design. Effectively, **the retry is dead code for the collect phase.**\n\n---\n\n## 2. API Rate Limiting — Yahoo Finance (`market-data.ts`)\n\n**Current approach:** A fixed `delay(YAHOO_DELAY_MS)` of **500ms** before every fetch (`market-data.ts:135`), sourced from `sources.ts:81`.\n\n**Issues:**\n\n1. **No adaptive backoff.** If Yahoo returns a 429 (rate limit), the code doesn't detect it — axios will throw a generic HTTP error, it gets pushed to `errors[]` at `:184`, and the loop continues to the next ticker with the same 500ms delay. It should be backing off exponentially on 429s.\n\n2. **No retry per-ticker.** A transient 429 or timeout on one ticker means that ticker is permanently lost for the day. The only retry is at the phase level in `run-daily-cycle.ts`, which would **re-run all 28 tickers** including ones that already succeeded.\n\n3. **User-Agent spoofing** at `:12-14` — the headers mimic a real browser. Yahoo's v8 chart API does work without auth, but this makes the system fragile to UA-based blocking.\n\n4. **No response status checking.** The code relies on axios throwing on non-2xx, but there's no specific handling for 429 vs 403 vs 500. A 403 (IP banned) gets the same treatment as a transient timeout.\n\n5. **28 tickers × 500ms = 14s minimum** — acceptable now, but will scale linearly. With `YAHOO_DELAY_MS = 500`, adding tickers to `tickers.ts` directly increases collection time with no way to batch.\n\n---\n\n## 3. Memory Patterns\n\n**Finding A — Unbounded arrays in `market-data.ts:123-204`:**\n\nThe `anomalies[]` array at `:126` grows without any cap. In a volatile market day where many tickers move >5% or have >2x volume, every anomaly generates two entries (price + volume). With 28 tickers, worst case is 56 anomalies — manageable. But this pattern is replicated in `anomaly-detector.ts:17` (`correlations[]`) and `news-aggregator.ts:17` (`allItems[]`) where RSS feeds could return hundreds of items. The `deduplicateByTitle` at `utils.ts:57-64` has **O(n²) complexity** — it compares every new item against all unique items using `jaccardSimilarity`, which itself splits strings into word sets. For 500 news items, that's ~125,000 Jaccard comparisons.\n\n**Finding B — No cleanup of `child` process in `claude-analyst.ts:46-75`:**\n\n`callClaudeCLIWithStdin` spawns a child process via `execFile` at `:46`. If the parent process crashes or the 2-minute timeout fires, the child process may become orphaned. The `execFile` callback at `:55` handles the happy path, but there's no explicit `child.kill()` in the error path. Node's `execFile` with `timeout` should send SIGTERM, but if the CLI ignores it, it's a zombie.\n\n**Finding C — Full JSON serialization of all collector data in `claude-analyst.ts:106-119`:**\n\nAt `:107-119`, all 5 collector outputs are serialized to JSON strings and concatenated into `fullPrompt`. The market data alone for 28 tickers with 30 days of historical bars is significant. This entire string is held in memory during the CLI call (up to 2 minutes). The `maxBuffer: 2 * 1024 * 1024` at `:53` caps stdout, but the input prompt isn't capped.\n\n**Finding D — `deduplicateByTitle` quadratic growth (`utils.ts:57-64`):**\n\n```\nfor item in items:\n    for u in unique:     ← grows each iteration\n        jaccardSimilarity(u.title, item.title)   ← Set construction + intersection\n```\n\nFor `n` input items, this is O(n²) string comparisons with O(w) set operations each (where w = words per title). Not a memory leak, but CPU-bound for large RSS feeds.\n\n**Finding E — Module-level `RSSParser` instances:**\n\n`news-aggregator.ts:9` and `china-intel.ts:9` both create module-level `new RSSParser()` instances. These are harmless (no internal caching or state accumulation), but they persist for the process lifetime since they're created at import time.\n\n**No actual leaks found** — closures are properly scoped, arrays are local to function calls and garbage-collected when `wrapCollector` returns, and the `materials-pricing.ts` cache is bounded by the number of metals/energy sources (6 entries).\n\n---\n\n### Summary of actionable items (severity order):\n\n| Priority | File | Issue |\n|----------|------|-------|\n| **High** | `market-data.ts:135` | No backoff on 429 — Yahoo rate limit will cause cascading ticker failures |\n| **High** | `run-daily-cycle.ts:12-29` | `withRetry` is effectively dead code for the collect phase |\n| **Medium** | `market-data.ts:183` | No per-ticker retry — transient failure = permanent data loss for that ticker |\n| **Medium** | `utils.ts:57-64` | O(n²) dedup — will bottleneck if RSS item counts grow |\n| **Low** | `claude-analyst.ts:106-119` | Full JSON dump of all collector data into a single string (memory spike) |\n| **Low** | `run-daily-cycle.ts:54` | No concurrency limit on parallel collectors |",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": [
+          {
+            "code": "CRITIQUE.CRIT_ARCHITECTURE",
+            "detail": "performance-analyst completed in 84842ms",
+            "severity": "med"
+          }
+        ]
+      },
+      "summary": {
+        "id": "artifact:live-1774665105:summary:stage:performance_analyst:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-28T02:31:45.375179+00:00",
+        "summary": "performance-analyst: Here's the full analysis across all three areas:\n\n---\n\n## 1. Collector Parallelization Strategy (`run-daily-cycle.ts`)\n\n**Architecture:** The 5-phase pipeline (`collect → analyze → compile → qa → deli...",
+        "source_refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:performance_analyst:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:live-1774665105:stage:performance_analyst:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "fe355c811e3321732a06136a19a642ff1856ba56aa9e39b9079008e76db74eb2"
+        },
+        "refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:performance_analyst:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-28T02:31:45.375222+00:00"
+    },
+    {
+      "stage_index": 2,
+      "stage_id": "artifact:live-1774665105:stage:security_analyst:r1",
+      "seat": "security_analyst",
+      "artifact": {
+        "id": "artifact:live-1774665105:stage:security_analyst:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "0a22ba7a7d60145811461040f697dc4909d4e7d4564d8ba6198cb42d1ba6d9a9"
+        },
+        "loc": "memory/stages/artifact/live-1774665105/stage/security_analyst/r1.json",
+        "refs": [],
+        "created_at": "2026-03-28T02:31:45.375372+00:00",
+        "producer": {
+          "name": "security-analyst",
+          "role": "security",
+          "version": "1.0.0"
+        },
+        "seat": "security_analyst",
+        "output": "## Security Audit Results — `/Users/darkfire/the-forge/src/`\n\n### 1. API Key / .env Handling\n\n| Severity | Finding | Location |\n|----------|---------|----------|\n| **HIGH** | FRED API key embedded in URL query string — axios errors can expose full URL including `api_key=` | `src/collectors/materials-pricing.ts:23` |\n| **MEDIUM** | Slack webhook URL passed raw to `axios.post()` — failure errors could leak it | `src/automation/run-daily-cycle.ts:240` |\n| **OK** | `.env` excluded in `.gitignore`, no secrets currently committed | `.gitignore` |\n| **OK** | `.env` contains no actual API keys right now (FRED_API_KEY not set) | `.env` |\n\n**The FRED key-in-URL pattern** at line 23:\n```\n`${FRED_CONFIG.baseUrl}?series_id=${seriesId}&api_key=${apiKey}&file_type=json&...`\n```\nIf axios throws, `String(err)` at line 35 can include the request URL with the key.\n\n---\n\n### 2. Dashboard CORS — `origin: '*'`\n\n| Severity | Finding | Location |\n|----------|---------|----------|\n| **CRITICAL** | Wildcard CORS `origin: '*'` — any website can query all endpoints | `src/dashboard/server.ts:16` |\n| **CRITICAL** | Zero authentication on all 9 API routes | `src/dashboard/server.ts:18-25` |\n| **HIGH** | Sensitive data exposed unauthenticated: market anomalies, China intel, supply-chain alerts, SEC filings, historical reports | `src/dashboard/*.ts` |\n| **HIGH** | No rate limiting on any endpoint | N/A |\n\nAll endpoints are fully open:\n```\nGET /api/prices, /api/prices/:ticker, /api/reports/latest,\n/api/reports/analysis/latest, /api/reports/briefing/latest,\n/api/reports/:date, /api/china, /api/supply-chain, /api/health\n```\n\n---\n\n### 3. SEC EDGAR User-Agent Compliance\n\n| Severity | Finding | Location |\n|----------|---------|----------|\n| **MEDIUM** | Default fallback uses placeholder `user@email.com` — non-compliant if `.env` is missing | `src/collectors/sec-filings.ts:10` |\n| **OK** | Rate limiting at 150ms between requests — compliant | `src/config/sources.ts:13` + `sec-filings.ts:25,72,92` |\n| **OK** | User-Agent configurable via `SEC_USER_AGENT` env var | `.env:5` |\n| **NOTE** | Current `.env` still has `your@email.com` — needs a real email for production | `.env` |\n\nNo startup validation exists — code silently uses non-compliant defaults if the env var is unset.\n\n---\n\n### 4. Data Leaks in Output JSON\n\n| Severity | Finding | Location |\n|----------|---------|----------|\n| **LOW** | Absolute filesystem paths (`/Users/darkfire/...`) written to execution logs | `src/automation/log-manager.ts:31,55,71` |\n| **OK** | All collector output JSON contains only public data (prices, filings, news) — no keys/tokens | All `logs/reports/*.json` |\n| **OK** | Claude analysis output contains no credentials | `logs/reports/*-analysis.json` |\n| **OK** | Dashboard feed contains no secrets | `logs/reports/*-dashboard-feed.json` |\n\n---\n\n### Priority Fix List\n\n1. **`server.ts:16`** — Replace `origin: '*'` with explicit allowed origins (e.g., `localhost:5173`) and add auth middleware\n2. **`materials-pricing.ts:23`** — Move FRED API key from URL query param to `params` object or sanitize errors before logging\n3. **`sec-filings.ts:10`** — Add startup validation that rejects placeholder emails\n4. **`log-manager.ts`** — Strip absolute paths from execution logs (use relative paths)",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": [
+          {
+            "code": "CRITIQUE.CRIT_ARCHITECTURE",
+            "detail": "security-analyst completed in 125194ms",
+            "severity": "med"
+          }
+        ]
+      },
+      "summary": {
+        "id": "artifact:live-1774665105:summary:stage:security_analyst:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-28T02:31:45.375430+00:00",
+        "summary": "security-analyst: ## Security Audit Results — `/Users/darkfire/the-forge/src/`\n\n### 1. API Key / .env Handling\n\n| Severity | Finding | Location |\n|----------|---------|----------|\n| **HIGH** | FRED API key embedded in ...",
+        "source_refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:security_analyst:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:live-1774665105:stage:security_analyst:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "8065f9cb99535dafe4ef1f3a16d9aaf7aad83b7be7e48be84f34714196471391"
+        },
+        "refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:security_analyst:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-28T02:31:45.375465+00:00"
+    },
+    {
+      "stage_index": 3,
+      "stage_id": "artifact:live-1774665105:stage:synthesizer:r1",
+      "seat": "synthesizer",
+      "artifact": {
+        "id": "artifact:live-1774665105:stage:synthesizer:r1",
+        "type": "stage_output",
+        "schema_version": "forge.internal.v1",
+        "hash": {
+          "algorithm": "sha256",
+          "value": "1b474e0d82fe476387f3fd77d7c08b24ffb97a5a98432102e63df9b141f32a5f"
+        },
+        "loc": "memory/stages/artifact/live-1774665105/stage/synthesizer/r1.json",
+        "refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:architecture_analyst:r1",
+            "state": "resolved"
+          },
+          {
+            "ref": "artifact:live-1774665105:stage:performance_analyst:r1",
+            "state": "resolved"
+          },
+          {
+            "ref": "artifact:live-1774665105:stage:security_analyst:r1",
+            "state": "resolved"
+          }
+        ],
+        "created_at": "2026-03-28T02:31:45.375611+00:00",
+        "producer": {
+          "name": "synthesizer",
+          "role": "synthesis",
+          "version": "1.0.0"
+        },
+        "seat": "synthesizer",
+        "output": "## The Forge — Synthesized Improvement Recommendations\n\nAll three analysts returned substantive findings. No gaps.\n\n---\n\n### 1. Lock Down the Dashboard API — Zero Auth + Wildcard CORS on Sensitive Intel\n\n**Priority:** P0\n**Identified by:** Security analyst (primary), Architecture analyst (coupling risk)\n\n**Problem:** `server.ts:16` sets `origin: '*'` with zero authentication across all 9 API routes. Any website on the internet can query market anomalies, China intel, supply-chain alerts, and SEC filings. No rate limiting exists either.\n\n**Action:**\n- Replace `origin: '*'` with explicit allowed origins (`localhost:5173` or your dashboard domain)\n- Add auth middleware (even a static bearer token from `.env` is a massive improvement)\n- Add rate limiting to all endpoints\n- Audit the `/api/china` and `/api/supply-chain` routes — these expose the most sensitive analysis\n\n---\n\n### 2. Fix the Silent Failure Epidemic — 23/26 Catch Blocks Swallow Errors, Cron Runs Broken Forever\n\n**Priority:** P0\n**Identified by:** Architecture analyst (6 silent failures mapped), Performance analyst (dead retry logic)\n\n**Problem:** The cron scheduler (`cron-scheduler.ts:20-21`) logs phase failures but has no alerting — it will run indefinitely with every phase failing and nobody knows. The `withRetry` wrapper on the collect phase is effectively dead code because `Promise.allSettled` never throws. EDGAR search errors aren't added to the `errors[]` array. 13F parsing failures return empty data silently.\n\n**Action:**\n- Add a failure counter to `cron-scheduler.ts` — after N consecutive full-phase failures, send a Slack alert and pause\n- Fix `sec-filings.ts:56-58` — add EDGAR errors to the `errors[]` array\n- Move retry logic from phase-level to per-collector level so individual collector failures actually retry\n- Distinguish \"no data available\" (`null`) from \"fetch failed\" (`Error`) in `materials-pricing.ts`\n\n---\n\n### 3. Prevent Credential Leakage in Error Messages and Enforce Compliant Defaults\n\n**Priority:** P1\n**Identified by:** Security analyst (primary), Performance analyst (no 429 differentiation)\n\n**Problem:** The FRED API key is embedded in the URL at `materials-pricing.ts:23` — any axios error stringifies the full URL including `api_key=`. The Slack webhook URL has the same exposure risk. Yahoo Finance doesn't differentiate 429 (rate limit) from 403 (IP ban) from 500 (server error), so it can't back off appropriately. SEC EDGAR falls back to a placeholder `user@email.com` with no startup validation.\n\n**Action:**\n- Pass the FRED API key as a request parameter via axios `params` object (keeps it out of error URLs), or sanitize URLs in error handlers\n- Add a `sanitizeError()` utility that strips query strings before logging\n- Add startup validation: if `FRED_API_KEY` or `SEC_USER_AGENT` are unset/placeholder, log a warning and disable those collectors rather than running with bad defaults\n- Add status-code-specific handling in `market-data.ts`: exponential backoff on 429, abort on 403, retry on 5xx",
+        "status": "complete",
+        "stop_reason": null,
+        "stop_reason_state": "not_invoked",
+        "findings": [
+          {
+            "code": "CRITIQUE.CRIT_ARCHITECTURE",
+            "detail": "Synthesis from 3/3 sources",
+            "severity": "med"
+          }
+        ]
+      },
+      "summary": {
+        "id": "artifact:live-1774665105:summary:stage:synthesizer:r1",
+        "type": "summary_view",
+        "schema_version": "forge.internal.v1",
+        "created_at": "2026-03-28T02:31:45.375662+00:00",
+        "summary": "Synthesis of 3 analyst outputs into 3 recommendations",
+        "source_refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:synthesizer:r1",
+            "state": "resolved"
+          },
+          {
+            "ref": "artifact:live-1774665105:stage:architecture_analyst:r1",
+            "state": "resolved"
+          },
+          {
+            "ref": "artifact:live-1774665105:stage:performance_analyst:r1",
+            "state": "resolved"
+          },
+          {
+            "ref": "artifact:live-1774665105:stage:security_analyst:r1",
+            "state": "resolved"
+          }
+        ],
+        "view_of": "artifact:live-1774665105:stage:synthesizer:r1",
+        "summary_hash": {
+          "algorithm": "sha256",
+          "value": "6d50e2379cae3b28c5af7b80986397cc5526f2af67f57570f148ff49fe1896bf"
+        },
+        "refs": [
+          {
+            "ref": "artifact:live-1774665105:stage:synthesizer:r1",
+            "state": "resolved"
+          }
+        ]
+      },
+      "summary_state": null,
+      "registered_at": "2026-03-28T02:31:45.375712+00:00"
+    }
+  ],
+  "artifact_index": [
+    "artifact:live-1774665105:stage:architecture_analyst:r1",
+    "artifact:live-1774665105:stage:performance_analyst:r1",
+    "artifact:live-1774665105:stage:security_analyst:r1",
+    "artifact:live-1774665105:stage:synthesizer:r1",
+    "artifact:live-1774665105:summary:stage:architecture_analyst:r1",
+    "artifact:live-1774665105:summary:stage:performance_analyst:r1",
+    "artifact:live-1774665105:summary:stage:security_analyst:r1",
+    "artifact:live-1774665105:summary:stage:synthesizer:r1",
+    "chamber:live-1774665105:v1"
+  ],
+  "metadata": {
+    "experiment": "live_agent_analysis",
+    "task": "forge_architecture_review",
+    "agent_count": 4,
+    "framework": "claude-code-subagents"
+  }
+}

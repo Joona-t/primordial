@@ -1,0 +1,7 @@
+{
+  "name": "Phase 4: Cascade (500 canaries, 3-hop chain)",
+  "canary_count": 500,
+  "noise": true,
+  "noise_ratio": 2.0,
+  "hops": 3
+}

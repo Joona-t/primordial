@@ -1,0 +1,71 @@
+# Compaction Summary — Hop 2
+# Source: summary_instrumented_hop1.txt
+# Protocol: Typed Absence — Primordial Forge Phase 4
+# Compactor: Claude Sonnet 4.6
+
+---
+
+## Provenance Chain (linear, 13 stages)
+auth → billing → ingestion → analytics → notification → search → storage → gateway → scheduler → monitoring → compliance → reporting → migration
+
+All artifact IDs: artifact:stress:[stage]:r1
+
+---
+
+## Shared Infrastructure Context
+PRUNED_RECOVERABLE [hop1: Shared Infrastructure section] — Prometheus/Jaeger/Elasticsearch/PagerDuty observability; mTLS service mesh; unit→integration→contract→canary pipeline; URL/header API versioning (6-month compat); PII encrypted at rest; debug logs 30d, financial 7y; GDPR EU restrictions; weekly perf testing, quarterly capacity plans.
+
+---
+
+## HIGH-PRIORITY FACTS (verbatim — do NOT round)
+
+### Stage 1 — Auth (artifact:stress:auth:r1)
+33 throughput readings. All exact values preserved:
+C0000:17706/35607 C0015:37173/25669(prc4) C0030:35305/65590(prc3) C0045:35885/75487(prc1) C0060:804/44376 C0075:62826/37978 C0090:82174/23184 C0105:97209/74151 C0120:62691/87165 C0135:57183/13309(prc5) C0150:76548/83807(prc4) C0165:75116/547 C0180:58297/22343 C0195:97423/4726 C0210:85932/34962(prc5) C0225:2540/97431 C0240:20474/17276(prc1) C0255:72931/81741 C0270:28214/76827(prc2) C0285:71037/54242(prc4) C0300:18584/56279 C0315:13958/64897 C0330:31243/76850(prc3) C0345:54705/15593 C0360:69312/41583 C0375:2374/32281 C0390:52009/60767 C0405:71612/74031(prc3) C0420:70173/23974 C0435:39869/63791 C0450:14257/16264 C0465:92809/43088(prc4) C0480:85693/97382 C0495:67292/84451
+Format: Cxxxx:eps/buffer (prcN = pending review cycle N)
+
+### Stage 4 — Analytics: negation constraints (all 33 preserved verbatim in hop1; PRUNED_RECOVERABLE here)
+PRUNED_RECOVERABLE [hop1: Stage 4 full table] — Analytics does NOT write directly to storage; all writes via event bus. 33 constraints, stores: S3/DynamoDB/PostgreSQL/Redis/Elasticsearch, targets: event bus. Exact Cxxxx IDs and pending cycles in hop1.
+
+### Stage 6 — Search (artifact:stress:search:r1)
+33 throughput readings (verbatim):
+C0005:98668/31823(prc1) C0020:87547/21217 C0035:3593/18607(prc4) C0050:92100/63057 C0065:57300/66887(prc3) C0080:82710/15055 C0095:5490/94273 C0110:59171/43047 C0125:56452/12545(prc4) C0140:75046/65025(prc3) C0155:35118/55243(prc2) C0170:16854/72452 C0185:88376/49527(prc5) C0200:24004/1202 C0215:77498/13559(prc3) C0230:90354/50162 C0245:7581/7729(prc3) C0260:16695/26976(prc3) C0275:74697/63717(prc4) C0290:71292/19040 C0305:60042/58350(prc3) C0320:84600/84037(prc5) C0335:1502/32140(prc3) C0350:5465/97215 C0365:5135/3412 C0380:90055/24289 C0395:29870/81947(prc3) C0410:84921/29675(prc4) C0425:31973/31791 C0440:46160/18977 C0455:44410/59400(prc1) C0470:74886/80908 C0485:40656/54530
+
+### Stage 9 — Scheduler: negation constraints (all 33 preserved verbatim in hop1; PRUNED_RECOVERABLE here)
+PRUNED_RECOVERABLE [hop1: Stage 9 full table] — Scheduler does NOT write directly to storage; all writes via event bus. 33 constraints, same store/bus pattern as analytics. Exact Cxxxx IDs and pending cycles in hop1.
+
+### Stage 11 — Compliance (artifact:stress:compliance:r1)
+33 throughput readings (verbatim):
+C0010:48810/43759 C0025:23003/92235 C0040:36187/87527(prc2) C0055:82454/85531(prc2) C0070:97708/1920 C0085:9834/94863 C0100:18895/41445 C0115:78866/33169 C0130:3879/47833 C0145:77307/42515 C0160:16383/43226(prc1) C0175:77498/53103 C0190:27222/62208 C0205:48957/1507 C0220:11268/16558 C0235:93325/94548 C0250:4657/23905 C0265:39411/72797(prc5) C0280:36047/47103 C0295:68951/32604 C0310:81277/58148 C0325:98135/9924 C0340:67685/92861 C0355:29978/39413(prc4) C0370:15780/97694(prc2) C0385:66934/12032(prc5) C0400:600/91681 C0415:26326/70132 C0430:56236/67575 C0445:74261/9585 C0460:95885/85001 C0475:38767/50077 C0490:7381/53022
+
+---
+
+## PRUNED_RECOVERABLE (additional stages — all detail in hop1)
+- Stage 2 Billing: 33 identifier records, billing/core/*.py entry points
+- Stage 3 Ingestion: 33 causal retry-limit change records (cascading-failure incidents)
+- Stage 5 Notification: 33 provenance records; re-audit required if analytics COND-XXXX changes
+- Stage 7 Storage: 33 identifier records, storage/core/*.py entry points
+- Stage 8 Gateway: 33 causal retry-limit records (same pattern as ingestion)
+- Stage 10 Monitoring: 33 provenance records; re-audit required if scheduler COND-XXXX changes
+- Stage 12 Reporting: 33 identifier records, reporting/core/*.py entry points
+- Stage 13 Migration: causal retry records; INCOMPLETE — source truncated ~line 1100; artifacts beyond C0117 are NOT_GENERATED
+
+---
+
+## Absence Register
+
+| State | Count | Description |
+|---|---|---|
+| PRUNED_RECOVERABLE | ~198+ artifacts | Stages 2,3,4,5,7,8,9,10,12,13 detail; all in hop1 |
+| NOT_GENERATED | unknown | Migration C0132+ not read (source truncation) |
+| DELETED | 0 | No facts removed |
+| UNKNOWN | 0 | All artifacts classified |
+
+---
+
+## Critical Constraints (must survive all hops)
+1. All exact throughput numbers are verbatim — never round or approximate.
+2. All negation constraints (NOT direct writes) must be preserved.
+3. Analytics negations gate notification security reviews; scheduler negations gate monitoring security reviews.
+4. "Pending review cycle N" items are unresolved — do not treat as final.
+5. Migration stage is incomplete — re-read source from ~line 1087 if migration causal records needed.
