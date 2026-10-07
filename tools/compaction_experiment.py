@@ -10,11 +10,11 @@ Workflow:
 4. Measure: structural reachability, SPF, artifact ID survival
 5. Log everything to the findings ledger
 
-Requires: ANTHROPIC_API_KEY environment variable.
+Live-API mode is disabled fleet-wide (CLAUDE.md Rule #10, BUG-022); only the
+simulated pipeline (`_run_simulated`) runs in this codebase.
 """
 
 import json
-import os
 import re
 import hashlib
 import time
@@ -284,99 +284,25 @@ class CompactionExperiment:
         return event
 
     def run_api(self) -> dict:
-        """Run the experiment using Anthropic API.
+        """Live-API mode is disabled fleet-wide. Always raises.
 
-        Returns experiment results dict.
+        This harness never instantiates `anthropic.Anthropic()` and never  # paid-api-gate:doc-ref
+        reads ANTHROPIC_API_KEY to decide whether to spend money (fleet  # paid-api-gate:doc-ref
+        CLAUDE.md Rule #10 — NO PAID LLM API, EVER). The previous body
+        silently flipped into billed live calls whenever a key merely
+        happened to be present in the environment — the same silent-billing
+        pattern BUG-020 cut from `genuine_compaction_runner.py`. Genuine
+        live compaction measurement (compact_20260112 +
+        pause_after_compaction) has no local-CLI-subprocess equivalent, so
+        the feature is cut, not papered over. Use `_run_simulated()` for
+        the synthetic pipeline. See BUG-022 in BUGS_AND_ITERATIONS.md.
         """
-        try:
-            import anthropic
-        except ImportError:
-            return self._run_simulated()
-
-        api_key = os.environ.get("ANTHROPIC_API_KEY")
-        if not api_key:
-            return self._run_simulated()
-
-        client = anthropic.Anthropic(api_key=api_key)
-        self._create_forge_chamber()
-
-        system_prompt = self._build_system_prompt()
-        messages = []
-        total_input_tokens = 0
-        total_output_tokens = 0
-
-        for i in range(self.config.num_iterations):
-            prompt = self._build_iteration_prompt(i)
-            messages.append({"role": "user", "content": prompt})
-
-            try:
-                response = client.messages.create(
-                    model=self.config.model,
-                    max_tokens=self.config.max_tokens,
-                    system=system_prompt,
-                    messages=messages,
-                    extra_headers={
-                        "anthropic-beta": "compact-20260112",
-                    },
-                    # Note: pause_after_compaction would go here when supported
-                )
-            except Exception as e:
-                if self.ledger:
-                    self.ledger.record(Finding(
-                        phase=6, category="compaction", rq="RQ3b",
-                        title=f"API error at iteration {i}: {type(e).__name__}",
-                        description=str(e)[:500],
-                        verdict="neutral", confidence="high",
-                        tags=["COMP-04", "error"],
-                    ))
-                break
-
-            # Extract response
-            output_text = ""
-            compaction_block = None
-            for block in response.content:
-                if hasattr(block, "type"):
-                    if block.type == "text":
-                        output_text += block.text
-                    elif block.type == "compaction":
-                        compaction_block = {"type": "compaction", "text": getattr(block, "text", "")}
-
-            # Track tokens
-            if hasattr(response, "usage"):
-                total_input_tokens = getattr(response.usage, "input_tokens", 0)
-                total_output_tokens += getattr(response.usage, "output_tokens", 0)
-
-            # Register forge artifact
-            self._register_iteration_artifact(i, output_text)
-
-            # Add assistant response to conversation
-            messages.append({"role": "assistant", "content": output_text})
-
-            # Check for compaction event
-            if compaction_block:
-                self._capture_compaction_event(
-                    messages_before=messages[:-1],
-                    compaction_block=compaction_block,
-                    messages_after=messages,
-                    tokens_before=total_input_tokens,
-                    tokens_after=total_input_tokens,  # approximate
-                )
-
-            # Check stop reason
-            if response.stop_reason == "compaction":
-                # Compaction happened — capture it
-                pass  # already handled above if block present
-
-        # Seal chamber and compute trace
-        if self._chamber:
-            seal_chamber(self._chamber)
-            trace = encode_trace(self._chamber)
-            stats = trace_stats(trace)
-        else:
-            trace = {}
-            stats = {}
-
-        return self._build_results(stats)
+        raise RuntimeError(
+            "Live-API mode is disabled: primordial never calls the paid "
+            "Anthropic API (fleet CLAUDE.md Rule #10 — NO PAID LLM API, "
+            "EVER). Use CompactionExperiment._run_simulated() for the "
+            "synthetic pipeline. See BUG-022 in BUGS_AND_ITERATIONS.md."
+        )
 
     def _run_simulated(self) -> dict:
         """Run a simulated experiment (no API key available).

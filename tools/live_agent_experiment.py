@@ -48,7 +48,7 @@ AGENT_TASKS = {
         "seat": "architecture_analyst",
         "role": "architecture",
         "prompt": (
-            "Analyze the TypeScript codebase at /Users/darkfire/the-forge/src/. "
+            "Analyze the TypeScript codebase at ~/the-forge/src/. "
             "Focus on: (1) module coupling — which modules import from which, "
             "(2) error handling patterns — how errors propagate across collectors, "
             "(3) type safety — any 'as any' casts or unsafe patterns. "
@@ -60,7 +60,7 @@ AGENT_TASKS = {
         "seat": "performance_analyst",
         "role": "performance",
         "prompt": (
-            "Analyze the TypeScript codebase at /Users/darkfire/the-forge/src/. "
+            "Analyze the TypeScript codebase at ~/the-forge/src/. "
             "Focus on: (1) the collector parallelization strategy in run-daily-cycle.ts, "
             "(2) API rate limiting — how market-data.ts handles Yahoo Finance throttling, "
             "(3) memory patterns — any unbounded arrays or leaked closures. "
@@ -72,8 +72,8 @@ AGENT_TASKS = {
         "seat": "security_analyst",
         "role": "security",
         "prompt": (
-            "Analyze the TypeScript codebase at /Users/darkfire/the-forge/src/. "
-            "Focus on: (1) .env handling — is ANTHROPIC_API_KEY safe from leaking into logs, "
+            "Analyze the TypeScript codebase at ~/the-forge/src/. "
+            "Focus on: (1) .env handling — is ANTHROPIC_API_KEY safe from leaking into logs, "  # paid-api-gate:doc-ref
             "(2) the dashboard CORS policy (origin: '*'), "
             "(3) SEC EDGAR user-agent compliance, "
             "(4) any URLs or API keys that could leak into collector output JSON. "

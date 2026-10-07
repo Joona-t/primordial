@@ -20,8 +20,8 @@ In practical systems terms, this means agent runtimes should distinguish differe
 ## Status
 
 Two milestones complete: **v1.0** (2026-03-16, 5 phases) and **v2.0 "The
-Forgetting Agent"** (2026-03-28, 3 phases) — see `.gpd/milestones/v1.0/` and
-`.gpd/milestones/v2.0/RESEARCH-DIGEST.md` for full results, and
+Forgetting Agent"** (2026-03-28, 3 phases) — see `GPD/milestones/v1.0/` and
+`GPD/milestones/v2.0/RESEARCH-DIGEST.md` for full results, and
 `docs/cross-architecture-report.md` / `docs/genuine-compaction-report.md` for
 the headline findings. 1000+ tests in `tools/`.
 

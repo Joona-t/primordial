@@ -1,5 +1,49 @@
 # Bugs & Iterations
 
+## BUG-022 | 2026-10-07 | main's restored `compaction_experiment.py` re-introduced the paid Anthropic client (gate red on merge)
+
+**Problem:** PR #1 (BUG-020) cut every `anthropic.Anthropic()` instantiation
+from `tools/` and added a grep gate (CI step + `scripts/hooks/pre-push`) so
+the pattern can't come back. Meanwhile `main` gained commit `1f8ab95`
+(GPD v1.2.2 migration), which restored the three previously-missing modules —
+including `tools/compaction_experiment.py`, whose `run_api()` was the
+original copy of the exact pattern BUG-020 removed:
+`api_key = os.environ.get(...)` → `client = anthropic.Anthropic(api_key=api_key)`,
+with silent fall-through to live billing whenever a key merely existed in the
+shell. The PR branch merged cleanly (no textual conflict), but the merged
+tree failed the PR's own gate on 4 lines: `compaction_experiment.py:13/296/300`,
+`test_compaction_experiment.py:121-130` (a test *asserting* the env-key
+fallback), and `live_agent_experiment.py:76` (a prompt string mentioning the
+key — a doc-ref, not a call). CI would have gone red the moment the PR landed.
+
+**Root cause:** the two branches were developed independently; the gate was
+added on the PR branch and the offending file arrived on `main`, so neither
+side saw the violation until the trees were combined. Verified by:
+`grep -rniE 'anthropic\.Anthropic\(|api\.anthropic\.com|ANTHROPIC_API_KEY|OPENAI_API_KEY' --include='*.py' . | grep -v paid-api-gate:doc-ref`  # paid-api-gate:doc-ref
+on the merged tree → 4 hits (0 on the PR branch alone).
+
+**Fix:**
+- `tools/compaction_experiment.py::run_api` now raises `RuntimeError` with a
+  pointer to Rule #10 / this entry instead of constructing the SDK client
+  (same shape as `genuine_compaction_runner._run_live` after BUG-020). The
+  ~90-line live body and the now-unused `import os` are deleted. The module
+  docstring no longer claims a key is required. `_run_simulated()` is
+  unchanged and remains the only execution path (`__main__` already used it).
+- `tools/test_compaction_experiment.py`: replaced
+  `test_api_falls_back_to_simulated` (which encoded the silent-fallback
+  behaviour) with `test_run_api_never_goes_live_even_with_key_present` — sets a
+  placeholder key in the env, injects a `MagicMock` as the `anthropic` module,
+  asserts `run_api()` raises and `anthropic.Anthropic` was never called.
+- `tools/live_agent_experiment.py:76`: tagged the prompt-string mention with
+  `# paid-api-gate:doc-ref` (it describes another repo's `.env`; no call).
+- `README.md`: the Status paragraph pointed at `.gpd/milestones/…`, which
+  `main` migrated to `GPD/milestones/…` in the same commit — paths corrected.
+
+**Verification (merged tree, 2026-10-07):** `bash scripts/hooks/pre-push` →
+OK; `python3 -m pytest tools/ -q --continue-on-collection-errors` → 1473 passed,
+4 skipped, 1 pre-existing collection error (`test_forge_ontology.py`, identical
+on `main`); the CI-scoped command from `.github/workflows/test.yml` → green.
+
 ## ITER-021 | 2026-07-08 | CI green-gate scoped to the pre-existing-green test subset (P1-3)
 
 **Problem:** `.github/workflows/test.yml` ran bare `pytest . -q` in `tools/`,
