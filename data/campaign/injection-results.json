@@ -14,7 +14,7 @@
       "D8",
       "D9"
     ],
-    "data_source": "/Users/darkfire/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl"
+    "data_source": "~/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl"
   },
   "results": [
     {

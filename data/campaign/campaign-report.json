@@ -585,7 +585,7 @@
     "n_clean_runs": 30,
     "seed": 42,
     "ci_method": "bootstrap_95pct (B=10000, seed=42) or clopper_pearson_exact",
-    "data_source": "/Users/darkfire/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl",
+    "data_source": "~/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl",
     "task_corpus": [
       "openclaw"
     ]

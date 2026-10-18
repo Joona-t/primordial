@@ -37,18 +37,18 @@ Every value (except MockLM ceiling anchors) loaded from JSON, not manually trans
 
 | Row | Source File | Source Field |
 | --- | --- | --- |
-| 1. Violation detection (D1-D6 types) | `/Users/darkfire/forge/primordial/data/campaign/campaign-report.json` | `injection_summary.detection_rates.per_type.{D1..D6}.forge.rate` |
-| 2. Violation detection (all D1-D9) | `/Users/darkfire/forge/primordial/data/campaign/campaign-report.json` | `injection_summary.detection_rates.per_type.{D1..D9}.forge.rate` |
-| 3. Aggregate injection detection rate | `/Users/darkfire/forge/primordial/data/campaign/campaign-report.json` | `injection_summary.detection_rates.aggregate.forge.rate` |
-| 4. Natural violation count | `/Users/darkfire/forge/primordial/data/campaign/campaign-report.json` | `clean_summary.natural_violation_candidates` |
-| 5. False positive rate | `/Users/darkfire/forge/primordial/data/campaign/campaign-report.json` | `clean_summary.false_positive_rate` |
-| 6. Pre-compaction reachability | `/Users/darkfire/forge/primordial/data/compaction/compaction-report.json` | `pre_compaction_baseline.reachability_fraction` |
-| 7. Structural reachability @ 50% simulated deletion | `/Users/darkfire/forge/primordial/data/compaction/compaction-report.json` | `deletion_sweep[fraction=0.5].structural_reachability` |
-| 8. Structural reachability @ 80% simulated deletion | `/Users/darkfire/forge/primordial/data/compaction/compaction-report.json` | `deletion_sweep[fraction=0.8].structural_reachability` |
-| 9. Backtracking threshold crossed | `/Users/darkfire/forge/primordial/data/compaction/compaction-report.json` | `anchor_comparison.backtracking_threshold.structural_crossing_fraction` |
-| 10. Forge trace compression | `/Users/darkfire/forge/primordial/data/compaction/compaction-report.json` | `pre_compaction_baseline.compression_ratio` |
-| 11. Provenance depth | `/Users/darkfire/forge/primordial/data/baselines/baseline-report.json` | `tier_metrics.forge_instrumented.provenance_depth.mean` |
-| 12. Violation regression post-compaction | `/Users/darkfire/forge/primordial/data/compaction/compaction-report.json` | `violation_regression.all_passed` |
+| 1. Violation detection (D1-D6 types) | `~/forge/primordial/data/campaign/campaign-report.json` | `injection_summary.detection_rates.per_type.{D1..D6}.forge.rate` |
+| 2. Violation detection (all D1-D9) | `~/forge/primordial/data/campaign/campaign-report.json` | `injection_summary.detection_rates.per_type.{D1..D9}.forge.rate` |
+| 3. Aggregate injection detection rate | `~/forge/primordial/data/campaign/campaign-report.json` | `injection_summary.detection_rates.aggregate.forge.rate` |
+| 4. Natural violation count | `~/forge/primordial/data/campaign/campaign-report.json` | `clean_summary.natural_violation_candidates` |
+| 5. False positive rate | `~/forge/primordial/data/campaign/campaign-report.json` | `clean_summary.false_positive_rate` |
+| 6. Pre-compaction reachability | `~/forge/primordial/data/compaction/compaction-report.json` | `pre_compaction_baseline.reachability_fraction` |
+| 7. Structural reachability @ 50% simulated deletion | `~/forge/primordial/data/compaction/compaction-report.json` | `deletion_sweep[fraction=0.5].structural_reachability` |
+| 8. Structural reachability @ 80% simulated deletion | `~/forge/primordial/data/compaction/compaction-report.json` | `deletion_sweep[fraction=0.8].structural_reachability` |
+| 9. Backtracking threshold crossed | `~/forge/primordial/data/compaction/compaction-report.json` | `anchor_comparison.backtracking_threshold.structural_crossing_fraction` |
+| 10. Forge trace compression | `~/forge/primordial/data/compaction/compaction-report.json` | `pre_compaction_baseline.compression_ratio` |
+| 11. Provenance depth | `~/forge/primordial/data/baselines/baseline-report.json` | `tier_metrics.forge_instrumented.provenance_depth.mean` |
+| 12. Violation regression post-compaction | `~/forge/primordial/data/compaction/compaction-report.json` | `violation_regression.all_passed` |
 
 ---
 
