@@ -48,7 +48,7 @@ AGENT_TASKS = {
         "seat": "architecture_analyst",
         "role": "architecture",
         "prompt": (
-            "Analyze the TypeScript codebase at /Users/darkfire/the-forge/src/. "
+            "Analyze the TypeScript codebase at ~/the-forge/src/. "
             "Focus on: (1) module coupling — which modules import from which, "
             "(2) error handling patterns — how errors propagate across collectors, "
             "(3) type safety — any 'as any' casts or unsafe patterns. "
@@ -60,7 +60,7 @@ AGENT_TASKS = {
         "seat": "performance_analyst",
         "role": "performance",
         "prompt": (
-            "Analyze the TypeScript codebase at /Users/darkfire/the-forge/src/. "
+            "Analyze the TypeScript codebase at ~/the-forge/src/. "
             "Focus on: (1) the collector parallelization strategy in run-daily-cycle.ts, "
             "(2) API rate limiting — how market-data.ts handles Yahoo Finance throttling, "
             "(3) memory patterns — any unbounded arrays or leaked closures. "
@@ -72,7 +72,7 @@ AGENT_TASKS = {
         "seat": "security_analyst",
         "role": "security",
         "prompt": (
-            "Analyze the TypeScript codebase at /Users/darkfire/the-forge/src/. "
+            "Analyze the TypeScript codebase at ~/the-forge/src/. "
             "Focus on: (1) .env handling — is ANTHROPIC_API_KEY safe from leaking into logs, "
             "(2) the dashboard CORS policy (origin: '*'), "
             "(3) SEC EDGAR user-agent compliance, "
@@ -106,7 +106,7 @@ def run_agent(name: str, task: dict, timeout_seconds: int = 120) -> dict:
             capture_output=True,
             text=True,
             timeout=timeout_seconds,
-            cwd="/Users/darkfire/the-forge",
+            cwd=os.path.expanduser("~/the-forge"),
         )
 
         duration = int((time.time() - start) * 1000)

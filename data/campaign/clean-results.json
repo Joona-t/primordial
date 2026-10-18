@@ -2,7 +2,7 @@
   "metadata": {
     "seed": 42,
     "n_clean_runs": 30,
-    "data_source": "/Users/darkfire/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl"
+    "data_source": "~/forge/primordial/integration_samples/openclaw/queue_ledger.sample.jsonl"
   },
   "results": {
     "n_runs": 30,

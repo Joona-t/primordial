@@ -57,7 +57,7 @@ This is plain text — `summary_parser.extract_artifact_ids()` / `parse_summary_
 
 ### Transcript location and schema (verified on disk)
 
-- **Path:** `~/.claude/projects/<munged-cwd>/<session-id>.jsonl`, where `<munged-cwd>` is the absolute cwd with `/` (and most non-alphanumerics) replaced by `-` (e.g. `/Users/darkfire/forge/primordial` → `-Users-darkfire-forge-primordial`). With `--session-id <uuid>` the full path is known before launch.
+- **Path:** `~/.claude/projects/<munged-cwd>/<session-id>.jsonl`, where `<munged-cwd>` is the absolute cwd with `/` (and most non-alphanumerics) replaced by `-` (e.g. `~/forge/primordial` → `-Users-darkfire-forge-primordial`). With `--session-id <uuid>` the full path is known before launch.
 - **Record types observed:** `user`, `assistant`, `system`, `attachment`, `queue-operation`, `custom-title`, `last-prompt`, `mode`. Common fields: `uuid`, `parentUuid`, `sessionId`, `timestamp`, `cwd`, `gitBranch`, `version`, `slug`, `type`, `userType`, `isSidechain`.
 - **Compaction boundary record (exact, from disk):**
 
